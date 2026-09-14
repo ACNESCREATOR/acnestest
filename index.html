@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACNES Publicidad | 3D e Iluminación</title>
+    <!-- Fuentes y estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Typed.js/1.1.1/typed.min.js"></script>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Roboto', sans-serif; background-color: #000; color: #fff; }
+
+        /* SECCIÓN PRINCIPAL CON VIDEO DE FONDO */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 85vh; /* Altura elegante para la portada */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* EL VIDEO DE FONDO */
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            object-fit: cover;
+        }
+
+        /* CAPA OSCURA (Overlay) PARA QUE EL TEXTO RESALTE */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65); /* Oscurece el video para legibilidad */
+            z-index: 2;
+        }
+
+        /* CONTENIDO DE LA PÍLDORA Y TEXTO */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+
+        .svc-badge-pill {
+            display: inline-flex;
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px; 
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(0, 255, 247, 0.7);
+            box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
+            border-radius: 50px;
+            padding: 10px 22px; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem; 
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #00fff7;
+            border-radius: 50%;
+            animation: pulsarPunto 1.5s infinite ease-in-out;
+        }
+
+        .texto-terminal {
+            color: #fff;
+        }
+
+        .typed-cursor {
+            color: #00fff7 !important; 
+            font-weight: 900;
+            margin-left: 2px;
+            animation: parpadeoCursor 1s infinite;
+        }
+
+        @keyframes pulsarPunto {
+            0%, 100% { transform: scale(0.95); opacity: 0.3; }
+            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; }
+        }
+
+        @keyframes parpadeoCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PORTADA HERO CON VIDEO -->
+    <header class="hero-section">
+        <!-- Video en bucle, silenciado (indispensable para autoplay) y optimizado para móviles -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="tu-video-de-fondo.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+        <!-- Filtro oscuro para contraste -->
+        <div class="hero-overlay"></div>
+
+        <!-- Contenido interactivo -->
+        <div class="hero-content">
+            <div class='svc-badge-pill'>
+                <span class='badge-dot'></span>
+                <span class="texto-terminal"></span>
+            </div>
+        </div>
+    </header>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".texto-terminal").typed({
+                strings: ["DISEÑA Y COTIZA EN TIEMPO REAL"],
+                typeSpeed: 30,
+                startDelay: 500,
+                loop: false,
+                showCursor: true,
+                cursorChar: "_"
+            });
+        });
+    </script>
+</body>
+</html>
