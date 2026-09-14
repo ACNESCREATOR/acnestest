@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -128,11 +130,15 @@
         </div>
     </header>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".texto-terminal").typed({
+<!-- LIBRERÍA MODERNA DE TYPED.JS (Sin necesidad de jQuery) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+    <!-- SCRIPT DE EJECUCIÓN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('.texto-terminal', {
                 strings: ["DISEÑA Y COTIZA EN TIEMPO REAL"],
-                typeSpeed: 30,
+                typeSpeed: 40,
                 startDelay: 500,
                 loop: false,
                 showCursor: true,
