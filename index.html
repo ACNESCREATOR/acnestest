@@ -13,16 +13,37 @@
         body { font-family: 'Roboto', sans-serif; background-color: #000; color: #fff; }
 
         /* SECCIÓN PRINCIPAL CON VIDEO DE FONDO */
-        .hero-section {
-            position: relative;
+        /* EL VIDEO DE FONDO */
+        .hero-video {
+            position: absolute; /* Vital para que no empuje a la píldora hacia abajo */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1; /* Capa 1: Al fondo */
+            object-fit: cover;
+        }
+
+        /* LA CAPA OSCURA */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100vh; /* Ocupa toda la pantalla al entrar */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            text-align: center;
-            background-color: #111; /* Color de respaldo si el video tarda en cargar */
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+            z-index: 2; /* Capa 2: En medio */
+        }
+
+        /* EL CONTENEDOR DE LA PÍLDORA */
+        .hero-content {
+            position: relative; /* Obligatorio para que funcione el z-index y se vea */
+            z-index: 3; /* Capa 3: Hasta el frente */
+            padding: 0 20px;
+            width: 100%;
         }
 
       /* =========================================
@@ -58,23 +79,7 @@
             .video-desktop { display: none; }
             .video-mobile { display: block; }
         
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Capa oscura para resaltar el texto */
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            padding: 0 20px;
-            width: 100%;
+   
         }
 
         /* DISEÑO DE LA PÍLDORA */
