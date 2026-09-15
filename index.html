@@ -122,7 +122,7 @@
         .ai-title-pill {
             display: flex; 
             width: fit-content; 
-            margin: 0 auto 30px auto; /* <--- Margen inferior más compacto */
+            margin: 0 auto 30px auto; 
             font-size: 1.2rem; 
             padding: 15px 40px 15px 60px; 
         }
@@ -185,7 +185,7 @@
            SECCIÓN HERRAMIENTAS INTERACTIVAS
            ========================================= */
         .herramientas-section {
-            padding: 40px 40px 20px 40px; /* <--- Espacios reducidos arriba y abajo */
+            padding: 40px 40px 20px 40px; 
             background-color: #ffffff;
             width: 100%;
         }
@@ -193,7 +193,7 @@
         #acnes-banners-container {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* <--- Menos separación entre los banners */
+            gap: 20px; 
             width: 100%; 
             max-width: 100%; 
         }
@@ -222,10 +222,10 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN PORTAFOLIO
+           SECCIÓN PORTAFOLIO (2X2 TAMBIÉN EN ESCRITORIO)
            ========================================= */
         .portafolio-section {
-            padding: 30px 0; /* <--- Espacios muy compactos arriba y abajo */
+            padding: 30px 0; 
             background-color: #ffffff; 
             width: 100%;
         }
@@ -239,7 +239,7 @@
 
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); 
+            grid-template-columns: repeat(2, 1fr); /* <--- 2 columnas fijas para formar el 2x2 en escritorio */
             grid-gap: 2px; 
             width: 100%;
             margin: 0; 
@@ -274,7 +274,7 @@
            SECCIÓN DE SERVICIOS
            ========================================= */
         .servicios-section {
-            padding: 40px 40px 60px 40px; /* <--- Espacios compactos */
+            padding: 40px 40px 60px 40px; 
             background-color: #ffffff; 
             width: 100%;
             text-align: center;
@@ -343,7 +343,6 @@
             .herramientas-section, .servicios-section { padding: 30px 20px; }
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             
-            /* Galería a 2x2 en móviles a ancho total */
             .gallery-container { grid-template-columns: repeat(2, 1fr); }
 
             .video-desktop { display: none; }
