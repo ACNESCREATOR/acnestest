@@ -12,10 +12,24 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Roboto', sans-serif; background-color: #000; color: #fff; }
 
-        /* SECCIÓN PRINCIPAL CON VIDEO DE FONDO */
+        /* =========================================
+           SECCIÓN PRINCIPAL (Esta es la regla que faltaba)
+           ========================================= */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Altura de pantalla completa */
+            display: flex; /* Esto es lo que centra la píldora */
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            background-color: #111;
+        }
+
         /* EL VIDEO DE FONDO */
         .hero-video {
-            position: absolute; /* Vital para que no empuje a la píldora hacia abajo */
+            position: absolute; 
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -40,7 +54,7 @@
 
         /* EL CONTENEDOR DE LA PÍLDORA */
         .hero-content {
-            position: relative; /* Obligatorio para que funcione el z-index y se vea */
+            position: relative; 
             z-index: 3; /* Capa 3: Hasta el frente */
             padding: 0 20px;
             width: 100%;
@@ -48,7 +62,6 @@
 
       /* =========================================
            1. REGLA GENERAL (PARA COMPUTADORAS)
-           Esto va AFUERA y ARRIBA del @media
            ========================================= */
         .video-desktop { display: block; }
         .video-mobile { display: none; }
@@ -78,8 +91,6 @@
             /* INTERRUPTOR: Aquí apagamos el de PC y encendemos el de Celular */
             .video-desktop { display: none; }
             .video-mobile { display: block; }
-        
-   
         }
 
         /* DISEÑO DE LA PÍLDORA */
