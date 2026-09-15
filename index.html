@@ -14,7 +14,7 @@
             font-family: 'Roboto', sans-serif; 
             background-color: #000; 
             color: #fff; 
-            overflow-x: hidden; /* ESTO EVITA QUE LA PÁGINA SE MUEVA HACIA LOS LADOS */
+            overflow-x: hidden; 
         }
 
         /* =========================================
@@ -97,6 +97,7 @@
         }
 
         .texto-terminal { color: #fff; }
+        
         .typed-cursor {
             color: #00fff7 !important; 
             font-weight: 900;
@@ -105,7 +106,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN (NAVBAR) - PC
+           BARRA DE NAVEGACIÓN (NAVBAR)
            ========================================= */
         .navbar {
             position: absolute;
@@ -120,7 +121,6 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
         }
 
-        /* Tamaño de la imagen del logo */
         .nav-logo img {
             height: 60px;
             width: auto;
@@ -171,7 +171,95 @@
             transition: all 0.3s ease-in-out;
         }
 
-        /* Animaciones generales */
+        /* =========================================
+           SECCIÓN DE SERVICIOS (TARJETAS)
+           ========================================= */
+        .servicios-section {
+            padding: 100px 20px; 
+            background-color: #000; 
+            text-align: center;
+        }
+
+        .servicios-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: #00fff7; 
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 40px;
+        }
+
+        .servicio-card {
+            background-color: #0a0a0a;
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: all 0.4s ease;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-10px); 
+            border-color: #00fff7; 
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); 
+        }
+
+        .servicio-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background-color: rgba(0, 255, 247, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 255, 247, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .servicio-card:hover .servicio-icon {
+            background-color: #00fff7;
+        }
+
+        .servicio-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: #00fff7; 
+            transition: all 0.4s ease;
+        }
+
+        .servicio-card:hover .servicio-icon svg {
+            fill: #000; 
+        }
+
+        .servicio-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .servicio-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Animaciones */
         @keyframes pulsarPunto {
             0%, 100% { transform: scale(0.95); opacity: 0.4; }
             50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; }
@@ -182,202 +270,25 @@
         } 
 
         /* =========================================
-           SECCIÓN DE SERVICIOS (TARJETAS)
-           ========================================= */
-        .servicios-section {
-            padding: 100px 20px; /* Da un buen espacio para respirar */
-            background-color: #000; 
-            text-align: center;
-        }
-
-        .servicios-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 60px;
-            text-transform: uppercase;
-        }
-
-        .section-title span {
-            color: #00fff7; /* Acento de tu marca */
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
-            gap: 40px;
-        }
-
-        .servicio-card {
-            background-color: #0a0a0a;
-            padding: 40px 30px;
-            border-radius: 15px;
-            border: 1px solid #222;
-            transition: all 0.4s ease;
-        }
-
-        /* EFECTO HOVER: Cuando pasas el ratón encima */
-        .servicio-card:hover {
-            transform: translateY(-10px); /* Se levanta un poco */
-            border-color: #00fff7; /* El borde se pinta de cyan */
-            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); /* Efecto de brillo neón */
-        }
-
-        .servicio-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 25px;
-            background-color: rgba(0, 255, 247, 0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 255, 247, 0.2);
-            transition: all 0.4s ease;
-        }
-
-        .servicio-card:hover .servicio-icon {
-            background-color: #00fff7;
-        }
-
-        .servicio-icon svg {
-            width: 35px;
-            height: 35px;
-            fill: #00fff7; /* Los íconos nacen color cyan */
-            transition: all 0.4s ease;
-        }
-
-        /* Cuando hacemos hover, el ícono se vuelve negro para contrastar con el fondo cyan */
-        .servicio-card:hover .servicio-icon svg {
-            fill: #000; 
-        }
-
-        .servicio-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .servicio-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }/* =========================================
-           SECCIÓN DE SERVICIOS (TARJETAS)
-           ========================================= */
-        .servicios-section {
-            padding: 100px 20px; /* Da un buen espacio para respirar */
-            background-color: #000; 
-            text-align: center;
-        }
-
-        .servicios-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 60px;
-            text-transform: uppercase;
-        }
-
-        .section-title span {
-            color: #00fff7; /* Acento de tu marca */
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
-            gap: 40px;
-        }
-
-        .servicio-card {
-            background-color: #0a0a0a;
-            padding: 40px 30px;
-            border-radius: 15px;
-            border: 1px solid #222;
-            transition: all 0.4s ease;
-        }
-
-        /* EFECTO HOVER: Cuando pasas el ratón encima */
-        .servicio-card:hover {
-            transform: translateY(-10px); /* Se levanta un poco */
-            border-color: #00fff7; /* El borde se pinta de cyan */
-            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); /* Efecto de brillo neón */
-        }
-
-        .servicio-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 25px;
-            background-color: rgba(0, 255, 247, 0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 255, 247, 0.2);
-            transition: all 0.4s ease;
-        }
-
-        .servicio-card:hover .servicio-icon {
-            background-color: #00fff7;
-        }
-
-        .servicio-icon svg {
-            width: 35px;
-            height: 35px;
-            fill: #00fff7; /* Los íconos nacen color cyan */
-            transition: all 0.4s ease;
-        }
-
-        /* Cuando hacemos hover, el ícono se vuelve negro para contrastar con el fondo cyan */
-        .servicio-card:hover .servicio-icon svg {
-            fill: #000; 
-        }
-
-        .servicio-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .servicio-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* =========================================
            AJUSTES RESPONSIVOS (SOLO PARA CELULARES)
-           ¡Esto siempre debe ir hasta abajo en el CSS!
            ========================================= */
         @media (max-width: 768px) {
             .hero-section { height: 100vh; }
+            
             .svc-badge-pill {
                 font-size: 0.85rem; 
                 padding: 10px 18px; 
                 width: 100%; 
                 max-width: 320px; 
+            } /* <--- ¡ESTA ERA LA LLAVE QUE SE HABÍA BORRADO! */
 
-                /* Ajustes de Servicios para Móvil */
+            /* Ajustes de Servicios para Móvil */
             .section-title { font-size: 2rem; margin-bottom: 40px; }
             .servicios-grid {
-                grid-template-columns: 1fr; /* Cambia a 1 sola columna en vertical */
+                grid-template-columns: 1fr; 
                 gap: 25px;
-            
             }
+            
             .video-desktop { display: none; }
             .video-mobile { display: block; }
 
@@ -387,7 +298,7 @@
 
             .nav-menu {
                 position: absolute;
-                left: -100%; /* Escondido por defecto */
+                left: -100%; 
                 top: 0; 
                 flex-direction: column;
                 justify-content: center; 
@@ -404,10 +315,8 @@
             .nav-menu li { margin: 25px 0; }
             .nav-menu li a { font-size: 1.2rem; }
 
-            /* Esta clase la pone el JavaScript al tocar el botón */
             .nav-menu.active { left: 0; }
 
-            /* Animación de la X */
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -418,7 +327,6 @@
 
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar">
-        <!-- Reemplaza "ruta-de-tu-logo.png" por el nombre exacto de tu logo -->
         <a href="#" class="nav-logo">
             <img src="./ACNES (1).png" alt="Logo ACNES Publicidad">
         </a>
@@ -438,7 +346,7 @@
     </nav>
 
     <!-- PORTADA HERO -->
-   <header class="hero-section">
+    <header class="hero-section">
         <video autoplay muted loop playsinline class="hero-video video-desktop">
             <source src="./PXL_20260915_001212762.TS.mp4" type="video/mp4">
         </video>
@@ -453,26 +361,23 @@
             </div>
         </div>
     </header>
-<!-- =========================================
-         SECCIÓN DE SERVICIOS
-         ========================================= -->
+
+    <!-- SECCIÓN DE SERVICIOS -->
     <section class="servicios-section" id="servicios">
         <div class="servicios-container">
             <h2 class="section-title">Nuestros <span>Servicios</span></h2>
             
             <div class="servicios-grid">
-                
-                <!-- Tarjeta 1: Letras 3D -->
+                <!-- Tarjeta 1 -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <!-- Ícono SVG (Código de imagen que no pesa nada) -->
                         <svg viewBox="0 0 24 24"><path d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V22H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" /></svg>
                     </div>
                     <h3>Letras 3D y Aluminio</h3>
                     <p>Fabricación de anuncios tridimensionales de alta calidad. Acabados premium con iluminación LED para destacar tu marca al máximo.</p>
                 </div>
 
-                <!-- Tarjeta 2: Cajas de Luz -->
+                <!-- Tarjeta 2 -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z" /></svg>
@@ -481,7 +386,7 @@
                     <p>Letreros luminosos personalizados a la medida. Ideales para que tu fachada o negocio capte la atención tanto de día como de noche.</p>
                 </div>
 
-                <!-- Tarjeta 3: Diseño y Rotulación -->
+                <!-- Tarjeta 3 -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
@@ -489,15 +394,13 @@
                     <h3>Diseño y Rotulación</h3>
                     <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
                 </div>
-
             </div>
         </div>
     </section>
-    <!-- LIBRERÍAS Y SCRIPTS (JAVASCRIPT) -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // 1. Ejecución de la máquina de escribir
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.texto-terminal', {
                 strings: ["DISEÑA Y COTIZA EN TIEMPO REAL"],
@@ -509,7 +412,6 @@
             });
         });
 
-        // 2. Ejecución del Menú Hamburguesa
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
 
