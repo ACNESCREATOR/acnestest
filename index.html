@@ -99,7 +99,7 @@
         }
 
         /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS (NEGRO MENOS TRANSPARENTE)
+           DISEÑO DE PÍLDORAS Y TÍTULOS
            ========================================= */
         .svc-badge-pill {
             position: relative; 
@@ -109,7 +109,7 @@
             text-align: center; 
             flex-wrap: wrap; 
             
-            /* Fondo negro menos transparente (85% de opacidad) */
+            /* Fondo negro con 85% de opacidad */
             background-color: rgba(0, 0, 0, 0.85);
             
             /* Borde y brillo turquesa neón */
@@ -194,50 +194,10 @@
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
 
         /* =========================================
-           SECCIÓN HERRAMIENTAS INTERACTIVAS
-           ========================================= */
-        .herramientas-section {
-            padding: 40px 40px 20px 40px; 
-            background-color: #ffffff;
-            width: 100%;
-        }
-
-        #acnes-banners-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px; 
-            width: 100%; 
-            max-width: 100%; 
-        }
-
-        .acnes-banner { text-decoration: none; display: block; border-radius: 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; width: 100%; }
-        .acnes-banner:hover { transform: translateY(-5px) scale(1.01); }
-        .acnes-inner { display: flex; align-items: center; justify-content: space-between; padding: 30px 40px; border-radius: 22px; height: auto; width: 100%; }
-        .acnes-content { max-width: 65%; text-align: left; }
-        .acnes-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #ffffff; margin-bottom: 8px; line-height: 1.1; text-transform: uppercase; }
-        .acnes-tag { font-size: 14px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 12px; }
-        .acnes-desc { font-size: 15px; color: #ffffff; opacity: 0.9; line-height: 1.5; }
-        .acnes-btn { padding: 12px 30px; border-radius: 50px; font-size: 13px; font-weight: 700; text-transform: uppercase; transition: all 0.3s ease; letter-spacing: 1px; white-space: nowrap; text-align: center; background: transparent; }
-
-        .banner-dc { background: linear-gradient(90deg, #0761b5 10%, #00ffff 100%); font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .banner-dc .acnes-inner { background: rgba(0, 0, 0, 0.10); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .banner-dc:hover .acnes-inner { background: rgba(0, 0, 0, 0.25); border-color: rgba(0, 255, 255, 0.6); }
-        .banner-dc .acnes-title { text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .banner-dc .acnes-tag { color: #00ffff; }
-        .banner-dc .acnes-btn { border: 2px solid #00ffff; color: #ffffff; }
-        .banner-dc:hover .acnes-btn { background: #00ffff; color: #000000; box-shadow: 0 0 15px #00ffff; }
-
-        .banner-vq { background: linear-gradient(70deg, #0761b5 10%, #00fff7 90%); padding: 3px; font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0, 255, 247, 0.15); }
-        .banner-vq .acnes-inner { background: radial-gradient(circle at center, #1a2333 0%, #050505 100%); }
-        .banner-vq .acnes-tag { color: #00fff7; }
-        .banner-vq .acnes-btn { border: 2px solid #00fff7; color: #00fff7; }
-        .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
-
-        /* =========================================
            SECCIÓN PORTAFOLIO CON FILTROS
            ========================================= */
         .portafolio-section {
-            padding: 30px 0; 
+            padding: 50px 0 30px 0; 
             background-color: #ffffff; 
             width: 100%;
         }
@@ -260,7 +220,7 @@
         }
 
         .filter-btn {
-            background-color: rgba(0, 0, 0, 0.85); /* También oscurecí los botones para que combinen con la píldora */
+            background-color: rgba(0, 0, 0, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             padding: 10px 25px;
@@ -318,6 +278,46 @@
         .portfolio-item:hover img {
             transform: scale(1.08); /* Efecto zoom al pasar el mouse */
         }
+
+        /* =========================================
+           SECCIÓN HERRAMIENTAS INTERACTIVAS
+           ========================================= */
+        .herramientas-section {
+            padding: 40px 40px 20px 40px; 
+            background-color: #ffffff;
+            width: 100%;
+        }
+
+        #acnes-banners-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+            width: 100%; 
+            max-width: 100%; 
+        }
+
+        .acnes-banner { text-decoration: none; display: block; border-radius: 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; width: 100%; }
+        .acnes-banner:hover { transform: translateY(-5px) scale(1.01); }
+        .acnes-inner { display: flex; align-items: center; justify-content: space-between; padding: 30px 40px; border-radius: 22px; height: auto; width: 100%; }
+        .acnes-content { max-width: 65%; text-align: left; }
+        .acnes-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #ffffff; margin-bottom: 8px; line-height: 1.1; text-transform: uppercase; }
+        .acnes-tag { font-size: 14px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 12px; }
+        .acnes-desc { font-size: 15px; color: #ffffff; opacity: 0.9; line-height: 1.5; }
+        .acnes-btn { padding: 12px 30px; border-radius: 50px; font-size: 13px; font-weight: 700; text-transform: uppercase; transition: all 0.3s ease; letter-spacing: 1px; white-space: nowrap; text-align: center; background: transparent; }
+
+        .banner-dc { background: linear-gradient(90deg, #0761b5 10%, #00ffff 100%); font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .banner-dc .acnes-inner { background: rgba(0, 0, 0, 0.10); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .banner-dc:hover .acnes-inner { background: rgba(0, 0, 0, 0.25); border-color: rgba(0, 255, 255, 0.6); }
+        .banner-dc .acnes-title { text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .banner-dc .acnes-tag { color: #00ffff; }
+        .banner-dc .acnes-btn { border: 2px solid #00ffff; color: #ffffff; }
+        .banner-dc:hover .acnes-btn { background: #00ffff; color: #000000; box-shadow: 0 0 15px #00ffff; }
+
+        .banner-vq { background: linear-gradient(70deg, #0761b5 10%, #00fff7 90%); padding: 3px; font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0, 255, 247, 0.15); }
+        .banner-vq .acnes-inner { background: radial-gradient(circle at center, #1a2333 0%, #050505 100%); }
+        .banner-vq .acnes-tag { color: #00fff7; }
+        .banner-vq .acnes-btn { border: 2px solid #00fff7; color: #00fff7; }
+        .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
            SECCIÓN DE SERVICIOS
@@ -426,8 +426,8 @@
         </a>
         <ul class="nav-menu">
             <li><a href="#">Inicio</a></li>
-            <li><a href="#herramientas">Cotizador</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#herramientas">Cotizador</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#" class="btn-cotizar">Contacto</a></li>
         </ul>
@@ -462,38 +462,7 @@
         </div>
     </header>
 
-    <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS -->
-    <section class="herramientas-section" id="herramientas">
-        <h2 class="svc-badge-pill ai-title-pill">
-            <span class="badge-dot"></span>
-            HERRAMIENTAS<span class="typed-cursor">_</span>
-        </h2>
-
-        <div id='acnes-banners-container'>
-            <a class='acnes-banner banner-dc' href='https://www.anunciosconestilo.com/p/centro-de-diseno-de-anuncios-luminosos.html'>
-                <div class='acnes-inner'>
-                    <div class='acnes-content'>
-                        <h2 class='acnes-title'>ACNES DESIGN CENTER</h2>
-                        <span class='acnes-tag'>Centro de Diseño</span>
-                        <p class='acnes-desc'>Diseña, personaliza y visualiza en tiempo real cómo quedarán tus letras corpóreas antes de enviarlas a fabricación.</p>
-                    </div>
-                    <div class='acnes-btn'>Comenzar Diseño</div>
-                </div>
-            </a>
-            <a class='acnes-banner banner-vq' href='https://www.anunciosconestilo.com/p/cotizador-virtual-de-cajas-de-luz.html'>
-                <div class='acnes-inner'>
-                    <div class='acnes-content'>
-                        <h2 class='acnes-title'>ACNES VIRTUAL QUOTER</h2>
-                        <span class='acnes-tag'>Cotizador Virtual</span>
-                        <p class='acnes-desc'>Obtén el presupuesto exacto para tu caja de luz, calcula dimensiones, iluminación y materiales rápidamente.</p>
-                    </div>
-                    <div class='acnes-btn'>Cotizar Proyecto</div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- SECCIÓN PORTAFOLIO -->
+    <!-- SECCIÓN PORTAFOLIO (AHORA ANTES DE HERRAMIENTAS) -->
     <section class="portafolio-section" id="portafolio">
         <div class="portafolio-container">
             <div style="text-align: center;">
@@ -582,6 +551,37 @@
                     <img alt='Imagen 16' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKwH71Wgs2bDDUgTXnX1E1DXNJsUmKljSUjtbpvcW5cy3mz7Cub9LOc_MwtgFB0nmkIe1LAYwQkD8pR5c1SGx53t3VFzI6yHszA4RcFDXH_IXQkYkJqwvqnd6X4aGSqPPggPGnrk_EUS30IIVhvo05Wl7de1llZN-mEBK696hJWOhnuxkk-2wbz0BlgJ8/s1600/ACNESTRECEMIL.png'/>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS (AHORA DESPUÉS DE PORTAFOLIO) -->
+    <section class="herramientas-section" id="herramientas">
+        <h2 class="svc-badge-pill ai-title-pill">
+            <span class="badge-dot"></span>
+            HERRAMIENTAS<span class="typed-cursor">_</span>
+        </h2>
+
+        <div id='acnes-banners-container'>
+            <a class='acnes-banner banner-dc' href='https://www.anunciosconestilo.com/p/centro-de-diseno-de-anuncios-luminosos.html'>
+                <div class='acnes-inner'>
+                    <div class='acnes-content'>
+                        <h2 class='acnes-title'>ACNES DESIGN CENTER</h2>
+                        <span class='acnes-tag'>Centro de Diseño</span>
+                        <p class='acnes-desc'>Diseña, personaliza y visualiza en tiempo real cómo quedarán tus letras corpóreas antes de enviarlas a fabricación.</p>
+                    </div>
+                    <div class='acnes-btn'>Comenzar Diseño</div>
+                </div>
+            </a>
+            <a class='acnes-banner banner-vq' href='https://www.anunciosconestilo.com/p/cotizador-virtual-de-cajas-de-luz.html'>
+                <div class='acnes-inner'>
+                    <div class='acnes-content'>
+                        <h2 class='acnes-title'>ACNES VIRTUAL QUOTER</h2>
+                        <span class='acnes-tag'>Cotizador Virtual</span>
+                        <p class='acnes-desc'>Obtén el presupuesto exacto para tu caja de luz, calcula dimensiones, iluminación y materiales rápidamente.</p>
+                    </div>
+                    <div class='acnes-btn'>Cotizar Proyecto</div>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -677,13 +677,13 @@
                         setTimeout(() => {
                             item.style.opacity = '1';
                             item.style.transform = 'scale(1)';
-                        }, 10); // Pequeño retraso para que CSS lea la transición
+                        }, 10); 
                     } else {
                         item.style.opacity = '0';
                         item.style.transform = 'scale(0.8)';
                         setTimeout(() => {
                             item.style.display = 'none';
-                        }, 400); // Esperar que termine la animación CSS para ocultarlo del DOM
+                        }, 400); 
                     }
                 });
             });
