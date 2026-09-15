@@ -137,34 +137,10 @@
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS
-           ========================================= */
-        .servicios-section {
-            padding: 100px 20px 40px 20px; 
-            background-color: #000; 
-            text-align: center;
-        }
-
-        .servicios-container { max-width: 1100px; margin: 0 auto; }
-
-        .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-
-        .servicio-card {
-            background-color: #0a0a0a; padding: 40px 30px; border-radius: 15px; border: 1px solid #222; transition: all 0.4s ease;
-        }
-        .servicio-card:hover { transform: translateY(-10px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); }
-        .servicio-icon { width: 70px; height: 70px; margin: 0 auto 25px; background-color: rgba(0, 255, 247, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 255, 247, 0.2); transition: all 0.4s ease; }
-        .servicio-card:hover .servicio-icon { background-color: #00fff7; }
-        .servicio-icon svg { width: 35px; height: 35px; fill: #00fff7; transition: all 0.4s ease; }
-        .servicio-card:hover .servicio-icon svg { fill: #000; }
-        .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; }
-        .servicio-card p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }
-
-        /* =========================================
            SECCIÓN HERRAMIENTAS INTERACTIVAS (BANNERS)
            ========================================= */
         .herramientas-section {
-            padding: 40px 20px 100px 20px; 
+            padding: 100px 20px 50px 20px; /* Más espacio arriba porque ahora es la primera sección */
             background-color: #000;
             display: flex;
             flex-direction: column;
@@ -176,7 +152,7 @@
             flex-direction: column;
             gap: 30px;
             width: 100%;
-            max-width: 1100px; /* Alineado al tamaño de servicios */
+            max-width: 1100px; 
         }
 
         .acnes-banner {
@@ -190,7 +166,6 @@
         .acnes-desc { font-size: 15px; color: #ffffff; opacity: 0.9; line-height: 1.5; }
         .acnes-btn { padding: 12px 30px; border-radius: 50px; font-size: 13px; font-weight: 700; text-transform: uppercase; transition: all 0.3s ease; letter-spacing: 1px; white-space: nowrap; text-align: center; background: transparent; }
 
-        /* DESIGN CENTER */
         .banner-dc { background: linear-gradient(90deg, #0761b5 10%, #00ffff 100%); font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
         .banner-dc .acnes-inner { background: rgba(0, 0, 0, 0.10); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); }
         .banner-dc:hover .acnes-inner { background: rgba(0, 0, 0, 0.25); border-color: rgba(0, 255, 255, 0.6); }
@@ -199,12 +174,34 @@
         .banner-dc .acnes-btn { border: 2px solid #00ffff; color: #ffffff; }
         .banner-dc:hover .acnes-btn { background: #00ffff; color: #000000; box-shadow: 0 0 15px #00ffff; }
 
-        /* VIRTUAL QUOTER */
         .banner-vq { background: linear-gradient(70deg, #0761b5 10%, #00fff7 90%); padding: 3px; font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0, 255, 247, 0.15); }
         .banner-vq .acnes-inner { background: radial-gradient(circle at center, #1a2333 0%, #050505 100%); }
         .banner-vq .acnes-tag { color: #00fff7; }
         .banner-vq .acnes-btn { border: 2px solid #00fff7; color: #00fff7; }
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
+
+        /* =========================================
+           SECCIÓN DE SERVICIOS
+           ========================================= */
+        .servicios-section {
+            padding: 50px 20px 100px 20px; 
+            background-color: #000; 
+            text-align: center;
+        }
+
+        .servicios-container { max-width: 1100px; margin: 0 auto; }
+        .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
+        .servicio-card {
+            background-color: #0a0a0a; padding: 40px 30px; border-radius: 15px; border: 1px solid #222; transition: all 0.4s ease;
+        }
+        .servicio-card:hover { transform: translateY(-10px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); }
+        .servicio-icon { width: 70px; height: 70px; margin: 0 auto 25px; background-color: rgba(0, 255, 247, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 255, 247, 0.2); transition: all 0.4s ease; }
+        .servicio-card:hover .servicio-icon { background-color: #00fff7; }
+        .servicio-icon svg { width: 35px; height: 35px; fill: #00fff7; transition: all 0.4s ease; }
+        .servicio-card:hover .servicio-icon svg { fill: #000; }
+        .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; }
+        .servicio-card p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }
 
         /* Animaciones */
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
@@ -247,8 +244,8 @@
         </a>
         <ul class="nav-menu">
             <li><a href="#">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
             <li><a href="#herramientas">Cotizador</a></li>
+            <li><a href="#servicios">Servicios</a></li>
             <li><a href="#" class="btn-cotizar">Contacto</a></li>
         </ul>
         <div class="hamburger">
@@ -273,9 +270,8 @@
         </div>
     </header>
 
-     <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS -->
+    <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS -->
     <section class="herramientas-section" id="herramientas">
-        
         <!-- Título tipo IA con Píldora -->
         <h2 class="svc-badge-pill ai-title-pill">
             <span class="badge-dot"></span>
@@ -308,10 +304,10 @@
             </a>
         </div>
     </section>
+
     <!-- SECCIÓN DE SERVICIOS -->
     <section class="servicios-section" id="servicios">
         <div class="servicios-container">
-            
             <!-- Título tipo IA con Píldora -->
             <h2 class="svc-badge-pill ai-title-pill">
                 <span class="badge-dot"></span>
@@ -344,9 +340,7 @@
         </div>
     </section>
 
-   
-
-    <!-- SCRIPTS -->
+    <!-- SCRIPTS COMPLETOS Y RESTAURADOS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
