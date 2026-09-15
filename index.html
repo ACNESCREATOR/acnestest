@@ -18,6 +18,47 @@
         }
 
         /* =========================================
+           PRELOADER
+           ========================================= */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader-pill {
+            position: relative; 
+            display: inline-flex;
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            
+            /* Estilo de la píldora original con borde turquesa y brillo */
+            background: rgba(10, 12, 16, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffffff;
+            border: 1.5px solid #00fff7;
+            box-shadow: 0 0 15px rgba(0, 255, 247, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            
+            border-radius: 50px;
+            padding: 12px 32px 12px 46px; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem; 
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
            SECCIÓN PRINCIPAL HERO (VIDEO)
            ========================================= */
         .hero-section {
@@ -99,7 +140,7 @@
         }
 
         /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS (TEXTO MÁS GRANDE EN ESCRITORIO)
+           DISEÑO DE PÍLDORAS Y TÍTULOS (NEGRO PURO, TEXTO GRANDE)
            ========================================= */
         .svc-badge-pill {
             position: relative; 
@@ -160,7 +201,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN (FIJA Y TRANSLÚCIDA / VIDRIO)
+           BARRA DE NAVEGACIÓN
            ========================================= */
         .navbar {
             position: fixed; 
@@ -191,7 +232,7 @@
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
 
         /* =========================================
-           SECCIÓN PORTAFOLIO CON FILTROS (FONDO NEGRO)
+           SECCIÓN PORTAFOLIO
            ========================================= */
         .portafolio-section {
             padding: 50px 0 30px 0; 
@@ -206,7 +247,6 @@
             padding: 0;
         }
 
-        /* Botones de Filtro */
         .portfolio-filters {
             display: flex;
             justify-content: center;
@@ -243,11 +283,10 @@
             box-shadow: 0 0 12px rgba(0, 255, 247, 0.4);
         }
 
-        /* Cuadrícula Dinámica sin separaciones */
         .portfolio-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
-            grid-gap: 0; /* Sin espacios entre imágenes */
+            grid-gap: 0; 
             width: 100%;
             margin: 0; 
             background-color: transparent; 
@@ -256,7 +295,7 @@
         .portfolio-item {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; /* Mantiene la proporción cuadrada */
+            padding-bottom: 100%; 
             overflow: hidden;
             background-color: #111;
             transition: opacity 0.4s ease, transform 0.4s ease;
@@ -275,11 +314,11 @@
         }
 
         .portfolio-item:hover img {
-            transform: scale(1.08); /* Efecto zoom al pasar el mouse */
+            transform: scale(1.08); 
         }
 
         /* =========================================
-           SECCIÓN HERRAMIENTAS INTERACTIVAS (FONDO NEGRO)
+           SECCIÓN HERRAMIENTAS INTERACTIVAS
            ========================================= */
         .herramientas-section {
             padding: 40px 40px 20px 40px; 
@@ -319,7 +358,7 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS (FONDO NEGRO Y TARJETAS OSCURAS)
+           SECCIÓN DE SERVICIOS
            ========================================= */
         .servicios-section {
             padding: 40px 40px 60px 40px; 
@@ -407,7 +446,6 @@
             .herramientas-section, .servicios-section { padding: 30px 20px; }
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             
-            /* En móviles se muestran 2 columnas */
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
 
             .video-desktop { display: none; }
@@ -430,6 +468,14 @@
     </style>
 </head>
 <body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-pill">
+            <span class="badge-dot"></span>
+            CARGANDO<span class="typed-cursor">_</span>
+        </div>
+    </div>
 
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar">
@@ -636,6 +682,18 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
+        // 0. Ocultar Preloader al cargar la página por completo
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        });
+
         // 1. Máquina de escribir para la portada
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.texto-terminal', {
@@ -677,15 +735,12 @@
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Quitar clase activa de todos los botones
                 filterBtns.forEach(b => b.classList.remove('active'));
-                // Añadir clase activa al botón presionado
                 btn.classList.add('active');
 
                 const filterValue = btn.getAttribute('data-filter');
 
                 portfolioItems.forEach(item => {
-                    // Si el filtro es "all" o el item tiene la clase seleccionada
                     if (filterValue === 'all' || item.classList.contains(filterValue)) {
                         item.style.display = 'block';
                         setTimeout(() => {
