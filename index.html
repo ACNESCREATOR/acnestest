@@ -10,7 +10,12 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; background-color: #000; color: #fff; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #000; 
+            color: #fff; 
+            overflow-x: hidden; /* ESTO EVITA QUE LA PÁGINA SE MUEVA HACIA LOS LADOS */
+        }
 
         /* =========================================
            SECCIÓN PRINCIPAL (Esta es la regla que faltaba)
@@ -226,8 +231,12 @@
 </head>
 <body>
 <!-- BARRA DE NAVEGACIÓN -->
+   <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar">
-        <a href="#" class="nav-logo">ACNES <span>Publicidad</span></a>
+        <!-- Reemplaza "ruta-de-tu-logo.png" por el nombre de tu archivo de logo -->
+        <a href="#" class="nav-logo">
+            <img src="./ruta-de-tu-logo.png" alt="Logo ACNES Publicidad">
+        </a>
         
         <ul class="nav-menu">
             <li><a href="#">Inicio</a></li>
