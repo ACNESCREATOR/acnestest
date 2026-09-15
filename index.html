@@ -98,7 +98,9 @@
             justify-content: center;
         }
 
-        /* DISEÑO DE PÍLDORAS Y TÍTULOS */
+        /* =========================================
+           DISEÑO DE PÍLDORAS Y TÍTULOS (MISMO EFECTO DE LA NAVBAR)
+           ========================================= */
         .svc-badge-pill {
             position: relative; 
             display: inline-flex;
@@ -106,9 +108,12 @@
             justify-content: center; 
             text-align: center; 
             flex-wrap: wrap; 
-            background: rgba(10, 15, 25, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            
+            /* Mismo fondo translúcido y desfoque que la barra de navegación */
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            
             border: 1px solid rgba(0, 255, 247, 0.7);
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.35);
             border-radius: 50px;
@@ -158,7 +163,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN (FIJA Y TRASLÚCIDA)
+           BARRA DE NAVEGACIÓN (FIJA Y TRANSLÚCIDA)
            ========================================= */
         .navbar {
             position: fixed; 
@@ -170,10 +175,10 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000; 
-            background: rgba(0, 0, 0, 0.45); /* <--- Fondo oscuro sutilmente traslúcido */
-            backdrop-filter: blur(8px); /* Desfoque ligero de cristal */
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.45); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
@@ -373,7 +378,7 @@
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN (FIJA Y TRASLÚCIDA) -->
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar">
         <a href="#" class="nav-logo">
             <img src="./ACNES (1).png" alt="Logo ACNES Publicidad">
