@@ -99,7 +99,7 @@
         }
 
         /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS (AJUSTADAS AL TEXTO)
+           DISEÑO DE PÍLDORAS Y TÍTULOS (NEGRO PURO, SIN BORDE NI BRILLO)
            ========================================= */
         .svc-badge-pill {
             position: relative; 
@@ -109,17 +109,11 @@
             text-align: center; 
             flex-wrap: wrap; 
             
-            /* Estilo cristal oscuro elegante */
-            background: rgba(10, 12, 16, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            
-            /* Texto blanco impecable */
+            /* Fondo negro puro, sin borde ni brillo */
+            background: #000000;
             color: #ffffff;
-            
-            /* Borde neón turquesa y sutil brillo de cristal */
-            border: 1.5px solid #00fff7;
-            box-shadow: 0 0 12px rgba(0, 255, 247, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            border: none;
+            box-shadow: none;
             
             border-radius: 50px;
             padding: 8px 22px 8px 36px; 
@@ -396,7 +390,6 @@
             .hero-typography { gap: 15px; }
             .punto-separador { margin-top: 50px; } 
             
-            /* Píldoras adaptadas al ancho del texto y texto un poco más grande en móviles */
             .svc-badge-pill { 
                 font-size: 1rem; 
                 padding: 9px 20px 9px 38px; 
