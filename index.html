@@ -67,7 +67,7 @@
         }
 
         /* =========================================
-           NUEVO ESTILO DE TEXTO PARA LA PORTADA
+           TEXTO PARA LA PORTADA
            ========================================= */
         .hero-typography {
             display: flex;
@@ -94,18 +94,21 @@
             font-weight: 700;
         }
 
-        /* Contenedor especial para mandar el punto más abajo */
         .punto-separador {
-            margin-top: 80px; /* <--- Esto manda el punto bastante más abajo */
+            margin-top: 80px; 
             display: flex;
             justify-content: center;
         }
 
-        /* DISEÑO DE LA PÍLDORA (Se conserva para los títulos de abajo) */
+        /* =========================================
+           DISEÑO DE LA PÍLDORA Y TÍTULOS IA (CENTRADOS)
+           ========================================= */
         .svc-badge-pill {
             display: inline-flex;
             align-items: center; 
             justify-content: center; 
+            flex-wrap: wrap; /* Evita que se amontone en celulares */
+            text-align: center; /* Centra el texto interno */
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(0, 255, 247, 0.5);
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
@@ -120,9 +123,11 @@
         }
 
         .ai-title-pill {
+            display: flex; /* Fuerza a comportarse como un bloque centrable */
+            width: fit-content; /* Se ajusta exactamente al tamaño del texto */
+            margin: 0 auto 60px auto; /* Esto es la magia que lo centra en la página */
             font-size: 1.2rem; 
             padding: 15px 35px;
-            margin-bottom: 60px;
             border-color: #00fff7; 
         }
 
@@ -137,9 +142,9 @@
         }
         
         .dot-large {
-            width: 14px; /* Lo hice un poquitito más grande para que luzca solo */
+            width: 14px; 
             height: 14px;
-            margin-right: 0; /* Se quita el margen para que quede perfecto al centro */
+            margin-right: 0; 
         }
 
         .texto-terminal { color: #fff; }
@@ -251,10 +256,18 @@
         @media (max-width: 768px) {
             .hero-section { height: 100vh; }
             .hero-typography { gap: 15px; }
-            .punto-separador { margin-top: 50px; } /* Un poquito menos de separación en móviles para que no quede tan abajo */
+            .punto-separador { margin-top: 50px; } 
             
             .svc-badge-pill { font-size: 0.85rem; padding: 10px 18px; width: 100%; max-width: 320px; } 
-            .ai-title-pill { font-size: 1rem; margin-bottom: 40px; }
+            
+            /* Ajuste extra de centrado para el celular */
+            .ai-title-pill { 
+                font-size: 1rem; 
+                margin-bottom: 40px; 
+                margin-left: auto; 
+                margin-right: auto;
+            }
+            
             .servicios-grid { grid-template-columns: 1fr; gap: 25px; }
             .video-desktop { display: none; }
             .video-mobile { display: block; }
@@ -268,7 +281,6 @@
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-            /* Ajustes Banners Celular */
             .acnes-inner { flex-direction: column; padding: 35px 20px; justify-content: center; align-items: center; }
             .acnes-content { max-width: 100%; text-align: center; margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; }
             .acnes-title, .acnes-tag, .acnes-desc { text-align: center; }
@@ -304,7 +316,6 @@
         </video>
         <div class="hero-overlay"></div>
         
-        <!-- TEXTO DE LA PORTADA -->
         <div class="hero-content">
             <div class="hero-typography">
                 <h1 class="main-heading">
@@ -314,7 +325,6 @@
                     Producción de: <span class="texto-terminal"></span>
                 </h2>
                 
-                <!-- PUNTO PARPADEANTE UBICADO ABAJO -->
                 <div class="punto-separador">
                     <span class='badge-dot dot-large'></span>
                 </div>
