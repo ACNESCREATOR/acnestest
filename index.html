@@ -179,6 +179,184 @@
         @keyframes parpadeoCursor {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
+        } 
+
+        /* =========================================
+           SECCIÓN DE SERVICIOS (TARJETAS)
+           ========================================= */
+        .servicios-section {
+            padding: 100px 20px; /* Da un buen espacio para respirar */
+            background-color: #000; 
+            text-align: center;
+        }
+
+        .servicios-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: #00fff7; /* Acento de tu marca */
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+            gap: 40px;
+        }
+
+        .servicio-card {
+            background-color: #0a0a0a;
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: all 0.4s ease;
+        }
+
+        /* EFECTO HOVER: Cuando pasas el ratón encima */
+        .servicio-card:hover {
+            transform: translateY(-10px); /* Se levanta un poco */
+            border-color: #00fff7; /* El borde se pinta de cyan */
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); /* Efecto de brillo neón */
+        }
+
+        .servicio-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background-color: rgba(0, 255, 247, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 255, 247, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .servicio-card:hover .servicio-icon {
+            background-color: #00fff7;
+        }
+
+        .servicio-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: #00fff7; /* Los íconos nacen color cyan */
+            transition: all 0.4s ease;
+        }
+
+        /* Cuando hacemos hover, el ícono se vuelve negro para contrastar con el fondo cyan */
+        .servicio-card:hover .servicio-icon svg {
+            fill: #000; 
+        }
+
+        .servicio-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .servicio-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }/* =========================================
+           SECCIÓN DE SERVICIOS (TARJETAS)
+           ========================================= */
+        .servicios-section {
+            padding: 100px 20px; /* Da un buen espacio para respirar */
+            background-color: #000; 
+            text-align: center;
+        }
+
+        .servicios-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: #00fff7; /* Acento de tu marca */
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+            gap: 40px;
+        }
+
+        .servicio-card {
+            background-color: #0a0a0a;
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: all 0.4s ease;
+        }
+
+        /* EFECTO HOVER: Cuando pasas el ratón encima */
+        .servicio-card:hover {
+            transform: translateY(-10px); /* Se levanta un poco */
+            border-color: #00fff7; /* El borde se pinta de cyan */
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); /* Efecto de brillo neón */
+        }
+
+        .servicio-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background-color: rgba(0, 255, 247, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 255, 247, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .servicio-card:hover .servicio-icon {
+            background-color: #00fff7;
+        }
+
+        .servicio-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: #00fff7; /* Los íconos nacen color cyan */
+            transition: all 0.4s ease;
+        }
+
+        /* Cuando hacemos hover, el ícono se vuelve negro para contrastar con el fondo cyan */
+        .servicio-card:hover .servicio-icon svg {
+            fill: #000; 
+        }
+
+        .servicio-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .servicio-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* =========================================
@@ -268,7 +446,46 @@
             </div>
         </div>
     </header>
+<!-- =========================================
+         SECCIÓN DE SERVICIOS
+         ========================================= -->
+    <section class="servicios-section" id="servicios">
+        <div class="servicios-container">
+            <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+            
+            <div class="servicios-grid">
+                
+                <!-- Tarjeta 1: Letras 3D -->
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <!-- Ícono SVG (Código de imagen que no pesa nada) -->
+                        <svg viewBox="0 0 24 24"><path d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V22H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" /></svg>
+                    </div>
+                    <h3>Letras 3D y Aluminio</h3>
+                    <p>Fabricación de anuncios tridimensionales de alta calidad. Acabados premium con iluminación LED para destacar tu marca al máximo.</p>
+                </div>
 
+                <!-- Tarjeta 2: Cajas de Luz -->
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z" /></svg>
+                    </div>
+                    <h3>Cajas de Luz</h3>
+                    <p>Letreros luminosos personalizados a la medida. Ideales para que tu fachada o negocio capte la atención tanto de día como de noche.</p>
+                </div>
+
+                <!-- Tarjeta 3: Diseño y Rotulación -->
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                    </div>
+                    <h3>Diseño y Rotulación</h3>
+                    <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!-- LIBRERÍAS Y SCRIPTS (JAVASCRIPT) -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
