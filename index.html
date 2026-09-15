@@ -415,7 +415,7 @@
            SECCIÓN NUESTROS CLIENTES Y RESEÑAS
            ========================================= */
         .clientes-section {
-            padding: 40px 0 40px 0; 
+            padding: 40px 0 0 0; /* Sin padding abajo para unirlo con el fondo blanco */
             background-color: #000000; 
             width: 100%;
             text-align: center;
@@ -435,7 +435,6 @@
             justify-items: center;
             width: 100%;
             padding: 0 40px; 
-            margin-bottom: 40px; 
         }
 
         .cliente-card {
@@ -469,17 +468,21 @@
             filter: grayscale(0%) brightness(1);
         }
 
-        /* Contenedor del Widget 80% de ancho, centrado y con bordes redondeados */
+        /* Envoltorio principal para las Reseñas - Fondo blanco de extremo a extremo */
         .reviews-wrapper {
             background-color: #ffffff;
-            padding: 40px 40px;
-            border-radius: 20px; 
-            width: 80%;
-            margin: 20px auto 0 auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            padding: 50px 0;
+            margin-top: 50px;
         }
 
-        /* Forzar nombre de la empresa a negro dentro del widget */
+        /* Contenedor interno de las reseñas (80% escritorio, 100% móvil) */
+        .reviews-inner {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Forzar nombre de la empresa a negro dentro del widget de reseñas */
         .tr-widget .tr-company-name,
         .tr-widget .tr-header-name,
         .tr-widget .tr-profile-name,
@@ -589,7 +592,7 @@
            ========================================= */
         @media (max-width: 1024px) {
             .clientes-grid { grid-template-columns: repeat(3, 1fr); }
-            .reviews-wrapper { width: 90%; }
+            .reviews-inner { width: 95%; } /* Un poco más de espacio en tablets */
         }
 
         @media (max-width: 768px) {
@@ -623,8 +626,9 @@
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
             
-            /* Ajuste del widget para móviles para que aproveche más espacio */
-            .reviews-wrapper { padding: 30px 15px; width: 95%; border-radius: 15px; }
+            /* Ajuste del widget y el fondo blanco para móviles (Totalmente expandido) */
+            .reviews-wrapper { padding: 40px 0; margin-top: 30px; }
+            .reviews-inner { width: 100%; padding: 0 5px; } 
             
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
 
@@ -860,7 +864,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN NUESTROS CLIENTES -->
+    <!-- SECCIÓN NUESTROS CLIENTES Y RESEÑAS -->
     <section class="clientes-section" id="clientes">
         <div class="clientes-container">
             <div style="text-align: center;">
@@ -893,15 +897,18 @@
                 </div>
             </div>
 
-            <!-- Píldora de Reseñas al estilo filtro -->
-            <div style="text-align: center; margin-bottom: 20px;">
-                <span class="filter-btn active" style="cursor: default; pointer-events: none; display: inline-block;">RESEÑAS</span>
-            </div>
-
-            <!-- Contenedor del Widget 80% de ancho, centrado y con bordes redondeados -->
+            <!-- Fondo blanco de extremo a extremo que incluye la Píldora y el Widget -->
             <div class="reviews-wrapper">
-                <div class='tr-widget' data-id='7257' data-lang='' data-view='grid2'><a class='' href='https://trust.reviews/' target='_blank'><span/></a></div>
-                <script defer='defer' src='https://cdn.trust.reviews/widget/embed.min.js' type='text/javascript'></script>
+                <!-- Píldora de Reseñas al estilo filtro -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <span class="filter-btn active" style="cursor: default; pointer-events: none; display: inline-block;">RESEÑAS</span>
+                </div>
+
+                <!-- Contenedor interno del Widget (80% escritorio, 100% móvil) -->
+                <div class="reviews-inner">
+                    <div class='tr-widget' data-id='7257' data-lang='' data-view='grid2'><a class='' href='https://trust.reviews/' target='_blank'><span/></a></div>
+                    <script defer='defer' src='https://cdn.trust.reviews/widget/embed.min.js' type='text/javascript'></script>
+                </div>
             </div>
         </div>
     </section>
