@@ -94,7 +94,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); 
+            background: rgba(0, 0, 0, 0.6); 
             z-index: 2; 
         }
 
@@ -231,7 +231,7 @@
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
 
         /* =========================================
-           SECCIÓN PORTAFOLIO (GALERÍA DINÁMICA FILTRABLE)
+           SECCIÓN PORTAFOLIO
            ========================================= */
         .portafolio-section {
             padding: 50px 0 30px 0; 
@@ -246,75 +246,74 @@
             padding: 0;
         }
 
-        /* Botones de Filtro */
         .portfolio-filters {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 35px;
             padding: 0 20px;
         }
 
         .filter-btn {
-            background-color: #111111;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
-            padding: 10px 22px;
+            padding: 8px 18px;
             border-radius: 50px;
+            cursor: pointer;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            cursor: pointer;
+            letter-spacing: 0.8px;
             transition: all 0.3s ease;
         }
 
-        .filter-btn:hover, .filter-btn.active {
-            background-color: #00fff7;
+        .filter-btn:hover {
+            border-color: #00fff7;
+            background: #1a1a1a;
+        }
+
+        .filter-btn.active {
+            background: #00fff7;
             color: #000;
             border-color: #00fff7;
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.4);
+            box-shadow: 0 0 12px rgba(0, 255, 247, 0.4);
         }
 
-        .gallery-container {
+        .portfolio-gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-            grid-gap: 1px; 
-            max-width: 1500px;
-            margin: 0 auto 30px auto; 
-            background-color: #000; 
-            padding: 1px;
-            transition: all 0.3s ease;
+            grid-template-columns: repeat(4, 1fr); 
+            grid-gap: 0; 
+            width: 100%;
+            margin: 0; 
+            background-color: transparent; 
         }
 
-        .gallery-slide {
+        .portfolio-item {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; /* Proporción 1:1 Cuadrada */
+            padding-bottom: 100%; 
             overflow: hidden;
             background-color: #111;
             transition: opacity 0.4s ease, transform 0.4s ease;
+            opacity: 1;
+            transform: scale(1);
         }
 
-        .gallery-slide.hidden {
-            display: none !important;
-        }
-
-        .gallery-slide img {
+        .portfolio-item img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-            cursor: pointer;
+            transition: transform 0.5s ease;
         }
 
-        .gallery-slide img.active {
-            opacity: 1;
+        .portfolio-item:hover img {
+            transform: scale(1.08); 
         }
 
         /* =========================================
@@ -470,6 +469,7 @@
             filter: grayscale(0%) brightness(1);
         }
 
+        /* Contenedor del Widget: Extremo a extremo, fondo blanco puro, sin bordes redondeados */
         .reviews-wrapper {
             background-color: #ffffff;
             padding: 50px 40px;
@@ -600,6 +600,9 @@
                 margin-left: auto; 
                 margin-right: auto; 
             }
+            
+            .portfolio-filters { gap: 8px; }
+            .filter-btn { font-size: 0.75rem; padding: 7px 14px; }
 
             .herramientas-section, .servicios-section { padding: 30px 20px; }
             .clientes-section { padding: 30px 0 0 0; }
@@ -609,6 +612,8 @@
             .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
             .reviews-wrapper { padding: 40px 20px; }
             
+            .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
+
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             .navbar { padding: 12px 20px; }
@@ -659,10 +664,10 @@
     <!-- PORTADA HERO -->
     <header class="hero-section">
         <video autoplay muted loop playsinline class="hero-video video-desktop">
-            <source src="./PXL_20260901_073746017.TS.mp4" type="video/mp4">
+            <source src="./PXL_20260915_001212762.TS.mp4" type="video/mp4">
         </video>
         <video autoplay muted loop playsinline class="hero-video video-mobile">
-            <source src="./PXL_20260901_073746017.TS.mp4" type="video/mp4"> 
+            <source src="./PXL_20260907_182234358.TS~3.mp4" type="video/mp4"> 
         </video>
         <div class="hero-overlay"></div>
         
@@ -682,56 +687,93 @@
         </div>
     </header>
 
-    <!-- SECCIÓN PORTAFOLIO NUEVA -->
+    <!-- SECCIÓN PORTAFOLIO -->
     <section class="portafolio-section" id="portafolio">
         <div class="portafolio-container">
             <div style="text-align: center;">
-                <h2 class="svc-badge-pill ai-title-pill" style="margin-bottom: 25px;">
+                <h2 class="svc-badge-pill ai-title-pill" style="margin-bottom: 20px;">
                     <span class="badge-dot"></span>
                     PORTAFOLIO<span class="typed-cursor">_</span>
                 </h2>
             </div>
 
-            <!-- Botones de Filtro por Tipo de Anuncio -->
+            <!-- Menú de Filtros -->
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="neon">Neón</button>
                 <button class="filter-btn" data-filter="letras-3d">Letras 3D</button>
                 <button class="filter-btn" data-filter="cajas-luz">Cajas de Luz</button>
-                <button class="filter-btn" data-filter="neon">Neón LED</button>
             </div>
 
-            <!-- Galería Cuadrada Dinámica y Filtrable -->
-            <div class='gallery-container'>
-                <!-- Bloque Neón LED -->
-                <div class='gallery-slide filterable-item' data-category="neon">
-                    <img alt='Imagen 1' class='active' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6sBUV1114IuYizWdKqA32ZJggWCm3YhJcptYY7XsCPjLP4vqcNLl3peTaVgehbq03mVXUwnvfhHSRjZvparA94pfoxrTeOJoGp7ctQrmTD0tojw_J1HfmK4bGfExWhkQv41svxfWhwOF0zxyx8GNm9HQ6lHGRpFACNviwvf-PiJ_P5EDA7wL773bpgJk/s1600/NEONRANKMI1.png'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSAVRfWyfzXQBYKjIO59-R-JhqcT4j4qRcNrfJGGrTtUJO5BV0ekAM2sPeSirKYlT-7hsBjtozMV-WIUB941rMcbO_UFOr2lDy4WOkrM0xDhcfReoWQY50x13Svyut13ADel4wBPYbOQbzHiRm9weU9kKnV3MRENcpp_0W8qJQDMN65-33EaJjXZFtrV0/s1600/MANEKI.png'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzhH_9VtKvIzdFNpTzSXFaCvRH1G7sJsyfUvb99uB_RVMXbcQfy99beW89y4FD1SqMeqRZ-loRuA3H7164zErYv75uODpNXdMYVPzx1IlAX8bSha5PFIiMFFnuOS-XCymqJw_qcfVCY4kcq0hnXGoaHctIA57pzhpcQlGgrA9rrh4U_Sv7MZVyQi3LPd4/s1600/GOODVIVESONLY.png'/>
-                    <img alt='Imagen 4' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvAliBJ_vPZo76OerVTbcoz55ulvrLo3sPUZWiQTs7RcQ3vRBePWUrYHqIkh9MgPyv2BaixOY5Q2Ev2SoYO4L8SxNRh0dUPgv6ATuC6fxeMAkuXiU4HQtIdi1uL6rQ5BQR2qm4YijPuUOYaVZ816aSdGykXsGHPJm0T4ZrzoXUXIeY4EFBAunoUMjHwpc/s1600/PUBSUSHI.png'/>
+            <!-- Cuadrícula de Imágenes (Sin separaciones) -->
+            <div class='portfolio-gallery'>
+                
+                <!-- Categoría: neon -->
+                <div class="portfolio-item neon">
+                    <img alt='Imagen 1' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6sBUV1114IuYizWdKqA32ZJggWCm3YhJcptYY7XsCPjLP4vqcNLl3peTaVgehbq03mVXUwnvfhHSRjZvparA94pfoxrTeOJoGp7ctQrmTD0tojw_J1HfmK4bGfExWhkQv41svxfWhwOF0zxyx8GNm9HQ6lHGRpFACNviwvf-PiJ_P5EDA7wL773bpgJk/s1600/NEONRANKMI1.png'/>
+                </div>
+                <!-- Categoría: letras-3d -->
+                <div class="portfolio-item letras-3d">
+                    <img alt='Imagen 2' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSAVRfWyfzXQBYKjIO59-R-JhqcT4j4qRcNrfJGGrTtUJO5BV0ekAM2sPeSirKYlT-7hsBjtozMV-WIUB941rMcbO_UFOr2lDy4WOkrM0xDhcfReoWQY50x13Svyut13ADel4wBPYbOQbzHiRm9weU9kKnV3MRENcpp_0W8qJQDMN65-33EaJjXZFtrV0/s1600/MANEKI.png'/>
+                </div>
+                <!-- Categoría: cajas-luz -->
+                <div class="portfolio-item cajas-luz">
+                    <img alt='Imagen 3' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzhH_9VtKvIzdFNpTzSXFaCvRH1G7sJsyfUvb99uB_RVMXbcQfy99beW89y4FD1SqMeqRZ-loRuA3H7164zErYv75uODpNXdMYVPzx1IlAX8bSha5PFIiMFFnuOS-XCymqJw_qcfVCY4kcq0hnXGoaHctIA57pzhpcQlGgrA9rrh4U_Sv7MZVyQi3LPd4/s1600/GOODVIVESONLY.png'/>
+                </div>
+                <!-- Categoría: neon -->
+                <div class="portfolio-item neon">
+                    <img alt='Imagen 4' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvAliBJ_vPZo76OerVTbcoz55ulvrLo3sPUZWiQTs7RcQ3vRBePWUrYHqIkh9MgPyv2BaixOY5Q2Ev2SoYO4L8SxNRh0dUPgv6ATuC6fxeMAkuXiU4HQtIdi1uL6rQ5BQR2qm4YijPuUOYaVZ816aSdGykXsGHPJm0T4ZrzoXUXIeY4EFBAunoUMjHwpc/s1600/PUBSUSHI.png'/>
                 </div>
 
-                <!-- Bloque Neón LED -->
-                <div class='gallery-slide filterable-item' data-category="neon">
-                    <img alt='Imagen 5' class='active' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8xFHYYnYDybABr8r0SGRbZi7C5yA0SMRjLvOKBurhiXQ8MxvyI_1wWkUCW-5o_F4QEzTCnHxvP-NM5hTEjINvfMJ7wfB0MeEyspobL8FuXOpea1b6ELCYy7NyfQTFRTYRbkKUPJm1CpV4b01hmyp8p72FysNoV44OttsDca0FDRw75OBw9YN-gS6A_GI/s1600/BITCOINNEON1.png'/>
-                    <img alt='Imagen 6' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvzIFLZ0FUX6iLfQlOwn8Zv-DfOvhtqXakv6PkmmKrVvdVQ4dKq_m778t69zTQv9_yQZ7-RDqZ8vbThkzbXE6rg6f0DMR0fwUfLLAz0qlGHbztplHSO60zTo74mJ-0Z-3jhYZd_MumzG6Qe0QGlOxRi9CpLx6SdY8uY4upmcrpIq5QxJrDb_xCv2rDVGk/s1600/PUBELLY3.png'/>
-                    <img alt='Imagen 7' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik7LjN8DuGN9E5oYMeZnljwMo-ArMHPaDR-fUcg7P344RcePoTb9oj9DvEk1xLXJAdrvAHH8IFy3OnbeL48uXWhiEbnkQ47hq71GdSeqUa88bAHMbbQeX-XYxZC_rqJdUhS6hmeKNqwNxqO6DVpL6VRxzXl3Zgu2An4IZOqkS8UTk6n9KGQtJCmGGVuIQ/s1600/GRACIAS2.png'/>
-                    <img alt='Imagen 8' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuQqg2rhwZxcKDFxgZyp2tt2c0wGeU0N5YtqnZBd93W_cGKqup5qFt-M5nPsqZeHAY_AOTpFCHZvjDQZTcXNWBZZAOee_jplzi_QEfgK2QMpywjMI2OYfe-2wYgB1Lvu7oOMBExE8FrSw7BVoyQg8MOPlpeBXFLq9IQHxqodjR_gwZG4HNhuWkJYGSSkc/s1600/MANEKIP1.png'/>
+                <!-- Categoría: letras-3d -->
+                <div class="portfolio-item letras-3d">
+                    <img alt='Imagen 5' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8xFHYYnYDybABr8r0SGRbZi7C5yA0SMRjLvOKBurhiXQ8MxvyI_1wWkUCW-5o_F4QEzTCnHxvP-NM5hTEjINvfMJ7wfB0MeEyspobL8FuXOpea1b6ELCYy7NyfQTFRTYRbkKUPJm1CpV4b01hmyp8p72FysNoV44OttsDca0FDRw75OBw9YN-gS6A_GI/s1600/BITCOINNEON1.png'/>
+                </div>
+                <!-- Categoría: cajas-luz -->
+                <div class="portfolio-item cajas-luz">
+                    <img alt='Imagen 6' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvzIFLZ0FUX6iLfQlOwn8Zv-DfOvhtqXakv6PkmmKrVvdVQ4dKq_m778t69zTQv9_yQZ7-RDqZ8vbThkzbXE6rg6f0DMR0fwUfLLAz0qlGHbztplHSO60zTo74mJ-0Z-3jhYZd_MumzG6Qe0QGlOxRi9CpLx6SdY8uY4upmcrpIq5QxJrDb_xCv2rDVGk/s1600/PUBELLY3.png'/>
+                </div>
+                <!-- Categoría: neon -->
+                <div class="portfolio-item neon">
+                    <img alt='Imagen 7' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik7LjN8DuGN9E5oYMeZnljwMo-ArMHPaDR-fUcg7P344RcePoTb9oj9DvEk1xLXJAdrvAHH8IFy3OnbeL48uXWhiEbnkQ47hq71GdSeqUa88bAHMbbQeX-XYxZC_rqJdUhS6hmeKNqwNxqO6DVpL6VRxzXl3Zgu2An4IZOqkS8UTk6n9KGQtJCmGGVuIQ/s1600/GRACIAS2.png'/>
+                </div>
+                <!-- Categoría: letras-3d -->
+                <div class="portfolio-item letras-3d">
+                    <img alt='Imagen 8' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuQqg2rhwZxcKDFxgZyp2tt2c0wGeU0N5YtqnZBd93W_cGKqup5qFt-M5nPsqZeHAY_AOTpFCHZvjDQZTcXNWBZZAOee_jplzi_QEfgK2QMpywjMI2OYfe-2wYgB1Lvu7oOMBExE8FrSw7BVoyQg8MOPlpeBXFLq9IQHxqodjR_gwZG4HNhuWkJYGSSkc/s1600/MANEKIP1.png'/>
                 </div>
 
-                <!-- Bloque Letras 3D (Ejemplo de las imágenes que tenías en las filas extra) -->
-                <div class='gallery-slide filterable-item' data-category="letras-3d">
-                    <img alt='Imagen 1' class='active' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipTj47x2zXjCW95p_CKCAeNWA0E0klW29OB8qYHkOQIXOPbjUjYgbMIuXndlauOsYc4m0uCa230WnXNU16irgN660xjcYk60pVdFpvPBrXbrqdgrcZJBbs3_O_qeEIbdVMnf5pvuiScIalBePEhyr6nAw2q8pN8ko9jT5PIxXbwqPxykpXbHZ736Bgdsw/s1600/TERRA1.png'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb8vC6qbYs0uf8w9-FArC6x-mOpWwkcA1lgjXAhZEpRWZYRll3qr8xZON92OwVncyQO9egbsmAvROM28gN1_gRGMJaRZWqI2D_aMdmrD4ky_NFdEkHKZXIVwpF6bvugmgaglySQdgP0_qHtTE8ODKOZbWk-U8rfmDWW_Upotri6Yy6ey9WbQELgXi3TYg/s1600/TERRA2.png'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsVApo60WW-Zcap3m77XQIjJZ96fsyZsjHZwyCA4F0uAaJkJcg_hL7ma2IbgAfR3BXIEHTBsQQ12IuV-zx4zRf1x66u7haqZOGAjbomOgrdIL-G6p9c5L7pIfqeianys9Ddlhs7wRtHW77k8nQEphVA7QAoAsZvna6lZ7x5QV1tFS_neOKTOa1rXlzEe0/s1600/TERRA3.png'/>
-                    <img alt='Imagen 4' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOJ1IPCg6awdnXMmeeM3yMCieKh8qJX4XB0atgfHoa596uLWEThCWHXQjLAYqTFUvVy8uP_hlz-t1qL37Mpk9A2tF4HCLq8P1C0pXYXA9b9krPWVislVPJMn8mDx-1WCfwsEnutoA31YH1iro3SC6ssoKR_PzQwB76kZ_fFfW1NO5idBh4RCpUsCsyCTY/s1600/IMG_20231218_213632005.jpg'/>
+                <!-- Categoría: cajas-luz -->
+                <div class="portfolio-item cajas-luz">
+                    <img alt='Imagen 9' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzBpcawoCr2ldaRNg3LrO_aOxqjSpZ3tvE9I-r1kt2CjfS6stCDu1H10jmKBJDqamFxkUTGAsB3YGQUtthYdlBnl6riR9iUinChGhBEXCIaSTRRq7UyxRWIHaeBK1g4rOZWg8GJjtc1HB8GQ435KlOmNQ5WEgfLljfr0okSa687OcGdlNDR5Ri-Ek2dN4/s1600/BOWLNEON1.png'/>
+                </div>
+                <!-- Categoría: neon -->
+                <div class="portfolio-item neon">
+                    <img alt='Imagen 10' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwz4UjkInq3_KbkNicxfufmoBktBTmuTwr7nk7zsr29n5FOLsWrqjz1QlVdqBg9lS5v3EY4XhONMfTP2pKiEHM2I3rW1NFnfWAvE3Hw2HhtpH4o8TjJf7qgxlhtBv9mXK0I_RLWy0fSate1B5kh5yqgxadXLiku5g1DEiPkFlyuxBCU5KdVAGy2M5LgRk/s1600/PORQUEAMAMOS.png'/>
+                </div>
+                <!-- Categoría: letras-3d -->
+                <div class="portfolio-item letras-3d">
+                    <img alt='Imagen 11' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbJndkOBARcEaNxMkqVArqiDsbjnmwAbhM0EvJiw5t31vA2o1pB7ikTciCC1W6lSaPzF3cFnDgqWMQ1dBDMh9Cl7nfozm5zj57l4uqDoVSB3Cf_qHTahb2-hhe25rLhhmHuKvXiqh2tDsW9-hyamBTkf7K3rATL9Ru0INU6lDELMz6AMZ21_8133BiMiw/s1600/MIGUETT.png'/>
+                </div>
+                <!-- Categoría: cajas-luz -->
+                <div class="portfolio-item cajas-luz">
+                    <img alt='Imagen 12' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9HT29Xz4jreWZlvS42wMMzc0_MHr_ecIMcm-htsNf-cKbVEoS2CprZdlnkgnSG1FrBLNau2AtoQ09gqgOSL3vngOF54kGqC19pj8HHiM3g9-lEbCajfV2WnJcM2Cujryyhyphenhyphen0Sia9nnVcWhr_ss2963TaBW6vgwrcBRnZ0iPHQ2KRpfZrpVGlO4Y6pui4/s1600/Rankmineon2.png'/>
                 </div>
 
-                <!-- Bloque Cajas de Luz (Ejemplo de las imágenes que tenías en las filas extra) -->
-                <div class='gallery-slide filterable-item' data-category="cajas-luz">
-                    <img alt='Imagen 1' class='active' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQH_XIf_-6rZswn4LweGUiyNUU99KKmNpvWI0hQwLBjew9ammT2jidKb-fpAv3vMEC39MtVo-bYc5bSpQELv1JnuK1LOCwuXavQiwWsDhyphenhyphen2ZkhGbuZ0oDQNsyop0ci4y0K0ZHdvTOef8xwooU6rXvPapO7Vx_K_a8qtyko134EomloOJjo_xtXNDdJLyc/s1600/CARRRIER1.png'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC3g7syJxFKDCtqzaWD_1TsdimgicIEjuyDWckNRWCSsO3O_UzOU5jWwuT4RCi0UrIzjgFvFiJXHGaYBQnZ065NBYAnUzpEl61HhIGyn3IzbomcU1yPxMJ-xxqfcEHuOtPr3B2_zT1jllLMTzJnL1_9B4_7VZDpwK5Ek9XxB-oiih0TrSr7oayxzi8Vu8/s1600/CARRIER4.png'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrIU8psn2NNMBlwLUAZEqs5owfxFjsOvb2sLpjvp8d_LH-vZBetnvehgG7jSR6e-cANTS1atbDe2s5r7AtOU_WVW7_1IDyc-AJHuLvPMYvoKW4JsLfli2TJvvGGckait7IB1fsIwDFcbWPNIpMx4_oKTLOFZ9-LIc_D6abKOsY_eICHZOQ01rgnscfE0I/s16000/CARRIER3.png'/>
-                    <img alt='Imagen 4' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4c5EZMQT6zOpWA2tJpF16TBfchQ_JuEFuXdqYO1aLqcVs6PrE8bQotze1x5NvxjOIWbHp9BaijSkfsCYk99aM8LzxC6a3qTFwdhA0pr7os7k2IjkuZ0CLJBDZrGxuBmAr6Pe7lMFQhVtdsfyL3ZOsplrP3YWlWqGQ5Ij46tGKL1ufZAHxZzcsCFWTHpU/s1600/IMG_20231020_000935172.jpg'/>
+                <!-- Categoría: neon -->
+                <div class="portfolio-item neon">
+                    <img alt='Imagen 13' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiNE_FcZa5-Jw95Rh0I0gPmuNwEVrqi4rocmTOmXudxcakSg2t7ZdA2cpLeJSwwWXEf2pWaVhiXwqBbpQdnUailgi4B5tvu3G4JvIR4_noDJ2NmZ_MfovVuStrWwq_FChUHgjCrOLU_hIz3LPQ0IBjcD9ooWMz1SU7kwSl7yEQ3gZhZfqloCaYNkwUktU/s1600/PLANTILLASNEON1.png'/>
+                </div>
+                <!-- Categoría: letras-3d -->
+                <div class="portfolio-item letras-3d">
+                    <img alt='Imagen 14' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOnSYtcEBTlwZL8QRf4K1_5tXG1U-nZt4sFAUcpjsbGsNwqPpPb6bikIsm6ZeA-ZW-mXx2bv9yab_KSqxL91AkTIXbZfJpuYNGE6GOz9X3_10cNwqovhKMwPwKgf7gVPaJxGZu13_x15rPBvm_dpbrj6nCxgsmiQ04MQ64C7tF7z_IrdxNCG3EXukJtVQ/s1600/GOOD.png'/>
+                </div>
+                <!-- Categoría: cajas-luz -->
+                <div class="portfolio-item cajas-luz">
+                    <img alt='Imagen 15' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDeAdKEMxtah-DxdoOyPgfLtN_-vGi6lfmjsp0s490Q6g5tPFC5NyFhqqumRIq-yPiqy5zcIaoi7qHuJHiiHyK4jwvBiVqyRwFSHS7bWnE9JlnnSyEPoJFbp2t97PTOk8ByIsZORpfrjAn1HzS0KF-TjajHi7MZbbEDNq2IE-UFVwC02oFtg9YsVOry4o/s1600/GATOLOCO.png'/>
+                </div>
+                <!-- Categoría: neon -->
+                <div class="portfolio-item neon">
+                    <img alt='Imagen 16' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKwH71Wgs2bDDUgTXnX1E1DXNJsUmKljSUjtbpvcW5cy3mz7Cub9LOc_MwtgFB0nmkIe1LAYwQkD8pR5c1SGx53t3VFzI6yHszA4RcFDXH_IXQkYkJqwvqnd6X4aGSqPPggPGnrk_EUS30IIVhvo05Wl7de1llZN-mEBK696hJWOhnuxkk-2wbz0BlgJ8/s1600/ACNESTRECEMIL.png'/>
                 </div>
             </div>
         </div>
@@ -815,13 +857,29 @@
             </div>
             
             <div class="clientes-grid">
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+01" alt="Cliente 1"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+02" alt="Cliente 2"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+03" alt="Cliente 3"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+04" alt="Cliente 4"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+05" alt="Cliente 5"></div>
+                <!-- Cliente 1 -->
+                <div class="cliente-card">
+                    <img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+01" alt="Cliente 1">
+                </div>
+                <!-- Cliente 2 -->
+                <div class="cliente-card">
+                    <img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+02" alt="Cliente 2">
+                </div>
+                <!-- Cliente 3 -->
+                <div class="cliente-card">
+                    <img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+03" alt="Cliente 3">
+                </div>
+                <!-- Cliente 4 -->
+                <div class="cliente-card">
+                    <img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+04" alt="Cliente 4">
+                </div>
+                <!-- Cliente 5 -->
+                <div class="cliente-card">
+                    <img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+05" alt="Cliente 5">
+                </div>
             </div>
 
+            <!-- Contenedor del Widget: Fondo blanco total, plano de extremo a extremo -->
             <div class="reviews-wrapper">
                 <div class='tr-widget' data-id='7257' data-lang='' data-view='grid2'><a class='' href='https://trust.reviews/' target='_blank'><span/></a></div>
                 <script defer='defer' src='https://cdn.trust.reviews/widget/embed.min.js' type='text/javascript'></script>
@@ -921,73 +979,34 @@
             navMenu.classList.remove("active");
         }));
 
-        // 3. Ciclo automático de imágenes para la galería dinámica
-        function cycleImages(container) {
-            const images = container.querySelectorAll('img');
-            let currentImage = 0;
+        // 3. Script de Filtro para la Galería
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-            setInterval(function () {
-                images[currentImage].classList.remove('active');
-                currentImage = (currentImage + 1) % images.length;
-                images[currentImage].classList.add('active');
-            }, 3000);
-        }
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-        const galleries = document.querySelectorAll('.gallery-slide');
-        galleries.forEach(function (gallery) {
-            cycleImages(gallery);
-        });
+                const filterValue = btn.getAttribute('data-filter');
 
-        // 3.1. Filtros por tipo de anuncio
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const filterableItems = document.querySelectorAll('.filterable-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Cambiar clase activa en botones
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                const filterValue = button.getAttribute('data-filter');
-
-                filterableItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.classList.remove('hidden');
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10); 
                     } else {
-                        item.classList.add('hidden');
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 400); 
                     }
                 });
             });
         });
-
-        // 4. Modal para mostrar imagen en grande al hacer clic
-        function mostrarImagen(elemento) {
-            var imagen = elemento.src;
-            var ventanaModal = document.createElement("div");
-            ventanaModal.style.position = "fixed";
-            ventanaModal.style.top = "0";
-            ventanaModal.style.left = "0";
-            ventanaModal.style.width = "100%";
-            ventanaModal.style.height = "100%";
-            ventanaModal.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
-            ventanaModal.style.display = "flex";
-            ventanaModal.style.alignItems = "center";
-            ventanaModal.style.justifyContent = "center";
-            ventanaModal.style.zIndex = "99999";
-
-            var imagenModal = document.createElement("img");
-            imagenModal.src = imagen;
-            imagenModal.style.maxWidth = "90%";
-            ventanaModal.style.maxHeight = "90%";
-            imagenModal.style.objectFit = "contain";
-
-            ventanaModal.appendChild(imagenModal);
-            document.body.appendChild(ventanaModal);
-
-            ventanaModal.addEventListener("click", function() {
-                document.body.removeChild(ventanaModal);
-            });
-        }
     </script>
 
 </body>
