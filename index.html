@@ -415,7 +415,7 @@
            SECCIÓN NUESTROS CLIENTES
            ========================================= */
         .clientes-section {
-            padding: 40px 40px 60px 40px; 
+            padding: 40px 0 0 0; /* Sin padding lateral para que el widget toque los bordes */
             background-color: #000000; 
             width: 100%;
             text-align: center;
@@ -434,6 +434,7 @@
             align-items: center;
             justify-items: center;
             width: 100%;
+            padding: 0 40px; /* Margen interno solo para las tarjetas de clientes */
             margin-bottom: 40px; 
         }
 
@@ -468,13 +469,14 @@
             filter: grayscale(0%) brightness(1);
         }
 
-        /* Contenedor del Widget con Fondo Blanco */
+        /* Contenedor del Widget: Extremo a extremo, fondo blanco puro, sin bordes redondeados */
         .reviews-wrapper {
             background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 20px;
+            padding: 50px 40px;
+            border-radius: 0;
             width: 100%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: none;
+            margin-top: 20px;
         }
 
         /* Animaciones */
@@ -512,10 +514,11 @@
             .portfolio-filters { gap: 8px; }
             .filter-btn { font-size: 0.75rem; padding: 7px 14px; }
 
-            .herramientas-section, .servicios-section, .clientes-section { padding: 30px 20px; }
+            .herramientas-section, .servicios-section { padding: 30px 20px; }
+            .clientes-section { padding: 30px 0 0 0; }
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
-            .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .reviews-wrapper { padding: 25px 15px; }
+            .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
+            .reviews-wrapper { padding: 40px 20px; }
             
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
 
@@ -754,10 +757,12 @@
     <!-- SECCIÓN NUESTROS CLIENTES -->
     <section class="clientes-section" id="clientes">
         <div class="clientes-container">
-            <h2 class="svc-badge-pill ai-title-pill">
-                <span class="badge-dot"></span>
-                NUESTROS CLIENTES <span class="typed-cursor">_</span>
-            </h2>
+            <div style="text-align: center;">
+                <h2 class="svc-badge-pill ai-title-pill" style="margin-bottom: 25px;">
+                    <span class="badge-dot"></span>
+                    NUESTROS CLIENTES <span class="typed-cursor">_</span>
+                </h2>
+            </div>
             
             <div class="clientes-grid">
                 <!-- Cliente 1 -->
@@ -782,7 +787,7 @@
                 </div>
             </div>
 
-            <!-- Contenedor con fondo blanco exclusivo para el widget de reseñas -->
+            <!-- Contenedor del Widget: Fondo blanco total, plano de extremo a extremo -->
             <div class="reviews-wrapper">
                 <div class='tr-widget' data-id='7257' data-lang='' data-view='grid2'><a class='' href='https://trust.reviews/' target='_blank'><span/></a></div>
                 <script defer='defer' src='https://cdn.trust.reviews/widget/embed.min.js' type='text/javascript'></script>
