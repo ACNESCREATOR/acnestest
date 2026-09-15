@@ -879,6 +879,11 @@
                 </div>
             </div>
 
+            <!-- Píldora de Reseñas al estilo filtro -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="filter-btn active" style="cursor: default; pointer-events: none; display: inline-block;">RESEÑAS</span>
+            </div>
+
             <!-- Contenedor del Widget: Fondo blanco total, plano de extremo a extremo -->
             <div class="reviews-wrapper">
                 <div class='tr-widget' data-id='7257' data-lang='' data-view='grid2'><a class='' href='https://trust.reviews/' target='_blank'><span/></a></div>
@@ -985,7 +990,14 @@
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
+                // Solo aplicar a los botones dentro del menú de filtros
+                if(!btn.parentElement.classList.contains('portfolio-filters')) return;
+                
+                filterBtns.forEach(b => {
+                    if(b.parentElement.classList.contains('portfolio-filters')) {
+                        b.classList.remove('active');
+                    }
+                });
                 btn.classList.add('active');
 
                 const filterValue = btn.getAttribute('data-filter');
