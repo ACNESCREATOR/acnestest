@@ -240,17 +240,17 @@
         .gallery-container {
             display: grid;
             grid-template-columns: 1fr 1fr; /* Dos columnas */
-            grid-gap: 2px; /* Separación mínima limpia */
+            grid-gap: 2px; 
             max-width: 1100px;
             margin: 0 auto; 
-            background-color: transparent; /* Sin fondo neón exterior */
-            padding: 0; /* Sin relleno exterior */
+            background-color: transparent; 
+            padding: 0; 
         }
 
         .gallery-slide {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; /* Cuadradas perfectas */
+            padding-bottom: 100%; 
             overflow: hidden;
             background-color: #111;
         }
@@ -307,7 +307,9 @@
             .ai-title-pill { font-size: 1rem; margin-bottom: 40px; margin-left: auto; margin-right: auto; }
             
             .servicios-grid { grid-template-columns: 1fr; gap: 25px; }
-            .gallery-container { grid-template-columns: 1fr; }
+            
+            /* FORZAR 2 COLUMNAS EN LA GALERÍA PARA MÓVIL (2x2) */
+            .gallery-container { grid-template-columns: repeat(2, 1fr); }
 
             .video-desktop { display: none; }
             .video-mobile { display: block; }
@@ -404,7 +406,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA SIN MARCO) -->
+    <!-- SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA 2x2) -->
     <section class="portafolio-section" id="portafolio">
         <div class="portafolio-container">
             <h2 class="svc-badge-pill ai-title-pill">
