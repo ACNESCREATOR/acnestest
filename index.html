@@ -12,8 +12,8 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             font-family: 'Roboto', sans-serif; 
-            background-color: #ffffff; 
-            color: #111; 
+            background-color: #000000; 
+            color: #fff; 
             overflow-x: hidden; 
         }
 
@@ -99,7 +99,7 @@
         }
 
         /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS (NEGRO PURO, SIN BORDE NI BRILLO)
+           DISEÑO DE PÍLDORAS Y TÍTULOS (NEGRO PURO, TEXTO BLANCO, PUNTO PARPADEANTE)
            ========================================= */
         .svc-badge-pill {
             position: relative; 
@@ -109,7 +109,6 @@
             text-align: center; 
             flex-wrap: wrap; 
             
-            /* Fondo negro puro, sin borde ni brillo */
             background: #000000;
             color: #ffffff;
             border: none;
@@ -161,7 +160,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN (NEGRO PURO Y LÍNEA TURQUESA)
+           BARRA DE NAVEGACIÓN (FIJA Y TRANSLÚCIDA / VIDRIO)
            ========================================= */
         .navbar {
             position: fixed; 
@@ -173,8 +172,10 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000; 
-            background: #000000; /* Negro sólido puro */
-            border-bottom: 1.5px solid #00fff7; /* Línea inferior turquesa neón */
+            background: rgba(0, 0, 0, 0.45); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
@@ -190,11 +191,11 @@
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
 
         /* =========================================
-           SECCIÓN PORTAFOLIO CON FILTROS
+           SECCIÓN PORTAFOLIO CON FILTROS (FONDO NEGRO)
            ========================================= */
         .portafolio-section {
             padding: 50px 0 30px 0; 
-            background-color: #ffffff; 
+            background-color: #000000; 
             width: 100%;
         }
 
@@ -216,10 +217,8 @@
         }
 
         .filter-btn {
-            background: rgba(10, 12, 16, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(0, 255, 247, 0.6);
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             padding: 8px 18px;
             border-radius: 50px;
@@ -230,13 +229,11 @@
             text-transform: uppercase;
             letter-spacing: 0.8px;
             transition: all 0.3s ease;
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
         }
 
         .filter-btn:hover {
             border-color: #00fff7;
-            background: rgba(15, 20, 28, 0.95);
-            box-shadow: 0 0 10px rgba(0, 255, 247, 0.25);
+            background: #1a1a1a;
         }
 
         .filter-btn.active {
@@ -282,11 +279,11 @@
         }
 
         /* =========================================
-           SECCIÓN HERRAMIENTAS INTERACTIVAS
+           SECCIÓN HERRAMIENTAS INTERACTIVAS (FONDO NEGRO)
            ========================================= */
         .herramientas-section {
             padding: 40px 40px 20px 40px; 
-            background-color: #ffffff;
+            background-color: #000000;
             width: 100%;
         }
 
@@ -322,11 +319,11 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS
+           SECCIÓN DE SERVICIOS (FONDO NEGRO Y TARJETAS OSCURAS)
            ========================================= */
         .servicios-section {
             padding: 40px 40px 60px 40px; 
-            background-color: #ffffff; 
+            background-color: #000000; 
             width: 100%;
             text-align: center;
         }
@@ -345,36 +342,36 @@
         }
 
         .servicio-card { 
-            background-color: #f9f9f9; 
+            background-color: #111111; 
             padding: 35px 30px; 
             border-radius: 15px; 
-            border: 1px solid #eaeaea; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             transition: all 0.4s ease; 
             width: 100%; 
             text-align: left;
         }
         .servicio-card:hover { 
             transform: translateY(-8px); 
-            border-color: #0761b5; 
-            box-shadow: 0 10px 30px rgba(7, 97, 181, 0.1); 
+            border-color: #00fff7; 
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); 
         }
         .servicio-icon { 
             width: 60px; 
             height: 60px; 
             margin: 0 0 20px 0; 
-            background-color: rgba(7, 97, 181, 0.08); 
+            background-color: rgba(0, 255, 247, 0.08); 
             border-radius: 50%; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            border: 1px solid rgba(7, 97, 181, 0.2); 
+            border: 1px solid rgba(0, 255, 247, 0.2); 
             transition: all 0.4s ease; 
         }
-        .servicio-card:hover .servicio-icon { background-color: #0761b5; }
-        .servicio-icon svg { width: 30px; height: 30px; fill: #0761b5; transition: all 0.4s ease; }
-        .servicio-card:hover .servicio-icon svg { fill: #fff; }
-        .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 12px; color: #111; }
-        .servicio-card p { color: #555; font-size: 0.95rem; line-height: 1.5; }
+        .servicio-card:hover .servicio-icon { background-color: #00fff7; }
+        .servicio-icon svg { width: 30px; height: 30px; fill: #00fff7; transition: all 0.4s ease; }
+        .servicio-card:hover .servicio-icon svg { fill: #000; }
+        .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 12px; color: #ffffff; }
+        .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
 
         /* Animaciones */
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
