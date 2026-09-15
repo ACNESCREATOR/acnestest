@@ -512,29 +512,30 @@
         }
 
         /* =========================================
-           SECCIÓN SOLICITAR COTIZACIÓN & WHATSAPP FORM
+           SECCIÓN SOLICITAR COTIZACIÓN & WHATSAPP FORM (Sin marco, 80% ancho)
            ========================================= */
         .cotizacion-section {
-            padding: 60px 40px;
+            padding: 60px 0;
             background-color: #000000;
             width: 100%;
             text-align: center;
         }
 
         .cotizacion-container {
-            width: 100%;
-            max-width: 750px;
+            width: 80%;
+            max-width: 100%;
             margin: 0 auto;
-            background-color: #111111;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
             text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.08);
+            box-shadow: none;
         }
 
         #acnes-wa-formulario {
-            max-width: 400px;
+            width: 100%;
+            max-width: 100%;
             margin: 20px auto;
             border-radius: 0px;
             padding: 0;
@@ -545,12 +546,12 @@
 
         .wa-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .wa-header h3 {
             margin: 0 0 5px 0;
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #25D366;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
@@ -558,12 +559,12 @@
         
         .wa-header p {
             margin: 0;
-            font-size: 0.9em;
+            font-size: 1em;
             color: #cccccc;
         }
 
         .wa-grupo {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .wa-grupo label {
@@ -579,10 +580,10 @@
 
         .wa-input {
             width: 100%;
-            background-color: #000;
+            background-color: #111111;
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
-            padding: 12px 18px;
+            padding: 14px 18px;
             border-radius: 10px;
             font-size: 1rem;
             font-family: 'Roboto', sans-serif;
@@ -604,10 +605,10 @@
         .wa-nota-archivo {
             background: rgba(37, 211, 102, 0.1);
             border-left: 3px solid #25D366;
-            padding: 12px;
-            font-size: 0.85em;
+            padding: 14px;
+            font-size: 0.9em;
             color: #cccccc;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-radius: 0 8px 8px 0;
         }
 
@@ -616,7 +617,7 @@
             background: #25D366;
             color: #ffffff;
             border: none;
-            padding: 14px 30px;
+            padding: 16px 30px;
             border-radius: 50px;
             font-size: 1rem;
             font-family: 'Montserrat', sans-serif;
@@ -647,6 +648,7 @@
         @media (max-width: 1024px) {
             .clientes-grid { grid-template-columns: repeat(3, 1fr); }
             .reviews-inner { width: 95%; } 
+            .cotizacion-container { width: 90%; }
         }
 
         @media (max-width: 768px) {
@@ -675,8 +677,8 @@
 
             .herramientas-section, .servicios-section { padding: 30px 20px; }
             .clientes-section { padding: 30px 0 0 0; }
-            .cotizacion-section { padding: 40px 20px; }
-            .cotizacion-container { padding: 25px 20px; }
+            .cotizacion-section { padding: 40px 0; }
+            .cotizacion-container { width: 95%; }
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
             
