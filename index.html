@@ -99,7 +99,7 @@
         }
 
         /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS (SIN FONDO, TEXTO NEGRO Y NEÓN TURQUESA)
+           DISEÑO DE PÍLDORAS Y TÍTULOS (CRISTAL NEGRO PROFUNDO Y TEXTO BLANCO)
            ========================================= */
         .svc-badge-pill {
             position: relative; 
@@ -109,12 +109,16 @@
             text-align: center; 
             flex-wrap: wrap; 
             
-            /* Sin fondo y texto negro */
-            background: transparent;
-            color: #111111;
+            /* Fondo cristal negro profundo y desenfoque */
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            
+            /* Texto blanco */
+            color: #ffffff;
             
             /* Borde y brillo turquesa neón */
-            border: 1.5px solid #00fff7;
+            border: 1px solid rgba(0, 255, 247, 0.75);
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.35);
             
             border-radius: 50px;
@@ -209,7 +213,7 @@
             padding: 0;
         }
 
-        /* Botones de Filtro */
+        /* Botones de Filtro (Estilo Cristal Negro) */
         .portfolio-filters {
             display: flex;
             justify-content: center;
@@ -220,9 +224,11 @@
         }
 
         .filter-btn {
-            background-color: transparent;
-            border: 1.5px solid #00fff7;
-            color: #111;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 247, 0.5);
+            color: #fff;
             padding: 10px 25px;
             border-radius: 50px;
             cursor: pointer;
@@ -235,12 +241,14 @@
         }
 
         .filter-btn:hover {
-            background-color: rgba(0, 255, 247, 0.15);
+            border-color: #00fff7;
+            background: rgba(0, 0, 0, 0.95);
         }
 
         .filter-btn.active {
             background-color: #00fff7;
             color: #000;
+            border-color: #00fff7;
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.4);
         }
 
