@@ -7,6 +7,8 @@
     
     <!-- Fuentes Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos (WhatsApp) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -415,7 +417,7 @@
            SECCIÓN NUESTROS CLIENTES Y RESEÑAS
            ========================================= */
         .clientes-section {
-            padding: 40px 0 0 0; /* Sin padding abajo para unirlo con el fondo blanco */
+            padding: 40px 0 0 0; 
             background-color: #000000; 
             width: 100%;
             text-align: center;
@@ -510,7 +512,7 @@
         }
 
         /* =========================================
-           SECCIÓN SOLICITAR COTIZACIÓN
+           SECCIÓN SOLICITAR COTIZACIÓN & WHATSAPP FORM
            ========================================= */
         .cotizacion-section {
             padding: 60px 40px;
@@ -531,72 +533,108 @@
             box-shadow: 0 10px 30px rgba(0, 255, 247, 0.08);
         }
 
-        .cotizacion-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 20px;
+        #acnes-wa-formulario {
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 0px;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+            box-sizing: border-box;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .wa-header {
+            text-align: center;
+            margin-bottom: 20px;
         }
-
-        .form-group label {
+        
+        .wa-header h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.5em;
+            color: #25D366;
+            font-weight: bold;
             font-family: 'Montserrat', sans-serif;
+        }
+        
+        .wa-header p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #cccccc;
+        }
+
+        .wa-grupo {
+            margin-bottom: 15px;
+        }
+
+        .wa-grupo label {
+            display: block;
             font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #fff;
         }
 
-        .form-control {
+        .wa-input {
+            width: 100%;
             background-color: #000;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 12px 18px;
             color: #fff;
-            font-family: 'Roboto', sans-serif;
+            padding: 12px 18px;
+            border-radius: 10px;
             font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
             transition: all 0.3s ease;
-            width: 100%;
         }
 
-        .form-control:focus {
-            border-color: #00fff7;
+        .wa-input:focus {
             outline: none;
-            box-shadow: 0 0 10px rgba(0, 255, 247, 0.3);
+            border-color: #25D366;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
         }
 
-        textarea.form-control {
+        textarea.wa-input {
             resize: vertical;
             min-height: 120px;
         }
 
-        .btn-enviar {
-            background-color: #00fff7;
-            color: #000;
-            font-family: 'Montserrat', sans-serif;
+        .wa-nota-archivo {
+            background: rgba(37, 211, 102, 0.1);
+            border-left: 3px solid #25D366;
+            padding: 12px;
+            font-size: 0.85em;
+            color: #cccccc;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .wa-boton {
+            width: 100%;
+            background: #25D366;
+            color: #ffffff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
             font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: none;
-            border-radius: 50px;
-            padding: 14px 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            align-self: center;
-            width: 100%;
-            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-enviar:hover {
-            background-color: #fff;
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.5);
+        .wa-boton:hover {
+            background: #1ebe57;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+            transform: translateY(-2px);
         }
 
         /* Animaciones */
@@ -608,7 +646,7 @@
            ========================================= */
         @media (max-width: 1024px) {
             .clientes-grid { grid-template-columns: repeat(3, 1fr); }
-            .reviews-inner { width: 95%; } /* Un poco más de espacio en tablets */
+            .reviews-inner { width: 95%; } 
         }
 
         @media (max-width: 768px) {
@@ -642,7 +680,6 @@
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
             
-            /* Ajuste del widget y el fondo blanco para móviles (Totalmente expandido) */
             .reviews-wrapper { padding: 40px 0; margin-top: 30px; }
             .reviews-inner { width: 100%; padding: 0 5px; } 
             
@@ -939,35 +976,77 @@
                 </h2>
             </div>
 
-            <form class="cotizacion-form" action="#" method="POST">
-                <div class="form-group">
-                    <label for="nombre">Nombre / Empresa</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe tu nombre o el de tu negocio" required>
+            <div id='acnes-wa-formulario'>
+                <div class='wa-header'>
+                    <h3>Cotiza por WhatsApp</h3>
+                    <p>Atención rápida y personalizada.</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="telefono">Teléfono / WhatsApp</label>
-                    <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="10 dígitos para ponernos en contacto" required>
+                <!-- Campo Nombre con cierre XML para Blogger -->
+                <div class='wa-grupo'>
+                    <label for='wa-nombre'>Tu Nombre:</label>
+                    <input class='wa-input' id='wa-nombre' placeholder='Ej. Juan Pérez' type='text'/>
                 </div>
 
-                <div class="form-group">
-                    <label for="servicio">Servicio de Interés</label>
-                    <select id="servicio" name="servicio" class="form-control" required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option value="letras-3d">Letras 3D y Aluminio</option>
-                        <option value="cajas-luz">Cajas de Luz</option>
-                        <option value="diseno-rotulacion">Diseño y Rotulación</option>
-                        <option value="neon">Neón LED / Otro</option>
+                <!-- Campo Servicio -->
+                <div class='wa-grupo'>
+                    <label for='wa-servicio'>&#191;Qué necesitas?</label>
+                    <select class='wa-input' id='wa-servicio'>
+                        <option value='Diseño de anuncio'>Diseño de anuncio</option>
+                        <option value='Fabricación de anuncio'>Fabricación de anuncio</option>
+                        <option value='Instalación'>Instalación</option>
+                        <option value='Cotización general'>Cotización general</option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="mensaje">Detalles del Proyecto</label>
-                    <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Describe medidas aproximadas, texto o ideas para tu anuncio..." required></textarea>
+                <!-- Campo Detalles -->
+                <div class='wa-grupo'>
+                    <label for='wa-detalles'>Detalles de tu proyecto:</label>
+                    <textarea class='wa-input' id='wa-detalles' placeholder='Medidas, ideas, etc...' rows='3'></textarea>
                 </div>
 
-                <button type="submit" class="btn-enviar">Enviar Solicitud</button>
-            </form>
+                <!-- Aviso de archivo -->
+                <div class='wa-nota-archivo'>
+                    📎 <b>&#191;Tienes un diseño o logo?</b> Podrás adjuntarlo directamente en el chat al abrir WhatsApp.
+                </div>
+
+                <!-- Botón que ejecuta el script -->
+                <button class='wa-boton' onclick='enviarFormularioWA()'>
+                    <i class='fab fa-whatsapp' style='font-size: 1.2em;'></i> Continuar al chat
+                </button>
+            </div>
+
+            <!-- Script protegido para Blogger -->
+            <script type='text/javascript'>
+            //<![CDATA[
+                function enviarFormularioWA() {
+                    var telefono = "5521913826";
+                    var nombre = document.getElementById("wa-nombre").value;
+                    var servicio = document.getElementById("wa-servicio").value;
+                    var detalles = document.getElementById("wa-detalles").value;
+                    
+                    if(nombre === "") {
+                        alert("Por favor, ingresa tu nombre antes de continuar.");
+                        return;
+                    }
+
+                    var mensaje = "¡Hola Acnes! 👋%0A%0A";
+                    mensaje += "*Mi nombre es:* " + nombre + "%0A";
+                    mensaje += "*Me interesa:* " + servicio + "%0A";
+                    
+                    if(detalles !== "") {
+                        mensaje += "*Detalles:* " + detalles + "%0A%0A";
+                    }
+                    
+                    mensaje += "_Tengo un archivo/imagen que quiero compartirles._";
+
+                    var url = "https://wa.me/" + telefono + "?text=" + mensaje;
+                    window.open(url, '_blank');
+                }
+            //]]>
+            </script>
+
+            <h4 style='text-align: center; margin-top: 30px; font-family: "Montserrat", sans-serif; color: #fff; font-size: 1rem;'>&#161;Keep creative, keep ACNES!</h4>
         </div>
     </section>
 
