@@ -99,7 +99,7 @@
         }
 
         /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS (CRISTAL NEGRO PROFUNDO Y TEXTO BLANCO)
+           DISEÑO DE PÍLDORAS Y TÍTULOS (EFECTO VIÑETA NEGRO Y TEXTO BLANCO)
            ========================================= */
         .svc-badge-pill {
             position: relative; 
@@ -109,17 +109,13 @@
             text-align: center; 
             flex-wrap: wrap; 
             
-            /* Fondo cristal negro profundo y desenfoque */
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            
-            /* Texto blanco */
+            /* Efecto viñeta: centro sutilmente iluminado y bordes en negro puro */
+            background: radial-gradient(circle at center, #242c38 0%, #000000 80%);
             color: #ffffff;
             
-            /* Borde y brillo turquesa neón */
-            border: 1px solid rgba(0, 255, 247, 0.75);
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.35);
+            /* Borde y brillo turquesa neón con sombra interna para profundidad */
+            border: 1.5px solid #00fff7;
+            box-shadow: 0 0 15px rgba(0, 255, 247, 0.35), inset 0 0 10px rgba(0, 0, 0, 0.9);
             
             border-radius: 50px;
             padding: 12px 30px 12px 50px; 
@@ -213,7 +209,7 @@
             padding: 0;
         }
 
-        /* Botones de Filtro (Estilo Cristal Negro) */
+        /* Botones de Filtro (Mismo efecto viñeta) */
         .portfolio-filters {
             display: flex;
             justify-content: center;
@@ -224,10 +220,8 @@
         }
 
         .filter-btn {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 255, 247, 0.5);
+            background: radial-gradient(circle at center, #242c38 0%, #000000 80%);
+            border: 1.5px solid rgba(0, 255, 247, 0.6);
             color: #fff;
             padding: 10px 25px;
             border-radius: 50px;
@@ -238,15 +232,16 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
         }
 
         .filter-btn:hover {
             border-color: #00fff7;
-            background: rgba(0, 0, 0, 0.95);
+            background: radial-gradient(circle at center, #2e3846 0%, #000000 80%);
         }
 
         .filter-btn.active {
-            background-color: #00fff7;
+            background: #00fff7;
             color: #000;
             border-color: #00fff7;
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.4);
