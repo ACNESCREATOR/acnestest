@@ -482,9 +482,8 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <section>
+        
     <div style='display: flex; justify-content: space-between;'>
   <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipTj47x2zXjCW95p_CKCAeNWA0E0klW29OB8qYHkOQIXOPbjUjYgbMIuXndlauOsYc4m0uCa230WnXNU16irgN660xjcYk60pVdFpvPBrXbrqdgrcZJBbs3_O_qeEIbdVMnf5pvuiScIalBePEhyr6nAw2q8pN8ko9jT5PIxXbwqPxykpXbHZ736Bgdsw/s1600/TERRA1.png' style='width: 33.2%;'/>
   <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb8vC6qbYs0uf8w9-FArC6x-mOpWwkcA1lgjXAhZEpRWZYRll3qr8xZON92OwVncyQO9egbsmAvROM28gN1_gRGMJaRZWqI2D_aMdmrD4ky_NFdEkHKZXIVwpF6bvugmgaglySQdgP0_qHtTE8ODKOZbWk-U8rfmDWW_Upotri6Yy6ey9WbQELgXi3TYg/s1600/TERRA2.png' style='width: 33.2%;'/>
@@ -677,6 +676,26 @@ function mostrarImagen(elemento) {
 }
 
   </script>
-    
+
+    <script>
+  // Función para cambiar las imágenes en una galería individual
+  function cycleImages(container) {
+    const images = container.querySelectorAll(&#39;img&#39;);
+    let currentImage = 0;
+
+    setInterval(function () {
+      images[currentImage].classList.remove(&#39;active&#39;); // Oculta imagen actual
+      currentImage = (currentImage + 1) % images.length; // Pasa a la siguiente
+      images[currentImage].classList.add(&#39;active&#39;); // Muestra nueva imagen
+    }, 3000); // Cambia cada 3 segundos
+  }
+
+  // Selecciona todos los contenedores de las imágenes y aplica el ciclo
+  const galleries = document.querySelectorAll(&#39;.gallery-slide&#39;);
+  galleries.forEach(function (gallery) {
+    cycleImages(gallery); // Aplica la función a cada galería individual
+  });
+</script>
+
 </body>
 </html>
