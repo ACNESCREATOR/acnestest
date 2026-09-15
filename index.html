@@ -647,55 +647,41 @@
             cycleImages(gallery); 
         });
     </script>
+     <script>
 <!--JavaScript-->
-<script>
-function mostrarImagen(elemento) {
-  var imagen = elemento.src;
-  var ventanaModal = document.createElement(&quot;div&quot;);
-  ventanaModal.style.position = &quot;fixed&quot;;
-  ventanaModal.style.top = &quot;0&quot;;
-  ventanaModal.style.left = &quot;0&quot;;
-  ventanaModal.style.width = &quot;100%&quot;;
-  ventanaModal.style.height = &quot;100%&quot;;
-  ventanaModal.style.backgroundColor = &quot;rgba(0, 0, 0, 0.7)&quot;;
-  ventanaModal.style.display = &quot;flex&quot;;
-  ventanaModal.style.alignItems = &quot;center&quot;;
-  ventanaModal.style.justifyContent = &quot;center&quot;;
+// 4. Función de la Ventana Modal para ampliar imágenes
+        function mostrarImagen(elemento) {
+            var imagen = elemento.src;
+            var ventanaModal = document.createElement("div");
+            ventanaModal.style.position = "fixed";
+            ventanaModal.style.top = "0";
+            ventanaModal.style.left = "0";
+            ventanaModal.style.width = "100%";
+            ventanaModal.style.height = "100%";
+            ventanaModal.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+            ventanaModal.style.display = "flex";
+            ventanaModal.style.alignItems = "center";
+            ventanaModal.style.justifyContent = "center";
+            ventanaModal.style.zIndex = "9999"; // <--- Asegura que la modal flote por encima de todo
 
-  var imagenModal = document.createElement(&quot;img&quot;);
-  imagenModal.src = imagen;
-  imagenModal.style.maxWidth = &quot;95%&quot;;
-  imagenModal.style.maxHeight = &quot;95%&quot;;
+            var imagenModal = document.createElement("img");
+            imagenModal.src = imagen;
+            imagenModal.style.maxWidth = "90%";
+            imagenModal.style.maxHeight = "90%";
+            imagenModal.style.objectFit = "contain";
+            imagenModal.style.borderRadius = "8px";
+            imagenModal.style.boxShadow = "0 0 25px rgba(0,0,0,0.5)";
 
-  ventanaModal.appendChild(imagenModal);
-  document.body.appendChild(ventanaModal);
+            ventanaModal.appendChild(imagenModal);
+            document.body.appendChild(ventanaModal);
 
-  ventanaModal.addEventListener(&quot;click&quot;, function() {
-    document.body.removeChild(ventanaModal);
-  });
-}
+            ventanaModal.addEventListener("click", function() {
+                document.body.removeChild(ventanaModal);
+            });
+        }
+ 
 
   </script>
-
-    <script>
-  // Función para cambiar las imágenes en una galería individual
-  function cycleImages(container) {
-    const images = container.querySelectorAll(&#39;img&#39;);
-    let currentImage = 0;
-
-    setInterval(function () {
-      images[currentImage].classList.remove(&#39;active&#39;); // Oculta imagen actual
-      currentImage = (currentImage + 1) % images.length; // Pasa a la siguiente
-      images[currentImage].classList.add(&#39;active&#39;); // Muestra nueva imagen
-    }, 3000); // Cambia cada 3 segundos
-  }
-
-  // Selecciona todos los contenedores de las imágenes y aplica el ciclo
-  const galleries = document.querySelectorAll(&#39;.gallery-slide&#39;);
-  galleries.forEach(function (gallery) {
-    cycleImages(gallery); // Aplica la función a cada galería individual
-  });
-</script>
 
 </body>
 </html>
