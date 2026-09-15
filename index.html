@@ -32,7 +32,6 @@
             background-color: #111;
         }
 
-        /* VIDEOS DE FONDO */
         .hero-video {
             position: absolute; 
             top: 50%;
@@ -49,7 +48,6 @@
         .video-desktop { display: block; }
         .video-mobile { display: none; }
 
-        /* CAPA OSCURA */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -60,7 +58,6 @@
             z-index: 2; 
         }
 
-        /* CONTENEDOR DE LA PÍLDORA */
         .hero-content {
             position: relative; 
             z-index: 3; 
@@ -68,7 +65,7 @@
             width: 100%;
         }
 
-        /* DISEÑO DE LA PÍLDORA */
+        /* DISEÑO DE LA PÍLDORA Y TÍTULOS IA */
         .svc-badge-pill {
             display: inline-flex;
             align-items: center; 
@@ -79,11 +76,18 @@
             border-radius: 50px;
             padding: 12px 25px; 
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem; 
+            font-size: 1rem; 
             font-weight: 800;
             letter-spacing: 0.1em;
             color: #fff;
             text-transform: uppercase;
+        }
+
+        .ai-title-pill {
+            font-size: 1.2rem; 
+            padding: 15px 35px;
+            margin-bottom: 60px;
+            border-color: #00fff7; 
         }
 
         .badge-dot {
@@ -121,206 +125,116 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
         }
 
-        .nav-logo img {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-menu li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
+        .nav-logo img { height: 60px; width: auto; display: block; }
+        .nav-menu { display: flex; gap: 35px; list-style: none; }
+        .nav-menu li a { color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
         .nav-menu li a:hover { color: #00fff7; }
 
-        .btn-cotizar {
-            border: 1px solid #00fff7;
-            padding: 8px 22px;
-            border-radius: 50px;
-            color: #00fff7 !important;
-            transition: all 0.3s ease;
-        }
+        .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; transition: all 0.3s ease; }
+        .btn-cotizar:hover { background-color: #00fff7; color: #000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
 
-        .btn-cotizar:hover {
-            background-color: #00fff7;
-            color: #000 !important;
-            box-shadow: 0 0 10px rgba(0, 255, 247, 0.5);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        .hamburger .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: #fff;
-            transition: all 0.3s ease-in-out;
-        }
+        .hamburger { display: none; cursor: pointer; }
+        .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS (TARJETAS)
+           SECCIÓN DE SERVICIOS
            ========================================= */
         .servicios-section {
-            padding: 100px 20px; 
+            padding: 100px 20px 40px 20px; 
             background-color: #000; 
             text-align: center;
         }
 
-        .servicios-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+        .servicios-container { max-width: 1100px; margin: 0 auto; }
 
-       /* =========================================
-           TÍTULOS DE SECCIÓN TIPO IA (PÍLDORAS)
-           ========================================= */
-        .ai-title-pill {
-            font-size: 1.2rem; /* Un poco más grande que la píldora de portada */
-            padding: 15px 35px;
-            margin-bottom: 60px;
-            border-color: #00fff7; /* Borde cyan más marcado para los títulos */
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 40px;
-        }
+        .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
         .servicio-card {
-            background-color: #0a0a0a;
-            padding: 40px 30px;
-            border-radius: 15px;
-            border: 1px solid #222;
-            transition: all 0.4s ease;
+            background-color: #0a0a0a; padding: 40px 30px; border-radius: 15px; border: 1px solid #222; transition: all 0.4s ease;
         }
-
-        .servicio-card:hover {
-            transform: translateY(-10px); 
-            border-color: #00fff7; 
-            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); 
-        }
-
-        .servicio-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 25px;
-            background-color: rgba(0, 255, 247, 0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 255, 247, 0.2);
-            transition: all 0.4s ease;
-        }
-
-        .servicio-card:hover .servicio-icon {
-            background-color: #00fff7;
-        }
-
-        .servicio-icon svg {
-            width: 35px;
-            height: 35px;
-            fill: #00fff7; 
-            transition: all 0.4s ease;
-        }
-
-        .servicio-card:hover .servicio-icon svg {
-            fill: #000; 
-        }
-
-        .servicio-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .servicio-card p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Animaciones */
-        @keyframes pulsarPunto {
-            0%, 100% { transform: scale(0.95); opacity: 0.4; }
-            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; }
-        }
-        @keyframes parpadeoCursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        } 
+        .servicio-card:hover { transform: translateY(-10px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); }
+        .servicio-icon { width: 70px; height: 70px; margin: 0 auto 25px; background-color: rgba(0, 255, 247, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 255, 247, 0.2); transition: all 0.4s ease; }
+        .servicio-card:hover .servicio-icon { background-color: #00fff7; }
+        .servicio-icon svg { width: 35px; height: 35px; fill: #00fff7; transition: all 0.4s ease; }
+        .servicio-card:hover .servicio-icon svg { fill: #000; }
+        .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; }
+        .servicio-card p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }
 
         /* =========================================
-           AJUSTES RESPONSIVOS (SOLO PARA CELULARES)
+           SECCIÓN HERRAMIENTAS INTERACTIVAS (BANNERS)
+           ========================================= */
+        .herramientas-section {
+            padding: 40px 20px 100px 20px; 
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #acnes-banners-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px; /* Alineado al tamaño de servicios */
+        }
+
+        .acnes-banner {
+            text-decoration: none; display: block; border-radius: 24px; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .acnes-banner:hover { transform: translateY(-5px) scale(1.01); }
+        .acnes-inner { display: flex; align-items: center; justify-content: space-between; padding: 40px; border-radius: 22px; height: auto; }
+        .acnes-content { max-width: 65%; text-align: left; }
+        .acnes-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #ffffff; margin-bottom: 8px; line-height: 1.1; text-transform: uppercase; }
+        .acnes-tag { font-size: 14px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 12px; }
+        .acnes-desc { font-size: 15px; color: #ffffff; opacity: 0.9; line-height: 1.5; }
+        .acnes-btn { padding: 12px 30px; border-radius: 50px; font-size: 13px; font-weight: 700; text-transform: uppercase; transition: all 0.3s ease; letter-spacing: 1px; white-space: nowrap; text-align: center; background: transparent; }
+
+        /* DESIGN CENTER */
+        .banner-dc { background: linear-gradient(90deg, #0761b5 10%, #00ffff 100%); font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .banner-dc .acnes-inner { background: rgba(0, 0, 0, 0.10); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .banner-dc:hover .acnes-inner { background: rgba(0, 0, 0, 0.25); border-color: rgba(0, 255, 255, 0.6); }
+        .banner-dc .acnes-title { text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .banner-dc .acnes-tag { color: #00ffff; }
+        .banner-dc .acnes-btn { border: 2px solid #00ffff; color: #ffffff; }
+        .banner-dc:hover .acnes-btn { background: #00ffff; color: #000000; box-shadow: 0 0 15px #00ffff; }
+
+        /* VIRTUAL QUOTER */
+        .banner-vq { background: linear-gradient(70deg, #0761b5 10%, #00fff7 90%); padding: 3px; font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 25px rgba(0, 255, 247, 0.15); }
+        .banner-vq .acnes-inner { background: radial-gradient(circle at center, #1a2333 0%, #050505 100%); }
+        .banner-vq .acnes-tag { color: #00fff7; }
+        .banner-vq .acnes-btn { border: 2px solid #00fff7; color: #00fff7; }
+        .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
+
+        /* Animaciones */
+        @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
+        @keyframes parpadeoCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } } 
+
+        /* =========================================
+           AJUSTES RESPONSIVOS (CELULARES)
            ========================================= */
         @media (max-width: 768px) {
             .hero-section { height: 100vh; }
-            
-            .svc-badge-pill {
-                font-size: 1.3rem; 
-                padding: 10px 18px; 
-                width: 100%; 
-                max-width: 320px; 
-            } /* <--- ¡ESTA ERA LA LLAVE QUE SE HABÍA BORRADO! */
-
-    
-            /* Ajuste de píldora-título para Móvil */
-            .ai-title-pill { 
-                font-size: 1rem; 
-                margin-bottom: 40px; 
-            }
-            .servicios-grid {
-                grid-template-columns: 1fr; 
-                gap: 25px;
-            }
-            
+            .svc-badge-pill { font-size: 0.85rem; padding: 10px 18px; width: 100%; max-width: 320px; } 
+            .ai-title-pill { font-size: 1rem; margin-bottom: 40px; }
+            .servicios-grid { grid-template-columns: 1fr; gap: 25px; }
             .video-desktop { display: none; }
             .video-mobile { display: block; }
-
-            /* Menú en Celular */
             .navbar { padding: 15px 20px; }
             .hamburger { display: block; }
-
-            .nav-menu {
-                position: absolute;
-                left: -100%; 
-                top: 0; 
-                flex-direction: column;
-                justify-content: center; 
-                background-color: rgba(0, 0, 0, 0.98); 
-                width: 100%;
-                height: 100vh; 
-                text-align: center;
-                transition: left 0.4s ease-in-out;
-                padding: 0;
-                gap: 0;
-                z-index: -1;
-            }
-
+            .nav-menu { position: absolute; left: -100%; top: 0; flex-direction: column; justify-content: center; background-color: rgba(0, 0, 0, 0.98); width: 100%; height: 100vh; text-align: center; transition: left 0.4s ease-in-out; padding: 0; gap: 0; z-index: -1; }
             .nav-menu li { margin: 25px 0; }
             .nav-menu li a { font-size: 1.2rem; }
-
             .nav-menu.active { left: 0; }
-
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            /* Ajustes Banners Celular */
+            .acnes-inner { flex-direction: column; padding: 35px 20px; justify-content: center; align-items: center; }
+            .acnes-content { max-width: 100%; text-align: center; margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; }
+            .acnes-title, .acnes-tag, .acnes-desc { text-align: center; }
+            .acnes-btn { width: 100%; }
         }
     </style>
 </head>
@@ -331,18 +245,14 @@
         <a href="#" class="nav-logo">
             <img src="./ACNES (1).png" alt="Logo ACNES Publicidad">
         </a>
-        
         <ul class="nav-menu">
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Portafolio</a></li>
-            <li><a href="#" class="btn-cotizar">Cotizar</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#herramientas">Cotizador</a></li>
+            <li><a href="#" class="btn-cotizar">Contacto</a></li>
         </ul>
-
         <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </div>
     </nav>
 
@@ -365,15 +275,15 @@
 
     <!-- SECCIÓN DE SERVICIOS -->
     <section class="servicios-section" id="servicios">
-       <!-- Título tipo IA con Píldora -->
+        <div class="servicios-container">
+            
+            <!-- Título tipo IA con Píldora -->
             <h2 class="svc-badge-pill ai-title-pill">
                 <span class="badge-dot"></span>
                 NUESTROS SERVICIOS <span class="typed-cursor">_</span>
             </h2>
             
-            
             <div class="servicios-grid">
-                <!-- Tarjeta 1 -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24"><path d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V22H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" /></svg>
@@ -381,8 +291,6 @@
                     <h3>Letras 3D y Aluminio</h3>
                     <p>Fabricación de anuncios tridimensionales de alta calidad. Acabados premium con iluminación LED para destacar tu marca al máximo.</p>
                 </div>
-
-                <!-- Tarjeta 2 -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z" /></svg>
@@ -390,8 +298,6 @@
                     <h3>Cajas de Luz</h3>
                     <p>Letreros luminosos personalizados a la medida. Ideales para que tu fachada o negocio capte la atención tanto de día como de noche.</p>
                 </div>
-
-                <!-- Tarjeta 3 -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
                         <svg viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
@@ -400,6 +306,42 @@
                     <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS -->
+    <section class="herramientas-section" id="herramientas">
+        
+        <!-- Título tipo IA con Píldora -->
+        <h2 class="svc-badge-pill ai-title-pill">
+            <span class="badge-dot"></span>
+            HERRAMIENTAS INTERACTIVAS <span class="typed-cursor">_</span>
+        </h2>
+
+        <div id='acnes-banners-container'>
+            <!-- BANNER 1: DESIGN CENTER -->
+            <a class='acnes-banner banner-dc' href='https://www.anunciosconestilo.com/p/centro-de-diseno-de-anuncios-luminosos.html'>
+                <div class='acnes-inner'>
+                    <div class='acnes-content'>
+                        <h2 class='acnes-title'>ACNES DESIGN CENTER</h2>
+                        <span class='acnes-tag'>Centro de Diseño</span>
+                        <p class='acnes-desc'>Diseña, personaliza y visualiza en tiempo real cómo quedarán tus letras corpóreas antes de enviarlas a fabricación.</p>
+                    </div>
+                    <div class='acnes-btn'>Comenzar Diseño</div>
+                </div>
+            </a>
+
+            <!-- BANNER 2: VIRTUAL QUOTER -->
+            <a class='acnes-banner banner-vq' href='https://www.anunciosconestilo.com/p/cotizador-virtual-de-cajas-de-luz.html'>
+                <div class='acnes-inner'>
+                    <div class='acnes-content'>
+                        <h2 class='acnes-title'>ACNES VIRTUAL QUOTER</h2>
+                        <span class='acnes-tag'>Cotizador Virtual</span>
+                        <p class='acnes-desc'>Obtén el presupuesto exacto para tu caja de luz, calcula dimensiones, iluminación y materiales rápidamente.</p>
+                    </div>
+                    <div class='acnes-btn'>Cotizar Proyecto</div>
+                </div>
+            </a>
         </div>
     </section>
 
