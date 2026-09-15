@@ -412,10 +412,10 @@
         .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
 
         /* =========================================
-           SECCIÓN NUESTROS CLIENTES
+           SECCIÓN NUESTROS CLIENTES Y RESEÑAS
            ========================================= */
         .clientes-section {
-            padding: 40px 0 0 0; 
+            padding: 40px 0 40px 0; 
             background-color: #000000; 
             width: 100%;
             text-align: center;
@@ -469,14 +469,25 @@
             filter: grayscale(0%) brightness(1);
         }
 
-        /* Contenedor del Widget: Extremo a extremo, fondo blanco puro, sin bordes redondeados */
+        /* Contenedor del Widget 80% de ancho, centrado y con bordes redondeados */
         .reviews-wrapper {
             background-color: #ffffff;
-            padding: 50px 40px;
-            border-radius: 0;
-            width: 100%;
-            box-shadow: none;
-            margin-top: 20px;
+            padding: 40px 40px;
+            border-radius: 20px; 
+            width: 80%;
+            margin: 20px auto 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Forzar nombre de la empresa a negro dentro del widget */
+        .tr-widget .tr-company-name,
+        .tr-widget .tr-header-name,
+        .tr-widget .tr-profile-name,
+        .tr-widget .tr-title,
+        .tr-widget .tr-name,
+        .tr-widget .tr-header h3,
+        .tr-widget .tr-header a {
+            color: #000000 !important;
         }
 
         /* =========================================
@@ -578,6 +589,7 @@
            ========================================= */
         @media (max-width: 1024px) {
             .clientes-grid { grid-template-columns: repeat(3, 1fr); }
+            .reviews-wrapper { width: 90%; }
         }
 
         @media (max-width: 768px) {
@@ -610,7 +622,9 @@
             .cotizacion-container { padding: 25px 20px; }
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
-            .reviews-wrapper { padding: 40px 20px; }
+            
+            /* Ajuste del widget para móviles para que aproveche más espacio */
+            .reviews-wrapper { padding: 30px 15px; width: 95%; border-radius: 15px; }
             
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
 
@@ -884,7 +898,7 @@
                 <span class="filter-btn active" style="cursor: default; pointer-events: none; display: inline-block;">RESEÑAS</span>
             </div>
 
-            <!-- Contenedor del Widget: Fondo blanco total, plano de extremo a extremo -->
+            <!-- Contenedor del Widget 80% de ancho, centrado y con bordes redondeados -->
             <div class="reviews-wrapper">
                 <div class='tr-widget' data-id='7257' data-lang='' data-view='grid2'><a class='' href='https://trust.reviews/' target='_blank'><span/></a></div>
                 <script defer='defer' src='https://cdn.trust.reviews/widget/embed.min.js' type='text/javascript'></script>
