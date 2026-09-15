@@ -7,7 +7,7 @@
     
     <!-- Fuentes Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- FontAwesome para iconos (WhatsApp) -->
+    <!-- FontAwesome para iconos (WhatsApp y Redes) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -638,6 +638,144 @@
             transform: translateY(-2px);
         }
 
+        /* =========================================
+           PIE DE PÁGINA (FOOTER)
+           ========================================= */
+        .footer-section {
+            background-color: #000000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 70px 40px 30px 40px;
+            width: 100%;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .footer-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            align-self: flex-start;
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .footer-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #00fff7;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        .footer-title .badge-dot {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .footer-links li a:hover {
+            color: #00fff7;
+            padding-left: 5px;
+        }
+
+        .footer-contact-item {
+            font-size: 0.95rem;
+            color: #cccccc;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-contact-item i {
+            color: #00fff7;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #00fff7;
+            border-color: #00fff7;
+            color: #000;
+            box-shadow: 0 0 10px rgba(0, 255, 247, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888888;
+        }
+
         /* Animaciones */
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
         @keyframes parpadeoCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } } 
@@ -649,6 +787,7 @@
             .clientes-grid { grid-template-columns: repeat(3, 1fr); }
             .reviews-inner { width: 95%; } 
             .cotizacion-container { width: 85%; }
+            .footer-container { width: 90%; }
         }
 
         @media (max-width: 768px) {
@@ -703,6 +842,16 @@
             .acnes-content { max-width: 100%; text-align: center; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
             .acnes-title, .acnes-tag, .acnes-desc { text-align: center; }
             .acnes-btn { width: 100%; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 35px; }
+            .footer-container { width: 95%; }
+            .footer-section { padding: 50px 20px 20px 20px; }
+            .footer-logo { align-self: center; }
+            .footer-col { align-items: center; text-align: center; }
+            .footer-contact-item { justify-content: center; }
+            .footer-socials { justify-content: center; }
+            .footer-title { padding-left: 0; }
+            .footer-title .badge-dot { display: none; }
         }
     </style>
 </head>
@@ -1047,10 +1196,51 @@
                 }
             //]]>
             </script>
-
-            <h4 style='text-align: center; margin-top: 30px; font-family: "Montserrat", sans-serif; color: #fff; font-size: 1rem;'>&#161;Keep creative, keep ACNES!</h4>
         </div>
     </section>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Columna 1: Logo y Descripción -->
+                <div class="footer-col">
+                    <img src="./ACNES (1).png" alt="Logo ACNES Publicidad" class="footer-logo">
+                    <p class="footer-desc">Soluciones profesionales en comunicación visual, letras 3D, cajas de luz y rotulación para destacar tu negocio al máximo.</p>
+                    <span class="footer-tagline">¡Keep creative, keep ACNES!</span>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div class="footer-col">
+                    <h4 class="footer-title"><span class="badge-dot"></span> ENLACES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#herramientas">Herramientas</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#clientes">Clientes</a></li>
+                        <li><a href="#cotizacion">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto y Redes -->
+                <div class="footer-col">
+                    <h4 class="footer-title"><span class="badge-dot"></span> CONTACTO</h4>
+                    <p class="footer-contact-item"><i class="fas fa-phone-alt"></i> 55 2191 3826</p>
+                    <p class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Ciudad Nezahualcóyotl, Estado de México</p>
+                    <div class="footer-socials">
+                        <a href="https://wa.me/5521913826" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/ACNESPublicidad" target="_blank" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ACNES Publicidad. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
