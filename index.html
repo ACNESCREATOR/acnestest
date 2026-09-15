@@ -66,9 +66,7 @@
             max-width: 1000px; 
         }
 
-        /* =========================================
-           TEXTO PARA LA PORTADA
-           ========================================= */
+        /* TEXTO PARA LA PORTADA */
         .hero-typography {
             display: flex;
             flex-direction: column;
@@ -100,21 +98,18 @@
             justify-content: center;
         }
 
-        /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS (CENTRADOS)
-           ========================================= */
+        /* DISEÑO DE PÍLDORAS Y TÍTULOS (CENTRADOS) */
         .svc-badge-pill {
-            position: relative; /* FUNDAMENTAL: Permite anclar el punto a la izquierda */
+            position: relative; 
             display: inline-flex;
             align-items: center; 
             justify-content: center; 
-            text-align: center; /* Centrado estricto del texto */
+            text-align: center; 
             flex-wrap: wrap; 
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(0, 255, 247, 0.5);
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
             border-radius: 50px;
-            /* Extra padding izquierdo para no encimar el texto con el punto */
             padding: 12px 30px 12px 50px; 
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem; 
@@ -129,13 +124,13 @@
             width: fit-content; 
             margin: 0 auto 60px auto; 
             font-size: 1.2rem; 
-            padding: 15px 40px 15px 60px; /* Extra padding izquierdo */
+            padding: 15px 40px 15px 60px; 
             border-color: #00fff7; 
         }
 
         .badge-dot {
-            position: absolute; /* MAGIA: Lo saca del texto */
-            left: 20px; /* Lo clava en la orilla izquierda */
+            position: absolute; 
+            left: 20px; 
             width: 8px;
             height: 8px;
             flex-shrink: 0; 
@@ -145,7 +140,7 @@
         }
         
         .dot-large {
-            position: relative; /* Devuelve a la normalidad el punto gigante de la portada */
+            position: relative; 
             left: 0;
             width: 14px; 
             height: 14px;
@@ -250,6 +245,55 @@
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; }
         .servicio-card p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }
 
+        /* =========================================
+           SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA)
+           ========================================= */
+        .portafolio-section {
+            padding: 50px 20px 100px 20px;
+            background-color: #000;
+        }
+
+        .portafolio-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            grid-gap: 4px; /* Pequeña separación estética oscura */
+            max-width: 1100px;
+            margin: 0 auto; 
+            background-color: #00fff7; /* Acento neón entre las fotos */
+            padding: 4px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15);
+        }
+
+        .gallery-slide {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* Mantiene las fotos cuadradas perfectas */
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .gallery-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .gallery-slide img.active {
+            opacity: 1; /* Corregido el valor de opacidad a 1 para que se vea perfectamente */
+        }
+
         /* Animaciones */
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
         @keyframes parpadeoCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } } 
@@ -262,10 +306,14 @@
             .hero-typography { gap: 15px; }
             .punto-separador { margin-top: 50px; } 
             
-            .svc-badge-pill { font-size: 1.3rem; padding: 10px 20px 10px 45px; width: 100%; max-width: 320px; } 
-            .ai-title-pill { font-size: .8rem; margin-bottom: 40px; margin-left: auto; margin-right: auto; }
+            .svc-badge-pill { font-size: 0.85rem; padding: 10px 20px 10px 45px; width: 100%; max-width: 320px; } 
+            .ai-title-pill { font-size: 1rem; margin-bottom: 40px; margin-left: auto; margin-right: auto; }
             
             .servicios-grid { grid-template-columns: 1fr; gap: 25px; }
+            
+            /* En celulares muy pequeños la galería pasa a 1 columna para que luzcan gigantes las fotos */
+            .gallery-container { grid-template-columns: 1fr; }
+
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             .navbar { padding: 15px 20px; }
@@ -296,6 +344,7 @@
             <li><a href="#">Inicio</a></li>
             <li><a href="#herramientas">Cotizador</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
             <li><a href="#" class="btn-cotizar">Contacto</a></li>
         </ul>
         <div class="hamburger">
@@ -332,7 +381,8 @@
     <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS -->
     <section class="herramientas-section" id="herramientas">
         <h2 class="svc-badge-pill ai-title-pill">
-            <span class="badge-dot"></span>HERRAMIENTAS<span class="typed-cursor">_</span>
+            <span class="badge-dot"></span>
+            HERRAMIENTAS INTERACTIVAS <span class="typed-cursor">_</span>
         </h2>
 
         <div id='acnes-banners-container'>
@@ -393,9 +443,55 @@
         </div>
     </section>
 
+    <!-- SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA) -->
+    <section class="portafolio-section" id="portafolio">
+        <div class="portafolio-container">
+            <h2 class="svc-badge-pill ai-title-pill">
+                <span class="badge-dot"></span>
+                PORTAFOLIO DE TRABAJOS <span class="typed-cursor">_</span>
+            </h2>
+
+            <!-- Galería de 4 bloques rotativos -->
+            <div class='gallery-container'>
+                <!-- Columna 1 -->
+                <div class='gallery-slide'>
+                    <img alt='Imagen 1' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6sBUV1114IuYizWdKqA32ZJggWCm3YhJcptYY7XsCPjLP4vqcNLl3peTaVgehbq03mVXUwnvfhHSRjZvparA94pfoxrTeOJoGp7ctQrmTD0tojw_J1HfmK4bGfExWhkQv41svxfWhwOF0zxyx8GNm9HQ6lHGRpFACNviwvf-PiJ_P5EDA7wL773bpgJk/s1600/NEONRANKMI1.png'/>
+                    <img alt='Imagen 2' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSAVRfWyfzXQBYKjIO59-R-JhqcT4j4qRcNrfJGGrTtUJO5BV0ekAM2sPeSirKYlT-7hsBjtozMV-WIUB941rMcbO_UFOr2lDy4WOkrM0xDhcfReoWQY50x13Svyut13ADel4wBPYbOQbzHiRm9weU9kKnV3MRENcpp_0W8qJQDMN65-33EaJjXZFtrV0/s1600/MANEKI.png'/>
+                    <img alt='Imagen 3' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzhH_9VtKvIzdFNpTzSXFaCvRH1G7sJsyfUvb99uB_RVMXbcQfy99beW89y4FD1SqMeqRZ-loRuA3H7164zErYv75uODpNXdMYVPzx1IlAX8bSha5PFIiMFFnuOS-XCymqJw_qcfVCY4kcq0hnXGoaHctIA57pzhpcQlGgrA9rrh4U_Sv7MZVyQi3LPd4/s1600/GOODVIVESONLY.png'/>
+                    <img alt='Imagen 4' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvAliBJ_vPZo76OerVTbcoz55ulvrLo3sPUZWiQTs7RcQ3vRBePWUrYHqIkh9MgPyv2BaixOY5Q2Ev2SoYO4L8SxNRh0dUPgv6ATuC6fxeMAkuXiU4HQtIdi1uL6rQ5BQR2qm4YijPuUOYaVZ816aSdGykXsGHPJm0T4ZrzoXUXIeY4EFBAunoUMjHwpc/s1600/PUBSUSHI.png'/>
+                </div>
+
+                <!-- Columna 2 -->
+                <div class='gallery-slide'>
+                    <img alt='Imagen 5' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8xFHYYnYDybABr8r0SGRbZi7C5yA0SMRjLvOKBurhiXQ8MxvyI_1wWkUCW-5o_F4QEzTCnHxvP-NM5hTEjINvfMJ7wfB0MeEyspobL8FuXOpea1b6ELCYy7NyfQTFRTYRbkKUPJm1CpV4b01hmyp8p72FysNoV44OttsDca0FDRw75OBw9YN-gS6A_GI/s1600/BITCOINNEON1.png'/>
+                    <img alt='Imagen 6' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvzIFLZ0FUX6iLfQlOwn8Zv-DfOvhtqXakv6PkmmKrVvdVQ4dKq_m778t69zTQv9_yQZ7-RDqZ8vbThkzbXE6rg6f0DMR0fwUfLLAz0qlGHbztplHSO60zTo74mJ-0Z-3jhYZd_MumzG6Qe0QGlOxRi9CpLx6SdY8uY4upmcrpIq5QxJrDb_xCv2rDVGk/s1600/PUBELLY3.png'/>
+                    <img alt='Imagen 7' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik7LjN8DuGN9E5oYMeZnljwMo-ArMHPaDR-fUcg7P344RcePoTb9oj9DvEk1xLXJAdrvAHH8IFy3OnbeL48uXWhiEbnkQ47hq71GdSeqUa88bAHMbbQeX-XYxZC_rqJdUhS6hmeKNqwNxqO6DVpL6VRxzXl3Zgu2An4IZOqkS8UTk6n9KGQtJCmGGVuIQ/s1600/GRACIAS2.png'/>
+                    <img alt='Imagen 8' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuQqg2rhwZxcKDFxgZyp2tt2c0wGeU0N5YtqnZBd93W_cGKqup5qFt-M5nPsqZeHAY_AOTpFCHZvjDQZTcXNWBZZAOee_jplzi_QEfgK2QMpywjMI2OYfe-2wYgB1Lvu7oOMBExE8FrSw7BVoyQg8MOPlpeBXFLq9IQHxqodjR_gwZG4HNhuWkJYGSSkc/s1600/MANEKIP1.png'/>
+                </div>
+
+                <!-- Columna 3 -->
+                <div class='gallery-slide'>
+                    <img alt='Imagen 9' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzBpcawoCr2ldaRNg3LrO_aOxqjSpZ3tvE9I-r1kt2CjfS6stCDu1H10jmKBJDqamFxkUTGAsB3YGQUtthYdlBnl6riR9iUinChGhBEXCIaSTRRq7UyxRWIHaeBK1g4rOZWg8GJjtc1HB8GQ435KlOmNQ5WEgfLljfr0okSa687OcGdlNDR5Ri-Ek2dN4/s1600/BOWLNEON1.png'/>
+                    <img alt='Imagen 10' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwz4UjkInq3_KbkNicxfufmoBktBTmuTwr7nk7zsr29n5FOLsWrqjz1QlVdqBg9lS5v3EY4XhONMfTP2pKiEHM2I3rW1NFnfWAvE3Hw2HhtpH4o8TjJf7qgxlhtBv9mXK0I_RLWy0fSate1B5kh5yqgxadXLiku5g1DEiPkFlyuxBCU5KdVAGy2M5LgRk/s1600/PORQUEAMAMOS.png'/>
+                    <img alt='Imagen 11' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbJndkOBARcEaNxMkqVArqiDsbjnmwAbhM0EvJiw5t31vA2o1pB7ikTciCC1W6lSaPzF3cFnDgqWMQ1dBDMh9Cl7nfozm5zj57l4uqDoVSB3Cf_qHTahb2-hhe25rLhhmHuKvXiqh2tDsW9-hyamBTkf7K3rATL9Ru0INU6lDELMz6AMZ21_8133BiMiw/s1600/MIGUETT.png'/>
+                    <img alt='Imagen 12' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9HT29Xz4jreWZlvS42wMMzc0_MHr_ecIMcm-htsNf-cKbVEoS2CprZdlnkgnSG1FrBLNau2AtoQ09gqgOSL3vngOF54kGqC19pj8HHiM3g9-lEbCajfV2WnJcM2Cujryyhyphenhyphen0Sia9nnVcWhr_ss2963TaBW6vgwrcBRnZ0iPHQ2KRpfZrpVGlO4Y6pui4/s1600/Rankmineon2.png'/>
+                </div>
+
+                <!-- Columna 4 -->
+                <div class='gallery-slide'>
+                    <img alt='Imagen 13' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiNE_FcZa5-Jw95Rh0I0gPmuNwEVrqi4rocmTOmXudxcakSg2t7ZdA2cpLeJSwwWXEf2pWaVhiXwqBbpQdnUailgi4B5tvu3G4JvIR4_noDJ2NmZ_MfovVuStrWwq_FChUHgjCrOLU_hIz3LPQ0IBjcD9ooWMz1SU7kwSl7yEQ3gZhZfqloCaYNkwUktU/s1600/PLANTILLASNEON1.png'/>
+                    <img alt='Imagen 14' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOnSYtcEBTlwZL8QRf4K1_5tXG1U-nZt4sFAUcpjsbGsNwqPpPb6bikIsm6ZeA-ZW-mXx2bv9yab_KSqxL91AkTIXbZfJpuYNGE6GOz9X3_10cNwqovhKMwPwKgf7gVPaJxGZu13_x15rPBvm_dpbrj6nCxgsmiQ04MQ64C7tF7z_IrdxNCG3EXukJtVQ/s1600/GOOD.png'/>
+                    <img alt='Imagen 15' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDeAdKEMxtah-DxdoOyPgfLtN_-vGi6lfmjsp0s490Q6g5tPFC5NyFhqqumRIq-yPiqy5zcIaoi7qHuJHiiHyK4jwvBiVqyRwFSHS7bWnE9JlnnSyEPoJFbp2t97PTOk8ByIsZORpfrjAn1HzS0KF-TjajHi7MZbbEDNq2IE-UFVwC02oFtg9YsVOry4o/s1600/GATOLOCO.png'/>
+                    <img alt='Imagen 16' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKwH71Wgs2bDDUgTXnX1E1DXNJsUmKljSUjtbpvcW5cy3mz7Cub9LOc_MwtgFB0nmkIe1LAYwQkD8pR5c1SGx53t3VFzI6yHszA4RcFDXH_IXQkYkJqwvqnd6X4aGSqPPggPGnrk_EUS30IIVhvo05Wl7de1llZN-mEBK696hJWOhnuxkk-2wbz0BlgJ8/s1600/ACNESTRECEMIL.png'/>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
+        // 1. Máquina de escribir para la portada
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.texto-terminal', {
                 strings: [
@@ -416,6 +512,7 @@
             });
         });
 
+        // 2. Menú Hamburguesa
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
 
@@ -428,6 +525,23 @@
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
         }));
+
+        // 3. Galería Rotativa Automática
+        function cycleImages(container) {
+            const images = container.querySelectorAll('img');
+            let currentImage = 0;
+
+            setInterval(function () {
+                images[currentImage].classList.remove('active'); 
+                currentImage = (currentImage + 1) % images.length; 
+                images[currentImage].classList.add('active'); 
+            }, 3000); 
+        }
+
+        const galleries = document.querySelectorAll('.gallery-slide');
+        galleries.forEach(function (gallery) {
+            cycleImages(gallery); 
+        });
     </script>
 
 </body>
