@@ -476,6 +476,22 @@
             margin-top: 50px;
         }
 
+        /* ESTILO PARA LA PÍLDORA DE RESEÑAS (Negra con borde blanco) */
+        .review-pill {
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: inline-block;
+            cursor: default;
+        }
+
         /* Contenedor interno de las reseñas (80% escritorio, 100% móvil) */
         .reviews-inner {
             width: 80%;
@@ -617,7 +633,7 @@
             }
             
             .portfolio-filters { gap: 8px; }
-            .filter-btn { font-size: 0.75rem; padding: 7px 14px; }
+            .filter-btn, .review-pill { font-size: 0.75rem; padding: 7px 14px; }
 
             .herramientas-section, .servicios-section { padding: 30px 20px; }
             .clientes-section { padding: 30px 0 0 0; }
@@ -899,9 +915,9 @@
 
             <!-- Fondo blanco de extremo a extremo que incluye la Píldora y el Widget -->
             <div class="reviews-wrapper">
-                <!-- Píldora de Reseñas al estilo filtro -->
+                <!-- Píldora de Reseñas negra con borde blanco -->
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <span class="filter-btn active" style="cursor: default; pointer-events: none; display: inline-block;">RESEÑAS</span>
+                    <span class="review-pill">RESEÑAS</span>
                 </div>
 
                 <!-- Contenedor interno del Widget (80% escritorio, 100% móvil) -->
