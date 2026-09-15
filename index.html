@@ -225,6 +225,52 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
+           SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA SIN MARCO)
+           ========================================= */
+        .portafolio-section {
+            padding: 50px 20px;
+            background-color: #000;
+        }
+
+        .portafolio-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            grid-gap: 2px; /* Separación mínima limpia */
+            max-width: 1100px;
+            margin: 0 auto; 
+            background-color: transparent; /* Sin fondo neón exterior */
+            padding: 0; /* Sin relleno exterior */
+        }
+
+        .gallery-slide {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* Cuadradas perfectas */
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .gallery-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .gallery-slide img.active {
+            opacity: 1; 
+        }
+
+        /* =========================================
            SECCIÓN DE SERVICIOS
            ========================================= */
         .servicios-section {
@@ -245,55 +291,6 @@
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; }
         .servicio-card p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }
 
-        /* =========================================
-           SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA)
-           ========================================= */
-        .portafolio-section {
-            padding: 50px 20px 100px 20px;
-            background-color: #000;
-        }
-
-        .portafolio-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .gallery-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Dos columnas */
-            grid-gap: 4px; /* Pequeña separación estética oscura */
-            max-width: 1100px;
-            margin: 0 auto; 
-            background-color: #00fff7; /* Acento neón entre las fotos */
-            padding: 4px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15);
-        }
-
-        .gallery-slide {
-            position: relative;
-            width: 100%;
-            padding-bottom: 100%; /* Mantiene las fotos cuadradas perfectas */
-            overflow: hidden;
-            background-color: #111;
-        }
-
-        .gallery-slide img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-
-        .gallery-slide img.active {
-            opacity: 1; /* Corregido el valor de opacidad a 1 para que se vea perfectamente */
-        }
-
         /* Animaciones */
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
         @keyframes parpadeoCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } } 
@@ -310,8 +307,6 @@
             .ai-title-pill { font-size: 1rem; margin-bottom: 40px; margin-left: auto; margin-right: auto; }
             
             .servicios-grid { grid-template-columns: 1fr; gap: 25px; }
-            
-            /* En celulares muy pequeños la galería pasa a 1 columna para que luzcan gigantes las fotos */
             .gallery-container { grid-template-columns: 1fr; }
 
             .video-desktop { display: none; }
@@ -343,8 +338,8 @@
         <ul class="nav-menu">
             <li><a href="#">Inicio</a></li>
             <li><a href="#herramientas">Cotizador</a></li>
-            <li><a href="#servicios">Servicios</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
             <li><a href="#" class="btn-cotizar">Contacto</a></li>
         </ul>
         <div class="hamburger">
@@ -409,41 +404,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS -->
-    <section class="servicios-section" id="servicios">
-        <div class="servicios-container">
-            <h2 class="svc-badge-pill ai-title-pill">
-                <span class="badge-dot"></span>
-                NUESTROS SERVICIOS <span class="typed-cursor">_</span>
-            </h2>
-            
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <div class="servicio-icon">
-                        <svg viewBox="0 0 24 24"><path d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V22H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" /></svg>
-                    </div>
-                    <h3>Letras 3D y Aluminio</h3>
-                    <p>Fabricación de anuncios tridimensionales de alta calidad. Acabados premium con iluminación LED para destacar tu marca al máximo.</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z" /></svg>
-                    </div>
-                    <h3>Cajas de Luz</h3>
-                    <p>Letreros luminosos personalizados a la medida. Ideales para que tu fachada o negocio capte la atención tanto de día como de noche.</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
-                    </div>
-                    <h3>Diseño y Rotulación</h3>
-                    <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA) -->
+    <!-- SECCIÓN PORTAFOLIO (GALERÍA ROTATIVA SIN MARCO) -->
     <section class="portafolio-section" id="portafolio">
         <div class="portafolio-container">
             <h2 class="svc-badge-pill ai-title-pill">
@@ -483,6 +444,40 @@
                     <img alt='Imagen 14' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOnSYtcEBTlwZL8QRf4K1_5tXG1U-nZt4sFAUcpjsbGsNwqPpPb6bikIsm6ZeA-ZW-mXx2bv9yab_KSqxL91AkTIXbZfJpuYNGE6GOz9X3_10cNwqovhKMwPwKgf7gVPaJxGZu13_x15rPBvm_dpbrj6nCxgsmiQ04MQ64C7tF7z_IrdxNCG3EXukJtVQ/s1600/GOOD.png'/>
                     <img alt='Imagen 15' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDeAdKEMxtah-DxdoOyPgfLtN_-vGi6lfmjsp0s490Q6g5tPFC5NyFhqqumRIq-yPiqy5zcIaoi7qHuJHiiHyK4jwvBiVqyRwFSHS7bWnE9JlnnSyEPoJFbp2t97PTOk8ByIsZORpfrjAn1HzS0KF-TjajHi7MZbbEDNq2IE-UFVwC02oFtg9YsVOry4o/s1600/GATOLOCO.png'/>
                     <img alt='Imagen 16' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKwH71Wgs2bDDUgTXnX1E1DXNJsUmKljSUjtbpvcW5cy3mz7Cub9LOc_MwtgFB0nmkIe1LAYwQkD8pR5c1SGx53t3VFzI6yHszA4RcFDXH_IXQkYkJqwvqnd6X4aGSqPPggPGnrk_EUS30IIVhvo05Wl7de1llZN-mEBK696hJWOhnuxkk-2wbz0BlgJ8/s1600/ACNESTRECEMIL.png'/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS -->
+    <section class="servicios-section" id="servicios">
+        <div class="servicios-container">
+            <h2 class="svc-badge-pill ai-title-pill">
+                <span class="badge-dot"></span>
+                NUESTROS SERVICIOS <span class="typed-cursor">_</span>
+            </h2>
+            
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V22H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" /></svg>
+                    </div>
+                    <h3>Letras 3D y Aluminio</h3>
+                    <p>Fabricación de anuncios tridimensionales de alta calidad. Acabados premium con iluminación LED para destacar tu marca al máximo.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z" /></svg>
+                    </div>
+                    <h3>Cajas de Luz</h3>
+                    <p>Letreros luminosos personalizados a la medida. Ideales para que tu fachada o negocio capte la atención tanto de día como de noche.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                    </div>
+                    <h3>Diseño y Rotulación</h3>
+                    <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
                 </div>
             </div>
         </div>
