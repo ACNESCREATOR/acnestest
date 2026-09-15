@@ -82,11 +82,15 @@
                 max-width: 320px; 
             }
 
-            .badge-dot {
-                width: 6px;
-                height: 6px;
-                margin-right: 8px;
-            }
+           .badge-dot {
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0; /* LA MAGIA: Evita que el texto lo aplaste al saltar de línea */
+            background-color: #00fff7;
+            border-radius: 50%;
+            margin-right: 12px;
+            animation: pulsarPunto 1.5s infinite ease-in-out;
+        }
 
             /* INTERRUPTOR: Aquí apagamos el de PC y encendemos el de Celular */
             .video-desktop { display: none; }
