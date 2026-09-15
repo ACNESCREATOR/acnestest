@@ -99,7 +99,7 @@
         }
 
         /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS
+           DISEÑO DE PÍLDORAS Y TÍTULOS (SIN FONDO Y TEXTO NEGRO)
            ========================================= */
         .svc-badge-pill {
             position: relative; 
@@ -109,12 +109,13 @@
             text-align: center; 
             flex-wrap: wrap; 
             
-            /* Fondo negro con 85% de opacidad */
-            background-color: rgba(0, 0, 0, 0.85);
+            /* Sin fondo y texto negro */
+            background: transparent;
+            color: #111111;
             
-            /* Borde y brillo turquesa neón */
-            border: 1px solid rgba(0, 255, 247, 0.75);
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
+            /* Borde elegante y limpio */
+            border: 1.5px solid #0761b5;
+            box-shadow: none;
             
             border-radius: 50px;
             padding: 12px 30px 12px 50px; 
@@ -122,7 +123,6 @@
             font-size: 1rem; 
             font-weight: 800;
             letter-spacing: 0.1em;
-            color: #fff;
             text-transform: uppercase;
         }
 
@@ -132,7 +132,6 @@
             margin: 0 auto 30px auto; 
             font-size: 1rem; 
             padding: 15px 40px 15px 60px; 
-            border-color: #00fff7;
         }
 
         .badge-dot {
@@ -141,7 +140,7 @@
             width: 8px;
             height: 8px;
             flex-shrink: 0; 
-            background-color: #00fff7;
+            background-color: #0761b5;
             border-radius: 50%;
             animation: pulsarPunto 1.5s infinite ease-in-out;
         }
@@ -151,6 +150,7 @@
             left: 0;
             width: 14px; 
             height: 14px;
+            background-color: #00fff7; /* Mantiene el punto turquesa en el hero si aplica */
         }
 
         .texto-terminal { color: #fff; }
@@ -220,9 +220,9 @@
         }
 
         .filter-btn {
-            background-color: rgba(0, 0, 0, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
+            background-color: transparent;
+            border: 1.5px solid #0761b5;
+            color: #0761b5;
             padding: 10px 25px;
             border-radius: 50px;
             cursor: pointer;
@@ -235,13 +235,13 @@
         }
 
         .filter-btn:hover {
-            border-color: rgba(0, 255, 247, 0.5);
+            background-color: rgba(7, 97, 181, 0.1);
         }
 
         .filter-btn.active {
-            border-color: #00fff7;
-            color: #00fff7;
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
+            background-color: #0761b5;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(7, 97, 181, 0.3);
         }
 
         /* Cuadrícula Dinámica */
@@ -375,7 +375,7 @@
         .servicio-card p { color: #555; font-size: 0.95rem; line-height: 1.5; }
 
         /* Animaciones */
-        @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
+        @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #0761b5; } }
         @keyframes parpadeoCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } } 
 
         /* =========================================
@@ -462,7 +462,7 @@
         </div>
     </header>
 
-    <!-- SECCIÓN PORTAFOLIO (AHORA ANTES DE HERRAMIENTAS) -->
+    <!-- SECCIÓN PORTAFOLIO -->
     <section class="portafolio-section" id="portafolio">
         <div class="portafolio-container">
             <div style="text-align: center;">
@@ -554,7 +554,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS (AHORA DESPUÉS DE PORTAFOLIO) -->
+    <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS -->
     <section class="herramientas-section" id="herramientas">
         <h2 class="svc-badge-pill ai-title-pill">
             <span class="badge-dot"></span>
