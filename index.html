@@ -405,7 +405,7 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS & ANIMACIONES SVG (Centrados y más grandes)
+           SECCIÓN DE SERVICIOS & ANIMACIONES SVG
            ========================================= */
         .servicios-section {
             padding: 40px 40px 60px 40px; 
@@ -434,7 +434,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1); 
             transition: all 0.4s ease; 
             width: 100%; 
-            text-align: center; /* Todo centrado */
+            text-align: center; 
         }
         .servicio-card:hover { 
             transform: translateY(-8px); 
@@ -443,9 +443,9 @@
         }
 
         .servicio-icon { 
-            width: 80px;  /* Ligeramente más grande */
+            width: 80px; 
             height: 80px; 
-            margin: 0 auto 25px auto; /* Centrado automático */
+            margin: 0 auto 25px auto; 
             background-color: rgba(0, 255, 247, 0.08); 
             border-radius: 50%; 
             display: flex; 
@@ -462,10 +462,14 @@
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: #ffffff; }
         .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
 
-        /* Animaciones para los personajes SVG (Totalmente blancos) */
+        /* Animaciones para los personajes SVG */
         @keyframes parpadearPantalla {
             0%, 100% { opacity: 0.2; }
             50% { opacity: 1; }
+        }
+        @keyframes taladrarMovimiento {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(3px); }
         }
         @keyframes subirEscaleraMonito {
             0%, 100% { transform: translateY(10px); }
@@ -473,6 +477,7 @@
         }
 
         .anim-screen { animation: parpadearPantalla 1s infinite ease-in-out; }
+        .anim-drill { animation: taladrarMovimiento 0.4s infinite ease-in-out; transform-origin: 32px 30px; }
         .anim-climb-monito { animation: subirEscaleraMonito 1.5s infinite ease-in-out; }
 
         /* =========================================
@@ -1083,7 +1088,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS (Orden: Diseño, Fabricación, Instalación - Centrados y Animados) -->
+    <!-- SECCIÓN DE SERVICIOS -->
     <section class="servicios-section" id="servicios">
         <div class="servicios-container">
             <h2 class="svc-badge-pill ai-title-pill">
@@ -1095,15 +1100,11 @@
                 <!-- 1. DISEÑO -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <!-- Icono SVG: Monito totalmente blanco frente a pantalla que prende y apaga -->
                         <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Escritorio -->
                             <path d="M12 44h40" stroke-width="2"/>
-                            <!-- Pantalla con parpadeo -->
                             <rect x="30" y="12" width="24" height="18" rx="2" fill="#111" stroke="#fff"/>
                             <path d="M42 30v4 M36 34h12" stroke="#fff"/>
                             <rect class="anim-screen" x="33" y="15" width="18" height="12" rx="1" fill="#fff"/>
-                            <!-- Monito de cuerpo completo -->
                             <circle cx="18" cy="20" r="4" fill="#111" stroke="#fff"/>
                             <path d="M18 24v12 M18 28l6 2 M18 36l-3 6 M18 36l3 6" stroke="#fff"/>
                         </svg>
@@ -1112,18 +1113,27 @@
                     <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
                 </div>
 
-                <!-- 2. FABRICACIÓN -->
+                <!-- 2. FABRICACIÓN (Con monito de pie y taladro detallado/animado) -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <!-- Icono SVG: Monito blanco de cuerpo completo parado frente a una mesa -->
                         <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <!-- Mesa de trabajo -->
-                            <path d="M10 44h44" stroke-width="2"/>
-                            <path d="M16 44v12 M48 44v12" stroke-width="2"/>
+                            <path d="M10 46h44" stroke-width="2"/>
+                            <path d="M16 46v10 M48 46v10" stroke-width="2"/>
                             <!-- Monito de cuerpo completo parado -->
-                            <circle cx="32" cy="18" r="4" fill="#111" stroke="#fff"/>
-                            <path d="M32 22v12 M32 26l-6 6 M32 26l6 6" stroke="#fff"/>
-                            <path d="M28 38v6 M36 38v6" stroke="#fff"/>
+                            <circle cx="26" cy="20" r="4" fill="#111" stroke="#fff"/>
+                            <path d="M26 24v12 M26 28l-6 4 M26 28l6 2" stroke="#fff"/>
+                            <path d="M23 36v8 M29 36v8" stroke="#fff"/>
+                            <!-- Taladro en la mano del monito (con animación de perforación) -->
+                            <g class="anim-drill">
+                                <path d="M32 30l6-2" stroke="#fff"/>
+                                <!-- Cuerpo del taladro -->
+                                <rect x="38" y="24" width="6" height="8" rx="1" fill="#111" stroke="#fff"/>
+                                <!-- Empuñadura / gatillo -->
+                                <path d="M40 32v4"/>
+                                <!-- Broca tocando la mesa -->
+                                <path d="M41 36l0 10" stroke="#00fff7" stroke-width="2"/>
+                            </g>
                         </svg>
                     </div>
                     <h3>Fabricación</h3>
@@ -1133,12 +1143,9 @@
                 <!-- 3. INSTALACIÓN -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <!-- Icono SVG: Escalera fija y monito blanco subiendo -->
                         <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Escalera fija -->
                             <path d="M22 8v48 M42 8v48" stroke-width="2"/>
                             <path d="M22 18h20 M22 28h20 M22 38h20 M22 48h20" stroke-width="2"/>
-                            <!-- Monito subiendo -->
                             <g class="anim-climb-monito">
                                 <circle cx="32" cy="22" r="4" fill="#111" stroke="#fff"/>
                                 <path d="M32 26v10 M32 30l-6-4 M32 30l6 4 M32 36l-4 8 M32 36l4 8" stroke="#fff"/>
