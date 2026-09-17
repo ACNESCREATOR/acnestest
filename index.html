@@ -206,6 +206,21 @@
             animation: parpadeoCursor 1s infinite;
         }
 
+        /* Clase genérica para píldoras sobre fondo blanco */
+        .pill-oscura {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: inline-block;
+            cursor: default;
+        }
+
         /* =========================================
            BARRA DE NAVEGACIÓN
            ========================================= */
@@ -415,7 +430,7 @@
            SECCIÓN DE SERVICIOS & ANIMACIONES SVG
            ========================================= */
         .servicios-section {
-            padding: 40px 40px 60px 40px; 
+            padding: 40px 40px 0 40px; /* Reducido el padding inferior para conectar con vectorizado */
             background-color: #000000; 
             width: 100%;
             text-align: center;
@@ -469,7 +484,7 @@
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: #ffffff; }
         .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
 
-        /* Animaciones para los personajes y máquinas SVG (Todo en blanco) */
+        /* Animaciones SVG */
         @keyframes parpadearPantalla {
             0%, 100% { opacity: 0.2; }
             50% { opacity: 1; }
@@ -482,10 +497,63 @@
             0%, 100% { transform: translateY(10px); }
             50% { transform: translateY(-4px); }
         }
+        @keyframes pulsoVector {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
 
         .anim-screen { animation: parpadearPantalla 1s infinite ease-in-out; }
         .anim-cnc { animation: cncTrabajando 1.2s infinite ease-in-out; transform-origin: 32px 22px; }
         .anim-climb-monito { animation: subirEscaleraMonito 1.5s infinite ease-in-out; }
+        .anim-vector { animation: pulsoVector 2s infinite ease-in-out; transform-origin: center; }
+
+        /* =========================================
+           SECCIÓN VECTORIZADO (FONDO BLANCO)
+           ========================================= */
+        .vectorizado-wrapper {
+            background-color: #ffffff;
+            width: 100%;
+            padding: 60px 20px;
+            margin-top: 50px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .vectorizado-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .vector-icon-large {
+            width: 90px;
+            height: 90px;
+            background-color: #f9f9f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000000;
+            margin-bottom: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .vectorizado-inner h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #000000;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .vectorizado-inner p {
+            color: #444444;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
 
         /* =========================================
            SECCIÓN NUESTROS CLIENTES Y RESEÑAS
@@ -551,21 +619,6 @@
             padding: 50px 0;
             margin-top: 50px;
             overflow: hidden; 
-        }
-
-        .review-pill {
-            background-color: #000000;
-            color: #ffffff;
-            border: 1px solid #ffffff;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            display: inline-block;
-            cursor: default;
         }
 
         .reviews-inner {
@@ -885,9 +938,12 @@
             }
             
             .portfolio-filters { gap: 8px; }
-            .filter-btn, .review-pill { font-size: 0.75rem; padding: 7px 14px; }
+            .filter-btn, .pill-oscura { font-size: 0.75rem; padding: 7px 14px; }
 
-            .herramientas-section, .servicios-section { padding: 30px 20px; }
+            .herramientas-section, .servicios-section { padding: 30px 20px 0 20px; }
+            .vectorizado-wrapper { padding: 40px 20px; margin-top: 30px; }
+            .vectorizado-inner h3 { font-size: 1.25rem; }
+            .vectorizado-inner p { font-size: 0.95rem; }
             .clientes-section { padding: 30px 0 0 0; }
             .cotizacion-section { padding: 40px 0; }
             .cotizacion-container { width: 95%; }
@@ -1021,47 +1077,38 @@
 
            <!-- Cuadrícula de Imágenes -->
             <div class='portfolio-gallery'>
-                
                 <!-- Categoría: neon 1-->
                 <div class="portfolio-item neon">
                     <img alt='Neón 1' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/rank1.avif' loading='lazy'/>
                 </div>
-
                 <!-- Categoría: cajas-luz 1 -->
                <div class="portfolio-item cajas-luz">
                    <img alt='Caja de Luz 1' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas1.avif' loading='lazy'/>
                </div>
-
                 <!-- Categoría: letras-3d 1 -->
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 1' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras1.avif' loading='lazy'/>
                 </div>
-                
                   <!-- Categoría: neon2 -->
                 <div class="portfolio-item neon">
                     <img alt='Neón 2' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/good1.avif' loading='lazy'/>
                 </div>
-
                   <!-- Categoría: cajas-luz 2 -->
                 <div class="portfolio-item cajas-luz">
                    <img alt='Caja de Luz 2' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas2.avif' loading='lazy'/>
                       </div>
-
                   <!-- Categoría: letras-3d 2 -->
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 2' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras2.avif' loading='lazy'/>
                 </div>
-
                 <!-- Categoría: neon3 -->
                 <div class="portfolio-item neon">
                     <img alt='Neón 3' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/pub3.avif' loading='lazy'/>
                 </div>
-                
                 <!-- Categoría: cajas-luz 3 -->
                <div class="portfolio-item cajas-luz">
                   <img alt='Caja de Luz 3' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas3.avif' loading='lazy'/>
                     </div>
-
                   <!-- Categoría: letras-3d 3-->
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 3' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras3.avif' loading='lazy'/>
@@ -1070,12 +1117,10 @@
                  <div class="portfolio-item neon">
                     <img alt='Neón 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/maneki4.avif' loading='lazy'/>
                 </div>
-                
                 <!-- Categoría: cajas-luz 4 -->
                <div class="portfolio-item cajas-luz">
                  <img alt='Caja de Luz 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas4.avif' loading='lazy'/>
                </div>
-               
                  <!-- Categoría: letras-3d 4-->
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras4.avif' loading='lazy'/>
@@ -1180,6 +1225,29 @@
         </div>
     </section>
 
+    <!-- SECCIÓN VECTORIZADO (ANCHO COMPLETO - FONDO BLANCO) -->
+    <section class="vectorizado-wrapper" id="vectorizado">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <span class="pill-oscura">VECTORIZADO</span>
+        </div>
+        <div class="vectorizado-inner">
+            <div class="vector-icon-large">
+                <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 48 C 20 20, 44 20, 52 48" stroke-width="2.5"/>
+                    <rect x="9" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2"/>
+                    <rect x="49" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2"/>
+                    <rect x="30" y="15" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2"/>
+                    <path d="M30 15 L20 25 M30 15 L40 25" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.6"/>
+                    <g class="anim-vector">
+                        <path d="M44 36 l8 12 -12 -8 z" fill="#fff" stroke="#000" stroke-width="2"/>
+                    </g>
+                </svg>
+            </div>
+            <h3>Servicio Profesional de Vectorizado</h3>
+            <p>Servicio de vectorizado para logotipos creados con IA u otras herramientas. Trazos limpios y editables compatibles con <strong>CorelDraw</strong> y <strong>Adobe Illustrator</strong>.</p>
+        </div>
+    </section>
+
     <!-- SECCIÓN NUESTROS CLIENTES Y RESEÑAS -->
     <section class="clientes-section" id="clientes">
         <div class="clientes-container">
@@ -1200,7 +1268,7 @@
 
             <div class="reviews-wrapper">
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <span class="review-pill">RESEÑAS</span>
+                    <span class="pill-oscura">RESEÑAS</span>
                 </div>
                 <div class="reviews-inner">
                     <div class='tr-widget' data-id='7257' data-lang='' data-view='grid2'><a class='' href='https://trust.reviews/' target='_blank'><span/></a></div>
@@ -1236,6 +1304,7 @@
                     <select class='wa-input' id='wa-servicio'>
                         <option value='Diseño de anuncio'>Diseño de anuncio</option>
                         <option value='Fabricación de anuncio'>Fabricación de anuncio</option>
+                        <option value='Vectorizado de logotipo'>Vectorizado de logotipo</option>
                         <option value='Instalación'>Instalación</option>
                         <option value='Cotización general'>Cotización general</option>
                     </select>
