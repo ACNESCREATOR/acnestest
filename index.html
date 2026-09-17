@@ -255,8 +255,33 @@
         .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; transition: all 0.3s ease; }
         .btn-cotizar:hover { background-color: #00fff7; color: #000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
 
-        .hamburger { display: none; cursor: pointer; }
-        .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
+        /* HAMBURGUESA MEJORADA CON ANIMACIÓN EN 'X' */
+        .hamburger { 
+            display: none; 
+            cursor: pointer; 
+            z-index: 1001; /* Asegurar que esté por encima del menú desplegable */
+            width: 30px;
+            height: 24px;
+            position: relative;
+        }
+        .hamburger .bar { 
+            display: block; 
+            width: 100%; 
+            height: 3px; 
+            background-color: #fff; 
+            position: absolute;
+            left: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+            border-radius: 3px;
+        }
+        .hamburger .bar:nth-child(1) { top: 0; }
+        .hamburger .bar:nth-child(2) { top: 10px; }
+        .hamburger .bar:nth-child(3) { top: 20px; }
+
+        /* Estado activo de la hamburguesa (X) */
+        .hamburger.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 
         /* =========================================
            SECCIÓN PORTAFOLIO
@@ -430,7 +455,7 @@
            SECCIÓN DE SERVICIOS & ANIMACIONES SVG
            ========================================= */
         .servicios-section {
-            padding: 40px 40px 0 40px; /* Reducido el padding inferior para conectar con vectorizado */
+            padding: 40px 40px 0 40px; /* Padding reducido para conectar visualmente */
             background-color: #000000; 
             width: 100%;
             text-align: center;
@@ -497,24 +522,26 @@
             0%, 100% { transform: translateY(10px); }
             50% { transform: translateY(-4px); }
         }
-        @keyframes pulsoVector {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
+        @keyframes trazoVector {
+            0% { stroke-dashoffset: 100; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -100; }
         }
 
         .anim-screen { animation: parpadearPantalla 1s infinite ease-in-out; }
         .anim-cnc { animation: cncTrabajando 1.2s infinite ease-in-out; transform-origin: 32px 22px; }
         .anim-climb-monito { animation: subirEscaleraMonito 1.5s infinite ease-in-out; }
-        .anim-vector { animation: pulsoVector 2s infinite ease-in-out; transform-origin: center; }
+        .anim-pluma { animation: subirEscaleraMonito 2s infinite ease-in-out; }
+        .anim-linea { stroke-dasharray: 100; animation: trazoVector 3s infinite linear; }
 
         /* =========================================
-           SECCIÓN VECTORIZADO (FONDO BLANCO)
+           SECCIÓN VECTORIZADO (FONDO BLANCO - ACERCADA)
            ========================================= */
         .vectorizado-wrapper {
             background-color: #ffffff;
             width: 100%;
-            padding: 60px 20px;
-            margin-top: 50px;
+            padding: 50px 20px;
+            margin-top: 30px; /* Reducido para pegarlo más arriba */
             overflow: hidden;
             text-align: center;
         }
@@ -941,7 +968,7 @@
             .filter-btn, .pill-oscura { font-size: 0.75rem; padding: 7px 14px; }
 
             .herramientas-section, .servicios-section { padding: 30px 20px 0 20px; }
-            .vectorizado-wrapper { padding: 40px 20px; margin-top: 30px; }
+            .vectorizado-wrapper { padding: 40px 20px; margin-top: 20px; } /* Ajuste de margen para móviles */
             .vectorizado-inner h3 { font-size: 1.25rem; }
             .vectorizado-inner p { font-size: 0.95rem; }
             .clientes-section { padding: 30px 0 0 0; }
@@ -974,17 +1001,13 @@
                 transform: translateX(-100%);
                 padding: 0; 
                 gap: 0; 
-                z-index: 999; 
+                z-index: 1000; 
             }
             .nav-menu.active { 
                 transform: translateX(0); 
             }
             .nav-menu li { margin: 25px 0; }
             .nav-menu li a { font-size: 1.2rem; }
-            
-            .hamburger.active .bar:nth-child(2) { opacity: 0; }
-            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
             .acnes-inner { flex-direction: column; padding: 25px 20px; justify-content: center; align-items: center; }
             .acnes-content { max-width: 100%; text-align: center; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
@@ -1232,14 +1255,22 @@
         </div>
         <div class="vectorizado-inner">
             <div class="vector-icon-large">
-                <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 48 C 20 20, 44 20, 52 48" stroke-width="2.5"/>
-                    <rect x="9" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2"/>
-                    <rect x="49" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2"/>
-                    <rect x="30" y="15" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2"/>
-                    <path d="M30 15 L20 25 M30 15 L40 25" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.6"/>
-                    <g class="anim-vector">
-                        <path d="M44 36 l8 12 -12 -8 z" fill="#fff" stroke="#000" stroke-width="2"/>
+                <svg viewBox="0 0 64 64" width="54" height="54" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Nodos de anclaje (puntos) -->
+                    <circle cx="16" cy="40" r="3" fill="#fff" stroke="#000" stroke-width="2"/>
+                    <circle cx="48" cy="20" r="3" fill="#fff" stroke="#000" stroke-width="2"/>
+                    <!-- Manejadores de curva de Bézier (líneas punteadas y cuadrados) -->
+                    <path d="M16 40 L28 20" stroke="#999" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <path d="M48 20 L36 40" stroke="#999" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <rect x="26" y="18" width="4" height="4" fill="#000"/>
+                    <rect x="34" y="38" width="4" height="4" fill="#000"/>
+                    <!-- Línea curva vectorial animada -->
+                    <path class="anim-linea" d="M16 40 C 28 20, 36 40, 48 20" stroke="#000" stroke-width="3"/>
+                    <!-- Pluma de diseño animada -->
+                    <g class="anim-pluma" transform="translate(15, -15)">
+                        <path d="M38 12 L22 28 L24 34 L30 36 L46 20 Z" fill="#fff" stroke="#000" stroke-width="2"/>
+                        <path d="M24 34 L20 40 L22 28" fill="#000"/>
+                        <line x1="32" y1="18" x2="26" y2="24" stroke="#000" stroke-width="2"/>
                     </g>
                 </svg>
             </div>
