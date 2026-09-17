@@ -49,7 +49,7 @@
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.3); 
             
             border-radius: 50px;
-            padding: 12px 24px;  /* <-- Reducimos el padding para que no sobre espacio a los lados */
+            padding: 12px 24px;  
             font-family: 'Montserrat', sans-serif;
             font-size: 1.15rem; 
             font-weight: 800;
@@ -57,7 +57,6 @@
             text-transform: uppercase;
         }
 
-        /* <-- NUEVO: Forzamos al punto a quedarse pegado al texto en móviles y PC --> */
         #preloader .badge-dot {
             position: relative;
             left: auto;
@@ -307,6 +306,7 @@
             transition: opacity 0.4s ease, transform 0.4s ease;
             opacity: 1;
             transform: scale(1);
+            cursor: zoom-in; /* Lupa al pasar el ratón */
         }
 
         .portfolio-item img {
@@ -321,6 +321,47 @@
 
         .portfolio-item:hover img {
             transform: scale(1.08); 
+        }
+
+        /* =========================================
+           LIGHTBOX MODAL (Visor de imágenes grande)
+           ========================================= */
+        .image-lightbox {
+            display: none; 
+            position: fixed;
+            z-index: 990; /* Debajo de la navbar (1000) */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: zoom-out; /* Lupa con el símbolo "menos" para salir */
+        }
+
+        .image-lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .image-lightbox img {
+            max-width: 95vw; /* Abarca casi todo el ancho */
+            max-height: 85vh; /* Abarca casi todo el alto */
+            margin-top: 80px; /* Evita que la navbar tape la parte superior */
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.2);
+            object-fit: contain;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .image-lightbox.active img {
+            transform: scale(1); /* Efecto de acercamiento suave */
         }
 
         /* =========================================
@@ -517,7 +558,7 @@
         }
 
         /* =========================================
-           SECCIÓN SOLICITAR COTIZACIÓN & WHATSAPP FORM (Sin marco, 70% ancho)
+           SECCIÓN SOLICITAR COTIZACIÓN & WHATSAPP FORM
            ========================================= */
         .cotizacion-section {
             padding: 60px 0;
@@ -932,7 +973,7 @@
                 <button class="filter-btn" data-filter="cajas-luz">Cajas de Luz</button>
             </div>
 
-           <!-- Cuadrícula de Imágenes con formato CDN de GitHub y loading="lazy" -->
+           <!-- Cuadrícula de Imágenes -->
             <div class='portfolio-gallery'>
                 
                 <!-- Categoría: neon 1-->
@@ -1354,6 +1395,28 @@
 
                 }, hideDelay);
             });
+        });
+
+        // 4. Lightbox para Galería (Visor grande de imágenes)
+        const lightbox = document.createElement('div');
+        lightbox.classList.add('image-lightbox');
+        lightbox.innerHTML = `<img id="lightbox-img" src="" alt="Imagen ampliada">`;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryImages = document.querySelectorAll('.portfolio-item img');
+
+        // Abrir visor al hacer clic en cualquier imagen de la galería
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Cerrar visor al dar clic en cualquier parte de la pantalla oscura
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
         });
     </script>
 
