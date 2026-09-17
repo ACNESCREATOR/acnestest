@@ -605,12 +605,15 @@
 
         .clientes-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio (2 filas de 3) */
             gap: 20px;
             align-items: center;
             justify-items: center;
             width: 100%;
             padding: 0 40px; 
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cliente-card {
@@ -988,10 +991,11 @@
             .subservicio-inner p { font-size: 1.05rem; }
             
             .clientes-section { padding: 30px 0 0 0; }
+            .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; } /* 2 columnas en móvil (3 filas de 2) */
+            
             .cotizacion-section { padding: 40px 0; }
             .cotizacion-container { width: 95%; }
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
-            .clientes-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
             
             .reviews-wrapper { padding: 40px 0; margin-top: 30px; }
             .reviews-inner { width: 100%; padding: 0 5px; } 
@@ -1326,12 +1330,14 @@
                 </h2>
             </div>
             
+            <!-- 6 ESPACIOS PARA CLIENTES CON LAZY LOADING OPTIMIZADO -->
             <div class="clientes-grid">
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+01" alt="Cliente 1"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+02" alt="Cliente 2"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+03" alt="Cliente 3"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+04" alt="Cliente 4"></div>
-                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+05" alt="Cliente 5"></div>
+                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+01" alt="Cliente 1" loading="lazy"></div>
+                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+02" alt="Cliente 2" loading="lazy"></div>
+                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+03" alt="Cliente 3" loading="lazy"></div>
+                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+04" alt="Cliente 4" loading="lazy"></div>
+                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+05" alt="Cliente 5" loading="lazy"></div>
+                <div class="cliente-card"><img src="https://via.placeholder.com/150x50/111111/00fff7?text=CLIENTE+06" alt="Cliente 6" loading="lazy"></div>
             </div>
 
             <div class="reviews-wrapper">
