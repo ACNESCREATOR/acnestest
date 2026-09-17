@@ -43,15 +43,13 @@
             justify-content: center; 
             text-align: center; 
             
-            background: rgba(10, 12, 16, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: transparent; /* <-- Fondo transparente (sin color) */
             color: #ffffff;
-            border: 1.5px solid #00fff7;
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            border: 1.5px solid #00fff7; /* <-- Contorno Neón */
+            box-shadow: 0 0 15px rgba(0, 255, 247, 0.3); 
             
             border-radius: 50px;
-            padding: 5px 32px 12px 46px; 
+            padding: 12px 32px 12px 34px;  /* <-- Espacio izquierdo reducido para acercar el texto */
             font-family: 'Montserrat', sans-serif;
             font-size: 1.15rem; 
             font-weight: 800;
@@ -860,7 +858,8 @@
     <!-- PRELOADER -->
     <div id="preloader">
         <div class="preloader-pill">
-            <span class="badge-dot"></span>ACNES<span class="typed-cursor">_</span>
+            <span class="badge-dot"></span>
+            CARGANDO<span class="typed-cursor">_</span>
         </div>
     </div>
 
@@ -967,7 +966,7 @@
 </div>
 
 <div class="portfolio-item cajas-luz">
-    <img alt='Caja de Luz 2' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas4.avif' loading='lazy'/>
+    <img alt='Caja de Luz 2' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas2.avif' loading='lazy'/>
 </div>
 
 <div class="portfolio-item cajas-luz">
@@ -975,11 +974,11 @@
 </div>
 
 <div class="portfolio-item cajas-luz">
-    <img alt='Caja de Luz 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas2.avif' loading='lazy'/>
-</div> 
+    <img alt='Caja de Luz 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas4.avif' loading='lazy'/>
+</div>
 </div>
         </div>
-    </section> 
+    </section>
 
     <!-- SECCIÓN HERRAMIENTAS INTERACTIVAS -->
     <section class="herramientas-section" id="herramientas">
