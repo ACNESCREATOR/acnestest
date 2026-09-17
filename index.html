@@ -306,7 +306,7 @@
             transition: opacity 0.4s ease, transform 0.4s ease;
             opacity: 1;
             transform: scale(1);
-            cursor: zoom-in; /* Lupa al pasar el ratón */
+            cursor: zoom-in;
         }
 
         .portfolio-item img {
@@ -324,24 +324,24 @@
         }
 
         /* =========================================
-           LIGHTBOX MODAL (Visor de imágenes grande)
+           LIGHTBOX MODAL
            ========================================= */
         .image-lightbox {
             display: none; 
             position: fixed;
-            z-index: 990; /* Debajo de la navbar (1000) */
+            z-index: 990;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
+            background-color: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            cursor: zoom-out; /* Lupa con el símbolo "menos" para salir */
+            cursor: zoom-out;
         }
 
         .image-lightbox.active {
@@ -350,9 +350,9 @@
         }
 
         .image-lightbox img {
-            max-width: 95vw; /* Abarca casi todo el ancho */
-            max-height: 85vh; /* Abarca casi todo el alto */
-            margin-top: 80px; /* Evita que la navbar tape la parte superior */
+            max-width: 95vw;
+            max-height: 85vh;
+            margin-top: 80px;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 255, 247, 0.2);
             object-fit: contain;
@@ -361,7 +361,7 @@
         }
 
         .image-lightbox.active img {
-            transform: scale(1); /* Efecto de acercamiento suave */
+            transform: scale(1);
         }
 
         /* =========================================
@@ -405,7 +405,7 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS
+           SECCIÓN DE SERVICIOS & ANIMACIONES SVG
            ========================================= */
         .servicios-section {
             padding: 40px 40px 60px 40px; 
@@ -441,9 +441,10 @@
             border-color: #00fff7; 
             box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); 
         }
+
         .servicio-icon { 
-            width: 60px; 
-            height: 60px; 
+            width: 65px; 
+            height: 65px; 
             margin: 0 0 20px 0; 
             background-color: rgba(0, 255, 247, 0.08); 
             border-radius: 50%; 
@@ -453,11 +454,31 @@
             border: 1px solid rgba(0, 255, 247, 0.2); 
             transition: all 0.4s ease; 
         }
-        .servicio-card:hover .servicio-icon { background-color: #00fff7; }
-        .servicio-icon svg { width: 30px; height: 30px; fill: #00fff7; transition: all 0.4s ease; }
-        .servicio-card:hover .servicio-icon svg { fill: #000; }
+        .servicio-card:hover .servicio-icon { 
+            background-color: rgba(0, 255, 247, 0.2); 
+            box-shadow: 0 0 15px rgba(0, 255, 247, 0.4); 
+        }
+
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 12px; color: #ffffff; }
         .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
+
+        /* Animaciones CSS para los personajes SVG */
+        @keyframes taladrar {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(4px) rotate(-8deg); }
+        }
+        @keyframes escalar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        @keyframes teclearMouse {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(3px); }
+        }
+
+        .anim-drill { animation: taladrar 0.6s infinite ease-in-out; transform-origin: 35px 25px; }
+        .anim-climb { animation: escalar 1.2s infinite ease-in-out; }
+        .anim-mouse { animation: teclearMouse 0.8s infinite ease-in-out; }
 
         /* =========================================
            SECCIÓN NUESTROS CLIENTES Y RESEÑAS
@@ -516,7 +537,6 @@
             filter: grayscale(0%) brightness(1);
         }
 
-        /* Envoltorio principal para las Reseñas - Fondo blanco de extremo a extremo */
         .reviews-wrapper {
             background-color: #ffffff;
             width: 100%;
@@ -524,7 +544,6 @@
             margin-top: 50px;
         }
 
-        /* ESTILO PARA LA PÍLDORA DE RESEÑAS (Negra con borde blanco) */
         .review-pill {
             background-color: #000000;
             color: #ffffff;
@@ -540,13 +559,11 @@
             cursor: default;
         }
 
-        /* Contenedor interno de las reseñas (80% escritorio, 100% móvil) */
         .reviews-inner {
             width: 80%;
             margin: 0 auto;
         }
 
-        /* Forzar nombre de la empresa a negro dentro del widget de reseñas */
         .tr-widget .tr-company-name,
         .tr-widget .tr-header-name,
         .tr-widget .tr-profile-name,
@@ -1071,7 +1088,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS -->
+    <!-- SECCIÓN DE SERVICIOS (Con personajes animados personalizados) -->
     <section class="servicios-section" id="servicios">
         <div class="servicios-container">
             <h2 class="svc-badge-pill ai-title-pill">
@@ -1080,23 +1097,60 @@
             </h2>
             
             <div class="servicios-grid">
+                <!-- Tarjeta 1: Fabricación -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <svg viewBox="0 0 24 24"><path d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V22H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" /></svg>
+                        <!-- Icono Animado: Monito en mesa taladrando -->
+                        <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="#00fff7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Mesa -->
+                            <path d="M10 46h44" stroke="#fff" stroke-width="2"/>
+                            <path d="M16 46v10 M48 46v10" stroke="#fff" stroke-width="2"/>
+                            <!-- Monito (cuerpo sencillo y cabeza) -->
+                            <circle cx="28" cy="22" r="5" fill="#111" stroke="#fff"/>
+                            <path d="M28 27v10 M28 32l-6-4 M28 32l8-5" stroke="#fff"/>
+                            <!-- Brazo taladrando (con animación) -->
+                            <g class="anim-drill">
+                                <path d="M36 27l8 3" stroke="#00fff7"/>
+                                <polygon points="44,28 50,30 44,32" fill="#00fff7" stroke="#00fff7"/>
+                            </g>
+                        </svg>
                     </div>
-                    <h3>Letras 3D y Aluminio</h3>
+                    <h3>Fabricación</h3>
                     <p>Fabricación de anuncios tridimensionales de alta calidad. Acabados premium con iluminación LED para destacar tu marca al máximo.</p>
                 </div>
+
+                <!-- Tarjeta 2: Instalación -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z" /></svg>
+                        <!-- Icono Animado: Monito subiendo escalera -->
+                        <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="#00fff7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="anim-climb">
+                            <!-- Escalera -->
+                            <path d="M20 10v46 M44 10v46" stroke="#fff" stroke-width="2"/>
+                            <path d="M20 22h24 M20 34h24 M20 46h24" stroke="#fff" stroke-width="2"/>
+                            <!-- Monito subiendo -->
+                            <circle cx="32" cy="18" r="4" fill="#111" stroke="#fff"/>
+                            <path d="M32 22v10 M32 26l-6 4 M32 26l6 6" stroke="#fff"/>
+                        </svg>
                     </div>
-                    <h3>Cajas de Luz</h3>
-                    <p>Letreros luminosos personalizados a la medida. Ideales para que tu fachada o negocio capte la atención tanto de día como de noche.</p>
+                    <h3>Instalación</h3>
+                    <p>Letreros luminosos y colocación profesional a la medida. Ideales para que tu fachada o negocio capte la atención con total seguridad.</p>
                 </div>
+
+                <!-- Tarjeta 3: Diseño y Rotulación -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                        <!-- Icono Animado: Monito frente a pantalla con mouse -->
+                        <svg viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="#00fff7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Pantalla de frente -->
+                            <rect x="28" y="12" width="28" height="20" rx="2" stroke="#fff" fill="#111"/>
+                            <path d="M42 32v6 M36 38h12" stroke="#fff" stroke-width="2"/>
+                            <!-- Monito de lado -->
+                            <circle cx="14" cy="20" r="4" fill="#111" stroke="#fff"/>
+                            <path d="M14 24v12 M14 28l6 4" stroke="#fff"/>
+                            <!-- Mano con mouse (animada) -->
+                            <path d="M20 32l6 2" stroke="#00fff7" class="anim-mouse"/>
+                            <rect x="25" y="32" width="4" height="6" rx="2" fill="#00fff7" stroke="#00fff7" class="anim-mouse"/>
+                        </svg>
                     </div>
                     <h3>Diseño y Rotulación</h3>
                     <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
@@ -1332,17 +1386,15 @@
         // 3. Script de Filtro para la Galería (Transiciones Mejoradas)
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
-        let isAnimating = false; // Evita clics múltiples rápidos que rompan el grid
+        let isAnimating = false;
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Ignorar si se hace clic fuera del menú o si la animación está en progreso
                 if(!btn.parentElement.classList.contains('portfolio-filters')) return;
                 if(btn.classList.contains('active') || isAnimating) return;
                 
                 isAnimating = true;
 
-                // Actualizar estado visual de los botones
                 filterBtns.forEach(b => {
                     if(b.parentElement.classList.contains('portfolio-filters')) {
                         b.classList.remove('active');
@@ -1353,9 +1405,7 @@
                 const filterValue = btn.getAttribute('data-filter');
                 let needToHideAny = false;
 
-                // FASE 1: Ocultar suavemente los que no coinciden con el nuevo filtro
                 portfolioItems.forEach(item => {
-                    // Verificamos si el elemento está visible actualmente
                     const isVisible = window.getComputedStyle(item).display !== 'none';
                     if (isVisible && filterValue !== 'all' && !item.classList.contains(filterValue)) {
                         item.style.opacity = '0';
@@ -1364,15 +1414,12 @@
                     }
                 });
 
-                // Si hay elementos que se van, esperamos a que termine su animación CSS (400ms)
                 const hideDelay = needToHideAny ? 400 : 0;
 
                 setTimeout(() => {
-                    // FASE 2: Reacomodar la cuadrícula modificando el DOM (display)
                     portfolioItems.forEach(item => {
                         if (filterValue === 'all' || item.classList.contains(filterValue)) {
                             item.style.display = 'block';
-                            // Preparar para la animación de entrada si estaban ocultos previamente
                             if (item.style.opacity === '0' || window.getComputedStyle(item).opacity === '0') {
                                 item.style.opacity = '0';
                                 item.style.transform = 'scale(0.8)';
@@ -1382,7 +1429,6 @@
                         }
                     });
 
-                    // FASE 3: Mostrar los nuevos elementos suavemente después de que el navegador calcule el nuevo grid
                     setTimeout(() => {
                         portfolioItems.forEach(item => {
                             if (filterValue === 'all' || item.classList.contains(filterValue)) {
@@ -1390,7 +1436,7 @@
                                 item.style.transform = 'scale(1)';
                             }
                         });
-                        isAnimating = false; // Animación finalizada, permitimos nuevos clics
+                        isAnimating = false;
                     }, 50);
 
                 }, hideDelay);
@@ -1406,7 +1452,6 @@
         const lightboxImg = document.getElementById('lightbox-img');
         const galleryImages = document.querySelectorAll('.portfolio-item img');
 
-        // Abrir visor al hacer clic en cualquier imagen de la galería
         galleryImages.forEach(img => {
             img.addEventListener('click', () => {
                 lightboxImg.src = img.src;
@@ -1414,7 +1459,6 @@
             });
         });
 
-        // Cerrar visor al dar clic en cualquier parte de la pantalla oscura
         lightbox.addEventListener('click', () => {
             lightbox.classList.remove('active');
         });
