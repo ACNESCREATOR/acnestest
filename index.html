@@ -462,14 +462,14 @@
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: #ffffff; }
         .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
 
-        /* Animaciones para los personajes SVG */
+        /* Animaciones para los personajes y máquinas SVG (Todo en blanco) */
         @keyframes parpadearPantalla {
             0%, 100% { opacity: 0.2; }
             50% { opacity: 1; }
         }
-        @keyframes taladrarMovimiento {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(3px); }
+        @keyframes cncTrabajando {
+            0%, 100% { transform: translateX(-8px); }
+            50% { transform: translateX(8px); }
         }
         @keyframes subirEscaleraMonito {
             0%, 100% { transform: translateY(10px); }
@@ -477,7 +477,7 @@
         }
 
         .anim-screen { animation: parpadearPantalla 1s infinite ease-in-out; }
-        .anim-drill { animation: taladrarMovimiento 0.4s infinite ease-in-out; transform-origin: 32px 30px; }
+        .anim-cnc { animation: cncTrabajando 1.2s infinite ease-in-out; transform-origin: 32px 24px; }
         .anim-climb-monito { animation: subirEscaleraMonito 1.5s infinite ease-in-out; }
 
         /* =========================================
@@ -1113,26 +1113,22 @@
                     <p>Corte de vinil, banners promocionales y diseño gráfico aplicado. Todo lo necesario para que la identidad de tu empresa sea impecable.</p>
                 </div>
 
-                <!-- 2. FABRICACIÓN (Con monito de pie y taladro detallado/animado) -->
+                <!-- 2. FABRICACIÓN (Con máquina CNC todo en blanco y funcionando) -->
                 <div class="servicio-card">
                     <div class="servicio-icon">
                         <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Mesa de trabajo -->
-                            <path d="M10 46h44" stroke-width="2"/>
-                            <path d="M16 46v10 M48 46v10" stroke-width="2"/>
-                            <!-- Monito de cuerpo completo parado -->
-                            <circle cx="26" cy="20" r="4" fill="#111" stroke="#fff"/>
-                            <path d="M26 24v12 M26 28l-6 4 M26 28l6 2" stroke="#fff"/>
-                            <path d="M23 36v8 M29 36v8" stroke="#fff"/>
-                            <!-- Taladro en la mano del monito (con animación de perforación) -->
-                            <g class="anim-drill">
-                                <path d="M32 30l6-2" stroke="#fff"/>
-                                <!-- Cuerpo del taladro -->
-                                <rect x="38" y="24" width="6" height="8" rx="1" fill="#111" stroke="#fff"/>
-                                <!-- Empuñadura / gatillo -->
-                                <path d="M40 32v4"/>
-                                <!-- Broca tocando la mesa -->
-                                <path d="M41 36l0 10" stroke="#00fff7" stroke-width="2"/>
+                            <!-- Mesa / Cama del CNC -->
+                            <path d="M10 50h44" stroke-width="2"/>
+                            <path d="M16 50v8 M48 50v8" stroke-width="2"/>
+                            <!-- Material en la mesa -->
+                            <rect x="18" y="44" width="28" height="6" fill="#111" stroke="#fff" stroke-width="1.5"/>
+                            <!-- Estructura del Portal / Gantry fijo -->
+                            <path d="M14 16v34 M50 16v34" stroke-width="2"/>
+                            <path d="M10 16h44" stroke-width="2.5"/>
+                            <!-- Cabezal CNC animado trabajando -->
+                            <g class="anim-cnc">
+                                <rect x="28" y="16" width="8" height="16" rx="1" fill="#111" stroke="#fff"/>
+                                <path d="M32 32v12" stroke-width="3" stroke="#fff"/>
                             </g>
                         </svg>
                     </div>
