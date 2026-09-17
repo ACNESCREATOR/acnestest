@@ -993,10 +993,6 @@
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras4.avif' loading='lazy'/>
                 </div>
-                
-                 
-              
-              
                </div>
         </div>
     </section>
@@ -1292,15 +1288,20 @@
             navMenu.classList.remove("active");
         }));
 
-        // 3. Script de Filtro para la Galería
+        // 3. Script de Filtro para la Galería (Transiciones Mejoradas)
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
+        let isAnimating = false; // Evita clics múltiples rápidos que rompan el grid
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Solo aplicar a los botones dentro del menú de filtros
+                // Ignorar si se hace clic fuera del menú o si la animación está en progreso
                 if(!btn.parentElement.classList.contains('portfolio-filters')) return;
+                if(btn.classList.contains('active') || isAnimating) return;
                 
+                isAnimating = true;
+
+                // Actualizar estado visual de los botones
                 filterBtns.forEach(b => {
                     if(b.parentElement.classList.contains('portfolio-filters')) {
                         b.classList.remove('active');
@@ -1309,22 +1310,49 @@
                 btn.classList.add('active');
 
                 const filterValue = btn.getAttribute('data-filter');
+                let needToHideAny = false;
 
+                // FASE 1: Ocultar suavemente los que no coinciden con el nuevo filtro
                 portfolioItems.forEach(item => {
-                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 10); 
-                    } else {
+                    // Verificamos si el elemento está visible actualmente
+                    const isVisible = window.getComputedStyle(item).display !== 'none';
+                    if (isVisible && filterValue !== 'all' && !item.classList.contains(filterValue)) {
                         item.style.opacity = '0';
                         item.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 400); 
+                        needToHideAny = true;
                     }
                 });
+
+                // Si hay elementos que se van, esperamos a que termine su animación CSS (400ms)
+                const hideDelay = needToHideAny ? 400 : 0;
+
+                setTimeout(() => {
+                    // FASE 2: Reacomodar la cuadrícula modificando el DOM (display)
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.style.display = 'block';
+                            // Preparar para la animación de entrada si estaban ocultos previamente
+                            if (item.style.opacity === '0' || window.getComputedStyle(item).opacity === '0') {
+                                item.style.opacity = '0';
+                                item.style.transform = 'scale(0.8)';
+                            }
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    // FASE 3: Mostrar los nuevos elementos suavemente después de que el navegador calcule el nuevo grid
+                    setTimeout(() => {
+                        portfolioItems.forEach(item => {
+                            if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }
+                        });
+                        isAnimating = false; // Animación finalizada, permitimos nuevos clics
+                    }, 50);
+
+                }, hideDelay);
             });
         });
     </script>
