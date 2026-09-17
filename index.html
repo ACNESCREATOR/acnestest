@@ -241,6 +241,12 @@
             transition: all 0.3s ease;
         }
 
+        /* AÑADIDO: z-index alto para que el logo se vea sobre el menú en móvil */
+        .nav-logo {
+            position: relative;
+            z-index: 1001; 
+        }
+
         .nav-logo img { height: 50px; width: auto; display: block; }
         
         .nav-menu { 
@@ -278,7 +284,6 @@
         .hamburger .bar:nth-child(2) { top: 10.5px; }
         .hamburger .bar:nth-child(3) { top: 21px; }
 
-        /* Estado activo de la hamburguesa (X) */
         .hamburger.active .bar:nth-child(1) { transform: translateY(10.5px) rotate(45deg); }
         .hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-20px); }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-10.5px) rotate(-45deg); }
@@ -455,7 +460,7 @@
            SECCIÓN DE SERVICIOS & ANIMACIONES SVG
            ========================================= */
         .servicios-section {
-            padding: 40px 40px 0 40px; /* Padding reducido para conectar visualmente */
+            padding: 40px 40px 0 40px; 
             background-color: #000000; 
             width: 100%;
             text-align: center;
@@ -540,25 +545,31 @@
         .anim-nodos rect { animation: pulsoNodos 2s infinite ease-in-out; transform-origin: center; }
 
         /* =========================================
-           SUBSECCIONES DE SERVICIOS (FONDO BLANCO)
+           SUBSECCIONES RENDER Y VECTORIZADO (SPLIT VIEW)
            ========================================= */
-        .subservicio-wrapper {
-            background-color: #ffffff;
+        .subservicios-split {
+            display: flex;
+            flex-direction: row;
             width: 100%;
-            padding: 50px 20px;
-            overflow: hidden;
+            background-color: #ffffff;
+            margin-top: 40px; /* Separación de los servicios negros */
+        }
+
+        .subservicio-col {
+            flex: 1;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
 
-        /* La primera subsección (Render) tiene margen superior para separarla un poco del bloque negro */
-        #render { margin-top: 30px; }
-        
-        /* La segunda (Vectorizado) va pegada a la primera pero con un borde sutil */
-        #vectorizado { border-top: 1px solid #eaeaea; }
+        #vectorizado {
+            border-left: 1px solid #eaeaea; /* Línea divisoria en escritorio */
+        }
 
         .subservicio-inner {
-            max-width: 700px;
-            margin: 0 auto;
+            max-width: 450px; /* Ancho ajustado para columnas dobles */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -979,9 +990,18 @@
 
             .herramientas-section, .servicios-section { padding: 30px 20px 0 20px; }
             
-            /* Ajuste de margen para subsecciones en móviles */
-            #render { margin-top: 20px; padding: 40px 20px; } 
-            #vectorizado { padding: 40px 20px; }
+            /* Ajuste de subservicios (Render y Vectorizado) a formato de lista en móviles */
+            .subservicios-split {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            .subservicio-col {
+                padding: 40px 20px;
+            }
+            #vectorizado {
+                border-left: none;
+                border-top: 1px solid #eaeaea; /* Línea separadora horizontal en móvil */
+            }
             .subservicio-inner h3 { font-size: 1.25rem; }
             .subservicio-inner p { font-size: 0.95rem; }
             
@@ -1262,50 +1282,51 @@
         </div>
     </section>
 
-    <!-- SECCIÓN RENDER (FONDO BLANCO) -->
-    <section class="subservicio-wrapper" id="render">
-        <div style="text-align: center; margin-bottom: 25px;">
-            <span class="pill-oscura">RENDER</span>
-        </div>
-        <div class="subservicio-inner">
-            <div class="vector-icon-large">
-                <svg viewBox="0 0 64 64" width="54" height="54" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <!-- Destellos de renderización -->
-                    <path class="anim-linea" d="M16 40 C 28 20, 36 40, 48 20" stroke="#000" stroke-width="3" stroke-dasharray="6 6"/>
-                    <!-- Pluma de diseño animada -->
-                    <g class="anim-pluma" transform="translate(15, -15)">
-                        <path d="M38 12 L22 28 L24 34 L30 36 L46 20 Z" fill="#fff" stroke="#000" stroke-width="2"/>
-                        <path d="M24 34 L20 40 L22 28" fill="#000"/>
-                        <line x1="32" y1="18" x2="26" y2="24" stroke="#000" stroke-width="2"/>
-                    </g>
-                </svg>
+    <!-- SUBSECCIONES RENDER Y VECTORIZADO (LADO A LADO EN ESCRITORIO) -->
+    <section class="subservicios-split">
+        
+        <!-- SECCIÓN RENDER -->
+        <div class="subservicio-col" id="render">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <span class="pill-oscura">RENDER</span>
             </div>
-            <h3>Renderizado 3D</h3>
-            <p>De lo digital a lo real, déjate sorprender con una infinidad de posibilidades en el mundo de las artes gráficas.</p>
+            <div class="subservicio-inner">
+                <div class="vector-icon-large">
+                    <svg viewBox="0 0 64 64" width="54" height="54" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="anim-linea" d="M16 40 C 28 20, 36 40, 48 20" stroke="#000" stroke-width="3" stroke-dasharray="6 6"/>
+                        <g class="anim-pluma" transform="translate(15, -15)">
+                            <path d="M38 12 L22 28 L24 34 L30 36 L46 20 Z" fill="#fff" stroke="#000" stroke-width="2"/>
+                            <path d="M24 34 L20 40 L22 28" fill="#000"/>
+                            <line x1="32" y1="18" x2="26" y2="24" stroke="#000" stroke-width="2"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Renderizado 3D</h3>
+                <p>De lo digital a lo real, déjate sorprender con una infinidad de posibilidades en el mundo de las artes gráficas.</p>
+            </div>
         </div>
-    </section>
 
-    <!-- SECCIÓN VECTORIZADO (FONDO BLANCO) -->
-    <section class="subservicio-wrapper" id="vectorizado">
-        <div style="text-align: center; margin-bottom: 25px;">
-            <span class="pill-oscura">VECTORIZADO</span>
-        </div>
-        <div class="subservicio-inner">
-            <div class="vector-icon-large">
-                <svg viewBox="0 0 64 64" width="54" height="54" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <!-- Triángulo vectorial -->
-                    <path d="M32 16 L16 48 L48 48 Z" stroke="#000" stroke-width="2.5" fill="none"/>
-                    <!-- Nodos cuadrados en las esquinas -->
-                    <g class="anim-nodos">
-                        <rect x="29" y="13" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2.5"/>
-                        <rect x="13" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2.5"/>
-                        <rect x="45" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2.5"/>
-                    </g>
-                </svg>
+        <!-- SECCIÓN VECTORIZADO -->
+        <div class="subservicio-col" id="vectorizado">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <span class="pill-oscura">VECTORIZADO</span>
             </div>
-            <h3>Servicio Profesional de Vectorizado</h3>
-            <p>Servicio de vectorizado para logotipos creados con IA u otras herramientas. Trazos limpios y editables compatibles con <strong>CorelDraw</strong> y <strong>Adobe Illustrator</strong>.</p>
+            <div class="subservicio-inner">
+                <div class="vector-icon-large">
+                    <svg viewBox="0 0 64 64" width="54" height="54" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M32 16 L16 48 L48 48 Z" stroke="#000" stroke-width="2.5" fill="none"/>
+                        <g class="anim-nodos">
+                            <rect x="29" y="13" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2.5"/>
+                            <rect x="13" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2.5"/>
+                            <rect x="45" y="45" width="6" height="6" fill="#fff" stroke="#000" stroke-width="2.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Servicio Profesional de Vectorizado</h3>
+                <p>Servicio de vectorizado para logotipos creados con IA u otras herramientas. Trazos limpios y editables compatibles con <strong>CorelDraw</strong> y <strong>Adobe Illustrator</strong>.</p>
+            </div>
         </div>
+
     </section>
 
     <!-- SECCIÓN NUESTROS CLIENTES Y RESEÑAS -->
