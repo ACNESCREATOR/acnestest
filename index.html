@@ -596,14 +596,14 @@
             background-color: #000000; 
             width: 100%;
             text-align: center;
-            overflow: hidden; /* AISLAMIENTO PARA EVITAR EL SCROLL HORIZONTAL */
+            overflow: hidden; 
         }
 
         .clientes-container { 
             width: 100%;
             max-width: 100%; 
             margin: 0 auto; 
-            overflow: hidden; /* AISLAMIENTO ADICIONAL */
+            overflow: hidden; 
         }
 
         .clientes-marquee-wrapper {
@@ -615,7 +615,6 @@
             margin-top: 15px;
         }
 
-        /* Efecto de desvanecimiento a los lados (Fade edges) */
         .clientes-marquee-wrapper::before,
         .clientes-marquee-wrapper::after {
             content: "";
@@ -636,12 +635,11 @@
 
         .clientes-marquee-track {
             display: flex;
-            gap: 45px; /* Separación entre las dos imágenes duplicadas */
+            gap: 45px; 
             width: max-content;
             animation: scrollMarquee 25s linear infinite;
         }
 
-        /* Si el usuario interactúa, se pausa la animación */
         .clientes-marquee-track:hover {
             animation-play-state: paused;
         }
@@ -658,13 +656,11 @@
             filter: grayscale(0%) brightness(1);
         }
 
-        /* Desplaza exactamente el 50% del total menos la mitad de la separación */
         @keyframes scrollMarquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-50% - 20px)); } 
         }
 
-        /* AISLAMIENTO EXCLUSIVO DE RESEÑAS */
         .reviews-wrapper {
             background-color: #ffffff;
             width: 100%;
@@ -853,6 +849,7 @@
             box-sizing: border-box;
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            overflow: hidden;
         }
 
         .redes-col:hover {
@@ -876,6 +873,12 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+        }
+
+        /* CORRECCIÓN PARA QUE EL WIDGET DE FACEBOOK SE ADAPTE AL 100% Y NO SE CORTE */
+        .fb-page, .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe {
+            width: 100% !important;
+            max-width: 100% !important;
         }
 
         /* =========================================
@@ -1069,7 +1072,6 @@
             }
             .subservicio-inner p { font-size: 1.05rem; }
             
-            /* Ajustes en móviles para la barra marquee */
             .clientes-section { padding: 30px 0 0 0; }
             .clientes-marquee-wrapper::before,
             .clientes-marquee-wrapper::after {
@@ -1082,7 +1084,6 @@
             .cotizacion-section { padding: 40px 0; }
             .cotizacion-container { width: 95%; }
 
-            /* Redes en dispositivos móviles: uno arriba del otro */
             .redes-split {
                 flex-direction: column;
                 gap: 20px;
@@ -1486,7 +1487,7 @@
                 <div class="redes-col">
                     <h4>Síguenos en Facebook</h4>
                     <div class="fb-embed-container">
-                        <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="400" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                             <blockquote cite="https://www.facebook.com/ACNESPublicidad/" class="fb-xfbml-parse-ignore">
                                 <a href="https://www.facebook.com/ACNESPublicidad/">ACNES Publicidad</a>
                             </blockquote>
@@ -1562,7 +1563,6 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // SCRIPT REPARADO: PRELOADER (Seguro de 2.5 Segundos)
         document.addEventListener("DOMContentLoaded", function() {
             const preloader = document.getElementById('preloader');
             
@@ -1574,14 +1574,10 @@
                 }
             }
 
-            // Intenta ocultarlo cuando la ventana cargue
             window.addEventListener('load', ocultarPreloader);
-            
-            // Failsafe: Si no carga por cualquier error de CDN o imagen, lo apaga a los 2.5 seg.
             setTimeout(ocultarPreloader, 2500);
         });
 
-        // EFECTO DE ESCRITURA
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.texto-terminal', {
                 strings: [
@@ -1602,7 +1598,6 @@
             });
         });
 
-        // MENÚ HAMBURGUESA
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         if(hamburger && navMenu) {
@@ -1617,7 +1612,6 @@
             }));
         }
 
-        // FILTRO DE PORTAFOLIO
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         let isAnimating = false;
@@ -1677,7 +1671,6 @@
             });
         });
 
-        // LIGHTBOX
         const lightbox = document.createElement('div');
         lightbox.classList.add('image-lightbox');
         lightbox.innerHTML = `<img id="lightbox-img" src="" alt="Imagen ampliada">`;
@@ -1697,7 +1690,6 @@
             lightbox.classList.remove('active');
         });
 
-        // FUNCIÓN WHATSAPP
         function enviarFormularioWA() {
             var telefono = "5521913826";
             var nombre = document.getElementById("wa-nombre").value;
