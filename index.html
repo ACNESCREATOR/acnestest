@@ -3119,22 +3119,16 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // FUNCIÓN PARA OCULTAR EL PRELOADER
-        const ocultarPreloader = () => {
+       window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
-            if (preloader && preloader.style.display !== 'none') {
+            if (preloader) {
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
-                setTimeout(() => { preloader.style.display = 'none'; }, 500);
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
             }
-        };
-
-        // 1. Intentar ocultar cuando todo cargue normalmente
-        window.addEventListener('load', ocultarPreloader);
-        
-        // 2. SEGURO DE VIDA: Si algo falla o tarda mucho, forzar que desaparezca a los 2.5 segundos
-        setTimeout(ocultarPreloader, 2500);
-
+        });
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.texto-terminal', {
                 strings: [
