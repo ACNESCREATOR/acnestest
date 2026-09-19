@@ -817,6 +817,67 @@
         }
 
         /* =========================================
+           SECCIÓN REDES (FACEBOOK WIDGET & VIDEO)
+           ========================================= */
+        .redes-section {
+            padding: 40px 0 60px 0;
+            background-color: #000000;
+            width: 100%;
+            text-align: center;
+        }
+
+        .redes-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .redes-split {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        .redes-col {
+            flex: 1;
+            background-color: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .redes-col:hover {
+            border-color: #00fff7;
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15);
+        }
+
+        .redes-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .fb-embed-container, .fb-video-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* =========================================
            PIE DE PÁGINA (FOOTER)
            ========================================= */
         .footer-section {
@@ -964,6 +1025,7 @@
         @media (max-width: 1024px) {
             .reviews-inner { width: 95%; } 
             .cotizacion-container { width: 85%; }
+            .redes-container { width: 90%; }
             .footer-container { width: 90%; }
         }
 
@@ -1018,6 +1080,16 @@
             
             .cotizacion-section { padding: 40px 0; }
             .cotizacion-container { width: 95%; }
+
+            /* Redes en dispositivos móviles: uno arriba del otro */
+            .redes-split {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .redes-container {
+                width: 95%;
+            }
+
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             
             .reviews-wrapper { padding: 40px 0; margin-top: 30px; }
@@ -1090,6 +1162,7 @@
             <li><a href="#herramientas">Cotizador</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#redes">Redes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
         </ul>
         <div class="hamburger">
@@ -1400,6 +1473,42 @@
         </div>
     </section>
 
+    <!-- SECCIÓN REDES (WIDGET & VIDEO DE FACEBOOK) -->
+    <section class="redes-section" id="redes">
+        <div class="redes-container">
+            <div style="text-align: center;">
+                <h2 class="svc-badge-pill ai-title-pill">
+                    <span class="badge-dot"></span>
+                    REDES <span class="typed-cursor">_</span>
+                </h2>
+            </div>
+
+            <div class="redes-split">
+                <!-- Columna 1: Widget de Facebook -->
+                <div class="redes-col">
+                    <h4>Síguenos en Facebook</h4>
+                    <div class="fb-embed-container">
+                        <!-- Pega aquí el código de tu widget/plugin de página de Facebook -->
+                        <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+                        <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad" data-tabs="timeline" data-width="" data-height="380" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/ACNESPublicidad" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ACNESPublicidad">ACNES Publicidad</a></blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Video de Facebook -->
+                <div class="redes-col">
+                    <h4>Video Destacado</h4>
+                    <div class="fb-video-container">
+                        <!-- Pega aquí el iframe de tu video de Facebook -->
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FACNESPublicidad%2Fvideos%2FTU_ID_DE_VIDEO%2F&show_text=false&width=560&t=0" width="100%" height="350" style="border:none;overflow:hidden;border-radius:10px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PIE DE PÁGINA (FOOTER) -->
     <footer class="footer-section">
         <div class="footer-container">
@@ -1418,6 +1527,7 @@
                         <li><a href="#herramientas">Herramientas</a></li>
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#clientes">Clientes</a></li>
+                        <li><a href="#redes">Redes</a></li>
                         <li><a href="#cotizacion">Contacto</a></li>
                     </ul>
                 </div>
