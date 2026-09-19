@@ -36,7 +36,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 20000; /* Por encima de la navbar y todo el contenido */
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
@@ -46,12 +46,10 @@
             align-items: center; 
             justify-content: center; 
             text-align: center; 
-            
             background: transparent;
             color: #ffffff;
             border: 1.5px solid #00fff7; 
             box-shadow: 0 0 15px rgba(0, 255, 247, 0.3); 
-            
             border-radius: 50px;
             padding: 12px 24px;  
             font-family: 'Montserrat', sans-serif;
@@ -156,12 +154,10 @@
             justify-content: center; 
             text-align: center; 
             flex-wrap: wrap; 
-            
             background: #000000;
             color: #ffffff;
             border: none;
             box-shadow: none;
-            
             border-radius: 50px;
             padding: 10px 28px 10px 42px; 
             font-family: 'Montserrat', sans-serif;
@@ -222,7 +218,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN (SIEMPRE ENCIMA)
+           BARRA DE NAVEGACIÓN
            ========================================= */
         .navbar {
             position: fixed; 
@@ -291,7 +287,7 @@
            SECCIÓN PORTAFOLIO
            ========================================= */
         .portafolio-section {
-            padding: 50px 0 0px 0; 
+            padding: 50px 0 30px 0; 
             background-color: #000000; 
             width: 100%;
         }
@@ -375,7 +371,7 @@
         }
 
         /* =========================================
-           SECCIÓN PROYECTOS DESTACADOS (FONDO BLANCO, APARICIÓN PROGRESIVA 3 EN 3)
+           SECCIÓN PROYECTOS DESTACADOS
            ========================================= */
         .proyectos-section {
             padding: 60px 0;
@@ -613,7 +609,7 @@
         .anim-nodos rect { animation: pulsoNodos 2s infinite ease-in-out; transform-origin: center; }
 
         /* =========================================
-           SUBSECCIONES RENDER Y VECTORIZADO (SPLIT VIEW)
+           SUBSECCIONES RENDER Y VECTORIZADO
            ========================================= */
         .subservicios-split {
             display: flex;
@@ -665,7 +661,7 @@
         }
 
         /* =========================================
-           SECCIÓN NUESTROS CLIENTES (BARRA MARQUEE)
+           SECCIÓN NUESTROS CLIENTES
            ========================================= */
         .clientes-section {
             padding: 40px 0 0 0; 
@@ -686,7 +682,7 @@
             width: 100%;
             overflow: hidden;
             background-color: transparent;
-            padding: 0px 0;
+            padding: 0;
             position: relative;
             margin-top: 15px;
         }
@@ -762,7 +758,7 @@
         }
 
         /* =========================================
-           SECCIÓN SOLICITAR COTIZACIÓN & WHATSAPP FORM
+           SECCIÓN SOLICITAR COTIZACIÓN
            ========================================= */
         .cotizacion-section {
             padding: 60px 0;
@@ -1026,7 +1022,7 @@
             color: #888888;
         }
 
-        /* Animación general */
+        /* Animaciones clave generales */
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
         @keyframes parpadeoCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } } 
 
@@ -1159,6 +1155,7 @@
         <ul class="nav-menu">
             <li><a href="#">Inicio</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#proyectos-destacados">Proyectos</a></li>
             <li><a href="#herramientas">Cotizador</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#clientes">Clientes</a></li>
@@ -1255,7 +1252,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN PROYECTOS DESTACADOS (FONDO BLANCO, APARICIÓN PROGRESIVA 3 EN 3) -->
+    <!-- SECCIÓN PROYECTOS DESTACADOS -->
     <section class="proyectos-section" id="proyectos-destacados">
         <div class="proyectos-container">
             <div style="text-align: center; margin-bottom: 25px;">
@@ -1263,71 +1260,71 @@
             </div>
 
             <div class="proyectos-grid-wrapper" id="grid-proyectos">
-                <!-- Fila 1 (Visible inicialmente) -->
+                <!-- Fila 1 -->
                 <div class="proyectos-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipTj47x2zXjCW95p_CKCAeNWA0E0klW29OB8qYHkOQIXOPbjUjYgbMIuXndlauOsYc4m0uCa230WnXNU16irgN660xjcYk60pVdFpvPBrXbrqdgrcZJBbs3_O_qeEIbdVMnf5pvuiScIalBePEhyr6nAw2q8pN8ko9jT5PIxXbwqPxykpXbHZ736Bgdsw/s1600/TERRA1.png'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb8vC6qbYs0uf8w9-FArC6x-mOpWwkcA1lgjXAhZEpRWZYRll3qr8xZON92OwVncyQO9egbsmAvROM28gN1_gRGMJaRZWqI2D_aMdmrD4ky_NFdEkHKZXIVwpF6bvugmgaglySQdgP0_qHtTE8ODKOZbWk-U8rfmDWW_Upotri6Yy6ey9WbQELgXi3TYg/s1600/TERRA2.png'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsVApo60WW-Zcap3m77XQIjJZ96fsyZsjHZwyCA4F0uAaJkJcg_hL7ma2IbgAfR3BXIEHTBsQQ12IuV-zx4zRf1x66u7haqZOGAjbomOgrdIL-G6p9c5L7pIfqeianys9Ddlhs7wRtHW77k8nQEphVA7QAoAsZvna6lZ7x5QV1tFS_neOKTOa1rXlzEe0/s1600/TERRA3.png'/>
+                    <img alt='Proyecto Terra 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipTj47x2zXjCW95p_CKCAeNWA0E0klW29OB8qYHkOQIXOPbjUjYgbMIuXndlauOsYc4m0uCa230WnXNU16irgN660xjcYk60pVdFpvPBrXbrqdgrcZJBbs3_O_qeEIbdVMnf5pvuiScIalBePEhyr6nAw2q8pN8ko9jT5PIxXbwqPxykpXbHZ736Bgdsw/s1600/TERRA1.png'/>
+                    <img alt='Proyecto Terra 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb8vC6qbYs0uf8w9-FArC6x-mOpWwkcA1lgjXAhZEpRWZYRll3qr8xZON92OwVncyQO9egbsmAvROM28gN1_gRGMJaRZWqI2D_aMdmrD4ky_NFdEkHKZXIVwpF6bvugmgaglySQdgP0_qHtTE8ODKOZbWk-U8rfmDWW_Upotri6Yy6ey9WbQELgXi3TYg/s1600/TERRA2.png'/>
+                    <img alt='Proyecto Terra 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsVApo60WW-Zcap3m77XQIjJZ96fsyZsjHZwyCA4F0uAaJkJcg_hL7ma2IbgAfR3BXIEHTBsQQ12IuV-zx4zRf1x66u7haqZOGAjbomOgrdIL-G6p9c5L7pIfqeianys9Ddlhs7wRtHW77k8nQEphVA7QAoAsZvna6lZ7x5QV1tFS_neOKTOa1rXlzEe0/s1600/TERRA3.png'/>
                 </div>    
-                <!-- Fila 2 (Visible inicialmente) -->
+                <!-- Fila 2 -->
                 <div class="proyectos-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQH_XIf_-6rZswn4LweGUiyNUU99KKmNpvWI0hQwLBjew9ammT2jidKb-fpAv3vMEC39MtVo-bYc5bSpQELv1JnuK1LOCwuXavQiwWsDhyphenhyphen2ZkhGbuZ0oDQNsyop0ci4y0K0ZHdvTOef8xwooU6rXvPapO7Vx_K_a8qtyko134EomloOJjo_xtXNDdJLyc/s1600/CARRRIER1.png'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC3g7syJxFKDCtqzaWD_1TsdimgicIEjuyDWckNRWCSsO3O_UzOU5jWwuT4RCi0UrIzjgFvFiJXHGaYBQnZ065NBYAnUzpEl61HhIGyn3IzbomcU1yPxMJ-xxqfcEHuOtPr3B2_zT1jllLMTzJnL1_9B4_7VZDpwK5Ek9XxB-oiih0TrSr7oayxzi8Vu8/s1600/CARRIER4.png'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrIU8psn2NNMBlwLUAZEqs5owfxFjsOvb2sLpjvp8d_LH-vZBetnvehgG7jSR6e-cANTS1atbDe2s5r7AtOU_WVW7_1IDyc-AJHuLvPMYvoKW4JsLfli2TJvvGGckait7IB1fsIwDFcbWPNIpMx4_oKTLOFZ9-LIc_D6abKOsY_eICHZOQ01rgnscfE0I/s16000/CARRIER3.png'/>
+                    <img alt='Proyecto Carrier 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQH_XIf_-6rZswn4LweGUiyNUU99KKmNpvWI0hQwLBjew9ammT2jidKb-fpAv3vMEC39MtVo-bYc5bSpQELv1JnuK1LOCwuXavQiwWsDhyphenhyphen2ZkhGbuZ0oDQNsyop0ci4y0K0ZHdvTOef8xwooU6rXvPapO7Vx_K_a8qtyko134EomloOJjo_xtXNDdJLyc/s1600/CARRRIER1.png'/>
+                    <img alt='Proyecto Carrier 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC3g7syJxFKDCtqzaWD_1TsdimgicIEjuyDWckNRWCSsO3O_UzOU5jWwuT4RCi0UrIzjgFvFiJXHGaYBQnZ065NBYAnUzpEl61HhIGyn3IzbomcU1yPxMJ-xxqfcEHuOtPr3B2_zT1jllLMTzJnL1_9B4_7VZDpwK5Ek9XxB-oiih0TrSr7oayxzi8Vu8/s1600/CARRIER4.png'/>
+                    <img alt='Proyecto Carrier 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrIU8psn2NNMBlwLUAZEqs5owfxFjsOvb2sLpjvp8d_LH-vZBetnvehgG7jSR6e-cANTS1atbDe2s5r7AtOU_WVW7_1IDyc-AJHuLvPMYvoKW4JsLfli2TJvvGGckait7IB1fsIwDFcbWPNIpMx4_oKTLOFZ9-LIc_D6abKOsY_eICHZOQ01rgnscfE0I/s16000/CARRIER3.png'/>
                 </div>    
-                <!-- Fila 3 (Visible inicialmente) -->
+                <!-- Fila 3 -->
                 <div class="proyectos-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCX3vO0hGC6sJSdGamUXavSf5NMxOTV3NkZ5NK-S3_j6G88SsyNDK1DWp261K7j1LSgutW9-Rhs7D9GXnj-NyTecsw7rlEZh6ASWcfecdYA1T5hvpwmn93mqTe6aMvtR2fLRyPeJbHJriQKQ3WOb-dwwyLJJX5XNOGNaLI2hkaATdX83RHfoS8oVRTO2E/s1600/PXL_20240823_052547067.MP.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh40LAwEzvfiY4NqkbO5HEE9anQu3Zn4eD6Bt92evTLYTkIpO45E74hyphenhyphenMnkiKLt3HBi6KBKWmhl6xkAX68E2zE17EINdgR-fcBRff7HezgzybIDl69Zv_pgOhV1huFGhFGLcGAGl02OGtLcN_mdPpm1jYdvhSX8xBP1aoA2JPndnlqMwFw54iY6xKGrfWo/s1600/PXL_20240823_052523729.MP.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgISDr3BpAp1V9FOGNkkptfhfj1dCKWQV1S_iKX-RcHPDVHM2kM3f-G8kAXXfUVF50Cu-q8C0hL6mb24mXBRiapdGbJ_y-iQQJ3U-5HnwCrfrCSlxxeSLNnn6BI1I-v_QDScLdL63z0o8eyhuI79N-vfHIv780lIKjV7FggisaNDMARxJlnFEjNfOTtDyk/s1600/PXL_20240823_052558184.jpg'/>
+                    <img alt='Proyecto 7' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCX3vO0hGC6sJSdGamUXavSf5NMxOTV3NkZ5NK-S3_j6G88SsyNDK1DWp261K7j1LSgutW9-Rhs7D9GXnj-NyTecsw7rlEZh6ASWcfecdYA1T5hvpwmn93mqTe6aMvtR2fLRyPeJbHJriQKQ3WOb-dwwyLJJX5XNOGNaLI2hkaATdX83RHfoS8oVRTO2E/s1600/PXL_20240823_052547067.MP.jpg'/>
+                    <img alt='Proyecto 8' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh40LAwEzvfiY4NqkbO5HEE9anQu3Zn4eD6Bt92evTLYTkIpO45E74hyphenhyphenMnkiKLt3HBi6KBKWmhl6xkAX68E2zE17EINdgR-fcBRff7HezgzybIDl69Zv_pgOhV1huFGhFGLcGAGl02OGtLcN_mdPpm1jYdvhSX8xBP1aoA2JPndnlqMwFw54iY6xKGrfWo/s1600/PXL_20240823_052523729.MP.jpg'/>
+                    <img alt='Proyecto 9' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgISDr3BpAp1V9FOGNkkptfhfj1dCKWQV1S_iKX-RcHPDVHM2kM3f-G8kAXXfUVF50Cu-q8C0hL6mb24mXBRiapdGbJ_y-iQQJ3U-5HnwCrfrCSlxxeSLNnn6BI1I-v_QDScLdL63z0o8eyhuI79N-vfHIv780lIKjV7FggisaNDMARxJlnFEjNfOTtDyk/s1600/PXL_20240823_052558184.jpg'/>
                 </div>    
-                <!-- Fila 4 (Oculta al inicio) -->
+                <!-- Fila 4 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOJ1IPCg6awdnXMmeeM3yMCieKh8qJX4XB0atgfHoa596uLWEThCWHXQjLAYqTFUvVy8uP_hlz-t1qL37Mpk9A2tF4HCLq8P1C0pXYXA9b9krPWVislVPJMn8mDx-1WCfwsEnutoA31YH1iro3SC6ssoKR_PzQwB76kZ_fFfW1NO5idBh4RCpUsCsyCTY/s1600/IMG_20231218_213632005.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjgkHPzbUrMjzcrgWjc_jF6NxiR24Tkz-_Q0lJPiXFQDRTZ4yER9PUip38Oi627M1GJ7rs_Jkt1qWx67ntcwQJhjURQg1abAnaaJBHOaG7Ij7wPTE6_2mJOhFro4DN0ZHsJaq0qeWkBsHVZHH06RobodxbmFekhnzYOUpHJT-XdUpFECMWIXWdSB68je0/s1600/IMG_20231218_214113460.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBaX7H498cuBVNUI2wJilqq_-G85E1wwc7pAlFPFUV54Nf-WjpAEMgShqGsCDbnrTWwpGSOaQrEon6a391VNIvRCV8WqQYTkKQn0OEeXyjagAIzmRtDIv6DV1A14aOcRWWavz_y4ZjvVQM0XW1loqfBntYpOQi6MyOe6hPhYO_OfYvvZHPr_SUNaH0i-U/s1600/IMG_20231218_213537370.jpg'/>
+                    <img alt='Proyecto 10' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOJ1IPCg6awdnXMmeeM3yMCieKh8qJX4XB0atgfHoa596uLWEThCWHXQjLAYqTFUvVy8uP_hlz-t1qL37Mpk9A2tF4HCLq8P1C0pXYXA9b9krPWVislVPJMn8mDx-1WCfwsEnutoA31YH1iro3SC6ssoKR_PzQwB76kZ_fFfW1NO5idBh4RCpUsCsyCTY/s1600/IMG_20231218_213632005.jpg'/>
+                    <img alt='Proyecto 11' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjgkHPzbUrMjzcrgWjc_jF6NxiR24Tkz-_Q0lJPiXFQDRTZ4yER9PUip38Oi627M1GJ7rs_Jkt1qWx67ntcwQJhjURQg1abAnaaJBHOaG7Ij7wPTE6_2mJOhFro4DN0ZHsJaq0qeWkBsHVZHH06RobodxbmFekhnzYOUpHJT-XdUpFECMWIXWdSB68je0/s1600/IMG_20231218_214113460.jpg'/>
+                    <img alt='Proyecto 12' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBaX7H498cuBVNUI2wJilqq_-G85E1wwc7pAlFPFUV54Nf-WjpAEMgShqGsCDbnrTWwpGSOaQrEon6a391VNIvRCV8WqQYTkKQn0OEeXyjagAIzmRtDIv6DV1A14aOcRWWavz_y4ZjvVQM0XW1loqfBntYpOQi6MyOe6hPhYO_OfYvvZHPr_SUNaH0i-U/s1600/IMG_20231218_213537370.jpg'/>
                 </div>    
-                <!-- Fila 5 (Oculta al inicio) -->
+                <!-- Fila 5 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4c5EZMQT6zOpWA2tJpF16TBfchQ_JuEFuXdqYO1aLqcVs6PrE8bQotze1x5NvxjOIWbHp9BaijSkfsCYk99aM8LzxC6a3qTFwdhA0pr7os7k2IjkuZ0CLJBDZrGxuBmAr6Pe7lMFQhVtdsfyL3ZOsplrP3YWlWqGQ5Ij46tGKL1ufZAHxZzcsCFWTHpU/s1600/IMG_20231020_000935172.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXHv_mCgkcUTMp0qKeEuOdrYtS9kvLCufWuX_YuphEJ7FTU5m5X8BP-LOEI2OwgXbRGjXeksp4kwnv1BJ_S7fH-OHKpkTq5nMW07NUjjjsbA-iRWHmu0yLoKc_pRW9VTMKry_zg2DH8MucDG_CxqZG_otJCZkxOVTqZqk-vkh0TFHtujrA7UvdOSqOrqQ/s1600/IMG_20231020_000632154.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6BT3MP01TvmPqyrUQDGN5VJvJg5c4HNr-dXNP5i-GIdLFgGo9BDAfLzKoVN0MhEw2PEwYdHflhPDC1GbIJPyZ9YeFPq39tiYS2IRV68A68SkucyRRdeWYCze0l5PKJ6Pb9s986FPImZ2uFHGBKFjJztwCJpu1ygbQuWli4lJ4RkXxysO0XSe7j63ER6c/s1600/IMG_20231020_001009538.jpg'/>
+                    <img alt='Proyecto 13' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4c5EZMQT6zOpWA2tJpF16TBfchQ_JuEFuXdqYO1aLqcVs6PrE8bQotze1x5NvxjOIWbHp9BaijSkfsCYk99aM8LzxC6a3qTFwdhA0pr7os7k2IjkuZ0CLJBDZrGxuBmAr6Pe7lMFQhVtdsfyL3ZOsplrP3YWlWqGQ5Ij46tGKL1ufZAHxZzcsCFWTHpU/s1600/IMG_20231020_000935172.jpg'/>
+                    <img alt='Proyecto 14' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXHv_mCgkcUTMp0qKeEuOdrYtS9kvLCufWuX_YuphEJ7FTU5m5X8BP-LOEI2OwgXbRGjXeksp4kwnv1BJ_S7fH-OHKpkTq5nMW07NUjjjsbA-iRWHmu0yLoKc_pRW9VTMKry_zg2DH8MucDG_CxqZG_otJCZkxOVTqZqk-vkh0TFHtujrA7UvdOSqOrqQ/s1600/IMG_20231020_000632154.jpg'/>
+                    <img alt='Proyecto 15' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6BT3MP01TvmPqyrUQDGN5VJvJg5c4HNr-dXNP5i-GIdLFgGo9BDAfLzKoVN0MhEw2PEwYdHflhPDC1GbIJPyZ9YeFPq39tiYS2IRV68A68SkucyRRdeWYCze0l5PKJ6Pb9s986FPImZ2uFHGBKFjJztwCJpu1ygbQuWli4lJ4RkXxysO0XSe7j63ER6c/s1600/IMG_20231020_001009538.jpg'/>
                 </div>    
-                <!-- Fila 6 (Oculta al inicio) -->
+                <!-- Fila 6 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfcjJ50Q_D9gMFlRGk8ktcbr1QGTBdLMmxjP6vJcX_OuU-6yibhg6ZWKDnX40lCU5GytDWfXlVbDc5I3EYs53JwXAGQwbRVzMmHdegoULSMbSzgp5ihYFipKY925wWt0fL5tYkYDu4MmTkjKQ9aSdJuJNZYiPc4Jsl3mKltWKqvk_gaRcFO6nPhuBlmlE/s16000/IMG_20230809_213635403.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilKx6UEZK4B_sfUiaEYzpl09Hy6Ui5JDSslItCylMfNunPVmwNnsLSu2GYJJJWKwmAM7kY2W572IXPZ_LquI7mr95-j3fGUmBc0MgkU8pI5poNXHx2OnwJ5xLBbJ4fTGwmOVjKcOk_hCrHEbdhWWO-K46Y08SxY0JXKzD_I3SxKELKRy4SuycP-KHAV4Y/s16000/IMG_20230809_213711640.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0n_wziK3Ew-cmUEVk8V1wBPSf1Yj8vMFzzvzm4BKS_Dnc3j1t3d5C60S-Q40OrDc0vC226s96CymZ3Uid8fOtM2b1IzXEPHdxS44KV-Quau8YGpo7AImHJtlHJbOpb6wQtAfKd28PYb-hqD3ezzoTUuUQ_vfAbprsZm_gzXCpzCD11_WgoKK_oxfCnwY/s16000/IMG_20230809_213534172.jpg'/>
+                    <img alt='Proyecto 16' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfcjJ50Q_D9gMFlRGk8ktcbr1QGTBdLMmxjP6vJcX_OuU-6yibhg6ZWKDnX40lCU5GytDWfXlVbDc5I3EYs53JwXAGQwbRVzMmHdegoULSMbSzgp5ihYFipKY925wWt0fL5tYkYDu4MmTkjKQ9aSdJuJNZYiPc4Jsl3mKltWKqvk_gaRcFO6nPhuBlmlE/s16000/IMG_20230809_213635403.jpg'/>
+                    <img alt='Proyecto 17' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilKx6UEZK4B_sfUiaEYzpl09Hy6Ui5JDSslItCylMfNunPVmwNnsLSu2GYJJJWKwmAM7kY2W572IXPZ_LquI7mr95-j3fGUmBc0MgkU8pI5poNXHx2OnwJ5xLBbJ4fTGwmOVjKcOk_hCrHEbdhWWO-K46Y08SxY0JXKzD_I3SxKELKRy4SuycP-KHAV4Y/s16000/IMG_20230809_213711640.jpg'/>
+                    <img alt='Proyecto 18' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0n_wziK3Ew-cmUEVk8V1wBPSf1Yj8vMFzzvzm4BKS_Dnc3j1t3d5C60S-Q40OrDc0vC226s96CymZ3Uid8fOtM2b1IzXEPHdxS44KV-Quau8YGpo7AImHJtlHJbOpb6wQtAfKd28PYb-hqD3ezzoTUuUQ_vfAbprsZm_gzXCpzCD11_WgoKK_oxfCnwY/s16000/IMG_20230809_213534172.jpg'/>
                 </div>    
-                <!-- Fila 7 (Oculta al inicio) -->
+                <!-- Fila 7 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsvBbEHgGMHDADl6lAYD368xxCgjTFFX5M_FOK_KXwFR3elvGniQx514ZcgLCOlNNqWwbVezdMCay1DpksS3ETdFqPQgaVBA7dBvEfVqwS2Lfie7QrzGFxmkpTiD3ZAMCtDDCZRomQydMuhRO8vRKRHWyiS4ZJlXDISHSBYpHlSwc2RUQZxSAOg77puCo/s1600/IMG_20230728_192303159.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjETH72K6Adkw8oJO-uJKmvmFU3hPA0ionFbJa-3uMyNj1yPbsjSaTItCfqLnVfYTCf2fzt3_HakeXUPQtYuLK8J4HcTtSgUGa8Lqr_sKLTbHOo1QEcCLDUMvM8WHJ2AlVXE_wwyGVvv6leqKW_1sp3teYTbWDv19cNwMCObs_DlBZtiVunCUmtE8iRQpo/s1600/IMG_20230728_192220840.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia9R6bst4vU0ESbgGADxtZsldeAoF3YpzKYQzHF_2-yEL0PJxR8qKD-AuON5HGhZkm-OI9HbpkcX5poib5zUMrB-w5cYSKznLxLSexF0oVCx2U_fvosIkmfwAjOCcJUGVJVuwroYzSjDH76XtoNeT9oRrI7KlyH7wa9yMZDMXLS-xo22Rf1Tvar8_HD2c/s1600/IMG_20230728_192400806.jpg'/>
+                    <img alt='Proyecto 19' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsvBbEHgGMHDADl6lAYD368xxCgjTFFX5M_FOK_KXwFR3elvGniQx514ZcgLCOlNNqWwbVezdMCay1DpksS3ETdFqPQgaVBA7dBvEfVqwS2Lfie7QrzGFxmkpTiD3ZAMCtDDCZRomQydMuhRO8vRKRHWyiS4ZJlXDISHSBYpHlSwc2RUQZxSAOg77puCo/s1600/IMG_20230728_192303159.jpg'/>
+                    <img alt='Proyecto 20' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjETH72K6Adkw8oJO-uJKmvmFU3hPA0ionFbJa-3uMyNj1yPbsjSaTItCfqLnVfYTCf2fzt3_HakeXUPQtYuLK8J4HcTtSgUGa8Lqr_sKLTbHOo1QEcCLDUMvM8WHJ2AlVXE_wwyGVvv6leqKW_1sp3teYTbWDv19cNwMCObs_DlBZtiVunCUmtE8iRQpo/s1600/IMG_20230728_192220840.jpg'/>
+                    <img alt='Proyecto 21' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia9R6bst4vU0ESbgGADxtZsldeAoF3YpzKYQzHF_2-yEL0PJxR8qKD-AuON5HGhZkm-OI9HbpkcX5poib5zUMrB-w5cYSKznLxLSexF0oVCx2U_fvosIkmfwAjOCcJUGVJVuwroYzSjDH76XtoNeT9oRrI7KlyH7wa9yMZDMXLS-xo22Rf1Tvar8_HD2c/s1600/IMG_20230728_192400806.jpg'/>
                 </div>  
-                <!-- Fila 8 (Oculta al inicio) -->
+                <!-- Fila 8 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0DoZ1lK3WHV3giYqn_qQtQxmDJbM7LK1oStA3Gu_ZJsPG1I4ZXPnaj00HHszbA-Q7j3iMtLnWgIG_JPHV6rlimOphVkWpsBQ4JaWh6LQ8yRRNbgi9i3S8G_wBdy1Xrnkz-wcm0ImiJyf3VFDIYyN2Iuoc9_iQmDYdJdI1IV17RbMB7OI7Xm6nuseGXms/s720/330985697_728057578686552_8510984930164397626_n.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmEmKYVy6wVtiQPGPQbZKegob2mtGpuKAMdg6vUZQPS3aKN3NUz_V14E-cNWamifmrs6BzvoGPGwSE5bLa3NtUA9N0OFjbBxaHzuwIK59f7tEThyphenhyphenR78UvAgDFeTX32hRQ68KL-uUZngYB7wN0xqqhKuYRxU_8osrPi7P5U7GdtyIUfGMgJu7QY_8daj4U/s720/330714685_901114587680388_6804313085635962431_n.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPW-y5LXp9HUtzxk2Sp3ub-Uc5VEF70rPFNfBVf7dGmoST3CeJ-3Dg0wlxNhVcthU6w3gqo2aaeVVahQdzS22NeGjLV5xZNDSU6s0-NQpm6-LYIyLWEQbD8lQuFETpiSp1uvcrEbco22h4QQJiIbEMMmVSIaeayQrOJjK-fg6Bi9YHA73qMKj4Vl9h76o/s16000/331284737_3440136256222261_2287949154455128529_n.jpg'/>
+                    <img alt='Proyecto 22' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0DoZ1lK3WHV3giYqn_qQtQxmDJbM7LK1oStA3Gu_ZJsPG1I4ZXPnaj00HHszbA-Q7j3iMtLnWgIG_JPHV6rlimOphVkWpsBQ4JaWh6LQ8yRRNbgi9i3S8G_wBdy1Xrnkz-wcm0ImiJyf3VFDIYyN2Iuoc9_iQmDYdJdI1IV17RbMB7OI7Xm6nuseGXms/s720/330985697_728057578686552_8510984930164397626_n.jpg'/>
+                    <img alt='Proyecto 23' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmEmKYVy6wVtiQPGPQbZKegob2mtGpuKAMdg6vUZQPS3aKN3NUz_V14E-cNWamifmrs6BzvoGPGwSE5bLa3NtUA9N0OFjbBxaHzuwIK59f7tEThyphenhyphenR78UvAgDFeTX32hRQ68KL-uUZngYB7wN0xqqhKuYRxU_8osrPi7P5U7GdtyIUfGMgJu7QY_8daj4U/s720/330714685_901114587680388_6804313085635962431_n.jpg'/>
+                    <img alt='Proyecto 24' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPW-y5LXp9HUtzxk2Sp3ub-Uc5VEF70rPFNfBVf7dGmoST3CeJ-3Dg0wlxNhVcthU6w3gqo2aaeVVahQdzS22NeGjLV5xZNDSU6s0-NQpm6-LYIyLWEQbD8lQuFETpiSp1uvcrEbco22h4QQJiIbEMMmVSIaeayQrOJjK-fg6Bi9YHA73qMKj4Vl9h76o/s16000/331284737_3440136256222261_2287949154455128529_n.jpg'/>
                 </div>    
-                <!-- Fila 9 (Oculta al inicio) -->
+                <!-- Fila 9 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQKTYs6lSmzQgGkeRQka28PpPmf9wvwOm-RIKXZSviJR32aXhPvcu6E5emkMRlexsfkrAZeX6Ut-g8tq6PW6NBOqxR8gz1ino09M0R3rJ49shN96R-vZmWD5Fp8zm-179AsbT6GqE8UzW8_DmKH9bWA5fVobIVMQevkPqaNTywe_UBlCYVrKPHvK7nzAU/s16000/IMG_20230108_195025468.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIq-XSS6Be_AFaOeYCitk6l6Mbdn3AELPiMZH4vDeMxDXoVgO_Nb7ca6GMI2CqhwlnMMfU1JIF1WIsB7glQzspYnUhdJEEeBJNFoKHNgtfJoTvFQ4FrLUtmy-X3zzsVnbnRXq-_riEvrxD2Quj2BbkXczuRKYO5hd3xmnzgXDpwaJeFyj5386kwRy3Yr0/s16000/IMG_20230108_195137869.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-eJVDU-wZDwpJd-_JaB3I2NZNw5RbN_nuVKLCFTBbTkFs_l1fWqsuTkgtsOBygg9ZHx6miMs_MT96zqgkmDMR5v7SIc16MaTZmq8tkYlICTwRMa6znEsn5ydWeomFsYFYUgObs2xjhgpwlZjvt2f2rXLylGqvNIfg8_KlDceuRWuqrV4OPtwNz5adusU/s16000/IMG_20230108_194956587.jpg'/>
+                    <img alt='Proyecto 25' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQKTYs6lSmzQgGkeRQka28PpPmf9wvwOm-RIKXZSviJR32aXhPvcu6E5emkMRlexsfkrAZeX6Ut-g8tq6PW6NBOqxR8gz1ino09M0R3rJ49shN96R-vZmWD5Fp8zm-179AsbT6GqE8UzW8_DmKH9bWA5fVobIVMQevkPqaNTywe_UBlCYVrKPHvK7nzAU/s16000/IMG_20230108_195025468.jpg'/>
+                    <img alt='Proyecto 26' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIq-XSS6Be_AFaOeYCitk6l6Mbdn3AELPiMZH4vDeMxDXoVgO_Nb7ca6GMI2CqhwlnMMfU1JIF1WIsB7glQzspYnUhdJEEeBJNFoKHNgtfJoTvFQ4FrLUtmy-X3zzsVnbnRXq-_riEvrxD2Quj2BbkXczuRKYO5hd3xmnzgXDpwaJeFyj5386kwRy3Yr0/s16000/IMG_20230108_195137869.jpg'/>
+                    <img alt='Proyecto 27' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-eJVDU-wZDwpJd-_JaB3I2NZNw5RbN_nuVKLCFTBbTkFs_l1fWqsuTkgtsOBygg9ZHx6miMs_MT96zqgkmDMR5v7SIc16MaTZmq8tkYlICTwRMa6znEsn5ydWeomFsYFYUgObs2xjhgpwlZjvt2f2rXLylGqvNIfg8_KlDceuRWuqrV4OPtwNz5adusU/s16000/IMG_20230108_194956587.jpg'/>
                 </div>
-                <!-- Fila 10 (Oculta al inicio) -->
+                <!-- Fila 10 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9yfon6R0S-jHUK52yPDMVS6eGKif38ZDqyLu_X4KGXPLdSg3pg31bvv6b2io1UezFq0g19Mzl7VAXK6PjWFwulaIFdxkdxKpH9gBXJ4zKwa_R-ZojQk9oyFIdbqJsPvKFkOddDFgiOT-r3okwronBplL_L7zTCLq-6AX-vFJitILfxmxQ7Bscgk3pgGg/s1600/1.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHx21GuEFFSv8adiQXQ-AVNwKWofFbU-fvmSUOTTSN5TT6H9jSg4-IsVRH_c3JIcMJAHjAKRsbanwLynhLeC15NfnDi5ZzCB9BxYvwDC125QIkTPLTPBrOoQ4zchNIVv4s319QMBbhzVYw1P7gPGD_gJdSXvbZE3gniSTX4mS01rvnwCaGFScw7a8f3MI/s1600/318883698_888146999199061_6235022958145725326_n.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKaG9LYJ75dfFVqkjsPS7GUKbp3O_wRFRW1mnoF6pgfY9oL1-Tl_cu11HBvy4SUXOrPV5ZDlJfZqsxf_8Kwb32uGTuG7d8k8gkqUt2nr-wJWDtrQaT4EWdf3hzGxJvYMEWDkXEcIwS5VoG6AqyP97EUpMm-207xxH0G5U3IpZTdETPz3tXqluUTm21Nk/s1600/318594095_679761730261676_8404456242031451960_n.jpg'/>
+                    <img alt='Proyecto 28' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9yfon6R0S-jHUK52yPDMVS6eGKif38ZDqyLu_X4KGXPLdSg3pg31bvv6b2io1UezFq0g19Mzl7VAXK6PjWFwulaIFdxkdxKpH9gBXJ4zKwa_R-ZojQk9oyFIdbqJsPvKFkOddDFgiOT-r3okwronBplL_L7zTCLq-6AX-vFJitILfxmxQ7Bscgk3pgGg/s1600/1.jpg'/>
+                    <img alt='Proyecto 29' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHx21GuEFFSv8adiQXQ-AVNwKWofFbU-fvmSUOTTSN5TT6H9jSg4-IsVRH_c3JIcMJAHjAKRsbanwLynhLeC15NfnDi5ZzCB9BxYvwDC125QIkTPLTPBrOoQ4zchNIVv4s319QMBbhzVYw1P7gPGD_gJdSXvbZE3gniSTX4mS01rvnwCaGFScw7a8f3MI/s1600/318883698_888146999199061_6235022958145725326_n.jpg'/>
+                    <img alt='Proyecto 30' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKaG9LYJ75dfFVqkjsPS7GUKbp3O_wRFRW1mnoF6pgfY9oL1-Tl_cu11HBvy4SUXOrPV5ZDlJfZqsxf_8Kwb32uGTuG7d8k8gkqUt2nr-wJWDtrQaT4EWdf3hzGxJvYMEWDkXEcIwS5VoG6AqyP97EUpMm-207xxH0G5U3IpZTdETPz3tXqluUTm21Nk/s1600/318594095_679761730261676_8404456242031451960_n.jpg'/>
                 </div>
-                <!-- Fila 11 (Oculta al inicio) -->
+                <!-- Fila 11 -->
                 <div class="proyectos-row hidden-row">
-                    <img alt='Imagen 1' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfo5TqC69Tcf7nrk6F-GmKHgf2c6YaL8V88BNMVNymOb1U84RLdjPQiN0myjOBFGVbBsRXpubTEN9qPTEdYUsSttsRY7Jrqteb99PSwZPpO2x2rDxJQoKKI95J7pbFCBvjmurQKd643yAHppfcRVboxl61pckjckXppTut9JBvgHKDeFl-ViOeWX2fXtM/s1600/334366575_879793466409131_9142239448326320622_n.jpg'/>
-                    <img alt='Imagen 2' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9w5zNxlWnJ45oaW6RSyuNxC-OXAKE-8acxuxmcFFXO_rDDLfozBH_JkmnVSueE6ntuKV8cLPch5s4c8Bwm0VBfZIYq8hRaQIF_0JIdGNJnIcrkCb09aSuC1nt7mp1N9ETAYPh5lJ1yinM8r0kCYB_bBMIVbVKnAwslSMSCmdOmbaMyOusKQ0P6qZlA3c/s1600/334823151_713964150345599_2471531127170232896_n.jpg'/>
-                    <img alt='Imagen 3' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPQAyMQXu541Cp1b4YDbsvgk8MEaPT-x3qIIWztiisT7GrQSiyhwyM4_IhrY10H28nPlEsKwybo4-m-nsoGF-JWP-lpFzJbxK3B9JXTQW3cGTW_DYlswGXNECBXpYhWR3KZUdEPOXH6pvtb3pFkndThxS9IP30CWN3EKACmD5E5ebFwAxkFtcHPxkvuDs/s1600/332085190_759082748822925_8196654882556856755_n.jpg'/>
+                    <img alt='Proyecto 31' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfo5TqC69Tcf7nrk6F-GmKHgf2c6YaL8V88BNMVNymOb1U84RLdjPQiN0myjOBFGVbBsRXpubTEN9qPTEdYUsSttsRY7Jrqteb99PSwZPpO2x2rDxJQoKKI95J7pbFCBvjmurQKd643yAHppfcRVboxl61pckjckXppTut9JBvgHKDeFl-ViOeWX2fXtM/s1600/334366575_879793466409131_9142239448326320622_n.jpg'/>
+                    <img alt='Proyecto 32' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9w5zNxlWnJ45oaW6RSyuNxC-OXAKE-8acxuxmcFFXO_rDDLfozBH_JkmnVSueE6ntuKV8cLPch5s4c8Bwm0VBfZIYq8hRaQIF_0JIdGNJnIcrkCb09aSuC1nt7mp1N9ETAYPh5lJ1yinM8r0kCYB_bBMIVbVKnAwslSMSCmdOmbaMyOusKQ0P6qZlA3c/s1600/334823151_713964150345599_2471531127170232896_n.jpg'/>
+                    <img alt='Proyecto 33' onclick='mostrarImagen(this)' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPQAyMQXu541Cp1b4YDbsvgk8MEaPT-x3qIIWztiisT7GrQSiyhwyM4_IhrY10H28nPlEsKwybo4-m-nsoGF-JWP-lpFzJbxK3B9JXTQW3cGTW_DYlswGXNECBXpYhWR3KZUdEPOXH6pvtb3pFkndThxS9IP30CWN3EKACmD5E5ebFwAxkFtcHPxkvuDs/s1600/332085190_759082748822925_8196654882556856755_n.jpg'/>
                 </div>
             </div>
 
@@ -1475,7 +1472,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN NUESTROS CLIENTES (BARRA MARQUEE) -->
+    <!-- SECCIÓN NUESTROS CLIENTES -->
     <section class="clientes-section" id="clientes">
         <div class="clientes-container">
             <div style="text-align: center;">
@@ -1553,7 +1550,7 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA (FOOTER) -->
+    <!-- PIE DE PÁGINA -->
     <footer class="footer-section">
         <div class="footer-container">
             <div class="footer-grid">
@@ -1568,6 +1565,7 @@
                     <ul class="footer-links">
                         <li><a href="#">Inicio</a></li>
                         <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#proyectos-destacados">Proyectos</a></li>
                         <li><a href="#herramientas">Herramientas</a></li>
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#clientes">Clientes</a></li>
@@ -1596,7 +1594,7 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // SCRIPT PARA MOSTRAR IMAGEN EN MODAL
+        // MODAL PARA AMPLIAR IMÁGENES
         function mostrarImagen(elemento) {
             var imagen = elemento.src;
             var ventanaModal = document.createElement("div");
@@ -1629,7 +1627,7 @@
             });
         }
 
-        // FUNCIÓN PARA MOSTRAR FILAS DE 3 EN 3 EN PROYECTOS DESTACADOS
+        // MOSTRAR MÁS PROYECTOS DE 3 EN 3
         function mostrarMasProyectos() {
             const hiddenRows = document.querySelectorAll('.proyectos-row.hidden-row');
             let shown = 0;
@@ -1642,12 +1640,12 @@
                 }
             });
 
-            // Si ya no quedan filas ocultas, ocultar el botón
             if (document.querySelectorAll('.proyectos-row.hidden-row').length === 0) {
                 document.getElementById('btn-ver-mas-proyectos').style.display = 'none';
             }
         }
 
+        // PRELOADER
         document.addEventListener("DOMContentLoaded", function() {
             const preloader = document.getElementById('preloader');
             
@@ -1663,6 +1661,7 @@
             setTimeout(ocultarPreloader, 2500);
         });
 
+        // TYPED.JS HERO
         document.addEventListener('DOMContentLoaded', function() {
             var typed = new Typed('.texto-terminal', {
                 strings: [
@@ -1683,6 +1682,7 @@
             });
         });
 
+        // MENÚ MÓVIL HAMBURGUESA
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         if(hamburger && navMenu) {
@@ -1697,6 +1697,7 @@
             }));
         }
 
+        // FILTROS PORTAFOLIO
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         let isAnimating = false;
@@ -1756,7 +1757,7 @@
             });
         });
 
-        // LIGHTBOX PORTAFOLIO SUPERIOR
+        // LIGHTBOX PORTAFOLIO
         const lightbox = document.createElement('div');
         lightbox.classList.add('image-lightbox');
         lightbox.innerHTML = `<img id="lightbox-img" src="" alt="Imagen ampliada">`;
@@ -1776,6 +1777,7 @@
             lightbox.classList.remove('active');
         });
 
+        // FORMULARIO WHATSAPP
         function enviarFormularioWA() {
             var telefono = "5521913826";
             var nombre = document.getElementById("wa-nombre").value;
