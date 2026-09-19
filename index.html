@@ -375,8 +375,8 @@
            SECCIÓN PROYECTOS DESTACADOS
            ========================================= */
         .proyectos-section {
-            /* SE AJUSTÓ AQUÍ EL PADDING: Arriba 30px, Lados 0, Abajo 5px */
-            padding: 30px 0 5px 0; 
+            /* En ESCRITORIO se mantiene con 30px arriba y 30px abajo siempre */
+            padding: 30px 0; 
             background-color: #ffffff;
             width: 100%;
             text-align: center;
@@ -386,7 +386,7 @@
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 5px; /* Los 5px de padding laterales */
+            padding: 0 5px; 
         }
 
         .proyectos-grid-wrapper {
@@ -439,7 +439,7 @@
             letter-spacing: 1px;
             cursor: pointer;
             margin-top: 35px;
-            margin-bottom: 25px; /* SE AGREGÓ MARGEN INFERIOR PARA COMPENSAR */
+            margin-bottom: 0px; /* En escritorio no necesita margen extra */
             transition: all 0.3s ease;
         }
 
@@ -1091,10 +1091,21 @@
 
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             
-            .reviews-wrapper { padding: 40px 0; margin-top: 30px; }
+            .reviews-wrapper { padding: 40px 0 margin-top: 30px; }
             .reviews-inner { width: 100%; padding: 0 5px; } 
             
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
+
+            /* ------------------------------------------------
+               Ajustes para Proyectos Destacados en Móvil
+               ------------------------------------------------ */
+            .proyectos-section { 
+                padding: 30px 0 5px 0; /* Aquí aplica la regla de 5px */
+            }
+            .btn-ver-mas { 
+                margin-bottom: 25px; /* Compensa los 5px mientras exista el botón */
+            }
+            /* ------------------------------------------------ */
 
             .video-desktop { display: none; }
             .video-mobile { display: block; }
