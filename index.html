@@ -222,7 +222,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN
+           BARRA DE NAVEGACIÓN (SIEMPRE ENCIMA)
            ========================================= */
         .navbar {
             position: fixed; 
@@ -233,7 +233,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000; 
+            z-index: 10000; /* Z-index máximo para evitar que imágenes u otros elementos lo tapen */
             background: rgba(0, 0, 0, 0.45); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
@@ -243,7 +243,7 @@
 
         .nav-logo {
             position: relative;
-            z-index: 1001; 
+            z-index: 10001; 
         }
 
         .nav-logo img { height: 50px; width: auto; display: block; }
@@ -264,7 +264,7 @@
         .hamburger { 
             display: none; 
             cursor: pointer; 
-            z-index: 1001; 
+            z-index: 10001; 
             width: 30px;
             height: 24px;
             position: relative;
@@ -380,7 +380,7 @@
         .image-lightbox {
             display: none; 
             position: fixed;
-            z-index: 990;
+            z-index: 99999;
             left: 0;
             top: 0;
             width: 100%;
@@ -813,11 +813,11 @@
         }
 
         /* =========================================
-           SECCIÓN PROYECTOS DESTACADOS (SIN SEPARACIONES NI BORDES REDONDEADOS)
+           SECCIÓN PROYECTOS DESTACADOS (FONDO BLANCO)
            ========================================= */
         .proyectos-section {
             padding: 60px 0 0 0;
-            background-color: #000000;
+            background-color: #ffffff;
             width: 100%;
             text-align: center;
         }
@@ -832,7 +832,7 @@
         .proyectos-grid-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 0; /* Sin separaciones verticales entre filas */
+            gap: 0;
             width: 100%;
             margin-top: 30px;
         }
@@ -844,12 +844,12 @@
         }
 
         .proyectos-grid-wrapper img {
-            width: 33.333% !important; /* Ocupan exactamente un tercio sin dejar espacios horizontales */
+            width: 33.333% !important;
             height: auto;
             object-fit: cover;
             cursor: pointer;
             transition: opacity 0.3s ease;
-            border-radius: 0 !important; /* Sin esquinas redondeadas */
+            border-radius: 0 !important;
         }
 
         .proyectos-grid-wrapper img:hover {
@@ -1084,7 +1084,7 @@
                 transform: translateX(-100%);
                 padding: 0; 
                 gap: 0; 
-                z-index: 1000; 
+                z-index: 10000; 
             }
             .nav-menu.active { 
                 transform: translateX(0); 
@@ -1130,7 +1130,6 @@
             <li><a href="#herramientas">Cotizador</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#clientes">Clientes</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
         </ul>
         <div class="hamburger">
@@ -1441,7 +1440,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN PROYECTOS DESTACADOS (SIN SEPARACIONES NI BORDES REDONDEADOS) -->
+    <!-- SECCIÓN PROYECTOS DESTACADOS (FONDO BLANCO, SIN SEPARACIONES NI BORDES REDONDEADOS) -->
     <section class="proyectos-section" id="proyectos">
         <div class="proyectos-container">
             <div style="text-align: center; margin-bottom: 25px;">
@@ -1536,7 +1535,6 @@
                         <li><a href="#herramientas">Herramientas</a></li>
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#clientes">Clientes</a></li>
-                        <li><a href="#proyectos">Proyectos</a></li>
                         <li><a href="#cotizacion">Contacto</a></li>
                     </ul>
                 </div>
@@ -1576,7 +1574,7 @@
             ventanaModal.style.display = "flex";
             ventanaModal.style.alignItems = "center";
             ventanaModal.style.justifyContent = "center";
-            ventanaModal.style.zIndex = "9990";
+            ventanaModal.style.zIndex = "99990";
             ventanaModal.style.cursor = "zoom-out";
 
             var imagenModal = document.createElement("img");
