@@ -218,7 +218,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN
+           BARRA DE NAVEGACIÓN (Z-Index alto para verse sobre el lightbox)
            ========================================= */
         .navbar {
             position: fixed; 
@@ -229,7 +229,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 10000; 
+            z-index: 100000; 
             background: rgba(0, 0, 0, 0.45); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
@@ -239,7 +239,7 @@
 
         .nav-logo {
             position: relative;
-            z-index: 10001; 
+            z-index: 100001; 
         }
 
         .nav-logo img { height: 50px; width: auto; display: block; }
@@ -248,6 +248,7 @@
             display: flex; 
             gap: 35px; 
             list-style: none; 
+            z-index: 100000;
         }
         
         .nav-menu li a { color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
@@ -260,7 +261,7 @@
         .hamburger { 
             display: none; 
             cursor: pointer; 
-            z-index: 10001; 
+            z-index: 100001; 
             width: 30px;
             height: 24px;
             position: relative;
@@ -1112,7 +1113,7 @@
                 transform: translateX(-100%);
                 padding: 0; 
                 gap: 0; 
-                z-index: 10000; 
+                z-index: 100000; 
             }
             .nav-menu.active { 
                 transform: translateX(0); 
@@ -1594,7 +1595,7 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // MODAL PARA AMPLIAR IMÁGENES (CON Z-INDEX CORREGIDO A 99999)
+        // MODAL PARA AMPLIAR IMÁGENES
         function mostrarImagen(elemento) {
             var imagen = elemento.src;
             var ventanaModal = document.createElement("div");
@@ -1608,7 +1609,7 @@
             ventanaModal.style.display = "flex";
             ventanaModal.style.alignItems = "center";
             ventanaModal.style.justifyContent = "center";
-            ventanaModal.style.zIndex = "99999"; // Por encima de la navbar (10000)
+            ventanaModal.style.zIndex = "99999";
             ventanaModal.style.cursor = "zoom-out";
 
             var imagenModal = document.createElement("img");
