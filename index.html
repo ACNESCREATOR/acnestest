@@ -36,7 +36,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 20000; /* Por encima de la navbar y todo el contenido */
+            z-index: 20000; 
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
@@ -1594,7 +1594,7 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // MODAL PARA AMPLIAR IMÁGENES
+        // MODAL PARA AMPLIAR IMÁGENES (CON Z-INDEX CORREGIDO A 99999)
         function mostrarImagen(elemento) {
             var imagen = elemento.src;
             var ventanaModal = document.createElement("div");
@@ -1608,7 +1608,7 @@
             ventanaModal.style.display = "flex";
             ventanaModal.style.alignItems = "center";
             ventanaModal.style.justifyContent = "center";
-            ventanaModal.style.zIndex = "99990";
+            ventanaModal.style.zIndex = "99999"; // Por encima de la navbar (10000)
             ventanaModal.style.cursor = "zoom-out";
 
             var imagenModal = document.createElement("img");
