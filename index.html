@@ -230,7 +230,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100000; 
-            background: rgba(0, 0, 0, 0.45); 
+            background: rgba(0, 0, 0, 0.45); /* Transparencia original */
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -679,11 +679,10 @@
             
             /* CORTINA DEL MENÚ MÓVIL BLANCA (MOSAICO) */
             
-            /* Forzamos que la Navbar no pierda su forma y tamaño */
+            /* Forzamos que la Navbar no pierda su forma y herede el glassmorphism */
             .navbar { 
                 height: 74px; 
                 padding: 12px 20px; 
-                background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro de base */
             }
             /* Cuando se abre, se vuelve negro sólido garantizando que siempre se vea el logo */
             .navbar.menu-open {
