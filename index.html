@@ -677,8 +677,7 @@
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             
-            /* CORTINA DEL MENÚ MÓVIL BLANCA (FIJA, ESTRICTA Y SIN SCROLL) */
-            
+            /* CORTINA DEL MENÚ MÓVIL BLANCA */
             .navbar { 
                 height: 74px; 
                 padding: 12px 20px; 
@@ -691,6 +690,7 @@
 
             .hamburger { display: block; }
 
+            /* PERMITE SCROLL VERTICAL CON OVERFLOW-Y: AUTO */
             .nav-menu { 
                 position: fixed; 
                 left: 0; 
@@ -698,18 +698,16 @@
                 background-color: #ffffff; 
                 width: 100%; 
                 height: calc(100vh - 74px); 
-                max-height: calc(100vh - 74px);
                 transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); 
                 transform: translateX(-100%);
                 z-index: 99999; 
-                padding: 10px 14px 12px 14px; 
-                
-                /* Grid flexible optimizado para evitar recortes */
+                padding: 15px 15px 40px 15px; /* Espacio extra abajo para hacer scroll cómodamente */
                 display: grid; 
                 grid-template-columns: repeat(2, 1fr); 
-                grid-template-rows: repeat(3, auto) 1fr auto; 
-                gap: 5px; 
-                overflow: hidden !important; /* Bloquea por completo cualquier scroll */
+                grid-auto-rows: max-content;
+                gap: 10px; 
+                overflow-y: auto !important; /* Deslizamiento activado */
+                overflow-x: hidden !important; 
             }
             .nav-menu.active { 
                 transform: translateX(0); 
@@ -719,10 +717,10 @@
             .nav-menu li a { 
                 background-color: #000000;
                 color: #ffffff !important;
-                border-radius: 9px;
-                padding: 8px 5px;
+                border-radius: 10px;
+                padding: 12px 10px; /* Botones más amplios */
                 font-family: 'Montserrat', sans-serif;
-                font-size: 0.78rem; 
+                font-size: 0.95rem; /* Texto más grande */
                 font-weight: 800;
                 display: flex;
                 align-items: center;
@@ -733,45 +731,11 @@
                 box-shadow: 0 4px 10px rgba(0,0,0,0.15);
                 width: 100%;
                 height: 100%;
-                gap: 5px;
-            }
-
-            .nav-menu li a::before {
-                content: "";
-                display: block;
-                width: 6px;
-                height: 6px;
-                background-color: #00fff7;
-                border-radius: 50%;
-                flex-shrink: 0;
-                animation: pulsarPunto 1.5s infinite ease-in-out;
             }
 
             .nav-menu li a.btn-cotizar { border: 1px solid #00fff7; }
 
-            /* WIDGET FACEBOOK ADAPTADO PARA EVITAR CORTES */
-            .fb-widget-container {
-                display: flex;
-                grid-column: span 2;
-                justify-content: center;
-                align-items: center;
-                width: 100% !important;
-                height: 100% !important;
-                overflow: hidden !important; 
-                border-radius: 8px;
-            }
-
-            /* Forzamos al plugin y los iframes internos a acoplarse exactamente al espacio disponible */
-            .fb-widget-container .fb-page,
-            .fb-widget-container span,
-            .fb-widget-container iframe {
-                width: 100% !important;
-                height: 100% !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-            }
-
-            /* LOGOS GRANDES POSICIONADOS ABAJO */
+            /* LOGOS POSICIONADOS ARRIBA DEL WIDGET DE FACEBOOK */
             .menu-logos-mobile {
                 display: flex;
                 grid-column: span 2;
@@ -779,13 +743,32 @@
                 justify-content: center;
                 align-items: center;
                 gap: 30px; 
-                margin-top: 0px; 
-                margin-bottom: 0px;
+                margin-top: 15px; 
+                margin-bottom: 10px;
             }
             .menu-logos-mobile img {
                 height: 52px; 
                 width: auto;
                 object-fit: contain;
+            }
+
+            /* WIDGET FACEBOOK CON ALTURA FIJA PARA NO CORTARSE */
+            .fb-widget-container {
+                display: flex;
+                grid-column: span 2;
+                justify-content: center;
+                align-items: flex-start;
+                width: 100% !important;
+                min-height: 400px; /* Asegura espacio para que cargue */
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+
+            .fb-widget-container .fb-page,
+            .fb-widget-container span,
+            .fb-widget-container iframe {
+                width: 100% !important;
+                max-width: 100% !important;
             }
 
             /* Resto de ajustes móviles */
@@ -835,19 +818,19 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
-            <!-- CONTENEDOR WIDGET FACEBOOK (Ajustado para no cortarse) -->
+            <!-- Logos colocados DESPUÉS de los botones y ANTES del widget -->
+            <li class="menu-logos-mobile">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
+            </li>
+
+            <!-- CONTENEDOR WIDGET FACEBOOK (Al final con data-height de 400px) -->
             <li class="fb-widget-container">
-                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="250" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                     <blockquote cite="https://www.facebook.com/ACNESPublicidad/" class="fb-xfbml-parse-ignore">
                         <a href="https://www.facebook.com/ACNESPublicidad/">ACNES Publicidad</a>
                     </blockquote>
                 </div>
-            </li>
-
-            <!-- Logos colocados por DEBAJO del widget -->
-            <li class="menu-logos-mobile">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
         </ul>
 
