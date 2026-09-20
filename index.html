@@ -237,13 +237,6 @@
             transition: background-color 0.4s ease, padding 0.3s ease;
         }
 
-        /* Clase dinámica para solidificar la barra al abrir menú móvil */
-        .navbar.menu-open {
-            background-color: #000000 !important;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-        }
-
         .nav-logo {
             position: relative;
             z-index: 100001; 
@@ -683,30 +676,43 @@
 
             .video-desktop { display: none; }
             .video-mobile { display: block; }
-            .navbar { padding: 12px 20px; }
-            .hamburger { display: block; }
             
-            /* =========================================
-               NUEVO MENÚ MÓVIL EN MOSAICO + WIDGET FB
-               ========================================= */
+            /* CORTINA DEL MENÚ MÓVIL BLANCA (MOSAICO) */
+            
+            /* Forzamos que la Navbar no pierda su forma y tamaño */
+            .navbar { 
+                height: 74px; 
+                padding: 12px 20px; 
+                background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro de base */
+            }
+            /* Cuando se abre, se vuelve negro sólido garantizando que siempre se vea el logo */
+            .navbar.menu-open {
+                background-color: #000000 !important;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .hamburger { display: block; }
+
             .nav-menu { 
                 position: fixed; 
                 left: 0; 
-                top: 0; 
+                /* Empezar EXACTAMENTE debajo de la barra para nunca taparla */
+                top: 74px; 
                 background-color: #ffffff; 
                 width: 100%; 
-                height: 100vh; 
+                height: calc(100vh - 74px); 
                 transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); 
                 transform: translateX(-100%);
-                z-index: 99999; /* Por debajo de la barra de navegación */
-                padding: 90px 20px 40px 20px; /* Espacio superior para que la barra no tape el menú */
+                z-index: 99999; 
+                padding: 20px 20px 40px 20px; 
                 
                 /* Layout en Grid (Mosaico) */
                 display: grid; 
                 grid-template-columns: repeat(2, 1fr); 
                 grid-auto-rows: max-content;
                 gap: 12px; 
-                overflow-y: auto; /* Permite scroll vertical */
+                overflow-y: auto; /* Permite scroll vertical interno */
             }
             .nav-menu.active { 
                 transform: translateX(0); 
@@ -730,11 +736,11 @@
                 border: 1px solid #222;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.15);
                 height: 100%;
-                gap: 6px;
+                gap: 8px; /* Espacio para el punto */
             }
 
-            /* Agrega el puntito a los enlaces (excepto al botón de contacto) */
-            .nav-menu li a:not(.btn-cotizar)::before {
+            /* Agrega el puntito cyan parpadeante a TODOS los enlaces incluyendo Contacto */
+            .nav-menu li a::before {
                 content: "";
                 display: block;
                 width: 8px;
@@ -745,23 +751,12 @@
                 animation: pulsarPunto 1.5s infinite ease-in-out;
             }
 
+            /* Un borde cyan especial para destacar Contacto en el mosaico */
             .nav-menu li a.btn-cotizar {
-                border-color: #00fff7;
+                border: 1px solid #00fff7;
             }
 
-            /* Contenedor del Widget FB para que ocupe las dos columnas */
-            .fb-widget-container {
-                display: flex;
-                grid-column: span 2;
-                justify-content: center;
-                margin-top: 15px;
-                width: 100%;
-                overflow: hidden; 
-                border-radius: 12px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            }
-
-            /* Logos al fondo ocupando dos columnas */
+            /* Logos posicionados arriba del widget (ocupando las dos columnas) */
             .menu-logos-mobile {
                 display: flex;
                 grid-column: span 2;
@@ -769,13 +764,25 @@
                 justify-content: center;
                 align-items: center;
                 gap: 40px; 
-                margin-top: 20px; 
-                margin-bottom: 20px;
+                margin-top: 15px; 
+                margin-bottom: 15px;
             }
             .menu-logos-mobile img {
                 height: 75px; 
                 width: auto;
                 object-fit: contain;
+            }
+
+            /* Contenedor del Widget FB a todo el ancho disponible */
+            .fb-widget-container {
+                display: flex;
+                grid-column: span 2;
+                justify-content: center;
+                width: 100%;
+                overflow: hidden; 
+                border-radius: 12px;
+                margin-bottom: 30px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             }
 
             /* Resto de ajustes móviles */
@@ -798,7 +805,7 @@
 </head>
 <body>
 
-    <!-- SDK FACEBOOK CORRECTO -->
+    <!-- SDK FACEBOOK (Posicionado justo al abrir el body para que cargue correctamente) -->
     <div id="fb-root"></div>
     <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&amp;version=v21.0"></script>
 
@@ -825,19 +832,20 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
+            <!-- Logos colocados por encima del widget (Solo móvil) -->
+            <li class="menu-logos-mobile">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
+            </li>
+
             <!-- CONTENEDOR WIDGET FACEBOOK (Solo móvil) -->
+            <!-- Configurado con data-width="500" para que se estire a lo ancho de la pantalla y data-height="350" para que no sea tan alto -->
             <li class="fb-widget-container">
-                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="400" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                     <blockquote cite="https://www.facebook.com/ACNESPublicidad/" class="fb-xfbml-parse-ignore">
                         <a href="https://www.facebook.com/ACNESPublicidad/">ACNES Publicidad</a>
                     </blockquote>
                 </div>
-            </li>
-
-            <!-- Logos adicionales en el fondo del menú (Solo móvil) -->
-            <li class="menu-logos-mobile">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
         </ul>
 
@@ -1347,7 +1355,7 @@
             });
         });
 
-        // MENÚ MÓVIL HAMBURGUESA
+        // MENÚ MÓVIL HAMBURGUESA Y BARRA DE NAVEGACIÓN
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         const navbar = document.querySelector(".navbar");
@@ -1356,7 +1364,7 @@
             hamburger.addEventListener("click", () => {
                 hamburger.classList.toggle("active");
                 navMenu.classList.toggle("active");
-                navbar.classList.toggle("menu-open"); // Oscurece la barra para destacar el logo
+                navbar.classList.toggle("menu-open"); // Vuelve el fondo de la navbar sólido
             });
 
             document.querySelectorAll(".nav-menu li a").forEach(n => n.addEventListener("click", () => {
