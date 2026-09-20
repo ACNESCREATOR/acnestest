@@ -677,7 +677,7 @@
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             
-            /* CORTINA DEL MENÚ MÓVIL BLANCA (MOSAICO) */
+            /* CORTINA DEL MENÚ MÓVIL BLANCA (FIJA SIN SCROLL Y ANCHO TOTAL) */
             
             .navbar { 
                 height: 74px; 
@@ -698,17 +698,18 @@
                 background-color: #ffffff; 
                 width: 100%; 
                 height: calc(100vh - 74px); 
+                max-height: calc(100vh - 74px);
                 transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); 
                 transform: translateX(-100%);
                 z-index: 99999; 
-                padding: 15px 20px 20px 20px; 
+                padding: 12px 16px 15px 16px; 
                 
-                /* Mosaico ajustado para no generar scroll */
+                /* Grid mosaico optimizado */
                 display: grid; 
                 grid-template-columns: repeat(2, 1fr); 
                 grid-auto-rows: max-content;
-                gap: 10px; 
-                overflow: hidden; /* Elimina completamente el deslizamiento hacia abajo */
+                gap: 8px; 
+                overflow: hidden !important; /* Bloquea totalmente cualquier scroll */
             }
             .nav-menu.active { 
                 transform: translateX(0); 
@@ -718,10 +719,10 @@
             .nav-menu li a { 
                 background-color: #000000;
                 color: #ffffff !important;
-                border-radius: 12px;
-                padding: 12px 8px; /* Ligeramente más compacto */
+                border-radius: 10px;
+                padding: 10px 6px;
                 font-family: 'Montserrat', sans-serif;
-                font-size: 0.85rem; 
+                font-size: 0.8rem; 
                 font-weight: 800;
                 display: flex;
                 align-items: center;
@@ -731,14 +732,14 @@
                 border: 1px solid #222;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.15);
                 height: 100%;
-                gap: 8px;
+                gap: 6px;
             }
 
             .nav-menu li a::before {
                 content: "";
                 display: block;
-                width: 8px;
-                height: 8px;
+                width: 7px;
+                height: 7px;
                 background-color: #00fff7;
                 border-radius: 50%;
                 flex-shrink: 0;
@@ -747,33 +748,40 @@
 
             .nav-menu li a.btn-cotizar { border: 1px solid #00fff7; }
 
-            /* Contenedor del Widget FB a todo el ancho y menos alto */
+            /* WIDGET FACEBOOK A ANCHO COMPLETO */
             .fb-widget-container {
                 display: flex;
                 grid-column: span 2;
                 justify-content: center;
                 align-items: center;
-                width: 100%;
+                width: 100% !important;
                 overflow: hidden; 
-                border-radius: 12px;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                margin-top: 2px;
+                margin-bottom: 2px;
             }
 
-            /* Logos posicionados ABAJO del widget y más compactos */
+            /* Forzamos al elemento iframe interno de Facebook a expandirse al 100% */
+            .fb-widget-container .fb-page,
+            .fb-widget-container span,
+            .fb-widget-container iframe {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            /* Logos posicionados abajo del widget */
             .menu-logos-mobile {
                 display: flex;
                 grid-column: span 2;
                 flex-direction: row; 
                 justify-content: center;
                 align-items: center;
-                gap: 40px; 
-                margin-top: 5px; 
+                gap: 30px; 
+                margin-top: 2px; 
                 margin-bottom: 0px;
             }
             .menu-logos-mobile img {
-                height: 50px; /* Tamaño reducido para garantizar que todo quepa sin scroll */
+                height: 42px; 
                 width: auto;
                 object-fit: contain;
             }
@@ -825,17 +833,16 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
-            <!-- CONTENEDOR WIDGET FACEBOOK (Solo móvil) -->
-            <!-- Ajustado a width="320" (asegura que quepa entero en móviles) y height="250" (más compacto para no generar scroll) -->
+            <!-- CONTENEDOR WIDGET FACEBOOK (Alineado al 100% de ancho) -->
             <li class="fb-widget-container">
-                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="220" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                     <blockquote cite="https://www.facebook.com/ACNESPublicidad/" class="fb-xfbml-parse-ignore">
                         <a href="https://www.facebook.com/ACNESPublicidad/">ACNES Publicidad</a>
                     </blockquote>
                 </div>
             </li>
 
-            <!-- Logos colocados por DEBAJO del widget (Solo móvil) -->
+            <!-- Logos colocados por DEBAJO del widget -->
             <li class="menu-logos-mobile">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
