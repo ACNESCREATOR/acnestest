@@ -218,7 +218,7 @@
         }
 
         /* =========================================
-           BARRA DE NAVEGACIÓN (SIN ENLACE A PROYECTOS)
+           BARRA DE NAVEGACIÓN
            ========================================= */
         .navbar {
             position: fixed; 
@@ -256,6 +256,9 @@
 
         .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; transition: all 0.3s ease; }
         .btn-cotizar:hover { background-color: #00fff7; color: #000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
+
+        /* Contenedor de logos móvil oculto en PC */
+        .menu-logos-mobile { display: none; }
 
         /* HAMBURGUESA ANIMADA EN 'X' */
         .hamburger { 
@@ -375,7 +378,6 @@
            SECCIÓN PROYECTOS DESTACADOS
            ========================================= */
         .proyectos-section {
-            /* En ESCRITORIO se mantiene con 30px arriba y 30px abajo siempre */
             padding: 30px 0; 
             background-color: #ffffff;
             width: 100%;
@@ -439,7 +441,7 @@
             letter-spacing: 1px;
             cursor: pointer;
             margin-top: 35px;
-            margin-bottom: 0px; /* En escritorio no necesita margen extra */
+            margin-bottom: 0px; 
             transition: all 0.3s ease;
         }
 
@@ -1091,34 +1093,28 @@
 
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
             
-            .reviews-wrapper { padding: 40px 0 margin-top: 30px; }
+            .reviews-wrapper { padding: 40px 0; margin-top: 30px; }
             .reviews-inner { width: 100%; padding: 0 5px; } 
             
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
 
-            /* ------------------------------------------------
-               Ajustes para Proyectos Destacados en Móvil
-               ------------------------------------------------ */
-            .proyectos-section { 
-                padding: 30px 0 5px 0; /* Aquí aplica la regla de 5px */
-            }
-            .btn-ver-mas { 
-                margin-bottom: 25px; /* Compensa los 5px mientras exista el botón */
-            }
-            /* ------------------------------------------------ */
+            /* Ajustes para Proyectos Destacados en Móvil */
+            .proyectos-section { padding: 30px 0 5px 0; }
+            .btn-ver-mas { margin-bottom: 25px; }
 
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             .navbar { padding: 12px 20px; }
             .hamburger { display: block; }
             
+            /* CORTINA DEL MENÚ MÓVIL BLANCA */
             .nav-menu { 
                 position: fixed; 
                 left: 0; 
                 top: 0; 
                 flex-direction: column; 
                 justify-content: center; 
-                background-color: rgba(0, 0, 0, 0.98); 
+                background-color: #ffffff; /* Fondo blanco */
                 width: 100%; 
                 height: 100vh; 
                 text-align: center; 
@@ -1131,8 +1127,47 @@
             .nav-menu.active { 
                 transform: translateX(0); 
             }
-            .nav-menu li { margin: 25px 0; }
-            .nav-menu li a { font-size: 1.2rem; }
+            .nav-menu li { margin: 20px 0; }
+            
+            /* Textos del menú en color negro */
+            .nav-menu li a { 
+                font-size: 1.2rem; 
+                color: #000000; 
+                font-weight: 700;
+            }
+            /* Hover modificado para que se vea sobre el blanco */
+            .nav-menu li a:hover { color: #0761b5; }
+            
+            /* Botón Contacto adaptado al fondo blanco */
+            .nav-menu li a.btn-cotizar {
+                border-color: #000000;
+                color: #000000 !important;
+            }
+            .nav-menu li a.btn-cotizar:hover {
+                background-color: #000000;
+                color: #ffffff !important;
+                box-shadow: none;
+            }
+
+            /* La 'X' del menú hamburguesa pasa a negro al abrirse */
+            .hamburger.active .bar {
+                background-color: #000000;
+            }
+
+            /* Estilos del contenedor de las dos imágenes al fondo del menú */
+            .menu-logos-mobile {
+                display: flex;
+                flex-direction: row; /* Fila horizontal */
+                justify-content: center;
+                align-items: center;
+                gap: 30px; /* Separación entre logos */
+                margin-top: 40px !important; /* Espacio extra arriba para separarlo de los botones */
+            }
+            .menu-logos-mobile img {
+                height: 45px; /* Altura ajustada */
+                width: auto;
+                object-fit: contain;
+            }
 
             .acnes-inner { flex-direction: column; padding: 25px 20px; justify-content: center; align-items: center; }
             .acnes-content { max-width: 100%; text-align: center; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
@@ -1173,6 +1208,12 @@
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
+            
+            <!-- Logos adicionales en el fondo del menú (solo visible en móviles) -->
+            <li class="menu-logos-mobile">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
+            </li>
         </ul>
         <div class="hamburger">
             <span class="bar"></span><span class="bar"></span><span class="bar"></span>
