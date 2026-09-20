@@ -229,12 +229,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100000; /* ESTABLECE EL NIVEL SUPERIOR */
+            z-index: 100000; 
             background: rgba(0, 0, 0, 0.45); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: background-color 0.4s ease, padding 0.3s ease;
+        }
+
+        /* Clase dinámica para solidificar la barra al abrir menú móvil */
+        .navbar.menu-open {
+            background-color: #000000 !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
         .nav-logo {
@@ -257,8 +264,8 @@
         .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; transition: all 0.3s ease; }
         .btn-cotizar:hover { background-color: #00fff7; color: #000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
 
-        /* Contenedor de logos móvil oculto en PC */
-        .menu-logos-mobile { display: none; }
+        /* Elementos móviles ocultos en PC */
+        .menu-logos-mobile, .fb-widget-container { display: none; }
 
         /* HAMBURGUESA ANIMADA EN 'X' */
         .hamburger { 
@@ -452,7 +459,7 @@
         }
 
         /* =========================================
-           LIGHTBOX MODAL PRINCIPAL
+           LIGHTBOX MODAL
            ========================================= */
         .image-lightbox {
             display: none; 
@@ -533,7 +540,7 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS & ANIMACIONES SVG
+           SECCIÓN DE SERVICIOS
            ========================================= */
         .servicios-section {
             padding: 40px 40px 0 40px; 
@@ -542,71 +549,19 @@
             text-align: center;
         }
 
-        .servicios-container { 
-            width: 100%;
-            max-width: 100%; 
-            margin: 0 auto; 
-        }
-
-        .servicios-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 30px; 
-            width: 100%;
-        }
-
-        .servicio-card { 
-            background-color: #111111; 
-            padding: 40px 30px; 
-            border-radius: 15px; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            transition: all 0.4s ease; 
-            width: 100%; 
-            text-align: center; 
-        }
-        .servicio-card:hover { 
-            transform: translateY(-8px); 
-            border-color: #00fff7; 
-            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); 
-        }
-
-        .servicio-icon { 
-            width: 80px; 
-            height: 80px; 
-            margin: 0 auto 25px auto; 
-            background-color: rgba(0, 255, 247, 0.08); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border: 1px solid rgba(0, 255, 247, 0.2); 
-            transition: all 0.4s ease; 
-        }
-        .servicio-card:hover .servicio-icon { 
-            background-color: rgba(0, 255, 247, 0.2); 
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.4); 
-        }
-
+        .servicios-container { width: 100%; max-width: 100%; margin: 0 auto; }
+        .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; }
+        .servicio-card { background-color: #111111; padding: 40px 30px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; width: 100%; text-align: center; }
+        .servicio-card:hover { transform: translateY(-8px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); }
+        .servicio-icon { width: 80px; height: 80px; margin: 0 auto 25px auto; background-color: rgba(0, 255, 247, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 255, 247, 0.2); transition: all 0.4s ease; }
+        .servicio-card:hover .servicio-icon { background-color: rgba(0, 255, 247, 0.2); box-shadow: 0 0 15px rgba(0, 255, 247, 0.4); }
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: #ffffff; }
         .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
 
-        /* Animaciones SVG */
-        @keyframes parpadearPantalla {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
-        }
-        @keyframes cncTrabajando {
-            0%, 100% { transform: translateX(-8px); }
-            50% { transform: translateX(8px); }
-        }
-        @keyframes subirEscaleraMonito {
-            0%, 100% { transform: translateY(10px); }
-            50% { transform: translateY(-4px); }
-        }
-        @keyframes pulsoNodos {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 1; fill: #000; }
-        }
+        @keyframes parpadearPantalla { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+        @keyframes cncTrabajando { 0%, 100% { transform: translateX(-8px); } 50% { transform: translateX(8px); } }
+        @keyframes subirEscaleraMonito { 0%, 100% { transform: translateY(10px); } 50% { transform: translateY(-4px); } }
+        @keyframes pulsoNodos { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.2); opacity: 1; fill: #000; } }
 
         .anim-screen { animation: parpadearPantalla 1s infinite ease-in-out; }
         .anim-cnc { animation: cncTrabajando 1.2s infinite ease-in-out; transform-origin: 32px 22px; }
@@ -616,418 +571,72 @@
         /* =========================================
            SUBSECCIONES RENDER Y VECTORIZADO
            ========================================= */
-        .subservicios-split {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            background-color: #ffffff;
-            margin-top: 40px; 
-        }
-
-        .subservicio-col {
-            flex: 1;
-            padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        #vectorizado {
-            border-left: 1px solid #eaeaea; 
-        }
-
-        .subservicio-inner {
-            max-width: 480px; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .vector-icon-large {
-            width: 90px;
-            height: 90px;
-            background-color: #f9f9f9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #000000;
-            margin-bottom: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .subservicio-inner p {
-            color: #111111;
-            font-size: 1.2rem;
-            font-weight: 700;
-            line-height: 1.6;
-        }
+        .subservicios-split { display: flex; flex-direction: row; width: 100%; background-color: #ffffff; margin-top: 40px; }
+        .subservicio-col { flex: 1; padding: 60px 40px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        #vectorizado { border-left: 1px solid #eaeaea; }
+        .subservicio-inner { max-width: 480px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .vector-icon-large { width: 90px; height: 90px; background-color: #f9f9f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000000; margin-bottom: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .subservicio-inner p { color: #111111; font-size: 1.2rem; font-weight: 700; line-height: 1.6; }
 
         /* =========================================
            SECCIÓN NUESTROS CLIENTES
            ========================================= */
-        .clientes-section {
-            padding: 40px 0 0 0; 
-            background-color: #000000; 
-            width: 100%;
-            text-align: center;
-            overflow: hidden; 
-        }
-
-        .clientes-container { 
-            width: 100%;
-            max-width: 100%; 
-            margin: 0 auto; 
-            overflow: hidden; 
-        }
-
-        .clientes-marquee-wrapper {
-            width: 100%;
-            overflow: hidden;
-            background-color: transparent;
-            padding: 0;
-            position: relative;
-            margin-top: 15px;
-        }
-
-        .clientes-marquee-wrapper::before,
-        .clientes-marquee-wrapper::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 120px;
-            height: 100%;
-            z-index: 2;
-        }
-        .clientes-marquee-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, #000000 0%, transparent 100%);
-        }
-        .clientes-marquee-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, #000000 0%, transparent 100%);
-        }
-
-        .clientes-marquee-track {
-            display: flex;
-            gap: 45px; 
-            width: max-content;
-            animation: scrollMarquee 25s linear infinite;
-        }
-
-        .clientes-marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        .marquee-img {
-            height: 150px;
-            object-fit: contain;
-            filter: grayscale(100%) brightness(0.8);
-            transition: filter 0.4s ease, transform 0.4s ease;
-            cursor: pointer;
-        }
-
-        .marquee-img:hover {
-            filter: grayscale(0%) brightness(1);
-        }
-
-        @keyframes scrollMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 20px)); } 
-        }
-
-        .reviews-wrapper {
-            background-color: #ffffff;
-            width: 100%;
-            padding: 50px 0;
-            margin-top: 40px;
-            overflow: hidden; 
-        }
-
-        .reviews-inner {
-            width: 80%;
-            margin: 0 auto;
-            overflow: hidden; 
-        }
-
-        .tr-widget .tr-company-name,
-        .tr-widget .tr-header-name,
-        .tr-widget .tr-profile-name,
-        .tr-widget .tr-title,
-        .tr-widget .tr-name,
-        .tr-widget .tr-header h3,
-        .tr-widget .tr-header a {
-            color: #000000 !important;
-        }
+        .clientes-section { padding: 40px 0 0 0; background-color: #000000; width: 100%; text-align: center; overflow: hidden; }
+        .clientes-container { width: 100%; max-width: 100%; margin: 0 auto; overflow: hidden; }
+        .clientes-marquee-wrapper { width: 100%; overflow: hidden; background-color: transparent; padding: 0; position: relative; margin-top: 15px; }
+        .clientes-marquee-wrapper::before, .clientes-marquee-wrapper::after { content: ""; position: absolute; top: 0; width: 120px; height: 100%; z-index: 2; }
+        .clientes-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #000000 0%, transparent 100%); }
+        .clientes-marquee-wrapper::after { right: 0; background: linear-gradient(to left, #000000 0%, transparent 100%); }
+        .clientes-marquee-track { display: flex; gap: 45px; width: max-content; animation: scrollMarquee 25s linear infinite; }
+        .clientes-marquee-track:hover { animation-play-state: paused; }
+        .marquee-img { height: 150px; object-fit: contain; filter: grayscale(100%) brightness(0.8); transition: filter 0.4s ease, transform 0.4s ease; cursor: pointer; }
+        .marquee-img:hover { filter: grayscale(0%) brightness(1); }
+        @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 20px)); } }
+        
+        .reviews-wrapper { background-color: #ffffff; width: 100%; padding: 50px 0; margin-top: 40px; overflow: hidden; }
+        .reviews-inner { width: 80%; margin: 0 auto; overflow: hidden; }
+        .tr-widget .tr-company-name, .tr-widget .tr-header-name, .tr-widget .tr-profile-name, .tr-widget .tr-title, .tr-widget .tr-name, .tr-widget .tr-header h3, .tr-widget .tr-header a { color: #000000 !important; }
 
         /* =========================================
            SECCIÓN SOLICITAR COTIZACIÓN
            ========================================= */
-        .cotizacion-section {
-            padding: 60px 0;
-            background-color: #000000;
-            width: 100%;
-            text-align: center;
-        }
-
-        .cotizacion-container {
-            width: 80%;
-            max-width: 100%;
-            margin: 0 auto;
-            background-color: transparent;
-            border: none;
-            border-radius: 0;
-            padding: 0;
-            text-align: left;
-            box-shadow: none;
-        }
-
-        #acnes-wa-formulario {
-            width: 100%;
-            max-width: 100%;
-            margin: 20px auto;
-            border-radius: 0px;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            color: #ffffff;
-            box-sizing: border-box;
-        }
-
-        .wa-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .wa-header h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.8em;
-            color: #25D366;
-            font-weight: bold;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .wa-header p {
-            margin: 0;
-            font-size: 1em;
-            color: #cccccc;
-        }
-
-        .wa-grupo {
-            margin-bottom: 20px;
-        }
-
-        .wa-grupo label {
-            display: block;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .wa-input {
-            width: 100%;
-            background-color: #111111;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 14px 18px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Roboto', sans-serif;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        .wa-input:focus {
-            outline: none;
-            border-color: #25D366;
-            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
-        }
-
-        textarea.wa-input {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .wa-nota-archivo {
-            background: rgba(37, 211, 102, 0.1);
-            border-left: 3px solid #25D366;
-            padding: 14px;
-            font-size: 0.9em;
-            color: #cccccc;
-            margin-bottom: 25px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .wa-boton {
-            width: 100%;
-            background: #25D366;
-            color: #ffffff;
-            border: none;
-            padding: 16px 30px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .wa-boton:hover {
-            background: #1ebe57;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
-            transform: translateY(-2px);
-        }
+        .cotizacion-section { padding: 60px 0; background-color: #000000; width: 100%; text-align: center; }
+        .cotizacion-container { width: 80%; max-width: 100%; margin: 0 auto; background-color: transparent; border: none; padding: 0; text-align: left; }
+        #acnes-wa-formulario { width: 100%; margin: 20px auto; color: #ffffff; }
+        .wa-header { text-align: center; margin-bottom: 25px; }
+        .wa-header h3 { margin: 0 0 5px 0; font-size: 1.8em; color: #25D366; font-weight: bold; font-family: 'Montserrat', sans-serif; }
+        .wa-header p { margin: 0; font-size: 1em; color: #cccccc; }
+        .wa-grupo { margin-bottom: 20px; }
+        .wa-grupo label { display: block; font-size: 0.85rem; margin-bottom: 8px; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .wa-input { width: 100%; background-color: #111111; border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 14px 18px; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; }
+        .wa-input:focus { outline: none; border-color: #25D366; box-shadow: 0 0 10px rgba(37, 211, 102, 0.3); }
+        textarea.wa-input { resize: vertical; min-height: 120px; }
+        .wa-nota-archivo { background: rgba(37, 211, 102, 0.1); border-left: 3px solid #25D366; padding: 14px; font-size: 0.9em; color: #cccccc; margin-bottom: 25px; border-radius: 0 8px 8px 0; }
+        .wa-boton { width: 100%; background: #25D366; color: #ffffff; border: none; padding: 16px 30px; border-radius: 50px; font-size: 1rem; font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .wa-boton:hover { background: #1ebe57; box-shadow: 0 0 15px rgba(37, 211, 102, 0.5); transform: translateY(-2px); }
 
         /* =========================================
            PIE DE PÁGINA (FOOTER)
            ========================================= */
-        .footer-section {
-            background-color: #000000;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 70px 40px 30px 40px;
-            width: 100%;
-            color: #ffffff;
-            font-family: 'Roboto', sans-serif;
-        }
+        .footer-section { background-color: #000000; border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 70px 40px 30px 40px; width: 100%; color: #ffffff; }
+        .footer-container { width: 80%; max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 50px; }
+        .footer-col { display: flex; flex-direction: column; gap: 15px; }
+        .footer-logo { height: 45px; width: auto; object-fit: contain; align-self: flex-start; }
+        .footer-desc { font-size: 0.95rem; color: #cccccc; line-height: 1.6; }
+        .footer-tagline { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #00fff7; font-size: 0.95rem; letter-spacing: 0.5px; text-transform: uppercase; }
+        .footer-title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; color: #ffffff; text-transform: uppercase; letter-spacing: 0.08em; position: relative; padding-left: 20px; margin-bottom: 5px; }
+        .footer-title .badge-dot { left: 0; top: 50%; transform: translateY(-50%); }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-links li a { color: #cccccc; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease, padding-left 0.3s ease; }
+        .footer-links li a:hover { color: #00fff7; padding-left: 5px; }
+        .footer-contact-item { font-size: 0.95rem; color: #cccccc; display: flex; align-items: center; gap: 12px; }
+        .footer-contact-item i { color: #00fff7; }
+        .footer-socials { display: flex; gap: 15px; margin-top: 10px; }
+        .social-icon { width: 40px; height: 40px; background-color: #111111; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s ease; }
+        .social-icon:hover { background-color: #00fff7; border-color: #00fff7; color: #000; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); transform: translateY(-3px); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 25px; text-align: center; font-size: 0.85rem; color: #888888; }
 
-        .footer-container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-col {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .footer-logo {
-            height: 45px;
-            width: auto;
-            object-fit: contain;
-            align-self: flex-start;
-        }
-
-        .footer-desc {
-            font-size: 0.95rem;
-            color: #cccccc;
-            line-height: 1.6;
-        }
-
-        .footer-tagline {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            color: #00fff7;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .footer-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 5px;
-        }
-
-        .footer-title .badge-dot {
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links li a {
-            color: #cccccc;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease, padding-left 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: #00fff7;
-            padding-left: 5px;
-        }
-
-        .footer-contact-item {
-            font-size: 0.95rem;
-            color: #cccccc;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .footer-contact-item i {
-            color: #00fff7;
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #111111;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background-color: #00fff7;
-            border-color: #00fff7;
-            color: #000;
-            box-shadow: 0 0 10px rgba(0, 255, 247, 0.5);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 25px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #888888;
-        }
-
-        /* Animaciones clave generales */
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
         @keyframes parpadeoCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } } 
 
@@ -1045,60 +654,30 @@
             .hero-typography { gap: 15px; }
             .punto-separador { margin-top: 50px; } 
             
-            .svc-badge-pill { 
-                font-size: 1rem; 
-                padding: 9px 20px 9px 38px; 
-                display: inline-flex;
-                width: fit-content; 
-                max-width: 100%; 
-            } 
-            .ai-title-pill { 
-                font-size: 1rem; 
-                display: inline-flex;
-                width: fit-content;
-                margin-bottom: 20px; 
-                margin-left: auto; 
-                margin-right: auto; 
-            }
+            .svc-badge-pill { font-size: 1rem; padding: 9px 20px 9px 38px; display: inline-flex; width: fit-content; max-width: 100%; } 
+            .ai-title-pill { font-size: 1rem; display: inline-flex; width: fit-content; margin-bottom: 20px; margin-left: auto; margin-right: auto; }
             
             .portfolio-filters { gap: 8px; }
             .filter-btn, .pill-oscura { font-size: 0.75rem; padding: 7px 14px; }
 
             .herramientas-section, .servicios-section { padding: 30px 20px 0 20px; }
-            
-            .subservicios-split {
-                flex-direction: column;
-                margin-top: 20px;
-            }
-            .subservicio-col {
-                padding: 40px 20px;
-            }
-            #vectorizado {
-                border-left: none;
-                border-top: 1px solid #eaeaea; 
-            }
+            .subservicios-split { flex-direction: column; margin-top: 20px; }
+            .subservicio-col { padding: 40px 20px; }
+            #vectorizado { border-left: none; border-top: 1px solid #eaeaea; }
             .subservicio-inner p { font-size: 1.05rem; }
             
             .clientes-section { padding: 30px 0 0 0; }
-            .clientes-marquee-wrapper::before,
-            .clientes-marquee-wrapper::after {
-                width: 50px; 
-            }
-            .marquee-img {
-                height: 150px; 
-            }
+            .clientes-marquee-wrapper::before, .clientes-marquee-wrapper::after { width: 50px; }
+            .marquee-img { height: 150px; }
             
             .cotizacion-section { padding: 40px 0; }
             .cotizacion-container { width: 95%; }
 
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
-            
             .reviews-wrapper { padding: 40px 0; margin-top: 30px; }
             .reviews-inner { width: 100%; padding: 0 5px; } 
-            
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
 
-            /* Ajustes para Proyectos Destacados en Móvil */
             .proyectos-section { padding: 30px 0 5px 0; }
             .btn-ver-mas { margin-bottom: 25px; }
 
@@ -1107,79 +686,99 @@
             .navbar { padding: 12px 20px; }
             .hamburger { display: block; }
             
-            /* CORTINA DEL MENÚ MÓVIL BLANCA - AHORA DESLIZA POR DEBAJO DE LA NAVBAR */
+            /* =========================================
+               NUEVO MENÚ MÓVIL EN MOSAICO + WIDGET FB
+               ========================================= */
             .nav-menu { 
                 position: fixed; 
                 left: 0; 
                 top: 0; 
-                flex-direction: column; 
-                justify-content: center; 
                 background-color: #ffffff; 
                 width: 100%; 
                 height: 100vh; 
-                text-align: center; 
-                transition: transform 0.4s ease-in-out; 
+                transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); 
                 transform: translateX(-100%);
-                padding: 0; 
-                gap: 0; 
-                z-index: -1; /* Esto hace que se vaya al fondo, por detrás del navbar negro */
-                padding-top: 80px; /* Para que los links no queden ocultos debajo de la barra */
+                z-index: 99999; /* Por debajo de la barra de navegación */
+                padding: 90px 20px 40px 20px; /* Espacio superior para que la barra no tape el menú */
+                
+                /* Layout en Grid (Mosaico) */
+                display: grid; 
+                grid-template-columns: repeat(2, 1fr); 
+                grid-auto-rows: max-content;
+                gap: 12px; 
+                overflow-y: auto; /* Permite scroll vertical */
             }
             .nav-menu.active { 
                 transform: translateX(0); 
             }
-            .nav-menu li { margin: 20px 0; }
             
-            /* Enlaces con puntito animado cyan automático */
+            /* Estilos de los cuadros (tiles) del menú */
+            .nav-menu li { margin: 0; }
             .nav-menu li a { 
-                font-size: 1.2rem; 
-                color: #000000; 
-                font-weight: 700;
-                display: inline-flex;
+                background-color: #000000;
+                color: #ffffff !important;
+                border-radius: 12px;
+                padding: 16px 8px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.85rem; 
+                font-weight: 800;
+                display: flex;
                 align-items: center;
                 justify-content: center;
+                text-align: center;
+                text-transform: uppercase;
+                border: 1px solid #222;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+                height: 100%;
+                gap: 6px;
             }
-            
+
             /* Agrega el puntito a los enlaces (excepto al botón de contacto) */
             .nav-menu li a:not(.btn-cotizar)::before {
                 content: "";
-                display: inline-block;
+                display: block;
                 width: 8px;
                 height: 8px;
                 background-color: #00fff7;
                 border-radius: 50%;
-                margin-right: 12px;
+                flex-shrink: 0;
                 animation: pulsarPunto 1.5s infinite ease-in-out;
             }
 
-            .nav-menu li a:hover { color: #0761b5; }
-            
-            /* Botón Contacto adaptado al fondo blanco */
             .nav-menu li a.btn-cotizar {
-                border-color: #000000;
-                color: #000000 !important;
-            }
-            .nav-menu li a.btn-cotizar:hover {
-                background-color: #000000;
-                color: #ffffff !important;
-                box-shadow: none;
+                border-color: #00fff7;
             }
 
-            /* Estilos del contenedor de las dos imágenes al fondo del menú */
+            /* Contenedor del Widget FB para que ocupe las dos columnas */
+            .fb-widget-container {
+                display: flex;
+                grid-column: span 2;
+                justify-content: center;
+                margin-top: 15px;
+                width: 100%;
+                overflow: hidden; 
+                border-radius: 12px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            /* Logos al fondo ocupando dos columnas */
             .menu-logos-mobile {
                 display: flex;
+                grid-column: span 2;
                 flex-direction: row; 
                 justify-content: center;
                 align-items: center;
-                gap: 40px; /* Separación ampliada */
-                margin-top: 30px !important; 
+                gap: 40px; 
+                margin-top: 20px; 
+                margin-bottom: 20px;
             }
             .menu-logos-mobile img {
-                height: 75px; /* Logos mucho más grandes */
+                height: 75px; 
                 width: auto;
                 object-fit: contain;
             }
 
+            /* Resto de ajustes móviles */
             .acnes-inner { flex-direction: column; padding: 25px 20px; justify-content: center; align-items: center; }
             .acnes-content { max-width: 100%; text-align: center; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
             .acnes-title, .acnes-tag, .acnes-desc { text-align: center; }
@@ -1199,6 +798,10 @@
 </head>
 <body>
 
+    <!-- SDK FACEBOOK CORRECTO -->
+    <div id="fb-root"></div>
+    <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&amp;version=v21.0"></script>
+
     <!-- PRELOADER -->
     <div id="preloader">
         <div class="preloader-pill">
@@ -1212,6 +815,8 @@
         <a href="#" class="nav-logo">
             <img src="./ACNES (1).png" alt="Logo ACNES Publicidad">
         </a>
+        
+        <!-- MENÚ DE NAVEGACIÓN -->
         <ul class="nav-menu">
             <li><a href="#">Inicio</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
@@ -1220,12 +825,22 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
-            <!-- Logos adicionales en el fondo del menú (solo visible en móviles) -->
+            <!-- CONTENEDOR WIDGET FACEBOOK (Solo móvil) -->
+            <li class="fb-widget-container">
+                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="400" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/ACNESPublicidad/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/ACNESPublicidad/">ACNES Publicidad</a>
+                    </blockquote>
+                </div>
+            </li>
+
+            <!-- Logos adicionales en el fondo del menú (Solo móvil) -->
             <li class="menu-logos-mobile">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
         </ul>
+
         <div class="hamburger">
             <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </div>
@@ -1267,7 +882,6 @@
                 </h2>
             </div>
 
-            <!-- Menú de Filtros -->
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="neon">Neón</button>
@@ -1275,7 +889,6 @@
                 <button class="filter-btn" data-filter="cajas-luz">Cajas de Luz</button>
             </div>
 
-           <!-- Cuadrícula de Imágenes -->
             <div class='portfolio-gallery'>
                 <div class="portfolio-item neon">
                     <img alt='Neón 1' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/rank1.avif' loading='lazy'/>
@@ -1317,7 +930,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN PROYECTOS DESTACADOS (OPTIMIZADO EN AVIF DE 1 EN 1) -->
+    <!-- SECCIÓN PROYECTOS DESTACADOS -->
     <section class="proyectos-section" id="proyectos-destacados">
         <div class="proyectos-container">
             <div style="text-align: center; margin-bottom: 25px;">
@@ -1325,67 +938,56 @@
             </div>
 
             <div class="proyectos-grid-wrapper" id="grid-proyectos">
-                <!-- Fila 1 (Visible por defecto) -->
                 <div class="proyectos-row">
                     <img alt='Proyecto 1' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/TERRA1%20(1).avif' loading='lazy'/>
                     <img alt='Proyecto 2' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/TERRA2%20(1).avif' loading='lazy'/>
                     <img alt='Proyecto 3' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/TERRA3%20(1).avif' loading='lazy'/>
                 </div>    
-                <!-- Fila 2 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 4' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/CARRRIER1%20(1).avif' loading='lazy'/>
                     <img alt='Proyecto 5' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/CARRIER4%20(2).avif' loading='lazy'/>
                     <img alt='Proyecto 6' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/CARRIER3%20(1).avif' loading='lazy'/>
                 </div>    
-                <!-- Fila 3 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 7' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/f1.avif' loading='lazy'/>
                     <img alt='Proyecto 8' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/f2.avif' loading='lazy'/>
                     <img alt='Proyecto 9' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/f3.avif' loading='lazy'/>
                 </div>    
-                <!-- Fila 4 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 10' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/h1.avif' loading='lazy'/>
                     <img alt='Proyecto 11' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/h2.avif' loading='lazy'/>
                     <img alt='Proyecto 12' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/h3.avif' loading='lazy'/>
                 </div>    
-                <!-- Fila 5 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 13' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/bm1.avif' loading='lazy'/>
                     <img alt='Proyecto 14' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/bm2.avif' loading='lazy'/>
                     <img alt='Proyecto 15' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/bm3.avif' loading='lazy'/>
                 </div>    
-                <!-- Fila 6 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 16' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/v1.avif' loading='lazy'/>
                     <img alt='Proyecto 17' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/v2.avif' loading='lazy'/>
                     <img alt='Proyecto 18' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/v3.avif' loading='lazy'/>
                 </div>    
-                <!-- Fila 7 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 19' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/ppm1.avif' loading='lazy'/>
                     <img alt='Proyecto 20' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/ppm2.avif' loading='lazy'/>
                     <img alt='Proyecto 21' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/ppm3.avif' loading='lazy'/>
                 </div>  
-                <!-- Fila 8 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 22' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/hm1.avif' loading='lazy'/>
                     <img alt='Proyecto 23' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/hm2.avif' loading='lazy'/>
                     <img alt='Proyecto 24' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/hm3.avif' loading='lazy'/>
                 </div>    
-                <!-- Fila 9 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 25' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/gs1.avif' loading='lazy'/>
                     <img alt='Proyecto 26' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/gs2.avif' loading='lazy'/>
                     <img alt='Proyecto 27' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/gs3.avif' loading='lazy'/>
                 </div>
-                <!-- Fila 10 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 28' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/x1.avif' loading='lazy'/>
                     <img alt='Proyecto 29' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/x2.avif' loading='lazy'/>
                     <img alt='Proyecto 30' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/x3.avif' loading='lazy'/>
                 </div>
-                <!-- Fila 11 -->
                 <div class="proyectos-row hidden-row">
                     <img alt='Proyecto 31' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/mh1.avif' loading='lazy'/>
                     <img alt='Proyecto 32' onclick='mostrarImagen(this)' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/mh2.avif' loading='lazy'/>
@@ -1393,7 +995,6 @@
                 </div>
             </div>
 
-            <!-- Botón para ver más filas de 1 en 1 -->
             <button class="btn-ver-mas" id="btn-ver-mas-proyectos" onclick="mostrarMasProyectos()">Ver más proyectos</button>
         </div>
     </section>
@@ -1696,7 +1297,7 @@
             const hiddenRows = document.querySelectorAll('.proyectos-row.hidden-row');
             let shown = 0;
             hiddenRows.forEach(row => {
-                if (shown < 1) { // Muestra exactamente 1 fila a la vez
+                if (shown < 1) { 
                     row.classList.remove('hidden-row');
                     row.style.opacity = '0';
                     setTimeout(() => { row.style.opacity = '1'; }, 50);
@@ -1749,15 +1350,19 @@
         // MENÚ MÓVIL HAMBURGUESA
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
+        const navbar = document.querySelector(".navbar");
+
         if(hamburger && navMenu) {
             hamburger.addEventListener("click", () => {
                 hamburger.classList.toggle("active");
                 navMenu.classList.toggle("active");
+                navbar.classList.toggle("menu-open"); // Oscurece la barra para destacar el logo
             });
 
             document.querySelectorAll(".nav-menu li a").forEach(n => n.addEventListener("click", () => {
                 hamburger.classList.remove("active");
                 navMenu.classList.remove("active");
+                navbar.classList.remove("menu-open");
             }));
         }
 
