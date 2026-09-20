@@ -704,11 +704,11 @@
                 z-index: 99999; 
                 padding: 10px 14px 12px 14px; 
                 
-                /* Grid flexible optimizado */
+                /* Grid flexible optimizado para evitar recortes */
                 display: grid; 
                 grid-template-columns: repeat(2, 1fr); 
-                grid-template-rows: repeat(3, auto) 1fr auto; /* Distribuye filas y cede el resto de alto al widget de Facebook */
-                gap: 6px; 
+                grid-template-rows: repeat(3, auto) 1fr auto; 
+                gap: 5px; 
                 overflow: hidden !important; /* Bloquea por completo cualquier scroll */
             }
             .nav-menu.active { 
@@ -719,10 +719,10 @@
             .nav-menu li a { 
                 background-color: #000000;
                 color: #ffffff !important;
-                border-radius: 10px;
-                padding: 10px 6px;
+                border-radius: 9px;
+                padding: 8px 5px;
                 font-family: 'Montserrat', sans-serif;
-                font-size: 0.8rem; 
+                font-size: 0.78rem; 
                 font-weight: 800;
                 display: flex;
                 align-items: center;
@@ -733,14 +733,14 @@
                 box-shadow: 0 4px 10px rgba(0,0,0,0.15);
                 width: 100%;
                 height: 100%;
-                gap: 6px;
+                gap: 5px;
             }
 
             .nav-menu li a::before {
                 content: "";
                 display: block;
-                width: 7px;
-                height: 7px;
+                width: 6px;
+                height: 6px;
                 background-color: #00fff7;
                 border-radius: 50%;
                 flex-shrink: 0;
@@ -749,7 +749,7 @@
 
             .nav-menu li a.btn-cotizar { border: 1px solid #00fff7; }
 
-            /* WIDGET FACEBOOK RESPONSIVO OCUPANDO TODO EL ALTO RESTANTE */
+            /* WIDGET FACEBOOK ADAPTADO PARA EVITAR CORTES */
             .fb-widget-container {
                 display: flex;
                 grid-column: span 2;
@@ -757,11 +757,11 @@
                 align-items: center;
                 width: 100% !important;
                 height: 100% !important;
-                overflow: hidden; 
-                border-radius: 10px;
+                overflow: hidden !important; 
+                border-radius: 8px;
             }
 
-            /* Forzamos al elemento iframe interno de Facebook a expandirse al 100% tanto en ancho como en alto */
+            /* Forzamos al plugin y los iframes internos a acoplarse exactamente al espacio disponible */
             .fb-widget-container .fb-page,
             .fb-widget-container span,
             .fb-widget-container iframe {
@@ -771,19 +771,19 @@
                 max-height: 100% !important;
             }
 
-            /* LOGOS MÁS GRANDES POSICIONADOS ABAJO */
+            /* LOGOS GRANDES POSICIONADOS ABAJO */
             .menu-logos-mobile {
                 display: flex;
                 grid-column: span 2;
                 flex-direction: row; 
                 justify-content: center;
                 align-items: center;
-                gap: 35px; 
-                margin-top: 2px; 
+                gap: 30px; 
+                margin-top: 0px; 
                 margin-bottom: 0px;
             }
             .menu-logos-mobile img {
-                height: 56px; /* Tamaño aumentado notablemente para mayor presencia visual */
+                height: 52px; 
                 width: auto;
                 object-fit: contain;
             }
@@ -835,16 +835,16 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
-            <!-- CONTENEDOR WIDGET FACEBOOK (Altura y ancho dinámicos al 100%) -->
+            <!-- CONTENEDOR WIDGET FACEBOOK (Ajustado para no cortarse) -->
             <li class="fb-widget-container">
-                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="250" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
                     <blockquote cite="https://www.facebook.com/ACNESPublicidad/" class="fb-xfbml-parse-ignore">
                         <a href="https://www.facebook.com/ACNESPublicidad/">ACNES Publicidad</a>
                     </blockquote>
                 </div>
             </li>
 
-            <!-- Logos colocados por DEBAJO del widget (Con tamaño mayor) -->
+            <!-- Logos colocados por DEBAJO del widget -->
             <li class="menu-logos-mobile">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
