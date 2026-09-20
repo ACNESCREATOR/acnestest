@@ -230,7 +230,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100000; 
-            background: rgba(0, 0, 0, 0.45); /* Transparencia original */
+            background: rgba(0, 0, 0, 0.45); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -679,12 +679,10 @@
             
             /* CORTINA DEL MENÚ MÓVIL BLANCA (MOSAICO) */
             
-            /* Forzamos que la Navbar no pierda su forma y herede el glassmorphism */
             .navbar { 
                 height: 74px; 
                 padding: 12px 20px; 
             }
-            /* Cuando se abre, se vuelve negro sólido garantizando que siempre se vea el logo */
             .navbar.menu-open {
                 background-color: #000000 !important;
                 backdrop-filter: none;
@@ -696,7 +694,6 @@
             .nav-menu { 
                 position: fixed; 
                 left: 0; 
-                /* Empezar EXACTAMENTE debajo de la barra para nunca taparla */
                 top: 74px; 
                 background-color: #ffffff; 
                 width: 100%; 
@@ -704,26 +701,25 @@
                 transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); 
                 transform: translateX(-100%);
                 z-index: 99999; 
-                padding: 20px 20px 40px 20px; 
+                padding: 15px 20px 20px 20px; 
                 
-                /* Layout en Grid (Mosaico) */
+                /* Mosaico ajustado para no generar scroll */
                 display: grid; 
                 grid-template-columns: repeat(2, 1fr); 
                 grid-auto-rows: max-content;
-                gap: 12px; 
-                overflow-y: auto; /* Permite scroll vertical interno */
+                gap: 10px; 
+                overflow: hidden; /* Elimina completamente el deslizamiento hacia abajo */
             }
             .nav-menu.active { 
                 transform: translateX(0); 
             }
             
-            /* Estilos de los cuadros (tiles) del menú */
             .nav-menu li { margin: 0; }
             .nav-menu li a { 
                 background-color: #000000;
                 color: #ffffff !important;
                 border-radius: 12px;
-                padding: 16px 8px;
+                padding: 12px 8px; /* Ligeramente más compacto */
                 font-family: 'Montserrat', sans-serif;
                 font-size: 0.85rem; 
                 font-weight: 800;
@@ -735,10 +731,9 @@
                 border: 1px solid #222;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.15);
                 height: 100%;
-                gap: 8px; /* Espacio para el punto */
+                gap: 8px;
             }
 
-            /* Agrega el puntito cyan parpadeante a TODOS los enlaces incluyendo Contacto */
             .nav-menu li a::before {
                 content: "";
                 display: block;
@@ -750,12 +745,23 @@
                 animation: pulsarPunto 1.5s infinite ease-in-out;
             }
 
-            /* Un borde cyan especial para destacar Contacto en el mosaico */
-            .nav-menu li a.btn-cotizar {
-                border: 1px solid #00fff7;
+            .nav-menu li a.btn-cotizar { border: 1px solid #00fff7; }
+
+            /* Contenedor del Widget FB a todo el ancho y menos alto */
+            .fb-widget-container {
+                display: flex;
+                grid-column: span 2;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                overflow: hidden; 
+                border-radius: 12px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             }
 
-            /* Logos posicionados arriba del widget (ocupando las dos columnas) */
+            /* Logos posicionados ABAJO del widget y más compactos */
             .menu-logos-mobile {
                 display: flex;
                 grid-column: span 2;
@@ -763,25 +769,13 @@
                 justify-content: center;
                 align-items: center;
                 gap: 40px; 
-                margin-top: 15px; 
-                margin-bottom: 15px;
+                margin-top: 5px; 
+                margin-bottom: 0px;
             }
             .menu-logos-mobile img {
-                height: 75px; 
+                height: 50px; /* Tamaño reducido para garantizar que todo quepa sin scroll */
                 width: auto;
                 object-fit: contain;
-            }
-
-            /* Contenedor del Widget FB a todo el ancho disponible */
-            .fb-widget-container {
-                display: flex;
-                grid-column: span 2;
-                justify-content: center;
-                width: 100%;
-                overflow: hidden; 
-                border-radius: 12px;
-                margin-bottom: 30px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             }
 
             /* Resto de ajustes móviles */
@@ -804,7 +798,7 @@
 </head>
 <body>
 
-    <!-- SDK FACEBOOK (Posicionado justo al abrir el body para que cargue correctamente) -->
+    <!-- SDK FACEBOOK -->
     <div id="fb-root"></div>
     <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&amp;version=v21.0"></script>
 
@@ -831,20 +825,20 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
-            <!-- Logos colocados por encima del widget (Solo móvil) -->
-            <li class="menu-logos-mobile">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
-            </li>
-
             <!-- CONTENEDOR WIDGET FACEBOOK (Solo móvil) -->
-            <!-- Configurado con data-width="500" para que se estire a lo ancho de la pantalla y data-height="350" para que no sea tan alto -->
+            <!-- Ajustado a width="320" (asegura que quepa entero en móviles) y height="250" (más compacto para no generar scroll) -->
             <li class="fb-widget-container">
-                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="500" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-page" data-href="https://www.facebook.com/ACNESPublicidad/" data-tabs="timeline" data-width="320" data-height="250" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                     <blockquote cite="https://www.facebook.com/ACNESPublicidad/" class="fb-xfbml-parse-ignore">
                         <a href="https://www.facebook.com/ACNESPublicidad/">ACNES Publicidad</a>
                     </blockquote>
                 </div>
+            </li>
+
+            <!-- Logos colocados por DEBAJO del widget (Solo móvil) -->
+            <li class="menu-logos-mobile">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
         </ul>
 
