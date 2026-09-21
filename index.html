@@ -349,16 +349,30 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS
+           SECCIÓN DE SERVICIOS (Estilo Unificado con Botones del Menú)
            ========================================= */
         .servicios-section { padding: 40px 40px 0 40px; background-color: #000000; width: 100%; text-align: center; }
         .servicios-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; }
-        .servicio-card { background-color: #111111; padding: 40px 30px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; width: 100%; text-align: center; }
-        .servicio-card:hover { transform: translateY(-8px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.15); }
+        
+        .servicio-card { 
+            background-color: #111111; 
+            padding: 40px 30px; 
+            border-radius: 12px; /* Estilo idéntico a los botones del menú */
+            border: 1px solid rgba(0, 255, 247, 0.3); /* Borde cyan sutil */
+            box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); /* Sombra menú */
+            transition: all 0.4s ease; 
+            width: 100%; 
+            text-align: center; 
+        }
+        .servicio-card:hover { 
+            transform: translateY(-8px); 
+            border-color: #00fff7; 
+            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.25); 
+        }
         .servicio-icon { width: 80px; height: 80px; margin: 0 auto 25px auto; background-color: rgba(0, 255, 247, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 255, 247, 0.2); transition: all 0.4s ease; }
         .servicio-card:hover .servicio-icon { background-color: rgba(0, 255, 247, 0.2); box-shadow: 0 0 15px rgba(0, 255, 247, 0.4); }
-        .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: #ffffff; }
+        .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: #ffffff; text-transform: uppercase; }
         .servicio-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.5; }
 
         @keyframes parpadearPantalla { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
@@ -479,7 +493,7 @@
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             
-            /* CORTINA DEL MENÚ MÓVIL */
+            /* CORTINA DEL MENÚ MÓVIL CON BRILLO CYAN INFERIOR */
             .navbar { height: 74px; padding: 12px 20px; }
             .navbar.menu-open { background-color: #000000 !important; backdrop-filter: none; -webkit-backdrop-filter: none; }
             .hamburger { display: block; }
@@ -490,7 +504,7 @@
                 width: 100%; height: calc(100vh - 74px); 
                 transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); transform: translateX(-100%);
                 z-index: 99999; 
-                padding: 25px 20px 95px 20px; /* Padding inferior generoso para la barra del navegador */
+                padding: 25px 20px 95px 20px; 
                 display: grid; 
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto auto auto auto auto auto auto; 
@@ -498,11 +512,13 @@
                 row-gap: 12px; 
                 column-gap: 12px;
                 overflow-y: auto !important; overflow-x: hidden !important; 
+                /* EFECTO DE BRILLO CYAN AL LLEGAR AL FINAL DE LA CORTINA */
+                box-shadow: inset 0 -35px 30px -20px rgba(0, 255, 247, 0.35); 
             }
             .nav-menu.active { transform: translateX(0); }
             .nav-menu li { margin: 0; width: 100%; height: 100%; display: block; }
             
-            /* 1) MOSAICO: Primeros 6 enlaces (Estilo original restaurado) */
+            /* 1) MOSAICO: Primeros 6 enlaces */
             .nav-menu li:nth-child(-n+6) a { 
                 background-color: #111111; 
                 color: #ffffff !important; 
@@ -552,7 +568,7 @@
                 object-fit: contain; 
             }
 
-            /* 3) BOTÓN S.O.S MANTENIMIENTO (MÁS GRANDE) */
+            /* 3) BOTÓN S.O.S MANTENIMIENTO */
             .sos-btn { 
                 position: relative; 
                 display: flex !important; 
@@ -560,7 +576,7 @@
                 align-items: center !important; 
                 justify-content: flex-start !important; 
                 background: #1a1a1a !important; 
-                padding: 22px 22px !important; /* Más grande */
+                padding: 22px 22px !important; 
                 border-radius: 12px !important; 
                 overflow: hidden; 
                 border: 2px solid #ffd700 !important; 
@@ -617,7 +633,7 @@
             }
             .sc-whatsapp i { margin-bottom: 0; margin-right: 10px; font-size: 1.8rem; }
 
-            /* Punto final en la cortina del menú móvil */
+            /* Punto cyan parpadeante al final de la cortina móvil */
             .menu-footer-dot {
                 display: flex !important;
                 justify-content: center;
