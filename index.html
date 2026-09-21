@@ -258,7 +258,7 @@
         .btn-cotizar:hover { background-color: #00fff7; color: #000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
 
         /* Elementos móviles ocultos en PC */
-        .menu-logos-mobile, .social-cards-container, .sos-container { display: none; }
+        .menu-logos-mobile, .social-cards-container, .sos-container, .menu-footer-dot { display: none; }
 
         /* HAMBURGUESA ANIMADA EN 'X' */
         .hamburger { 
@@ -490,27 +490,26 @@
                 width: 100%; height: calc(100vh - 74px); 
                 transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); transform: translateX(-100%);
                 z-index: 99999; 
-                padding: 25px 20px 35px 20px; 
+                padding: 25px 20px 95px 20px; /* Padding inferior generoso para la barra del navegador */
                 display: grid; 
                 grid-template-columns: repeat(2, 1fr);
-                /* Utilizamos auto para el alto de las filas, y el espacio extra se distribuye con space-between */
-                grid-template-rows: auto auto auto auto auto auto; 
-                align-content: space-between; /* LA MAGIA: estira el espacio entre los elementos hasta llenar la pantalla */
-                row-gap: 15px; 
+                grid-template-rows: auto auto auto auto auto auto auto; 
+                align-content: space-between; 
+                row-gap: 12px; 
                 column-gap: 12px;
                 overflow-y: auto !important; overflow-x: hidden !important; 
             }
             .nav-menu.active { transform: translateX(0); }
             .nav-menu li { margin: 0; width: 100%; height: 100%; display: block; }
             
-            /* 1) MOSAICO: Primeros 6 enlaces */
+            /* 1) MOSAICO: Primeros 6 enlaces (Estilo original restaurado) */
             .nav-menu li:nth-child(-n+6) a { 
                 background-color: #111111; 
                 color: #ffffff !important; 
                 border-radius: 12px; 
-                padding: 16px 10px; /* Un poco menos de padding vertical para dar aire al resto */
+                padding: 22px 10px; 
                 font-family: 'Montserrat', sans-serif; 
-                font-size: 0.9rem; 
+                font-size: 0.85rem; 
                 font-weight: 800;
                 display: flex; 
                 align-items: center; 
@@ -533,12 +532,12 @@
             }
 
             /* Span 2 columnas para elementos inferiores */
-            .sos-container, .menu-logos-mobile, .social-cards-container { 
+            .sos-container, .menu-logos-mobile, .social-cards-container, .menu-footer-dot { 
                 grid-column: span 2; 
                 width: 100%;
             }
 
-            /* 2) Logos Responsivos y MÁS GRANDES */
+            /* 2) Logos Responsivos */
             .menu-logos-mobile { 
                 display: flex; 
                 flex-direction: row; 
@@ -548,25 +547,37 @@
             }
             .menu-logos-mobile img { 
                 width: 48%; 
-                height: 75px; /* LOGOS MÁS GRANDES */
+                height: 75px; 
                 max-height: 85px;
                 object-fit: contain; 
             }
 
-            /* 3) BOTÓN S.O.S MANTENIMIENTO */
-            .sos-btn { position: relative; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; background: #1a1a1a !important; padding: 18px 20px !important; border-radius: 12px !important; overflow: hidden; border: 2px solid #ffd700 !important; text-align: left !important; }
+            /* 3) BOTÓN S.O.S MANTENIMIENTO (MÁS GRANDE) */
+            .sos-btn { 
+                position: relative; 
+                display: flex !important; 
+                flex-direction: row !important; 
+                align-items: center !important; 
+                justify-content: flex-start !important; 
+                background: #1a1a1a !important; 
+                padding: 22px 22px !important; /* Más grande */
+                border-radius: 12px !important; 
+                overflow: hidden; 
+                border: 2px solid #ffd700 !important; 
+                text-align: left !important; 
+            }
             .sos-stripes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.08), rgba(255, 215, 0, 0.08) 10px, transparent 10px, transparent 20px); z-index: 1; }
-            .sos-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 15px; color: #ffd700; width: 100%; }
-            .sos-content i { font-size: 2.2rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            .sos-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; color: #ffd700; width: 100%; }
+            .sos-content i { font-size: 2.8rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
             .sos-text { display: flex; flex-direction: column; }
-            .sos-text strong { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; letter-spacing: 0.5px; color: #ffd700; }
-            .sos-text span { font-size: 0.75rem; color: #ffffff; font-weight: 400; text-transform: none; margin-top: 3px; }
+            .sos-text strong { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; letter-spacing: 0.5px; color: #ffd700; }
+            .sos-text span { font-size: 0.8rem; color: #ffffff; font-weight: 400; text-transform: none; margin-top: 4px; }
 
-            /* 4) REDES SOCIALES y WHATSAPP con MAYOR ESPACIO */
+            /* 4) REDES SOCIALES y WHATSAPP */
             .social-cards-container { 
                 display: flex !important; 
                 flex-direction: column;
-                gap: 15px; /* Espacio considerable entre los iconos mini y el botón de WhatsApp */
+                gap: 12px; 
             }
             .social-mini-grid {
                 display: grid;
@@ -578,7 +589,7 @@
                 display: flex; 
                 align-items: center; 
                 justify-content: center; 
-                padding: 16px 5px; /* Botones más altos ya que no hay texto */
+                padding: 16px 5px; 
                 border-radius: 10px; 
                 color: #ffffff !important; 
                 text-decoration: none; 
@@ -587,7 +598,7 @@
                 width: 100%; 
             }
             .social-card:active { transform: scale(0.92); }
-            .social-card i { font-size: 1.8rem; margin-bottom: 0; width: auto; text-align: center; } /* ICONOS MÁS GRANDES */
+            .social-card i { font-size: 1.8rem; margin-bottom: 0; width: auto; text-align: center; } 
             .sc-facebook { background-color: #1877F2; }
             .sc-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
             .sc-tiktok { background-color: #111111; border: 1px solid #333 !important; }
@@ -605,6 +616,14 @@
                 background-color: #25D366 !important; 
             }
             .sc-whatsapp i { margin-bottom: 0; margin-right: 10px; font-size: 1.8rem; }
+
+            /* Punto final en la cortina del menú móvil */
+            .menu-footer-dot {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                padding-top: 5px;
+            }
 
             /* Resto de ajustes móviles */
             .acnes-inner { flex-direction: column; padding: 25px 20px; justify-content: center; align-items: center; }
@@ -641,7 +660,7 @@
         
         <!-- MENÚ DE NAVEGACIÓN -->
         <ul class="nav-menu">
-            <!-- Botones Principales (Mosaico en Móvil) -->
+            <!-- Botones Principales (Mosaico 3x2) -->
             <li><a href="#">Inicio</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
             <li><a href="#herramientas">Cotizador</a></li>
@@ -655,7 +674,7 @@
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
 
-            <!-- Botón S.O.S (Solo Móvil) -->
+            <!-- Botón S.O.S (Más grande) -->
             <li class="sos-container">
                 <a href="https://wa.me/5521913826?text=¡Hola!%20Tengo%20una%20emergencia%20con%20mi%20anuncio%20luminoso.%20¿Pueden%20ayudarme%20con%20mantenimiento?" target="_blank" class="sos-btn">
                     <div class="sos-stripes"></div>
@@ -669,7 +688,7 @@
                 </a>
             </li>
 
-            <!-- Redes Sociales y WhatsApp (Móvil) -->
+            <!-- Redes Sociales y WhatsApp -->
             <li class="social-cards-container">
                 <div class="social-mini-grid">
                     <a href="https://www.facebook.com/ACNESPublicidad" target="_blank" class="social-card sc-facebook">
@@ -690,6 +709,11 @@
                     <i class="fab fa-whatsapp"></i>
                     <span>Cotizar por WhatsApp</span>
                 </a>
+            </li>
+
+            <!-- Punto cyan parpadeante al final de la cortina móvil -->
+            <li class="menu-footer-dot">
+                <span class="badge-dot" style="position:relative; display:inline-block; left:0; top:0; width:9px; height:9px;"></span>
             </li>
         </ul>
 
