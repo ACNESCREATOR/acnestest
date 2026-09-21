@@ -258,7 +258,7 @@
         .btn-cotizar:hover { background-color: #00fff7; color: #000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
 
         /* Elementos móviles ocultos en PC */
-        .menu-logos-mobile, .social-cards-container, .vitrina-container, .sos-container { display: none; }
+        .menu-logos-mobile, .social-cards-container, .sos-container { display: none; }
 
         /* HAMBURGUESA ANIMADA EN 'X' */
         .hamburger { 
@@ -456,23 +456,18 @@
             .hero-section { height: 100vh; }
             .hero-typography { gap: 15px; }
             .punto-separador { margin-top: 50px; } 
-            
             .svc-badge-pill { font-size: 1rem; padding: 9px 20px 9px 38px; display: inline-flex; width: fit-content; max-width: 100%; } 
             .ai-title-pill { font-size: 1rem; display: inline-flex; width: fit-content; margin-bottom: 20px; margin-left: auto; margin-right: auto; }
-            
             .portfolio-filters { gap: 8px; }
             .filter-btn, .pill-oscura { font-size: 0.75rem; padding: 7px 14px; }
-
             .herramientas-section, .servicios-section { padding: 30px 20px 0 20px; }
             .subservicios-split { flex-direction: column; margin-top: 20px; }
             .subservicio-col { padding: 40px 20px; }
             #vectorizado { border-left: none; border-top: 1px solid #eaeaea; }
             .subservicio-inner p { font-size: 1.05rem; }
-            
             .clientes-section { padding: 30px 0 0 0; }
             .clientes-marquee-wrapper::before, .clientes-marquee-wrapper::after { width: 50px; }
             .marquee-img { height: 150px; }
-            
             .cotizacion-section { padding: 40px 0; }
             .cotizacion-container { width: 95%; }
             .servicios-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -481,7 +476,6 @@
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
             .proyectos-section { padding: 30px 0 5px 0; }
             .btn-ver-mas { margin-bottom: 25px; }
-
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             
@@ -491,44 +485,56 @@
             .hamburger { display: block; }
 
             .nav-menu { 
-                position: fixed; left: 0; top: 74px; background-color: #ffffff; width: 100%; height: calc(100vh - 74px); 
+                position: fixed; left: 0; top: 74px; 
+                background-color: #0a0a0a; /* Fondo negro profundo y elegante */
+                width: 100%; height: calc(100vh - 74px); 
                 transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); transform: translateX(-100%);
-                z-index: 99999; padding: 20px 20px 40px 20px; 
-                display: flex; flex-direction: column; gap: 12px; 
+                z-index: 99999; padding: 25px 20px 40px 20px; 
+                display: grid; /* Grid Activo */
+                grid-template-columns: repeat(2, 1fr); /* 2 Columnas */
+                grid-auto-rows: max-content;
+                gap: 12px; 
                 overflow-y: auto !important; overflow-x: hidden !important; 
             }
             .nav-menu.active { transform: translateX(0); }
-            .nav-menu li { margin: 0; width: 100%; }
+            .nav-menu li { margin: 0; width: 100%; height: 100%; display: block; }
             
-            .nav-menu li a { 
-                background-color: #000000; color: #ffffff !important; border-radius: 10px; padding: 16px; 
-                font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800;
-                display: flex; align-items: center; justify-content: center; text-align: center;
-                text-transform: uppercase; border: 1px solid #222; box-shadow: 0 4px 10px rgba(0,0,0,0.15); width: 100%;
+            /* 1) MOSAICO: Primeros 6 enlaces (3 filas x 2 columnas) */
+            .nav-menu li:nth-child(-n+6) a { 
+                background-color: #111111; /* Fondo oscuro de cada botón */
+                color: #ffffff !important; 
+                border-radius: 12px; 
+                padding: 22px 10px; /* Botones más compactos y cuadrados */
+                font-family: 'Montserrat', sans-serif; 
+                font-size: 0.85rem; 
+                font-weight: 800;
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                text-align: center;
+                text-transform: uppercase; 
+                border: 1px solid rgba(0, 255, 247, 0.3); /* Detalles finos en Cyan */
+                box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); /* Resplandor suave Cyan */
+                width: 100%;
+                height: 100%;
+                transition: all 0.3s ease;
             }
-            .nav-menu li a.btn-cotizar { border: 1px solid #00fff7; }
+            .nav-menu li:nth-child(-n+6) a:active {
+                background-color: rgba(0, 255, 247, 0.1);
+                transform: scale(0.95);
+            }
+            .nav-menu li:nth-child(-n+6) a.btn-cotizar { 
+                border: 1px solid rgba(0, 255, 247, 0.6); 
+                background-color: rgba(0, 255, 247, 0.05);
+            }
 
-            /* =========================================
-               NUEVO: VITRINA DE MATERIALES MÓVIL
-               ========================================= */
-            .vitrina-container { display: flex !important; flex-direction: column; align-items: center; background: #111; padding: 20px 15px; border-radius: 12px; border: 1px solid #333; margin: 10px 0; width: 100%; }
-            .vitrina-title { font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 2px; font-weight: 700; }
-            .vitrina-circles { display: flex; justify-content: space-around; width: 100%; padding: 0 10px; }
-            .vitrina-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
-            .vitrina-item span { font-size: 0.75rem; color: #ccc; font-weight: 500; }
-            
-            .v-circle { width: 55px; height: 55px; border-radius: 50%; border: 2px solid #444; transition: all 0.3s ease; }
-            .v-aluminio { background: linear-gradient(135deg, #a1a1a1 0%, #e6e6e6 50%, #8c8c8c 100%); box-shadow: inset 0 0 10px rgba(0,0,0,0.2); }
-            .v-acrilico { background: radial-gradient(circle at 30% 30%, #ffffff 0%, #d400ff 40%, #4a00e0 100%); box-shadow: inset 0 0 10px rgba(255,255,255,0.4); }
-            .v-neon { background: #000; box-shadow: 0 0 12px #00fff7, inset 0 0 12px #00fff7; border-color: #00fff7; }
-            
-            .vitrina-desc-box { margin-top: 15px; background: #000; padding: 12px; border-radius: 8px; font-size: 0.85rem; text-align: center; color: #fff; width: 100%; display: none; border: 1px solid #444; line-height: 1.4; transition: all 0.3s ease; }
-            .vitrina-desc-box strong { display: block; margin-bottom: 5px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+            /* 2) Span 2 columnas para elementos inferiores */
+            .sos-container, .menu-logos-mobile, .social-cards-container { 
+                grid-column: span 2; 
+            }
 
-            /* =========================================
-               NUEVO: BOTÓN S.O.S MANTENIMIENTO
-               ========================================= */
-            .sos-container { display: flex !important; margin: 5px 0 15px 0; width: 100%; }
+            /* 3) BOTÓN S.O.S MANTENIMIENTO */
+            .sos-container { margin: 10px 0 5px 0; }
             .sos-btn { position: relative; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; background: #1a1a1a !important; padding: 16px 20px !important; border-radius: 12px !important; overflow: hidden; border: 2px solid #ffd700 !important; text-align: left !important; }
             .sos-stripes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.08), rgba(255, 215, 0, 0.08) 10px, transparent 10px, transparent 20px); z-index: 1; }
             .sos-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 15px; color: #ffd700; width: 100%; }
@@ -537,21 +543,56 @@
             .sos-text strong { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; letter-spacing: 0.5px; color: #ffd700; }
             .sos-text span { font-size: 0.75rem; color: #ffffff; font-weight: 400; text-transform: none; margin-top: 3px; }
 
-            /* Logos */
-            .menu-logos-mobile { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px; margin: 5px 0 15px 0; }
+            /* 4) Logos */
+            .menu-logos-mobile { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px; margin: 10px 0; }
             .menu-logos-mobile img { height: 52px; width: auto; object-fit: contain; }
 
-            /* Redes Sociales */
-            .social-cards-container { display: flex; flex-direction: column; gap: 12px; width: 100%; margin-bottom: 40px; }
-            .social-card { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; padding: 16px 25px; border-radius: 12px; color: #ffffff !important; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800; text-transform: uppercase; transition: transform 0.3s ease; border: none !important; width: 100%; }
-            .social-card:active { transform: scale(0.97); }
-            .social-card i { font-size: 1.8rem; margin-right: 20px; width: 30px; text-align: center; }
+            /* 5) REDES SOCIALES CHIQUITAS EN CUADRÍCULA */
+            .social-cards-container { 
+                display: grid !important; 
+                grid-template-columns: repeat(4, 1fr); /* 4 iconos por fila */
+                gap: 8px; 
+                margin-bottom: 40px; 
+            }
+            .social-card { 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                justify-content: center; 
+                padding: 12px 5px; 
+                border-radius: 10px; 
+                color: #ffffff !important; 
+                text-decoration: none; 
+                font-family: 'Montserrat', sans-serif; 
+                font-size: 0.65rem; /* Letras mucho más chiquitas */
+                font-weight: 800; 
+                text-transform: uppercase; 
+                transition: transform 0.3s ease; 
+                border: none !important; 
+                width: 100%; 
+            }
+            .social-card:active { transform: scale(0.92); }
+            .social-card i { 
+                font-size: 1.4rem; 
+                margin-bottom: 5px; 
+                margin-right: 0; 
+                width: auto; 
+                text-align: center; 
+            }
             .sc-facebook { background-color: #1877F2; }
             .sc-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
             .sc-tiktok { background-color: #111111; border: 1px solid #333 !important; }
             .sc-tiktok i { color: #ffffff; text-shadow: 2px 0px 0px #FD3E3E, -2px 0px 0px #4DE8F4; }
             .sc-youtube { background-color: #FF0000; }
-            .sc-whatsapp { background-color: #25D366; }
+            
+            /* Botón WhatsApp ancho debajo de los iconos chiquitos */
+            .sc-whatsapp { 
+                grid-column: span 4; 
+                flex-direction: row; 
+                padding: 14px; 
+                font-size: 0.85rem; 
+            }
+            .sc-whatsapp i { margin-bottom: 0; margin-right: 8px; font-size: 1.6rem; }
 
             /* Resto de ajustes móviles */
             .acnes-inner { flex-direction: column; padding: 25px 20px; justify-content: center; align-items: center; }
@@ -588,33 +629,15 @@
         
         <!-- MENÚ DE NAVEGACIÓN -->
         <ul class="nav-menu">
-            <!-- Botones Principales -->
+            <!-- Botones Principales (Mosaico en Móvil) -->
             <li><a href="#">Inicio</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
             <li><a href="#herramientas">Cotizador</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
-            <!-- NUEVO: Vitrina de Materiales (Solo Móvil) -->
-            <li class="vitrina-container">
-                <span class="vitrina-title">Nuestros Acabados</span>
-                <div class="vitrina-circles">
-                    <div class="vitrina-item" onclick="mostrarMaterial('aluminio')">
-                        <div class="v-circle v-aluminio"></div>
-                        <span>Aluminio</span>
-                    </div>
-                    <div class="vitrina-item" onclick="mostrarMaterial('acrilico')">
-                        <div class="v-circle v-acrilico"></div>
-                        <span>Acrílico</span>
-                    </div>
-                    <div class="vitrina-item" onclick="mostrarMaterial('neon')">
-                        <div class="v-circle v-neon"></div>
-                        <span>Neón</span>
-                    </div>
-                </div>
-                <div id="vitrina-desc" class="vitrina-desc-box">Toca un material para ver detalles</div>
-            </li>
-
-            <!-- NUEVO: Botón S.O.S (Solo Móvil) -->
+            <!-- Botón S.O.S (Solo Móvil) -->
             <li class="sos-container">
                 <a href="https://wa.me/5521913826?text=¡Hola!%20Tengo%20una%20emergencia%20con%20mi%20anuncio%20luminoso.%20¿Pueden%20ayudarme%20con%20mantenimiento?" target="_blank" class="sos-btn">
                     <div class="sos-stripes"></div>
@@ -627,9 +650,6 @@
                     </div>
                 </a>
             </li>
-
-            <li><a href="#clientes">Clientes</a></li>
-            <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
             <!-- Logos -->
             <li class="menu-logos-mobile">
@@ -637,15 +657,15 @@
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
 
-            <!-- Redes Sociales -->
+            <!-- Redes Sociales (Mini cuadrícula en Móvil) -->
             <li class="social-cards-container">
                 <a href="https://www.facebook.com/ACNESPublicidad" target="_blank" class="social-card sc-facebook">
                     <i class="fab fa-facebook-f"></i>
-                    <span>Facebook</span>
+                    <span>Face</span>
                 </a>
                 <a href="https://www.instagram.com" target="_blank" class="social-card sc-instagram">
                     <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
+                    <span>Insta</span>
                 </a>
                 <a href="https://www.tiktok.com" target="_blank" class="social-card sc-tiktok">
                     <i class="fab fa-tiktok"></i>
@@ -653,11 +673,12 @@
                 </a>
                 <a href="https://www.youtube.com" target="_blank" class="social-card sc-youtube">
                     <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
+                    <span>Tube</span>
                 </a>
+                <!-- WhatsApp ancho -->
                 <a href="https://wa.me/5521913826" target="_blank" class="social-card sc-whatsapp">
                     <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
+                    <span>Cotizar por WhatsApp</span>
                 </a>
             </li>
         </ul>
@@ -1170,45 +1191,6 @@
                 navMenu.classList.remove("active");
                 navbar.classList.remove("menu-open");
             }));
-        }
-
-        // FUNCIÓN VITRINA DE MATERIALES
-        function mostrarMaterial(tipo) {
-            const descBox = document.getElementById('vitrina-desc');
-            descBox.style.display = 'block';
-            
-            // Reiniciar estilos de los círculos
-            document.querySelectorAll('.v-circle').forEach(el => {
-                el.style.borderColor = '#444';
-                el.style.transform = 'scale(1)';
-                el.style.boxShadow = 'none';
-            });
-            
-            if(tipo === 'aluminio') {
-                descBox.innerHTML = '<strong>Aluminio Cepillado</strong> Elegancia y durabilidad extrema para exteriores. Acabado metálico premium.';
-                descBox.style.borderColor = '#aaa';
-                descBox.style.boxShadow = '0 0 10px rgba(170,170,170,0.2)';
-                const circle = document.querySelector('.v-aluminio');
-                circle.style.borderColor = '#fff';
-                circle.style.transform = 'scale(1.15)';
-                circle.style.boxShadow = '0 0 15px rgba(255,255,255,0.4)';
-            } else if(tipo === 'acrilico') {
-                descBox.innerHTML = '<strong>Acrílico Brillante</strong> Colores vibrantes y acabado pulido que transmite luz de forma uniforme e impecable.';
-                descBox.style.borderColor = '#d400ff';
-                descBox.style.boxShadow = '0 0 10px rgba(212,0,255,0.2)';
-                const circle = document.querySelector('.v-acrilico');
-                circle.style.borderColor = '#d400ff';
-                circle.style.transform = 'scale(1.15)';
-                circle.style.boxShadow = '0 0 15px rgba(212,0,255,0.4)';
-            } else if(tipo === 'neon') {
-                descBox.innerHTML = '<strong>Neón Flex LED</strong> Todo el brillo del neón clásico, pero resistente, ecológico y de bajo consumo eléctrico.';
-                descBox.style.borderColor = '#00fff7';
-                descBox.style.boxShadow = '0 0 10px rgba(0,255,247,0.2)';
-                const circle = document.querySelector('.v-neon');
-                circle.style.borderColor = '#00fff7';
-                circle.style.transform = 'scale(1.15)';
-                circle.style.boxShadow = '0 0 15px #00fff7, inset 0 0 15px #00fff7';
-            }
         }
 
         // FILTROS PORTAFOLIO
