@@ -501,10 +501,10 @@
             
             /* 1) MOSAICO: Primeros 6 enlaces (3 filas x 2 columnas) */
             .nav-menu li:nth-child(-n+6) a { 
-                background-color: #111111; /* Fondo oscuro de cada botón */
+                background-color: #111111; 
                 color: #ffffff !important; 
                 border-radius: 12px; 
-                padding: 22px 10px; /* Botones más compactos y cuadrados */
+                padding: 22px 10px; 
                 font-family: 'Montserrat', sans-serif; 
                 font-size: 0.85rem; 
                 font-weight: 800;
@@ -513,8 +513,8 @@
                 justify-content: center; 
                 text-align: center;
                 text-transform: uppercase; 
-                border: 1px solid rgba(0, 255, 247, 0.3); /* Detalles finos en Cyan */
-                box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); /* Resplandor suave Cyan */
+                border: 1px solid rgba(0, 255, 247, 0.3); 
+                box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); 
                 width: 100%;
                 height: 100%;
                 transition: all 0.3s ease;
@@ -531,10 +531,26 @@
             /* 2) Span 2 columnas para elementos inferiores */
             .sos-container, .menu-logos-mobile, .social-cards-container { 
                 grid-column: span 2; 
+                width: 100%;
             }
 
-            /* 3) BOTÓN S.O.S MANTENIMIENTO */
-            .sos-container { margin: 10px 0 5px 0; }
+            /* 3) Logos Responsivos a todo lo ancho */
+            .menu-logos-mobile { 
+                display: flex; 
+                flex-direction: row; 
+                justify-content: space-between; 
+                align-items: center; 
+                gap: 15px; 
+                margin: 15px 0 5px 0; 
+            }
+            .menu-logos-mobile img { 
+                width: 48%; /* Ocupan equitativamente el ancho */
+                max-height: 55px; 
+                object-fit: contain; 
+            }
+
+            /* 4) BOTÓN S.O.S MANTENIMIENTO */
+            .sos-container { margin: 5px 0; }
             .sos-btn { position: relative; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; background: #1a1a1a !important; padding: 16px 20px !important; border-radius: 12px !important; overflow: hidden; border: 2px solid #ffd700 !important; text-align: left !important; }
             .sos-stripes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.08), rgba(255, 215, 0, 0.08) 10px, transparent 10px, transparent 20px); z-index: 1; }
             .sos-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 15px; color: #ffd700; width: 100%; }
@@ -543,16 +559,13 @@
             .sos-text strong { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; letter-spacing: 0.5px; color: #ffd700; }
             .sos-text span { font-size: 0.75rem; color: #ffffff; font-weight: 400; text-transform: none; margin-top: 3px; }
 
-            /* 4) Logos */
-            .menu-logos-mobile { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px; margin: 10px 0; }
-            .menu-logos-mobile img { height: 52px; width: auto; object-fit: contain; }
-
             /* 5) REDES SOCIALES CHIQUITAS EN CUADRÍCULA */
             .social-cards-container { 
                 display: grid !important; 
-                grid-template-columns: repeat(4, 1fr); /* 4 iconos por fila */
+                grid-template-columns: repeat(4, 1fr); 
                 gap: 8px; 
                 margin-bottom: 40px; 
+                margin-top: 5px;
             }
             .social-card { 
                 display: flex; 
@@ -564,7 +577,7 @@
                 color: #ffffff !important; 
                 text-decoration: none; 
                 font-family: 'Montserrat', sans-serif; 
-                font-size: 0.65rem; /* Letras mucho más chiquitas */
+                font-size: 0.65rem; 
                 font-weight: 800; 
                 text-transform: uppercase; 
                 transition: transform 0.3s ease; 
@@ -572,25 +585,20 @@
                 width: 100%; 
             }
             .social-card:active { transform: scale(0.92); }
-            .social-card i { 
-                font-size: 1.4rem; 
-                margin-bottom: 5px; 
-                margin-right: 0; 
-                width: auto; 
-                text-align: center; 
-            }
+            .social-card i { font-size: 1.4rem; margin-bottom: 5px; margin-right: 0; width: auto; text-align: center; }
             .sc-facebook { background-color: #1877F2; }
             .sc-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
             .sc-tiktok { background-color: #111111; border: 1px solid #333 !important; }
             .sc-tiktok i { color: #ffffff; text-shadow: 2px 0px 0px #FD3E3E, -2px 0px 0px #4DE8F4; }
             .sc-youtube { background-color: #FF0000; }
             
-            /* Botón WhatsApp ancho debajo de los iconos chiquitos */
+            /* Botón WhatsApp ancho con color verde forzado */
             .sc-whatsapp { 
                 grid-column: span 4; 
                 flex-direction: row; 
                 padding: 14px; 
                 font-size: 0.85rem; 
+                background-color: #25D366 !important; 
             }
             .sc-whatsapp i { margin-bottom: 0; margin-right: 8px; font-size: 1.6rem; }
 
@@ -637,6 +645,12 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
+            <!-- Logos -->
+            <li class="menu-logos-mobile">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
+            </li>
+
             <!-- Botón S.O.S (Solo Móvil) -->
             <li class="sos-container">
                 <a href="https://wa.me/5521913826?text=¡Hola!%20Tengo%20una%20emergencia%20con%20mi%20anuncio%20luminoso.%20¿Pueden%20ayudarme%20con%20mantenimiento?" target="_blank" class="sos-btn">
@@ -649,12 +663,6 @@
                         </div>
                     </div>
                 </a>
-            </li>
-            
-            <!-- Logos -->
-            <li class="menu-logos-mobile">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
 
             <!-- Redes Sociales (Mini cuadrícula en Móvil) -->
