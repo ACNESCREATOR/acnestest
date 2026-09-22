@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO y Posicionamiento -->
     <title>ACNES Publicidad | Anuncios Luminosos en México</title>
+    <meta name="description" content="Expertos en diseño, fabricación e instalación de anuncios luminosos, letras 3D, cajas de luz y vectorizado en México. ACNES Publicidad.">
+    <meta name="keywords" content="anuncios luminosos, letras 3d, cajas de luz, publicidad, méxico, acnes publicidad, letreros luminosos, rotulación, vectorizado">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ACNES Publicidad">
+
+    <!-- Schema.org JSON-LD para SEO Local -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ACNES Publicidad",
+      "url": "https://acnespublicidad.com",
+      "email": "acnespublicidad@gmail.com",
+      "telephone": "+525521913826",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lago Cupatitzio 83A, Col. Ciudad Lago",
+        "addressLocality": "Nezahualcóyotl",
+        "addressRegion": "Estado de México",
+        "postalCode": "57180",
+        "addressCountry": "MX"
+      }
+    }
+    </script>
     
     <!-- Fuentes Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,12 +37,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* =========================================
+           ESTILOS GENERALES
+           ========================================= */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         html, body { 
             font-family: 'Roboto', sans-serif; 
             background-color: #000000; 
-            color: #fff; 
+            color: #ffffff; 
             width: 100%;
             max-width: 100vw;
             overflow-x: hidden; 
@@ -26,266 +55,56 @@
         /* =========================================
            PRELOADER
            ========================================= */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #000000; /* Fondo negro */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 100003; 
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .preloader-pill {
-            position: relative; 
-            display: inline-flex;
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            background: transparent; /* Píldora sin fondo */
-            color: #ffffff;
-            border: 1.5px solid #00fff7; 
-            box-shadow: 0 0 15px rgba(0, 255, 247, 0.3); 
-            border-radius: 50px;
-            padding: 12px 24px;  
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.15rem; 
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        #preloader .badge-dot {
-            position: relative;
-            left: auto;
-            margin-right: 12px;
-        }
-
-        /* =========================================
-           SECCIÓN PRINCIPAL HERO (VIDEO)
-           ========================================= */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            text-align: center;
-            background-color: #111;
-        }
-
-        .hero-video {
-            position: absolute; 
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            z-index: 1; 
-            object-fit: cover;
-        }
-
-        .video-desktop { display: block; }
-        .video-mobile { display: none; }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Overlay ajustado a .3 */
-            z-index: 2; 
-        }
-
-        .hero-content {
-            position: relative; 
-            z-index: 3; 
-            padding: 0 30px;
-            width: 100%;
-            max-width: 100%; 
-        }
-
-        .hero-typography {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); 
-            color: #fff;
-        }
-
-        .main-heading {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(40px, 4vw, 80px); 
-            font-weight: 800;
-            line-height: 1.3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap; 
-        }
-
-        .sub-heading {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(30px, 3vw, 80px);
-            font-weight: 700;
-        }
-
-        .punto-separador {
-            margin-top: 80px; 
-            display: flex;
-            justify-content: center;
-        }
-
-        /* =========================================
-           DISEÑO DE PÍLDORAS Y TÍTULOS
-           ========================================= */
-        .svc-badge-pill {
-            position: relative; 
-            display: inline-flex;
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            flex-wrap: wrap; 
-            background: #000000;
-            color: #ffffff;
-            border: none;
-            box-shadow: none;
-            border-radius: 50px;
-            padding: 10px 28px 10px 42px; 
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.25rem; 
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .ai-title-pill {
-            display: inline-flex; 
-            width: fit-content; 
-            margin: 0 auto 25px auto; 
-            font-size: 1.25rem; 
-            padding: 11px 30px 11px 44px; 
-        }
-
-        .badge-dot {
-            position: absolute; 
-            left: 18px; 
-            width: 7px;
-            height: 7px;
-            flex-shrink: 0; 
-            background-color: #00fff7;
-            border-radius: 50%;
-            animation: pulsarPunto 1.5s infinite ease-in-out;
-        }
-        
-        .dot-large {
-            position: relative; 
-            left: 0;
-            width: 14px; 
-            height: 14px;
-            background-color: #00fff7;
-        }
-
-        .texto-terminal { color: #fff; }
-        
-        .typed-cursor {
-            color: #00fff7 !important; 
-            font-weight: 900;
-            margin-left: 4px;
-            animation: parpadeoCursor 1s infinite;
-        }
-
-        .pill-oscura {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            display: inline-block;
-            cursor: default;
-        }
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #000000; display: flex; justify-content: center; align-items: center; z-index: 100003; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .preloader-pill { position: relative; display: inline-flex; align-items: center; justify-content: center; text-align: center; background: transparent; color: #ffffff; border: 1.5px solid #00fff7; box-shadow: 0 0 15px rgba(0, 255, 247, 0.3); border-radius: 50px; padding: 12px 24px; font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+        #preloader .badge-dot { position: relative; left: auto; margin-right: 12px; }
 
         /* =========================================
            BARRA DE NAVEGACIÓN
            ========================================= */
-        .navbar {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 18px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100000; 
-            background: rgba(0, 0, 0, 0.45); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: background-color 0.4s ease, padding 0.3s ease;
-        }
-
-        .nav-logo {
-            position: relative;
-            z-index: 100001; 
-        }
-
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100000; background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.4s ease, padding 0.3s ease; }
+        .nav-logo { position: relative; z-index: 100001; }
         .nav-logo img { height: 50px; width: auto; display: block; }
-        
-        .nav-menu { 
-            display: flex; 
-            gap: 35px; 
-            list-style: none; 
-            z-index: 100000;
-        }
-        
-        .nav-menu li a { color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+        .nav-menu { display: flex; gap: 35px; list-style: none; z-index: 100000; }
+        .nav-menu li a { color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
         .nav-menu li a:hover { color: #00fff7; }
-
         .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; transition: all 0.3s ease; }
-        .btn-cotizar:hover { background-color: #00fff7; color: #000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
-
-        /* Elementos móviles ocultos en PC */
+        .btn-cotizar:hover { background-color: #00fff7; color: #000000 !important; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); }
         .menu-logos-mobile, .social-cards-container, .sos-container, .menu-footer-dot { display: none; }
 
-        /* HAMBURGUESA ANIMADA EN 'X' */
-        .hamburger { 
-            display: none; 
-            cursor: pointer; 
-            z-index: 100001; 
-            width: 30px;
-            height: 24px;
-            position: relative;
-        }
-        .hamburger .bar { 
-            display: block; 
-            width: 100%; 
-            height: 3px; 
-            background-color: #fff; 
-            position: absolute;
-            left: 0;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
-            border-radius: 3px;
-        }
+        .hamburger { display: none; cursor: pointer; z-index: 100001; width: 30px; height: 24px; position: relative; }
+        .hamburger .bar { display: block; width: 100%; height: 3px; background-color: #ffffff; position: absolute; left: 0; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); border-radius: 3px; }
         .hamburger .bar:nth-child(1) { top: 0; }
         .hamburger .bar:nth-child(2) { top: 10.5px; }
         .hamburger .bar:nth-child(3) { top: 21px; }
-
         .hamburger.active .bar:nth-child(1) { transform: translateY(10.5px) rotate(45deg); }
         .hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-20px); }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-10.5px) rotate(-45deg); }
+
+        /* =========================================
+           SECCIÓN PRINCIPAL HERO (VIDEO)
+           ========================================= */
+        .hero-section { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; background-color: #111111; }
+        .hero-video { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; z-index: 1; object-fit: cover; }
+        .video-desktop { display: block; }
+        .video-mobile { display: none; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; padding: 0 30px; width: 100%; max-width: 100%; }
+        .hero-typography { display: flex; flex-direction: column; align-items: center; gap: 20px; text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); color: #ffffff; }
+        .main-heading { font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 4vw, 80px); font-weight: 800; line-height: 1.3; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+        .sub-heading { font-family: 'Montserrat', sans-serif; font-size: clamp(30px, 3vw, 80px); font-weight: 700; }
+        .punto-separador { margin-top: 80px; display: flex; justify-content: center; }
+
+        /* =========================================
+           DISEÑO DE PÍLDORAS Y TÍTULOS
+           ========================================= */
+        .svc-badge-pill { position: relative; display: inline-flex; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; background: #000000; color: #ffffff; border-radius: 50px; padding: 10px 28px 10px 42px; font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+        .ai-title-pill { display: inline-flex; width: fit-content; margin: 0 auto 25px auto; font-size: 1.25rem; padding: 11px 30px 11px 44px; }
+        .badge-dot { position: absolute; left: 18px; width: 7px; height: 7px; flex-shrink: 0; background-color: #00fff7; border-radius: 50%; animation: pulsarPunto 1.5s infinite ease-in-out; }
+        .dot-large { position: relative; left: 0; width: 14px; height: 14px; background-color: #00fff7; }
+        .texto-terminal { color: #ffffff; }
+        .typed-cursor { color: #00fff7 !important; font-weight: 900; margin-left: 4px; animation: parpadeoCursor 1s infinite; }
+        .pill-oscura { background-color: #000000; color: #ffffff; padding: 8px 18px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; display: inline-block; cursor: default; }
 
         /* =========================================
            SECCIÓN PORTAFOLIO
@@ -293,31 +112,30 @@
         .portafolio-section { padding: 50px 0px 0px 0px; background-color: #000000; width: 100%; }
         .portafolio-container { width: 100%; max-width: 100%; margin: 0 auto; padding: 0; }
         .portfolio-filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 35px; padding: 0 20px; }
-        .filter-btn { background: #111; border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 18px; border-radius: 50px; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; transition: all 0.3s ease; }
+        .filter-btn { background: #111111; border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 8px 18px; border-radius: 50px; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; transition: all 0.3s ease; }
         .filter-btn:hover { border-color: #00fff7; background: #1a1a1a; }
-        .filter-btn.active { background: #00fff7; color: #000; border-color: #00fff7; box-shadow: 0 0 12px rgba(0, 255, 247, 0.4); }
-        .portfolio-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 0; width: 100%; margin: 0; background-color: transparent; }
-        /* Efecto de Zoom Restaurado */
-        .portfolio-item { position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; background-color: #111; transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; transform: scale(1); cursor: zoom-in; }
+        .filter-btn.active { background: #00fff7; color: #000000; border-color: #00fff7; box-shadow: 0 0 12px rgba(0, 255, 247, 0.4); }
+        .portfolio-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 0; width: 100%; margin: 0; }
+        
+        /* Efecto de Zoom sin Lupa en cursor */
+        .portfolio-item { position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; background-color: #111111; transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; transform: scale(1); }
         .portfolio-item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .portfolio-item:hover img { transform: scale(1.08); } 
+        .portfolio-item:hover img { transform: scale(1.08); }
 
         /* =========================================
            SECCIÓN PROYECTOS DESTACADOS
            ========================================= */
         .proyectos-section { padding: 30px 0; background-color: #ffffff; width: 100%; text-align: center; }
         .proyectos-container { width: 100%; max-width: 100%; margin: 0 auto; padding: 0 5px; }
-        .proyectos-grid-wrapper { display: flex; flex-direction: column; gap: 0; width: 100%; margin-top: 30px; max-width: 1500px; margin-left: auto; margin-right: auto; }
+        .proyectos-grid-wrapper { display: flex; flex-direction: column; width: 100%; margin: 30px auto 0; max-width: 1500px; }
         .proyectos-row { display: flex; width: 100%; justify-content: space-between; opacity: 1; transition: opacity 0.5s ease; }
         .proyectos-row.hidden-row { display: none; opacity: 0; }
         .proyectos-row img { width: 33.333% !important; height: auto; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease; border-radius: 0 !important; }
         .proyectos-row img:hover { opacity: 0.85; }
-        .btn-ver-mas { background-color: #000000; color: #ffffff; border: 2px solid #00fff7; padding: 12px 30px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; margin-top: 35px; margin-bottom: 0px; transition: all 0.3s ease; }
+        .btn-ver-mas { background-color: #000000; color: #ffffff; border: 2px solid #00fff7; padding: 12px 30px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; margin-top: 35px; transition: all 0.3s ease; }
         .btn-ver-mas:hover { background-color: #00fff7; color: #000000; box-shadow: 0 0 15px rgba(0, 255, 247, 0.4); }
 
-        /* =========================================
-           LIGHTBOX MODAL
-           ========================================= */
+        /* LIGHTBOX MODAL */
         .image-lightbox { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; cursor: zoom-out; }
         .image-lightbox.active { display: flex; opacity: 1; }
         .image-lightbox img { max-width: 95vw; max-height: 85vh; margin-top: 80px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.2); object-fit: contain; transform: scale(0.8); transition: transform 0.3s ease; }
@@ -350,27 +168,13 @@
         .banner-vq:hover .acnes-btn { background: #00fff7; color: #000000; box-shadow: 0 0 15px #00fff7; }
 
         /* =========================================
-           SECCIÓN DE SERVICIOS (Estilo Unificado con Botones del Menú)
+           SECCIÓN DE SERVICIOS
            ========================================= */
         .servicios-section { padding: 40px 40px 0 40px; background-color: #000000; width: 100%; text-align: center; }
         .servicios-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; }
-        
-        .servicio-card { 
-            background-color: #111111; 
-            padding: 40px 30px; 
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 247, 0.3);
-            box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); 
-            transition: all 0.4s ease; 
-            width: 100%; 
-            text-align: center; 
-        }
-        .servicio-card:hover { 
-            transform: translateY(-8px); 
-            border-color: #00fff7; 
-            box-shadow: 0 10px 30px rgba(0, 255, 247, 0.25); 
-        }
+        .servicio-card { background-color: #111111; padding: 40px 30px; border-radius: 12px; border: 1px solid rgba(0, 255, 247, 0.3); box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); transition: all 0.4s ease; width: 100%; text-align: center; }
+        .servicio-card:hover { transform: translateY(-8px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.25); }
         .servicio-icon { width: 80px; height: 80px; margin: 0 auto 25px auto; background-color: rgba(0, 255, 247, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 255, 247, 0.2); transition: all 0.4s ease; }
         .servicio-card:hover .servicio-icon { background-color: rgba(0, 255, 247, 0.2); box-shadow: 0 0 15px rgba(0, 255, 247, 0.4); }
         .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: #ffffff; text-transform: uppercase; }
@@ -419,14 +223,14 @@
            SECCIÓN SOLICITAR COTIZACIÓN
            ========================================= */
         .cotizacion-section { padding: 60px 0; background-color: #000000; width: 100%; text-align: center; }
-        .cotizacion-container { width: 80%; max-width: 100%; margin: 0 auto; background-color: transparent; border: none; padding: 0; text-align: left; }
+        .cotizacion-container { width: 80%; max-width: 100%; margin: 0 auto; text-align: left; }
         #acnes-wa-formulario { width: 100%; margin: 20px auto; color: #ffffff; }
         .wa-header { text-align: center; margin-bottom: 25px; }
         .wa-header h3 { margin: 0 0 5px 0; font-size: 1.8em; color: #25D366; font-weight: bold; font-family: 'Montserrat', sans-serif; }
         .wa-header p { margin: 0; font-size: 1em; color: #cccccc; }
         .wa-grupo { margin-bottom: 20px; }
-        .wa-grupo label { display: block; font-size: 0.85rem; margin-bottom: 8px; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
-        .wa-input { width: 100%; background-color: #111111; border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 14px 18px; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; }
+        .wa-grupo label { display: block; font-size: 0.85rem; margin-bottom: 8px; color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .wa-input { width: 100%; background-color: #111111; border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 14px 18px; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; }
         .wa-input:focus { outline: none; border-color: #25D366; box-shadow: 0 0 10px rgba(37, 211, 102, 0.3); }
         textarea.wa-input { resize: vertical; min-height: 120px; }
         .wa-nota-archivo { background: rgba(37, 211, 102, 0.1); border-left: 3px solid #25D366; padding: 14px; font-size: 0.9em; color: #cccccc; margin-bottom: 25px; border-radius: 0 8px 8px 0; }
@@ -449,10 +253,10 @@
         .footer-links li a { color: #cccccc; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease, padding-left 0.3s ease; }
         .footer-links li a:hover { color: #00fff7; padding-left: 5px; }
         .footer-contact-item { font-size: 0.95rem; color: #cccccc; display: flex; align-items: center; gap: 12px; }
-        .footer-contact-item i { color: #00fff7; }
+        .footer-contact-item i { color: #00fff7; width: 16px; text-align: center; }
         .footer-socials { display: flex; gap: 15px; margin-top: 10px; }
-        .social-icon { width: 40px; height: 40px; background-color: #111111; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s ease; }
-        .social-icon:hover { background-color: #00fff7; border-color: #00fff7; color: #000; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); transform: translateY(-3px); }
+        .social-icon { width: 40px; height: 40px; background-color: #111111; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; text-decoration: none; transition: all 0.3s ease; }
+        .social-icon:hover { background-color: #00fff7; border-color: #00fff7; color: #000000; box-shadow: 0 0 10px rgba(0, 255, 247, 0.5); transform: translateY(-3px); }
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 25px; text-align: center; font-size: 0.85rem; color: #888888; display: flex; justify-content: center; align-items: center; }
 
         @keyframes pulsarPunto { 0%, 100% { transform: scale(0.95); opacity: 0.4; } 50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #00fff7; } }
@@ -494,95 +298,24 @@
             .video-desktop { display: none; }
             .video-mobile { display: block; }
             
-            /* CORTINA DEL MENÚ MÓVIL CON BRILLO CYAN INFERIOR */
+            /* Menú móvil cortina */
             .navbar { height: 74px; padding: 12px 20px; }
             .navbar.menu-open { background-color: #000000 !important; backdrop-filter: none; -webkit-backdrop-filter: none; }
             .hamburger { display: block; }
-
-            .nav-menu { 
-                position: fixed; left: 0; top: 74px; 
-                background-color: #0a0a0a; 
-                width: 100%; height: calc(100vh - 74px); 
-                transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); transform: translateX(-100%);
-                z-index: 99999; 
-                padding: 25px 20px 95px 20px; 
-                display: grid; 
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: auto auto auto auto auto auto auto; 
-                align-content: space-between; 
-                row-gap: 12px; 
-                column-gap: 12px;
-                overflow-y: auto !important; overflow-x: hidden !important; 
-                /* EFECTO DE BRILLO CYAN AL LLEGAR AL FINAL DE LA CORTINA */
-                box-shadow: inset 0 -35px 30px -20px rgba(0, 255, 247, 0.35); 
-            }
+            .nav-menu { position: fixed; left: 0; top: 74px; background-color: #0a0a0a; width: 100%; height: calc(100vh - 74px); transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); transform: translateX(-100%); z-index: 99999; padding: 25px 20px 95px 20px; display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto auto auto auto auto auto auto; align-content: space-between; row-gap: 12px; column-gap: 12px; overflow-y: auto !important; overflow-x: hidden !important; box-shadow: inset 0 -35px 30px -20px rgba(0, 255, 247, 0.35); }
             .nav-menu.active { transform: translateX(0); }
             .nav-menu li { margin: 0; width: 100%; height: 100%; display: block; }
-            
-            /* 1) MOSAICO: Primeros 6 enlaces */
-            .nav-menu li:nth-child(-n+6) a { 
-                background-color: #111111; 
-                color: #ffffff !important; 
-                border-radius: 12px; 
-                padding: 22px 10px; 
-                font-family: 'Montserrat', sans-serif; 
-                font-size: 0.85rem; 
-                font-weight: 800;
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                text-align: center;
-                text-transform: uppercase; 
-                border: 1px solid rgba(0, 255, 247, 0.3); 
-                box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); 
-                width: 100%;
-                height: 100%;
-                transition: all 0.3s ease;
-            }
-            .nav-menu li:nth-child(-n+6) a:active {
-                background-color: rgba(0, 255, 247, 0.1);
-                transform: scale(0.95);
-            }
-            .nav-menu li:nth-child(-n+6) a.btn-cotizar { 
-                border: 1px solid rgba(0, 255, 247, 0.6); 
-                background-color: rgba(0, 255, 247, 0.05);
-            }
+            .nav-menu li:nth-child(-n+6) a { background-color: #111111; color: #ffffff !important; border-radius: 12px; padding: 22px 10px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; justify-content: center; text-align: center; text-transform: uppercase; border: 1px solid rgba(0, 255, 247, 0.3); box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); width: 100%; height: 100%; transition: all 0.3s ease; }
+            .nav-menu li:nth-child(-n+6) a:active { background-color: rgba(0, 255, 247, 0.1); transform: scale(0.95); }
+            .nav-menu li:nth-child(-n+6) a.btn-cotizar { border: 1px solid rgba(0, 255, 247, 0.6); background-color: rgba(0, 255, 247, 0.05); }
+            .sos-container, .menu-logos-mobile, .social-cards-container, .menu-footer-dot { grid-column: span 2; width: 100%; }
 
-            /* Span 2 columnas para elementos inferiores */
-            .sos-container, .menu-logos-mobile, .social-cards-container, .menu-footer-dot { 
-                grid-column: span 2; 
-                width: 100%;
-            }
+            /* Logos Móvil */
+            .menu-logos-mobile { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 15px; }
+            .menu-logos-mobile img { width: 48%; height: 75px; max-height: 85px; object-fit: contain; }
 
-            /* 2) Logos Responsivos */
-            .menu-logos-mobile { 
-                display: flex; 
-                flex-direction: row; 
-                justify-content: space-between; 
-                align-items: center; 
-                gap: 15px; 
-            }
-            .menu-logos-mobile img { 
-                width: 48%; 
-                height: 75px; 
-                max-height: 85px;
-                object-fit: contain; 
-            }
-
-            /* 3) BOTÓN S.O.S MANTENIMIENTO */
-            .sos-btn { 
-                position: relative; 
-                display: flex !important; 
-                flex-direction: row !important; 
-                align-items: center !important; 
-                justify-content: flex-start !important; 
-                background: #1a1a1a !important; 
-                padding: 22px 22px !important; 
-                border-radius: 12px !important; 
-                overflow: hidden; 
-                border: 2px solid #ffd700 !important; 
-                text-align: left !important; 
-            }
+            /* Botón S.O.S */
+            .sos-btn { position: relative; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; background: #1a1a1a !important; padding: 22px 22px !important; border-radius: 12px !important; overflow: hidden; border: 2px solid #ffd700 !important; text-align: left !important; }
             .sos-stripes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.08), rgba(255, 215, 0, 0.08) 10px, transparent 10px, transparent 20px); z-index: 1; }
             .sos-content { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; color: #ffd700; width: 100%; }
             .sos-content i { font-size: 2.8rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
@@ -590,65 +323,18 @@
             .sos-text strong { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; letter-spacing: 0.5px; color: #ffd700; }
             .sos-text span { font-size: 0.8rem; color: #ffffff; font-weight: 400; text-transform: none; margin-top: 4px; }
 
-            /* 4) REDES SOCIALES y WHATSAPP */
-            .social-cards-container { 
-                display: flex !important; 
-                flex-direction: column;
-                gap: 12px; 
-            }
-            .social-mini-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
-                width: 100%;
-            }
-            
-            /* Tarjetas sociales estilo oscuro/cyan */
-            .social-card { 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                padding: 16px 5px; 
-                border-radius: 12px; 
-                color: #ffffff !important; 
-                text-decoration: none; 
-                transition: all 0.3s ease; 
-                width: 100%; 
-                background-color: #111111; 
-                border: 1px solid rgba(0, 255, 247, 0.3) !important;
-                box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08);
-            }
-            .social-card:hover { 
-                border-color: rgba(0, 255, 247, 0.6) !important;
-                background-color: rgba(0, 255, 247, 0.05);
-                box-shadow: 0 4px 15px rgba(0, 255, 247, 0.2);
-            }
+            /* Social Cards */
+            .social-cards-container { display: flex !important; flex-direction: column; gap: 12px; }
+            .social-mini-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; }
+            .social-card { display: flex; align-items: center; justify-content: center; padding: 16px 5px; border-radius: 12px; color: #ffffff !important; text-decoration: none; transition: all 0.3s ease; width: 100%; background-color: #111111; border: 1px solid rgba(0, 255, 247, 0.3) !important; box-shadow: 0 4px 10px rgba(0, 255, 247, 0.08); }
+            .social-card:hover { border-color: rgba(0, 255, 247, 0.6) !important; background-color: rgba(0, 255, 247, 0.05); box-shadow: 0 4px 15px rgba(0, 255, 247, 0.2); }
             .social-card:active { transform: scale(0.92); }
             .social-card i { font-size: 1.8rem; margin-bottom: 0; width: auto; text-align: center; color: #ffffff; text-shadow: none !important; } 
-            
-            /* Botón WhatsApp Mantiene su verde */
-            .sc-whatsapp { 
-                flex-direction: row; 
-                padding: 16px; 
-                font-family: 'Montserrat', sans-serif; 
-                font-size: 0.95rem; 
-                font-weight: 800; 
-                text-transform: uppercase;
-                background-color: #25D366 !important; 
-                border: none !important;
-                box-shadow: none;
-            }
+            .sc-whatsapp { flex-direction: row; padding: 16px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; background-color: #25D366 !important; border: none !important; box-shadow: none; }
             .sc-whatsapp i { margin-bottom: 0; margin-right: 10px; font-size: 1.8rem; }
+            .menu-footer-dot { display: flex !important; justify-content: center; align-items: center; padding-top: 5px; }
 
-            /* Punto cyan parpadeante al final de la cortina móvil */
-            .menu-footer-dot {
-                display: flex !important;
-                justify-content: center;
-                align-items: center;
-                padding-top: 5px;
-            }
-
-            /* Resto de ajustes móviles */
+            /* Ajustes Varios Celular */
             .acnes-inner { flex-direction: column; padding: 25px 20px; justify-content: center; align-items: center; }
             .acnes-content { max-width: 100%; text-align: center; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
             .acnes-title, .acnes-tag, .acnes-desc { text-align: center; }
@@ -681,9 +367,7 @@
             <img src="./ACNES (1).png" alt="Logo ACNES Publicidad">
         </a>
         
-        <!-- MENÚ DE NAVEGACIÓN -->
         <ul class="nav-menu">
-            <!-- Botones Principales (Mosaico 3x2) -->
             <li><a href="#">Inicio</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
             <li><a href="#herramientas">Herramientas</a></li>
@@ -691,13 +375,11 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
-            <!-- Logos (Móvil) -->
             <li class="menu-logos-mobile">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
             </li>
 
-            <!-- Botón S.O.S (Más grande) -->
             <li class="sos-container">
                 <a href="https://wa.me/5521913826?text=¡Hola!%20Tengo%20una%20emergencia%20con%20mi%20anuncio%20luminoso.%20¿Pueden%20ayudarme%20con%20mantenimiento?" target="_blank" class="sos-btn">
                     <div class="sos-stripes"></div>
@@ -711,30 +393,19 @@
                 </a>
             </li>
 
-            <!-- Redes Sociales y WhatsApp -->
             <li class="social-cards-container">
                 <div class="social-mini-grid">
-                    <a href="https://www.facebook.com/ACNESPublicidad" target="_blank" class="social-card">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/acnes_publicidad" target="_blank" class="social-card">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@acnes_publicidad" target="_blank" class="social-card">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@ACNES_Publicidad" target="_blank" class="social-card">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+                    <a href="https://www.facebook.com/ACNESPublicidad" target="_blank" class="social-card"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/acnes_publicidad" target="_blank" class="social-card"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@acnes_publicidad" target="_blank" class="social-card"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.youtube.com/@ACNES_Publicidad" target="_blank" class="social-card"><i class="fab fa-youtube"></i></a>
                 </div>
-                <!-- WhatsApp Ancho -->
                 <a href="https://wa.me/5521913826?text=Hola%20me%20gustaria%20cotizar%20un%20anuncio%20luminoso." target="_blank" class="social-card sc-whatsapp">
                     <i class="fab fa-whatsapp"></i>
                     <span>Cotizar por WhatsApp</span>
                 </a>
             </li>
 
-            <!-- Punto cyan parpadeante al final de la cortina móvil -->
             <li class="menu-footer-dot">
                 <span class="badge-dot" style="position:relative; display:inline-block; left:0; top:0; width:9px; height:9px;"></span>
             </li>
@@ -747,7 +418,6 @@
 
     <!-- PORTADA HERO -->
     <header class="hero-section">
-        <!-- RUTA DE VIDEO ACTUALIZADA -->
         <video autoplay muted loop playsinline class="hero-video video-desktop">
             <source src="./PXL_20260901_073746017.TS.mp4" type="video/mp4">
         </video>
@@ -758,16 +428,9 @@
         
         <div class="hero-content">
             <div class="hero-typography">
-                <h1 class="main-heading">
-                    Soluciones en Comunicación Visual y Artes Gráficas.
-                </h1>
-                <h2 class="sub-heading">
-                    Producción de: <span class="texto-terminal"></span>
-                </h2>
-                
-                <div class="punto-separador">
-                    <span class='badge-dot dot-large'></span>
-                </div>
+                <h1 class="main-heading">Soluciones en Comunicación Visual y Artes Gráficas.</h1>
+                <h2 class="sub-heading">Producción de: <span class="texto-terminal"></span></h2>
+                <div class="punto-separador"><span class='badge-dot dot-large'></span></div>
             </div>
         </div>
     </header>
@@ -777,8 +440,7 @@
         <div class="portafolio-container">
             <div style="text-align: center;">
                 <h2 class="svc-badge-pill ai-title-pill" style="margin-bottom: 20px;">
-                    <span class="badge-dot"></span>
-                    PORTAFOLIO<span class="typed-cursor">_</span>
+                    <span class="badge-dot"></span> PORTAFOLIO<span class="typed-cursor">_</span>
                 </h2>
             </div>
 
@@ -793,9 +455,9 @@
                 <div class="portfolio-item neon">
                     <img alt='Neón 1' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/rank1.avif' loading='lazy'/>
                 </div>
-               <div class="portfolio-item cajas-luz">
+                <div class="portfolio-item cajas-luz">
                    <img alt='Caja de Luz 1' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas1.avif' loading='lazy'/>
-               </div>
+                </div>
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 1' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras1.avif' loading='lazy'/>
                 </div>
@@ -811,18 +473,18 @@
                 <div class="portfolio-item neon">
                     <img alt='Neón 3' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/pub3.avif' loading='lazy'/>
                 </div>
-               <div class="portfolio-item cajas-luz">
+                <div class="portfolio-item cajas-luz">
                   <img alt='Caja de Luz 3' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas3.avif' loading='lazy'/>
                 </div>
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 3' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras3.avif' loading='lazy'/>
                 </div>
-                 <div class="portfolio-item neon">
+                <div class="portfolio-item neon">
                     <img alt='Neón 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/neon/maneki4.avif' loading='lazy'/>
                 </div>
-               <div class="portfolio-item cajas-luz">
-                 <img alt='Caja de Luz 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas4.avif' loading='lazy'/>
-               </div>
+                <div class="portfolio-item cajas-luz">
+                  <img alt='Caja de Luz 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/cajas/cajas4.avif' loading='lazy'/>
+                </div>
                 <div class="portfolio-item letras-3d">
                     <img alt='Letras 3D 4' src='https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras4.avif' loading='lazy'/>
                 </div>
@@ -943,7 +605,6 @@
             <div class="servicios-grid">
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <!-- SVG de Diseño Aumentado de width 44 a 64 -->
                         <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 44h40" stroke-width="2"/>
                             <rect x="30" y="12" width="24" height="18" rx="2" fill="#111" stroke="#fff"/>
@@ -959,7 +620,6 @@
 
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <!-- SVG de Fabricación Aumentado de width 44 a 64 -->
                         <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 50h52" stroke-width="2"/>
                             <path d="M12 50v8 M52 50v8" stroke-width="2"/>
@@ -978,7 +638,6 @@
 
                 <div class="servicio-card">
                     <div class="servicio-icon">
-                        <!-- SVG de Instalación Aumentado de width 44 a 64 -->
                         <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 8v48 M42 8v48" stroke-width="2"/>
                             <path d="M22 18h20 M22 28h20 M22 38h20 M22 48h20" stroke-width="2"/>
@@ -1046,8 +705,7 @@
         <div class="clientes-container">
             <div style="text-align: center;">
                 <h2 class="svc-badge-pill ai-title-pill" style="margin-bottom: 10px;">
-                    <span class="badge-dot"></span>
-                    NUESTROS CLIENTES <span class="typed-cursor">_</span>
+                    <span class="badge-dot"></span> NUESTROS CLIENTES <span class="typed-cursor">_</span>
                 </h2>
             </div>
             
@@ -1075,8 +733,7 @@
         <div class="cotizacion-container">
             <div style="text-align: center;">
                 <h2 class="svc-badge-pill ai-title-pill">
-                    <span class="badge-dot"></span>
-                    SOLICITAR COTIZACIÓN <span class="typed-cursor">_</span>
+                    <span class="badge-dot"></span> SOLICITAR COTIZACIÓN <span class="typed-cursor">_</span>
                 </h2>
             </div>
 
@@ -1123,12 +780,14 @@
     <footer class="footer-section">
         <div class="footer-container">
             <div class="footer-grid">
+                <!-- Columna 1 -->
                 <div class="footer-col">
                     <img src="./ACNES (1).png" alt="Logo ACNES Publicidad" class="footer-logo">
                     <p class="footer-desc">Soluciones profesionales en comunicación visual, letras 3D, cajas de luz y rotulación. Especialistas en <strong>Anuncios Luminosos en México</strong> para destacar tu negocio al máximo.</p>
                     <span class="footer-tagline">¡Keep creative, keep ACNES!</span>
                 </div>
 
+                <!-- Columna 2 -->
                 <div class="footer-col">
                     <h4 class="footer-title"><span class="badge-dot"></span> ENLACES</h4>
                     <ul class="footer-links">
@@ -1138,12 +797,15 @@
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#clientes">Clientes</a></li>
                         <li><a href="#cotizacion">Contacto</a></li>
+                        <li><a href="#">Mapa del Sitio</a></li>
                     </ul>
                 </div>
 
+                <!-- Columna 3 -->
                 <div class="footer-col">
                     <h4 class="footer-title"><span class="badge-dot"></span> CONTACTO</h4>
                     <p class="footer-contact-item"><i class="fas fa-phone-alt"></i> 55 2191 3826</p>
+                    <p class="footer-contact-item"><i class="fas fa-envelope"></i> acnespublicidad@gmail.com</p>
                     <p class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Lago Cupatitzio 83A, Col. Ciudad Lago. 57180</p>
                     <div class="footer-socials">
                         <a href="https://wa.me/5521913826?text=Hola%20me%20gustaria%20cotizar%20un%20anuncio%20luminoso." target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
