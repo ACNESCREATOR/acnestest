@@ -421,14 +421,22 @@
         </div>
     </nav>
 
+   
     <!-- PORTADA HERO -->
     <header class="hero-section">
-        <video autoplay muted loop playsinline class="hero-video video-desktop">
+        <!-- VIDEO DESKTOP (Computadoras) -->
+        <!-- El atributo 'poster' muestra una imagen al instante mientras carga el video -->
+        <video autoplay muted loop playsinline class="hero-video video-desktop" poster="./poster-desktop.avif">
+            <source src="./video-desktop-optimizado.webm" type="video/webm">
             <source src="./PXL_20260901_073746017.TS.mp4" type="video/mp4">
         </video>
-        <video autoplay muted loop playsinline class="hero-video video-mobile">
-            <source src="./PXL_20260901_073746017.TS.mp4" type="video/mp4"> 
+        
+        <!-- VIDEO MOBILE (Celulares - Formato Vertical) -->
+        <video autoplay muted loop playsinline class="hero-video video-mobile" poster="./poster-mobile.avif">
+            <source src="./video-mobile-optimizado.webm" type="video/webm">
+            <source src="./video-mobile.mp4" type="video/mp4"> 
         </video>
+        
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
