@@ -6,7 +6,7 @@
     
     <!-- SEO y Posicionamiento -->
     <title>ACNES Publicidad | Anuncios Luminosos en México</title>
-    <meta name="description" content="Soluciones profesionales en comunicación visual, letras 3D, cajas de luz y rotulación. Especialistas en Anuncios Luminosos en México para destacar tu negocio al máximo.">
+    <meta name="description" content="Expertos en diseño, fabricación e instalación de anuncios luminosos, letras 3D, cajas de luz y vectorizado en México. ACNES Publicidad.">
     <meta name="keywords" content="anuncios luminosos, letras 3d, cajas de luz, publicidad, méxico, acnes publicidad, letreros luminosos, rotulación, vectorizado">
     <meta name="robots" content="index, follow">
     <meta name="author" content="ACNES Publicidad">
@@ -117,7 +117,6 @@
         .filter-btn.active { background: #00fff7; color: #000000; border-color: #00fff7; box-shadow: 0 0 12px rgba(0, 255, 247, 0.4); }
         .portfolio-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 0; width: 100%; margin: 0; }
         
-        /* Efecto de Zoom sin Lupa en cursor */
         .portfolio-item { position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; background-color: #111111; transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; transform: scale(1); }
         .portfolio-item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .portfolio-item:hover img { transform: scale(1.08); }
@@ -312,7 +311,8 @@
 
             /* Logos Móvil */
             .menu-logos-mobile { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 15px; }
-            .menu-logos-mobile img { width: 48%; height: 75px; max-height: 85px; object-fit: contain; }
+            .menu-logos-mobile a { width: 48%; display: flex; justify-content: center; } /* Añadido para que el link no rompa el diseño */
+            .menu-logos-mobile img { width: 100%; height: 75px; max-height: 85px; object-fit: contain; }
 
             /* Botón S.O.S */
             .sos-btn { position: relative; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; background: #1a1a1a !important; padding: 22px 22px !important; border-radius: 12px !important; overflow: hidden; border: 2px solid #ffd700 !important; text-align: left !important; }
@@ -375,9 +375,14 @@
             <li><a href="#clientes">Clientes</a></li>
             <li><a href="#cotizacion" class="btn-cotizar">Contacto</a></li>
             
+            <!-- Logos de la cortina ahora en formato .avif y con enlace -->
             <li class="menu-logos-mobile">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3g2pw4JVmKnj4yf9msHVK8uqcEc9vPgjJTvFMZYNLeQO0bNkYBRGd_pXoY9vTA_z8s7E8H-xP8Z8nw060ovVAY51bZmhw5RzIhpoYb92AJs73XgcqbM4WJnoPoXXgM49x34Ns5FNhoRU/s1021/logo15.png" alt="Logo 15">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1MGn6bfO1gU-mApCoUWi38d4VpEnHll2kebSS92M5RHdHx9edctSy81yMSWSATxbg2moYO_oe10iZEhrna8ifsnA7Bwvki6hRgi_IN3XHJH_uVYq3Vc9USThsdySVI3Z2Z3ICaZgrmAQ/s989/logo16mx.png" alt="Logo 16MX">
+                <a href="https://tu-enlace-aqui.com" target="_blank" title="Visitar enlace 1">
+                    <img src="./logo15.avif" alt="Logo 15" loading="lazy">
+                </a>
+                <a href="https://tu-enlace-aqui.com" target="_blank" title="Visitar enlace 2">
+                    <img src="./logo16mx.avif" alt="Logo 16MX" loading="lazy">
+                </a>
             </li>
 
             <li class="sos-container">
@@ -797,7 +802,8 @@
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#clientes">Clientes</a></li>
                         <li><a href="#cotizacion">Contacto</a></li>
-                        <li><a href="#">Mapa del Sitio</a></li>
+                        <!-- Ahora sí, apunta a un archivo real sitemap.xml -->
+                        <li><a href="sitemap.xml" target="_blank">Mapa del Sitio</a></li>
                     </ul>
                 </div>
 
