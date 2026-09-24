@@ -1,1 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimizado para Letras 3D -->
+    <title>Catálogo de Letras 3D y Materiales | ACNES Publicidad</title>
+    <meta name="description" content="Descubre nuestros estilos de letras 3D: Acrílico, Aluminio, Acero Inoxidable, Canto de PVC y luz indirecta (Halo). Fabricación profesional en México.">
+    <meta name="keywords" content="letras 3d, estilos de letras, letras de acrílico, letras de aluminio, letras retroiluminadas, letras luminosas, acnes publicidad">
+    <meta name="robots" content="index, follow">
 
+    <!-- Fuentes y FontAwesome Optimizados -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <style>
+        /* ESTILOS BASE Y COMPARTIDOS (Navbar, Footer, etc.) */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { font-family: 'Roboto', sans-serif; background-color: #000000; color: #ffffff; width: 100%; overflow-x: hidden; }
+        
+        /* Navbar (Resumido del index) */
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100000; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-logo img { height: 50px; }
+        .nav-menu { display: flex; gap: 35px; list-style: none; }
+        .nav-menu li a { color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+        .nav-menu li a:hover { color: #00fff7; }
+        .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; }
+        .btn-cotizar:hover { background-color: #00fff7; color: #000000 !important; }
+        .hamburger { display: none; } /* En móvil se activaría igual que en el index */
+
+        /* MINI HERO SECTION PARA LANDING PAGES */
+        .page-hero { position: relative; width: 100%; height: 45vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(0,0,0,0.3), #000000), url('https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras1.avif') center/cover; margin-top: 86px; }
+        .page-hero-content h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(35px, 4vw, 60px); font-weight: 800; color: #ffffff; text-transform: uppercase; margin-bottom: 15px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
+        .page-hero-content p { font-size: 1.2rem; color: #00fff7; font-weight: 500; letter-spacing: 1px; }
+
+        /* SECCIÓN CATÁLOGO DE ESTILOS */
+        .catalogo-section { padding: 60px 5%; max-width: 1400px; margin: 0 auto; }
+        .seccion-titulo { text-align: center; margin-bottom: 50px; }
+        .pill-oscura { background-color: #111; color: #fff; padding: 8px 20px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; border: 1px solid rgba(0, 255, 247, 0.3); text-transform: uppercase; }
+
+        .estilos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        /* Tarjetas de Estilo */
+        .estilo-card { background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; overflow: hidden; transition: all 0.4s ease; display: flex; flex-direction: column; }
+        .estilo-card:hover { border-color: #00fff7; transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 255, 247, 0.15); }
+        
+        .estilo-img-wrapper { position: relative; width: 100%; padding-top: 75%; overflow: hidden; }
+        .estilo-img-wrapper img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .estilo-card:hover .estilo-img-wrapper img { transform: scale(1.08); }
+        
+        .estilo-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .estilo-info h2 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #ffffff; margin-bottom: 10px; }
+        .estilo-info p { color: #cccccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+        
+        /* Lista de características (Checkmarks) */
+        .estilo-features { list-style: none; margin-bottom: 25px; }
+        .estilo-features li { color: #aaa; font-size: 0.9rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .estilo-features li i { color: #00fff7; font-size: 0.8rem; }
+
+        .btn-estilo { width: 100%; background: transparent; border: 1px solid #00fff7; color: #00fff7; padding: 12px; border-radius: 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; }
+        .btn-estilo:hover { background: #00fff7; color: #000; }
+
+        /* CALL TO ACTION FINAL */
+        .cta-asesoria { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #050505 0%, #0a191f 100%); border-top: 1px solid rgba(0,255,247,0.2); border-bottom: 1px solid rgba(0,255,247,0.2); margin-top: 50px; }
+        .cta-asesoria h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 15px; }
+        .cta-asesoria p { color: #ccc; margin-bottom: 30px; font-size: 1.1rem; }
+        .btn-whatsapp-large { background: #25D366; color: #fff; padding: 15px 35px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s; }
+        .btn-whatsapp-large:hover { transform: scale(1.05); }
+
+        /* FOOTER (Resumido) */
+        .footer-section { padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; color: #888; font-size: 0.9rem; }
+
+        /* Responsivo Básico */
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; }
+            .nav-menu { display: none; /* Aquí puedes copiar tu código de menú hamburguesa de index.html */ }
+            .page-hero { height: 35vh; margin-top: 70px; }
+            .estilos-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR (Enlaza de vuelta al index) -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="./ACNES (1).png" alt="ACNES Publicidad">
+        </a>
+        <ul class="nav-menu">
+            <!-- Nota el href="index.html" para que regresen a la principal -->
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#portafolio">Portafolio</a></li>
+            <li><a href="#" style="color: #00fff7;">Estilos de Letra</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="https://wa.me/5521913826" target="_blank" class="btn-cotizar">Cotizar</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER DE LA PÁGINA -->
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <h1>Letras 3D y Materiales</h1>
+            <p>Conoce los estilos perfectos para dar vida a tu marca</p>
+        </div>
+    </header>
+
+    <!-- CONTENIDO: CATÁLOGO DE ESTILOS -->
+    <section class="catalogo-section">
+        <div class="seccion-titulo">
+            <span class="pill-oscura">NUESTRO CATÁLOGO DE FABRICACIÓN</span>
+        </div>
+
+        <div class="estilos-grid">
+            
+            <!-- ESTILO 1: ACRÍLICO -->
+            <article class="estilo-card">
+                <div class="estilo-img-wrapper">
+                    <!-- Cambia este link por tu foto real de acrílico -->
+                    <img src="https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras1.avif" alt="Letras 3D de Acrílico" loading="lazy">
+                </div>
+                <div class="estilo-info">
+                    <h2>Letras de Acrílico (Iluminación Frontal)</h2>
+                    <p>El estándar de oro en anuncios luminosos. Ofrecen una iluminación vibrante y uniforme en la cara frontal de la letra. Ideales para plazas comerciales, fachadas y negocios que buscan máximo impacto nocturno.</p>
+                    <ul class="estilo-features">
+                        <li><i class="fas fa-check"></i> Máxima luminosidad frontal</li>
+                        <li><i class="fas fa-check"></i> Colores sólidos y translúcidos</li>
+                        <li><i class="fas fa-check"></i> Resistencia a intemperie</li>
+                    </ul>
+                    <a href="https://wa.me/5521913826?text=Hola, quiero cotizar unas letras 3D de Acrílico con luz frontal." target="_blank" class="btn-estilo">Cotizar este estilo</a>
+                </div>
+            </article>
+
+            <!-- ESTILO 2: ALUMINIO / ACERO -->
+            <article class="estilo-card">
+                <div class="estilo-img-wrapper">
+                    <img src="https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/TERRA2%20(1).avif" alt="Letras de Aluminio" loading="lazy">
+                </div>
+                <div class="estilo-info">
+                    <h2>Letras de Aluminio o Acero</h2>
+                    <p>La opción más elegante e institucional. Perfectas para recepciones, despachos corporativos o fachadas premium. Se pueden dejar sin luz o combinar con luz indirecta para un efecto sofisticado.</p>
+                    <ul class="estilo-features">
+                        <li><i class="fas fa-check"></i> Acabados cepillados o espejo</li>
+                        <li><i class="fas fa-check"></i> Alta durabilidad (Inoxidable)</li>
+                        <li><i class="fas fa-check"></i> Aspecto ejecutivo y premium</li>
+                    </ul>
+                    <a href="https://wa.me/5521913826?text=Hola, quiero cotizar unas letras 3D de Aluminio/Acero." target="_blank" class="btn-estilo">Cotizar este estilo</a>
+                </div>
+            </article>
+
+            <!-- ESTILO 3: RETROILUMINADAS (HALO) -->
+            <article class="estilo-card">
+                <div class="estilo-img-wrapper">
+                    <img src="https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/h1.avif" alt="Letras Retroiluminadas Halo" loading="lazy">
+                </div>
+                <div class="estilo-info">
+                    <h2>Letras Retroiluminadas (Efecto Halo)</h2>
+                    <p>La luz se proyecta hacia la pared creando un "halo" alrededor de cada letra. La cara frontal es sólida (metal o acrílico oscuro). Generan una atmósfera moderna y de lujo arquitectónico.</p>
+                    <ul class="estilo-features">
+                        <li><i class="fas fa-check"></i> Iluminación elegante e indirecta</li>
+                        <li><i class="fas fa-check"></i> Ideal sobre paredes texturizadas</li>
+                        <li><i class="fas fa-check"></i> Consumo LED eficiente</li>
+                    </ul>
+                    <a href="https://wa.me/5521913826?text=Hola, quiero cotizar unas letras Retroiluminadas (Halo)." target="_blank" class="btn-estilo">Cotizar este estilo</a>
+                </div>
+            </article>
+
+            <!-- ESTILO 4: CANTO DE PVC / HÍBRIDAS -->
+            <article class="estilo-card">
+                <div class="estilo-img-wrapper">
+                    <img src="https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/letras/letras2.avif" alt="Letras canto de PVC" loading="lazy">
+                </div>
+                <div class="estilo-info">
+                    <h2>Letras con Canto de PVC</h2>
+                    <p>Una alternativa ligera y sumamente versátil. Cuentan con cara de acrílico iluminado y el canto (borde) fabricado en PVC flexible o rígido. Excelente balance entre precio y calidad visual.</p>
+                    <ul class="estilo-features">
+                        <li><i class="fas fa-check"></i> Excelente relación costo-beneficio</li>
+                        <li><i class="fas fa-check"></i> Ligeras y fáciles de instalar</li>
+                        <li><i class="fas fa-check"></i> Canto en diversos colores</li>
+                    </ul>
+                    <a href="https://wa.me/5521913826?text=Hola, quiero cotizar unas letras con canto de PVC." target="_blank" class="btn-estilo">Cotizar este estilo</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-asesoria">
+        <h3>¿No estás seguro de qué estilo elegir?</h3>
+        <p>Nuestro equipo de diseño te asesora sin costo para elegir el material que mejor se adapte a tu pared, presupuesto y marca.</p>
+        <a href="https://wa.me/5521913826?text=Hola,%20necesito%20asesoría%20para%20elegir%20el%20estilo%20de%20mis%20letras%203D." target="_blank" class="btn-whatsapp-large">
+            <i class="fab fa-whatsapp"></i> Solicitar Asesoría Gratuita
+        </a>
+    </section>
+
+    <!-- FOOTER BÁSICO -->
+    <footer class="footer-section">
+        <p>&copy; 2026 ACNES Publicidad. Expertos en Letras 3D. <br>Lago Cupatitzio 83A, Col. Ciudad Lago. Nezahualcóyotl.</p>
+    </footer>
+
+</body>
+</html>
