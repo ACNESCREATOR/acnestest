@@ -17,18 +17,52 @@
     
     <style>
         /* =========================================
-           ESTILOS BASE Y NAVBAR (Heredados)
+           ESTILOS BASE
            ========================================= */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { font-family: 'Roboto', sans-serif; background-color: #000000; color: #ffffff; width: 100%; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; background-color: #000000; color: #ffffff; width: 100%; overflow-x: hidden; }
         
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100000; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .nav-logo img { height: 50px; }
-        .nav-menu { display: flex; gap: 35px; list-style: none; }
+        /* =========================================
+           BARRA DE NAVEGACIÓN Y MENÚ
+           ========================================= */
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100000; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.4s ease; }
+        .nav-logo { position: relative; z-index: 100001; }
+        .nav-logo img { height: 50px; width: auto; display: block; }
+        
+        .nav-menu { display: flex; gap: 35px; list-style: none; z-index: 100000; }
         .nav-menu li a { color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
         .nav-menu li a:hover { color: #00fff7; }
-        .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; }
+        
+        .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; transition: all 0.3s ease; }
         .btn-cotizar:hover { background-color: #00fff7; color: #000000 !important; }
+
+        /* HAMBURGUESA */
+        .hamburger { display: none; cursor: pointer; z-index: 100001; width: 30px; height: 24px; position: relative; }
+        .hamburger .bar { display: block; width: 100%; height: 3px; background-color: #ffffff; position: absolute; left: 0; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); border-radius: 3px; }
+        .hamburger .bar:nth-child(1) { top: 0; }
+        .hamburger .bar:nth-child(2) { top: 10.5px; }
+        .hamburger .bar:nth-child(3) { top: 21px; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(10.5px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-10.5px) rotate(-45deg); }
+
+        /* MENÚ DESPLEGABLE (PC) */
+        .nav-item-dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 247, 0.3); border-radius: 12px; min-width: 260px; list-style: none; padding: 10px 0; margin-top: 15px;
+            opacity: 0; visibility: hidden; transform: translateY(15px); transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 247, 0.1);
+        }
+        .dropdown-menu::before {
+            content: ''; position: absolute; top: -6px; left: 20px; width: 12px; height: 12px;
+            background: rgba(10, 10, 10, 0.95); border-top: 1px solid rgba(0, 255, 247, 0.3); border-left: 1px solid rgba(0, 255, 247, 0.3); transform: rotate(45deg);
+        }
+        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu li { width: 100%; display: block; margin: 0; }
+        .dropdown-menu li a { display: flex !important; align-items: center; padding: 12px 25px !important; color: #cccccc !important; font-size: 0.9rem !important; font-family: 'Montserrat', sans-serif; text-transform: uppercase; transition: all 0.3s ease !important; border: none !important; background: transparent !important; }
+        .dropdown-menu li a:hover { color: #000000 !important; background: #00fff7 !important; padding-left: 35px !important; }
 
         /* =========================================
            HERO SECTION (Portada)
@@ -42,29 +76,25 @@
            CONTENIDO DESCRIPTIVO (SEO)
            ========================================= */
         .descripcion-section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 50px; }
-        
         .info-bloque { display: flex; align-items: center; gap: 40px; background: #0a0a0a; border: 1px solid rgba(0, 255, 247, 0.2); padding: 40px; border-radius: 20px; transition: transform 0.3s; }
         .info-bloque:hover { transform: translateY(-5px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.1); }
         .info-bloque.inverso { flex-direction: row-reverse; }
-        
         .info-texto { flex: 1; }
         .info-texto h2 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #ffffff; margin-bottom: 20px; line-height: 1.2; }
         .info-texto h2 span { color: #00fff7; }
         .info-texto p { color: #cccccc; font-size: 1.1rem; line-height: 1.7; margin-bottom: 15px; }
-        
         .info-icono { flex-shrink: 0; width: 120px; height: 120px; background: rgba(0, 255, 247, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: #00fff7; border: 2px solid rgba(0, 255, 247, 0.3); }
 
         /* =========================================
-           MOSAICO DE GALERÍA DINÁMICA (Tu código optimizado)
+           MOSAICO DE GALERÍA DINÁMICA
            ========================================= */
         .galeria-titulo { text-align: center; margin: 60px 0 30px 0; }
         .pill-oscura { background-color: #111; color: #fff; padding: 10px 25px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; border: 1px solid #00fff7; text-transform: uppercase; letter-spacing: 1px; }
 
-        .gallery-container { display: grid; grid-template-columns: 1fr 1fr; /* Dos columnas */ grid-gap: 4px; max-width: 1200px; margin: 0 auto 60px auto; background-color: #00fff7; /* Fondo cyan que actúa como borde brillante */ padding: 4px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 255, 247, 0.2); }
-        
-        .gallery-slide { position: relative; width: 100%; padding-bottom: 100%; /* Proporción 1:1 Cuadrada */ overflow: hidden; background-color: #000; }
+        .gallery-container { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 4px; max-width: 1200px; margin: 0 auto 60px auto; background-color: #00fff7; padding: 4px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 255, 247, 0.2); }
+        .gallery-slide { position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; background-color: #000; }
         .gallery-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out, transform 5s ease; transform: scale(1.05); }
-        .gallery-slide img.active { opacity: 1; /* Corregido de 3 a 1 */ transform: scale(1); }
+        .gallery-slide img.active { opacity: 1; transform: scale(1); }
 
         /* =========================================
            CALL TO ACTION (CTA)
@@ -78,34 +108,83 @@
         /* FOOTER BÁSICO */
         .footer-section { padding: 40px 20px; text-align: center; color: #888; font-size: 0.9rem; background: #000; }
 
-        /* RESPONSIVO */
+        /* =========================================
+           RESPONSIVO Y MENÚ MÓVIL
+           ========================================= */
         @media (max-width: 900px) {
             .info-bloque, .info-bloque.inverso { flex-direction: column; text-align: center; padding: 30px 20px; }
             .info-icono { margin: 0 auto 20px auto; }
         }
+        
         @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .nav-menu { display: none; }
             .page-hero { height: 40vh; margin-top: 70px; }
-            /* En celular mantenemos el mosaico 2x2 porque se ve muy bien */
             .gallery-container { grid-gap: 2px; padding: 2px; border-radius: 8px; margin: 0 10px 40px 10px; }
+
+            /* Menú Móvil Desplegable */
+            .navbar { height: 74px; padding: 12px 20px; }
+            .navbar.menu-open { background-color: #000000 !important; }
+            .hamburger { display: block; }
+            
+            .nav-menu { 
+                position: absolute; top: 74px; left: 0; width: 100%; 
+                background-color: rgba(10, 10, 10, 0.98); backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(0, 255, 247, 0.3);
+                flex-direction: column; padding: 0; gap: 0; display: none; 
+                box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+            }
+            .nav-menu.active { display: flex; animation: bajarMenu 0.3s ease; }
+            
+            @keyframes bajarMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-menu li { width: 100%; display: block; margin: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            .nav-menu li:last-child { border-bottom: none; padding-bottom: 15px; }
+            
+            .nav-menu li a { display: block !important; padding: 16px 25px !important; color: #ffffff !important; font-family: 'Montserrat', sans-serif; font-size: 0.9rem !important; font-weight: 600; text-transform: uppercase; text-align: left !important; }
+            .nav-menu li a.btn-cotizar { color: #000000 !important; background-color: #00fff7 !important; text-align: center !important; margin: 20px auto 10px auto; width: 90%; border-radius: 50px !important; font-weight: 800; }
+
+            /* Submenú Móvil */
+            .nav-item-dropdown > a { display: flex !important; justify-content: space-between !important; align-items: center; }
+            .dropdown-menu { position: static; background: rgba(0, 0, 0, 0.4); padding: 0; margin: 0; display: none; border: none; box-shadow: none; visibility: visible; opacity: 1; transform: none; }
+            .nav-item-dropdown.abierto .dropdown-menu { display: block; }
+            .dropdown-menu::before { display: none; }
+            .dropdown-menu li { border-bottom: 1px solid rgba(255,255,255,0.02); }
+            .dropdown-menu li a { padding: 15px 25px 15px 40px !important; font-size: 0.8rem !important; color: #00fff7 !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR (Regresa al index) -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <a href="index.html" class="nav-logo">
             <img src="./ACNES (1).png" alt="ACNES Publicidad">
         </a>
         <ul class="nav-menu">
+            <!-- Nota: Los enlaces que van a secciones del index tienen "index.html#seccion" -->
             <li><a href="index.html">Inicio</a></li>
+            
+            <li class="nav-item-dropdown">
+                <a href="#" class="dropdown-trigger" style="color: #00fff7;">Estilos de Anuncios <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="letras-monumentales.html" style="color: #00fff7 !important;">Letras 3D Monumentales</a></li>
+                    <li><a href="letras-3d.html">Acrílico y Metales</a></li>
+                </ul>
+            </li>
+
             <li><a href="index.html#portafolio">Portafolio</a></li>
-            <li><a href="#" style="color: #00fff7;">Letras Monumentales</a></li>
+            <li><a href="index.html#herramientas">Herramientas</a></li>
             <li><a href="index.html#servicios">Servicios</a></li>
-            <li><a href="https://wa.me/5521913826" target="_blank" class="btn-cotizar">Cotizar</a></li>
+            <li><a href="index.html#clientes">Clientes</a></li>
+            <li><a href="https://wa.me/5521913826" target="_blank" class="btn-cotizar">Contacto</a></li>
         </ul>
+        
+        <!-- Botón de Hamburguesa para Celulares -->
+        <div class="hamburger">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
     </nav>
 
     <!-- HEADER -->
@@ -151,7 +230,6 @@
     </div>
 
     <div class='gallery-container'>
-        <!-- Celda 1 (Arriba Izquierda) -->
         <div class='gallery-slide'>
             <img alt='Proyecto Monumental 1' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6sBUV1114IuYizWdKqA32ZJggWCm3YhJcptYY7XsCPjLP4vqcNLl3peTaVgehbq03mVXUwnvfhHSRjZvparA94pfoxrTeOJoGp7ctQrmTD0tojw_J1HfmK4bGfExWhkQv41svxfWhwOF0zxyx8GNm9HQ6lHGRpFACNviwvf-PiJ_P5EDA7wL773bpgJk/s1600/NEONRANKMI1.png'/>
             <img alt='Proyecto Monumental 2' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSAVRfWyfzXQBYKjIO59-R-JhqcT4j4qRcNrfJGGrTtUJO5BV0ekAM2sPeSirKYlT-7hsBjtozMV-WIUB941rMcbO_UFOr2lDy4WOkrM0xDhcfReoWQY50x13Svyut13ADel4wBPYbOQbzHiRm9weU9kKnV3MRENcpp_0W8qJQDMN65-33EaJjXZFtrV0/s1600/MANEKI.png'/>
@@ -159,7 +237,6 @@
             <img alt='Proyecto Monumental 4' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvAliBJ_vPZo76OerVTbcoz55ulvrLo3sPUZWiQTs7RcQ3vRBePWUrYHqIkh9MgPyv2BaixOY5Q2Ev2SoYO4L8SxNRh0dUPgv6ATuC6fxeMAkuXiU4HQtIdi1uL6rQ5BQR2qm4YijPuUOYaVZ816aSdGykXsGHPJm0T4ZrzoXUXIeY4EFBAunoUMjHwpc/s1600/PUBSUSHI.png'/>
         </div>
 
-        <!-- Celda 2 (Arriba Derecha) -->
         <div class='gallery-slide'>
             <img alt='Proyecto Monumental 5' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8xFHYYnYDybABr8r0SGRbZi7C5yA0SMRjLvOKBurhiXQ8MxvyI_1wWkUCW-5o_F4QEzTCnHxvP-NM5hTEjINvfMJ7wfB0MeEyspobL8FuXOpea1b6ELCYy7NyfQTFRTYRbkKUPJm1CpV4b01hmyp8p72FysNoV44OttsDca0FDRw75OBw9YN-gS6A_GI/s1600/BITCOINNEON1.png'/>
             <img alt='Proyecto Monumental 6' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvzIFLZ0FUX6iLfQlOwn8Zv-DfOvhtqXakv6PkmmKrVvdVQ4dKq_m778t69zTQv9_yQZ7-RDqZ8vbThkzbXE6rg6f0DMR0fwUfLLAz0qlGHbztplHSO60zTo74mJ-0Z-3jhYZd_MumzG6Qe0QGlOxRi9CpLx6SdY8uY4upmcrpIq5QxJrDb_xCv2rDVGk/s1600/PUBELLY3.png'/>
@@ -167,7 +244,6 @@
             <img alt='Proyecto Monumental 8' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuQqg2rhwZxcKDFxgZyp2tt2c0wGeU0N5YtqnZBd93W_cGKqup5qFt-M5nPsqZeHAY_AOTpFCHZvjDQZTcXNWBZZAOee_jplzi_QEfgK2QMpywjMI2OYfe-2wYgB1Lvu7oOMBExE8FrSw7BVoyQg8MOPlpeBXFLq9IQHxqodjR_gwZG4HNhuWkJYGSSkc/s1600/MANEKIP1.png'/>
         </div>
 
-        <!-- Celda 3 (Abajo Izquierda) -->
         <div class='gallery-slide'>
             <img alt='Proyecto Monumental 9' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzBpcawoCr2ldaRNg3LrO_aOxqjSpZ3tvE9I-r1kt2CjfS6stCDu1H10jmKBJDqamFxkUTGAsB3YGQUtthYdlBnl6riR9iUinChGhBEXCIaSTRRq7UyxRWIHaeBK1g4rOZWg8GJjtc1HB8GQ435KlOmNQ5WEgfLljfr0okSa687OcGdlNDR5Ri-Ek2dN4/s1600/BOWLNEON1.png'/>
             <img alt='Proyecto Monumental 10' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwz4UjkInq3_KbkNicxfufmoBktBTmuTwr7nk7zsr29n5FOLsWrqjz1QlVdqBg9lS5v3EY4XhONMfTP2pKiEHM2I3rW1NFnfWAvE3Hw2HhtpH4o8TjJf7qgxlhtBv9mXK0I_RLWy0fSate1B5kh5yqgxadXLiku5g1DEiPkFlyuxBCU5KdVAGy2M5LgRk/s1600/PORQUEAMAMOS.png'/>
@@ -175,7 +251,6 @@
             <img alt='Proyecto Monumental 12' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9HT29Xz4jreWZlvS42wMMzc0_MHr_ecIMcm-htsNf-cKbVEoS2CprZdlnkgnSG1FrBLNau2AtoQ09gqgOSL3vngOF54kGqC19pj8HHiM3g9-lEbCajfV2WnJcM2Cujryyhyphenhyphen0Sia9nnVcWhr_ss2963TaBW6vgwrcBRnZ0iPHQ2KRpfZrpVGlO4Y6pui4/s1600/Rankmineon2.png'/>
         </div>
 
-        <!-- Celda 4 (Abajo Derecha) -->
         <div class='gallery-slide'>
             <img alt='Proyecto Monumental 13' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiNE_FcZa5-Jw95Rh0I0gPmuNwEVrqi4rocmTOmXudxcakSg2t7ZdA2cpLeJSwwWXEf2pWaVhiXwqBbpQdnUailgi4B5tvu3G4JvIR4_noDJ2NmZ_MfovVuStrWwq_FChUHgjCrOLU_hIz3LPQ0IBjcD9ooWMz1SU7kwSl7yEQ3gZhZfqloCaYNkwUktU/s1600/PLANTILLASNEON1.png'/>
             <img alt='Proyecto Monumental 14' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOnSYtcEBTlwZL8QRf4K1_5tXG1U-nZt4sFAUcpjsbGsNwqPpPb6bikIsm6ZeA-ZW-mXx2bv9yab_KSqxL91AkTIXbZfJpuYNGE6GOz9X3_10cNwqovhKMwPwKgf7gVPaJxGZu13_x15rPBvm_dpbrj6nCxgsmiQ04MQ64C7tF7z_IrdxNCG3EXukJtVQ/s1600/GOOD.png'/>
@@ -198,9 +273,10 @@
         <p>&copy; 2026 ACNES Publicidad. Especialistas en Letras Monumentales. <br>Lago Cupatitzio 83A, Col. Ciudad Lago. Nezahualcóyotl, Estado de México.</p>
     </footer>
 
-    <!-- SCRIPT DE LA GALERÍA -->
+    <!-- SCRIPTS -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // 1. Script para el Mosaico Dinámico
             function cycleImages(container) {
                 const images = container.querySelectorAll('img');
                 if (images.length === 0) return;
@@ -210,12 +286,55 @@
                     images[currentImage].classList.remove('active'); 
                     currentImage = (currentImage + 1) % images.length; 
                     images[currentImage].classList.add('active'); 
-                }, 3500); // Cambia cada 3.5 segundos (da un efecto más suave)
+                }, 3500);
+            }
+            const galleries = document.querySelectorAll('.gallery-slide');
+            galleries.forEach(function (gallery) { cycleImages(gallery); });
+
+            // 2. Control del Menú Móvil y Submenú
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+            const navbar = document.querySelector(".navbar");
+
+            if(hamburger && navMenu) {
+                hamburger.addEventListener("click", () => {
+                    hamburger.classList.toggle("active");
+                    navMenu.classList.toggle("active");
+                    navbar.classList.toggle("menu-open");
+                });
             }
 
-            const galleries = document.querySelectorAll('.gallery-slide');
-            galleries.forEach(function (gallery) {
-                cycleImages(gallery);
+            const dropdownTrigger = document.querySelector('.dropdown-trigger');
+            if (dropdownTrigger) {
+                dropdownTrigger.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.parentElement.classList.toggle('abierto');
+                        const icono = this.querySelector('i');
+                        if (icono) {
+                            if (this.parentElement.classList.contains('abierto')) {
+                                icono.style.transform = 'rotate(180deg)';
+                                icono.style.transition = 'transform 0.3s ease';
+                            } else {
+                                icono.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    }
+                });
+            }
+
+            document.querySelectorAll(".nav-menu li a:not(.dropdown-trigger)").forEach(enlace => {
+                enlace.addEventListener("click", () => {
+                    if(hamburger) hamburger.classList.remove("active");
+                    if(navMenu) navMenu.classList.remove("active");
+                    if(navbar) navbar.classList.remove("menu-open");
+                    const dropdown = document.querySelector('.nav-item-dropdown');
+                    if(dropdown) {
+                        dropdown.classList.remove('abierto');
+                        const icono = dropdown.querySelector('i');
+                        if(icono) icono.style.transform = 'rotate(0deg)';
+                    }
+                });
             });
         });
     </script>
