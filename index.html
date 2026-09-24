@@ -44,6 +44,22 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         html, body { 
+            /* =========================================
+           COMPENSACIÓN DE LA BARRA FIJA Y SCROLL SUAVE
+           ========================================= */
+        html {
+            scroll-behavior: smooth; /* Hace que la página se deslice suavemente al hacer clic */
+        }
+        
+        section[id] {
+            scroll-margin-top: 100px; /* Espacio extra en Computadora para que no tape el título */
+        }
+
+        @media (max-width: 768px) {
+            section[id] {
+                scroll-margin-top: 80px; /* Espacio extra adaptado para Celular */
+            }
+        }
             font-family: 'Roboto', sans-serif; 
             background-color: #000000; 
             color: #ffffff; 
