@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimizado para Letras Monumentales -->
+    <title>Letras Monumentales y Gigantes | ACNES Publicidad</title>
+    <meta name="description" content="Fabricación de Letras 3D Monumentales gigantes para Pueblos Mágicos, paradores turísticos y marcas corporativas. Estructuras de alta resistencia en México.">
+    <meta name="keywords" content="letras monumentales, letras gigantes, letras para pueblos magicos, parador turistico, letras corporativas gigantes, acnes publicidad, fabricacion de letras de lamina">
+    <meta name="robots" content="index, follow">
+
+    <!-- Fuentes y FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <style>
+        /* =========================================
+           ESTILOS BASE Y NAVBAR (Heredados)
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { font-family: 'Roboto', sans-serif; background-color: #000000; color: #ffffff; width: 100%; overflow-x: hidden; }
+        
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100000; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-logo img { height: 50px; }
+        .nav-menu { display: flex; gap: 35px; list-style: none; }
+        .nav-menu li a { color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+        .nav-menu li a:hover { color: #00fff7; }
+        .btn-cotizar { border: 1px solid #00fff7; padding: 8px 22px; border-radius: 50px; color: #00fff7 !important; }
+        .btn-cotizar:hover { background-color: #00fff7; color: #000000 !important; }
+
+        /* =========================================
+           HERO SECTION (Portada)
+           ========================================= */
+        .page-hero { position: relative; width: 100%; height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(0,0,0,0.6), #000000), url('https://cdn.jsdelivr.net/gh/ACNESCREATOR/acnestest@main/image%20acnes%20avif/proyectos/TERRA1%20(1).avif') center/cover; margin-top: 86px; }
+        .page-hero-content { padding: 0 20px; }
+        .page-hero-content h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(30px, 5vw, 65px); font-weight: 800; color: #ffffff; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 2px; }
+        .page-hero-content p { font-size: 1.2rem; color: #00fff7; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* =========================================
+           CONTENIDO DESCRIPTIVO (SEO)
+           ========================================= */
+        .descripcion-section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 50px; }
+        
+        .info-bloque { display: flex; align-items: center; gap: 40px; background: #0a0a0a; border: 1px solid rgba(0, 255, 247, 0.2); padding: 40px; border-radius: 20px; transition: transform 0.3s; }
+        .info-bloque:hover { transform: translateY(-5px); border-color: #00fff7; box-shadow: 0 10px 30px rgba(0, 255, 247, 0.1); }
+        .info-bloque.inverso { flex-direction: row-reverse; }
+        
+        .info-texto { flex: 1; }
+        .info-texto h2 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #ffffff; margin-bottom: 20px; line-height: 1.2; }
+        .info-texto h2 span { color: #00fff7; }
+        .info-texto p { color: #cccccc; font-size: 1.1rem; line-height: 1.7; margin-bottom: 15px; }
+        
+        .info-icono { flex-shrink: 0; width: 120px; height: 120px; background: rgba(0, 255, 247, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: #00fff7; border: 2px solid rgba(0, 255, 247, 0.3); }
+
+        /* =========================================
+           MOSAICO DE GALERÍA DINÁMICA (Tu código optimizado)
+           ========================================= */
+        .galeria-titulo { text-align: center; margin: 60px 0 30px 0; }
+        .pill-oscura { background-color: #111; color: #fff; padding: 10px 25px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; border: 1px solid #00fff7; text-transform: uppercase; letter-spacing: 1px; }
+
+        .gallery-container { display: grid; grid-template-columns: 1fr 1fr; /* Dos columnas */ grid-gap: 4px; max-width: 1200px; margin: 0 auto 60px auto; background-color: #00fff7; /* Fondo cyan que actúa como borde brillante */ padding: 4px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 255, 247, 0.2); }
+        
+        .gallery-slide { position: relative; width: 100%; padding-bottom: 100%; /* Proporción 1:1 Cuadrada */ overflow: hidden; background-color: #000; }
+        .gallery-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out, transform 5s ease; transform: scale(1.05); }
+        .gallery-slide img.active { opacity: 1; /* Corregido de 3 a 1 */ transform: scale(1); }
+
+        /* =========================================
+           CALL TO ACTION (CTA)
+           ========================================= */
+        .cta-asesoria { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #050505 0%, #0a191f 100%); border-top: 1px solid rgba(0,255,247,0.2); border-bottom: 1px solid rgba(0,255,247,0.2); margin-top: 20px; }
+        .cta-asesoria h3 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 15px; }
+        .cta-asesoria p { color: #ccc; margin-bottom: 30px; font-size: 1.1rem; }
+        .btn-whatsapp-large { background: #25D366; color: #fff; padding: 16px 40px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp-large:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
+
+        /* FOOTER BÁSICO */
+        .footer-section { padding: 40px 20px; text-align: center; color: #888; font-size: 0.9rem; background: #000; }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .info-bloque, .info-bloque.inverso { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .info-icono { margin: 0 auto 20px auto; }
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; }
+            .nav-menu { display: none; }
+            .page-hero { height: 40vh; margin-top: 70px; }
+            /* En celular mantenemos el mosaico 2x2 porque se ve muy bien */
+            .gallery-container { grid-gap: 2px; padding: 2px; border-radius: 8px; margin: 0 10px 40px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR (Regresa al index) -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="./ACNES (1).png" alt="ACNES Publicidad">
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#portafolio">Portafolio</a></li>
+            <li><a href="#" style="color: #00fff7;">Letras Monumentales</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="https://wa.me/5521913826" target="_blank" class="btn-cotizar">Cotizar</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-hero">
+        <div class="page-hero-content">
+            <h1>Letras Monumentales</h1>
+            <p>Impacto Gigante para Ciudades y Corporativos</p>
+        </div>
+    </header>
+
+    <!-- SECCIÓN DESCRIPTIVA (SEO) -->
+    <section class="descripcion-section">
+        
+        <!-- Bloque Pueblos Mágicos -->
+        <div class="info-bloque">
+            <div class="info-icono">
+                <i class="fas fa-camera-retro"></i>
+            </div>
+            <div class="info-texto">
+                <h2>Paradores Turísticos y <span>Pueblos Mágicos</span></h2>
+                <p>Las letras monumentales se han convertido en el <strong>símbolo de identidad turística</strong> por excelencia en todo México. Creamos escenarios perfectos para la fotografía del recuerdo que los visitantes compartirán en sus redes sociales, atrayendo más turismo a tu región.</p>
+                <p>Nuestras estructuras están fabricadas con ingeniería metálica de alto calibre, lámina galvanizada y recubrimientos automotrices, diseñadas específicamente para <strong>soportar la intemperie extrema y la interacción constante</strong> (personas subiéndose o recargándose en ellas) garantizando años de durabilidad.</p>
+            </div>
+        </div>
+
+        <!-- Bloque Corporativos (Inverso) -->
+        <div class="info-bloque inverso">
+            <div class="info-icono">
+                <i class="fas fa-building"></i>
+            </div>
+            <div class="info-texto">
+                <h2>Presencia para <span>Marcas Corporativas</span></h2>
+                <p>Para corporativos, plazas comerciales y parques industriales, el tamaño sí importa. Fabricamos logotipos y letras gigantes que garantizan una <strong>visibilidad inigualable a largas distancias</strong> o desde avenidas principales.</p>
+                <p>Integramos sistemas de iluminación LED de alta potencia (frontal, perimetral o retroiluminada) asegurando que la grandeza de tu marca destaque tanto de día como en la oscuridad de la noche. Tu logotipo convertido en un verdadero hito arquitectónico.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- GALERÍA DINÁMICA MOSAICO 2x2 -->
+    <div class="galeria-titulo">
+        <span class="pill-oscura">NUESTRO TRABAJO</span>
+    </div>
+
+    <div class='gallery-container'>
+        <!-- Celda 1 (Arriba Izquierda) -->
+        <div class='gallery-slide'>
+            <img alt='Proyecto Monumental 1' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6sBUV1114IuYizWdKqA32ZJggWCm3YhJcptYY7XsCPjLP4vqcNLl3peTaVgehbq03mVXUwnvfhHSRjZvparA94pfoxrTeOJoGp7ctQrmTD0tojw_J1HfmK4bGfExWhkQv41svxfWhwOF0zxyx8GNm9HQ6lHGRpFACNviwvf-PiJ_P5EDA7wL773bpgJk/s1600/NEONRANKMI1.png'/>
+            <img alt='Proyecto Monumental 2' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSAVRfWyfzXQBYKjIO59-R-JhqcT4j4qRcNrfJGGrTtUJO5BV0ekAM2sPeSirKYlT-7hsBjtozMV-WIUB941rMcbO_UFOr2lDy4WOkrM0xDhcfReoWQY50x13Svyut13ADel4wBPYbOQbzHiRm9weU9kKnV3MRENcpp_0W8qJQDMN65-33EaJjXZFtrV0/s1600/MANEKI.png'/>
+            <img alt='Proyecto Monumental 3' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzhH_9VtKvIzdFNpTzSXFaCvRH1G7sJsyfUvb99uB_RVMXbcQfy99beW89y4FD1SqMeqRZ-loRuA3H7164zErYv75uODpNXdMYVPzx1IlAX8bSha5PFIiMFFnuOS-XCymqJw_qcfVCY4kcq0hnXGoaHctIA57pzhpcQlGgrA9rrh4U_Sv7MZVyQi3LPd4/s1600/GOODVIVESONLY.png'/>
+            <img alt='Proyecto Monumental 4' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvAliBJ_vPZo76OerVTbcoz55ulvrLo3sPUZWiQTs7RcQ3vRBePWUrYHqIkh9MgPyv2BaixOY5Q2Ev2SoYO4L8SxNRh0dUPgv6ATuC6fxeMAkuXiU4HQtIdi1uL6rQ5BQR2qm4YijPuUOYaVZ816aSdGykXsGHPJm0T4ZrzoXUXIeY4EFBAunoUMjHwpc/s1600/PUBSUSHI.png'/>
+        </div>
+
+        <!-- Celda 2 (Arriba Derecha) -->
+        <div class='gallery-slide'>
+            <img alt='Proyecto Monumental 5' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8xFHYYnYDybABr8r0SGRbZi7C5yA0SMRjLvOKBurhiXQ8MxvyI_1wWkUCW-5o_F4QEzTCnHxvP-NM5hTEjINvfMJ7wfB0MeEyspobL8FuXOpea1b6ELCYy7NyfQTFRTYRbkKUPJm1CpV4b01hmyp8p72FysNoV44OttsDca0FDRw75OBw9YN-gS6A_GI/s1600/BITCOINNEON1.png'/>
+            <img alt='Proyecto Monumental 6' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvzIFLZ0FUX6iLfQlOwn8Zv-DfOvhtqXakv6PkmmKrVvdVQ4dKq_m778t69zTQv9_yQZ7-RDqZ8vbThkzbXE6rg6f0DMR0fwUfLLAz0qlGHbztplHSO60zTo74mJ-0Z-3jhYZd_MumzG6Qe0QGlOxRi9CpLx6SdY8uY4upmcrpIq5QxJrDb_xCv2rDVGk/s1600/PUBELLY3.png'/>
+            <img alt='Proyecto Monumental 7' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik7LjN8DuGN9E5oYMeZnljwMo-ArMHPaDR-fUcg7P344RcePoTb9oj9DvEk1xLXJAdrvAHH8IFy3OnbeL48uXWhiEbnkQ47hq71GdSeqUa88bAHMbbQeX-XYxZC_rqJdUhS6hmeKNqwNxqO6DVpL6VRxzXl3Zgu2An4IZOqkS8UTk6n9KGQtJCmGGVuIQ/s1600/GRACIAS2.png'/>
+            <img alt='Proyecto Monumental 8' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuQqg2rhwZxcKDFxgZyp2tt2c0wGeU0N5YtqnZBd93W_cGKqup5qFt-M5nPsqZeHAY_AOTpFCHZvjDQZTcXNWBZZAOee_jplzi_QEfgK2QMpywjMI2OYfe-2wYgB1Lvu7oOMBExE8FrSw7BVoyQg8MOPlpeBXFLq9IQHxqodjR_gwZG4HNhuWkJYGSSkc/s1600/MANEKIP1.png'/>
+        </div>
+
+        <!-- Celda 3 (Abajo Izquierda) -->
+        <div class='gallery-slide'>
+            <img alt='Proyecto Monumental 9' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzBpcawoCr2ldaRNg3LrO_aOxqjSpZ3tvE9I-r1kt2CjfS6stCDu1H10jmKBJDqamFxkUTGAsB3YGQUtthYdlBnl6riR9iUinChGhBEXCIaSTRRq7UyxRWIHaeBK1g4rOZWg8GJjtc1HB8GQ435KlOmNQ5WEgfLljfr0okSa687OcGdlNDR5Ri-Ek2dN4/s1600/BOWLNEON1.png'/>
+            <img alt='Proyecto Monumental 10' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwz4UjkInq3_KbkNicxfufmoBktBTmuTwr7nk7zsr29n5FOLsWrqjz1QlVdqBg9lS5v3EY4XhONMfTP2pKiEHM2I3rW1NFnfWAvE3Hw2HhtpH4o8TjJf7qgxlhtBv9mXK0I_RLWy0fSate1B5kh5yqgxadXLiku5g1DEiPkFlyuxBCU5KdVAGy2M5LgRk/s1600/PORQUEAMAMOS.png'/>
+            <img alt='Proyecto Monumental 11' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbJndkOBARcEaNxMkqVArqiDsbjnmwAbhM0EvJiw5t31vA2o1pB7ikTciCC1W6lSaPzF3cFnDgqWMQ1dBDMh9Cl7nfozm5zj57l4uqDoVSB3Cf_qHTahb2-hhe25rLhhmHuKvXiqh2tDsW9-hyamBTkf7K3rATL9Ru0INU6lDELMz6AMZ21_8133BiMiw/s1600/MIGUETT.png'/>
+            <img alt='Proyecto Monumental 12' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9HT29Xz4jreWZlvS42wMMzc0_MHr_ecIMcm-htsNf-cKbVEoS2CprZdlnkgnSG1FrBLNau2AtoQ09gqgOSL3vngOF54kGqC19pj8HHiM3g9-lEbCajfV2WnJcM2Cujryyhyphenhyphen0Sia9nnVcWhr_ss2963TaBW6vgwrcBRnZ0iPHQ2KRpfZrpVGlO4Y6pui4/s1600/Rankmineon2.png'/>
+        </div>
+
+        <!-- Celda 4 (Abajo Derecha) -->
+        <div class='gallery-slide'>
+            <img alt='Proyecto Monumental 13' class='active' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiNE_FcZa5-Jw95Rh0I0gPmuNwEVrqi4rocmTOmXudxcakSg2t7ZdA2cpLeJSwwWXEf2pWaVhiXwqBbpQdnUailgi4B5tvu3G4JvIR4_noDJ2NmZ_MfovVuStrWwq_FChUHgjCrOLU_hIz3LPQ0IBjcD9ooWMz1SU7kwSl7yEQ3gZhZfqloCaYNkwUktU/s1600/PLANTILLASNEON1.png'/>
+            <img alt='Proyecto Monumental 14' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOnSYtcEBTlwZL8QRf4K1_5tXG1U-nZt4sFAUcpjsbGsNwqPpPb6bikIsm6ZeA-ZW-mXx2bv9yab_KSqxL91AkTIXbZfJpuYNGE6GOz9X3_10cNwqovhKMwPwKgf7gVPaJxGZu13_x15rPBvm_dpbrj6nCxgsmiQ04MQ64C7tF7z_IrdxNCG3EXukJtVQ/s1600/GOOD.png'/>
+            <img alt='Proyecto Monumental 15' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDeAdKEMxtah-DxdoOyPgfLtN_-vGi6lfmjsp0s490Q6g5tPFC5NyFhqqumRIq-yPiqy5zcIaoi7qHuJHiiHyK4jwvBiVqyRwFSHS7bWnE9JlnnSyEPoJFbp2t97PTOk8ByIsZORpfrjAn1HzS0KF-TjajHi7MZbbEDNq2IE-UFVwC02oFtg9YsVOry4o/s1600/GATOLOCO.png'/>
+            <img alt='Proyecto Monumental 16' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKwH71Wgs2bDDUgTXnX1E1DXNJsUmKljSUjtbpvcW5cy3mz7Cub9LOc_MwtgFB0nmkIe1LAYwQkD8pR5c1SGx53t3VFzI6yHszA4RcFDXH_IXQkYkJqwvqnd6X4aGSqPPggPGnrk_EUS30IIVhvo05Wl7de1llZN-mEBK696hJWOhnuxkk-2wbz0BlgJ8/s1600/ACNESTRECEMIL.png'/>
+        </div>
+    </div>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-asesoria">
+        <h3>¿Tienes un proyecto a gran escala?</h3>
+        <p>Cotiza la fabricación, transporte e instalación de tus Letras Monumentales en cualquier parte de México.</p>
+        <a href="https://wa.me/5521913826?text=Hola,%20tengo%20un%20proyecto%20de%20Letras%20Monumentales%20y%20me%20gustaría%20una%20cotización." target="_blank" class="btn-whatsapp-large">
+            <i class="fab fa-whatsapp"></i> Cotizar Proyecto Monumental
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section">
+        <p>&copy; 2026 ACNES Publicidad. Especialistas en Letras Monumentales. <br>Lago Cupatitzio 83A, Col. Ciudad Lago. Nezahualcóyotl, Estado de México.</p>
+    </footer>
+
+    <!-- SCRIPT DE LA GALERÍA -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function cycleImages(container) {
+                const images = container.querySelectorAll('img');
+                if (images.length === 0) return;
+                
+                let currentImage = 0;
+                setInterval(function () {
+                    images[currentImage].classList.remove('active'); 
+                    currentImage = (currentImage + 1) % images.length; 
+                    images[currentImage].classList.add('active'); 
+                }, 3500); // Cambia cada 3.5 segundos (da un efecto más suave)
+            }
+
+            const galleries = document.querySelectorAll('.gallery-slide');
+            galleries.forEach(function (gallery) {
+                cycleImages(gallery);
+            });
+        });
+    </script>
+</body>
+</html>
